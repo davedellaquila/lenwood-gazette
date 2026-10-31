@@ -12,6 +12,16 @@
    groups unless Dave names them; never join a group unilaterally.
 5. Weather: NWS API, San Jose / Bay Area zone.
 6. Write the Lead by editor's judgment. Quiet day = honest quiet-day lead.
+7. **This Day in History (standing feature, added Oct 31, 2026 at Dave's direction):**
+   keyed to the edition's calendar date. The **Morning Edition sets it**; Midday and
+   Evening **carry it forward unchanged** unless correcting it. A few crisp items, each
+   with its year, in our own words from public historical sources, attributed/linked.
+   **Local first** — San Jose & Santa Clara Valley (1777 pueblo founding, the 1850
+   first-state-capital era, the orchard years, Winchester and tech milestones; standing
+   sources: San Jose Public Library's history timeline, History San José, NPS/local
+   landmark records). A wider California/national item runs only when the local well
+   runs dry for that date — and the section may say so honestly. Lives in the front
+   page sidebar (`#history`, after Weather).
 
 ## Pre-publish privacy gate — EVERY item, EVERY edition
 - [ ] Public source? (agency alert, public notice, venue/business public posting)

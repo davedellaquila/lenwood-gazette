@@ -13,6 +13,12 @@ Morning ~7:00 AM · Midday ~12:30 PM · Evening ~5:30 PM PT, plus an hourly safe
 with out-of-cycle banner updates for qualifying events (evacuation order/warning,
 major freeway closure, severe-weather warning, flood notice).
 
+## Standing feature — This Day in History
+A date-keyed sidebar section (after Weather): local San Jose / Santa Clara Valley
+history first, wider California/national items only when the local well runs dry for
+a date. Set by the Morning Edition; carried forward at Midday and Evening. See
+PUBLISHING.md step 7.
+
 ## Privacy line — non-negotiable
 Public sources and public events only. No residents' private data, no home addresses,
 no private or family events, nothing from mail/calendar/private accounts. Every item
