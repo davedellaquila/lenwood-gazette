@@ -20,8 +20,10 @@
    first-state-capital era, the orchard years, Winchester and tech milestones; standing
    sources: San Jose Public Library's history timeline, History San José, NPS/local
    landmark records). A wider California/national item runs only when the local well
-   runs dry for that date — and the section may say so honestly. Lives in the front
-   page sidebar (`#history`, after Weather).
+   runs dry for that date — and the section may say so honestly. Lives in the main
+   column (`#history`) — Dave's Oct 31 layout call moved it (and the Star Chart)
+   out of the sidebar into the main section, closing the main column after the
+   Community Wire (History first, then Star Chart: the day, then the night).
 8. **Weather Events (standing treatment, added Oct 31, 2026 at Dave's direction —
    "obviously the weather events"):** weather *events* are news, not just a forecast
    box. Each Morning Edition scans the NWS Bay Area forecast discussion and outlooks
@@ -40,7 +42,7 @@
    up Mt. Hamilton toward Lick Observatory opens up. Public astronomy sources
    (EarthSky, StarWalk, timeanddate, Almanac), in our own words, attributed/linked.
    Set in the Morning Edition; carried forward at Midday/Evening unless correcting.
-   Lives in the sidebar (`#sky`, after This Day in History).
+   Lives in the main column (`#sky`, after This Day in History).
 
 ## Pre-publish privacy gate — EVERY item, EVERY edition
 - [ ] Public source? (agency alert, public notice, venue/business public posting)

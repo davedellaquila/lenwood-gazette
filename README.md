@@ -17,12 +17,12 @@ major freeway closure, severe-weather warning, flood notice).
 - **Weather Events** (`#weather-events`, under the Safety Wire): weather events
   covered as news — storms, atmospheric rivers, heat/freeze, wind, air quality.
   Safety-relevant items are promoted into the Safety Wire / banner. See PUBLISHING.md step 8.
-- **Star Chart** (`#sky`, sidebar): tonight's sky over the valley — evening chart,
+- **Star Chart** (`#sky`, main column, after This Day in History): tonight's sky over the valley — evening chart,
   moon phase, planets, notable events — pitched honestly for city light pollution,
   with the Mt. Hamilton drive as the upgrade. See PUBLISHING.md step 9.
 
 ## Standing feature — This Day in History
-A date-keyed sidebar section (after Weather): local San Jose / Santa Clara Valley
+A date-keyed main-column section (closing the main column, before the Star Chart): local San Jose / Santa Clara Valley
 history first, wider California/national items only when the local well runs dry for
 a date. Set by the Morning Edition; carried forward at Midday and Evening. See
 PUBLISHING.md step 7.
