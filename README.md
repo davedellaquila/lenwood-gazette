@@ -13,6 +13,14 @@ Morning ~7:00 AM · Midday ~12:30 PM · Evening ~5:30 PM PT, plus an hourly safe
 with out-of-cycle banner updates for qualifying events (evacuation order/warning,
 major freeway closure, severe-weather warning, flood notice).
 
+## Standing features — Weather Events · This Day in History · Star Chart
+- **Weather Events** (`#weather-events`, under the Safety Wire): weather events
+  covered as news — storms, atmospheric rivers, heat/freeze, wind, air quality.
+  Safety-relevant items are promoted into the Safety Wire / banner. See PUBLISHING.md step 8.
+- **Star Chart** (`#sky`, sidebar): tonight's sky over the valley — evening chart,
+  moon phase, planets, notable events — pitched honestly for city light pollution,
+  with the Mt. Hamilton drive as the upgrade. See PUBLISHING.md step 9.
+
 ## Standing feature — This Day in History
 A date-keyed sidebar section (after Weather): local San Jose / Santa Clara Valley
 history first, wider California/national items only when the local well runs dry for

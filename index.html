@@ -26,6 +26,11 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 .item{padding:10px 0;border-bottom:1px dashed var(--border)}.item:last-child{border-bottom:0}
 .meta{font-family:-apple-system,sans-serif;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 .empty{color:var(--muted);font-style:italic;padding:8px 0}
+.sky{background:#0a1626;border-radius:10px;padding:10px;margin-bottom:12px}
+.sky svg{display:block;width:100%;height:auto}
+.sky text{font-family:-apple-system,sans-serif;fill:#cfe3ff}
+.sky .lbl{font-size:10.5px;font-weight:700}
+.sky .sub{font-size:8.5px;fill:#8fb0d8}
 .card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
 .footer{margin-top:44px;padding-top:18px;border-top:3px double var(--ink);color:var(--muted);font-size:13.5px}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
@@ -62,7 +67,13 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 <div class="grid">
 <main>
   <h2>🚨 Need to Know — the Safety Wire</h2>
-  <div id="safety-wire"><p class="empty">No active safety items at press time. This wire is re-polled every hour between editions (AlertSCC · City of San Jose · SJFD/SJPD public feeds · CHP Golden Gate · NWS Bay Area · Valley Water · VTA).</p></div>
+  <div id="safety-wire"><p class="empty">No active safety items at press time — and no weather alerts are in effect for San Jose. This wire is re-polled every hour between editions (AlertSCC · City of San Jose · SJFD/SJPD public feeds · CHP Golden Gate · NWS Bay Area · Valley Water · VTA).</p></div>
+
+  <h2>🌦️ Weather Events — the sky as news</h2>
+  <div id="weather-events">
+    <div class="item"><p><b>Tonight: a dry Halloween, then the weekend’s first showers arrive late.</b> The day stays partly cloudy and mild — high near 67°F — and the evening stays dry for trick-or-treat. After midnight, a weak system slides in with occasional showers (about a 60% chance, only a few hundredths of an inch), easing toward a partly cloudy Sunday. Nothing about this system is dangerous; its news is timing. Two practical notes: wet pavement by morning, and clocks fall back overnight — sunrise Sunday comes at 6:32 AM PST. Air quality stays good (AQI in the low 20s).</p>
+    <p class="meta">Weather events are covered here as news every day — storm systems, atmospheric rivers, heat and freeze events, wind, and air-quality shifts — and anything safety-relevant moves up into the Safety Wire above, and into a banner when it qualifies. Sources: <a href="https://weather.com/us/ca/city/san-jose/tenday">The Weather Channel — San Jose</a> · <a href="https://www.almanac.com/weather/forecast/CA/San%20Jose">Old Farmer’s Almanac — San Jose</a> · NWS Bay Area</p></div>
+  </div>
 
   <h2>Today in the Valley</h2>
   <div id="today-events"><p class="empty">Today’s public events appear here in the Morning Edition, drawn only from public listings — the City of San Jose events calendar, SAP Center, San Jose Theaters, Children’s Discovery Museum, The Tech Interactive, and San Jose Public Library events.</p></div>
@@ -86,6 +97,41 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
     <div class="item"><p><b>1864 — Nevada joins the Union.</b> In the middle of the Civil War, Nevada is admitted as the 36th state — the “Battle Born” state, rushed in partly to shore up President Lincoln’s re-election. The local well for October 31 runs young, so today’s other items borrow from the national page.</p></div>
     <div class="item"><p><b>1941 — Mount Rushmore is finished.</b> After 14 years of carving in South Dakota’s Black Hills, work on the four presidential faces is declared complete — the grander full-figure design quietly set aside as war approaches.</p></div>
     <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Sources: <a href="https://taiko.org/halloween">San Jose Taiko</a> · <a href="https://www.britannica.com/on-this-day/October-31?ref=dailybrief.net">Britannica — On This Day</a></p>
+  </div>
+
+  <h2>⭐ Star Chart — tonight over the valley</h2>
+  <div class="card" id="sky">
+    <div class="sky" role="img" aria-label="Schematic evening star chart for San Jose, about 8 PM: Saturn high in the south in Pisces, the Great Square of Pegasus overhead, the Summer Triangle sinking in the west, Fomalhaut low in the south, Cassiopeia in the northeast, the Pleiades just rising in the east">
+      <svg viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="138" fill="#0d1f38" stroke="#3d5a80" stroke-width="1.5"/>
+        <circle cx="150" cy="150" r="92" fill="none" stroke="#274263" stroke-dasharray="3 5"/>
+        <circle cx="150" cy="150" r="46" fill="none" stroke="#274263" stroke-dasharray="3 5"/>
+        <text x="150" y="24" text-anchor="middle" class="lbl">N</text>
+        <text x="150" y="288" text-anchor="middle" class="lbl">S</text>
+        <text x="282" y="154" text-anchor="middle" class="lbl">E</text>
+        <text x="18" y="154" text-anchor="middle" class="lbl">W</text>
+        <g fill="#fff"><circle cx="205" cy="85" r="2"/><circle cx="222" cy="76" r="1.6"/><circle cx="238" cy="84" r="1.8"/><circle cx="226" cy="98" r="1.4"/><circle cx="209" cy="102" r="1.3"/></g>
+        <text x="196" y="66" class="sub">Cassiopeia</text>
+        <g fill="#fff"><circle cx="140" cy="118" r="1.8"/><circle cx="168" cy="112" r="1.8"/><circle cx="172" cy="140" r="1.8"/><circle cx="144" cy="146" r="1.8"/></g>
+        <text x="118" y="102" class="sub">Great Square</text>
+        <g fill="#ffe9a8"><circle cx="168" cy="196" r="3.4"/></g>
+        <text x="150" y="216" class="lbl">♄ Saturn</text>
+        <text x="150" y="228" class="sub">in Pisces</text>
+        <g fill="#fff"><circle cx="58" cy="128" r="2"/><circle cx="76" cy="160" r="1.7"/><circle cx="48" cy="168" r="1.6"/></g>
+        <text x="22" y="112" class="sub">Summer Triangle</text>
+        <g fill="#fff"><circle cx="152" cy="252" r="2"/></g>
+        <text x="128" y="268" class="sub">Fomalhaut</text>
+        <g fill="#fff"><circle cx="252" cy="196" r="1.4"/><circle cx="258" cy="190" r="1.2"/><circle cx="248" cy="188" r="1.1"/><circle cx="256" cy="202" r="1.1"/></g>
+        <text x="216" y="222" class="sub">Pleiades rising</text>
+        <text x="150" y="154" text-anchor="middle" class="sub">zenith</text>
+      </svg>
+    </div>
+    <p class="meta">Tonight · Saturday, October 31 · chart for ~8:00 PM, looking up</p>
+    <div class="item"><p><b>The evening belongs to Saturn.</b> A month past its October 4 opposition, the ringed planet rides high in the south in Pisces all evening — a steady, golden, naked-eye point from any sidewalk in the valley; the rings themselves want a small telescope. It doesn’t set until about 4 AM.</p></div>
+    <div class="item"><p><b>A moonless Halloween — then a late moon.</b> The Moon is a waning gibbous, roughly two-thirds lit, five days past the Hunter’s Moon — but it doesn’t rise until about 11:30 PM, so trick-or-treat hours are properly dark. Sunset is 6:10 PM, and tonight the clocks fall back: an extra hour of night, free of charge.</p></div>
+    <div class="item"><p><b>After midnight, the parade.</b> Jupiter and Mars rise together in Leo in the small hours, drawing toward their close November 15 meeting; the Pleiades climb in the east through the evening; and the Orionid meteors are in their tail — a few slow streaks an hour after midnight, if the late showers hold off. Venus, just past the Sun, is a hard dawn target only.</p></div>
+    <div class="item"><p><b>Honest about our sky.</b> The valley floor is bright — from town you’ll get the Moon, the planets, and the boldest stars, and that’s a fair show. For the rest, it’s 45 minutes up Mt. Hamilton Road toward Lick Observatory: at 4,200 feet the Milky Way has structure, the Pleiades become a cluster instead of a smudge, and Saturn’s rings in a small scope will stop a conversation.</p></div>
+    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Sources: <a href="https://earthsky.org/astronomy-%20essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/?mc_cid=672217fb82&amp;mc_eid=21145eb231">EarthSky — visible planets</a> · <a href="https://starwalk.space/en/news/full-moon-october">StarWalk — October full moon</a></p>
   </div>
 </aside>
 </div>

@@ -22,6 +22,25 @@
    landmark records). A wider California/national item runs only when the local well
    runs dry for that date — and the section may say so honestly. Lives in the front
    page sidebar (`#history`, after Weather).
+8. **Weather Events (standing treatment, added Oct 31, 2026 at Dave's direction —
+   "obviously the weather events"):** weather *events* are news, not just a forecast
+   box. Each Morning Edition scans the NWS Bay Area forecast discussion and outlooks
+   for events — storm systems moving in, atmospheric rivers, heat and freeze events,
+   wind events, air-quality changes — and writes them as news items in the Weather
+   Events block (`#weather-events`, under the Safety Wire): what it is, when it
+   lands, what it changes. **Safety-relevant events are promoted into the Safety
+   Wire itself**, and qualifying ones (severe-weather warning, flood notice) fire the
+   out-of-cycle banner per the hourly poll rule. Set in the Morning; updated at
+   Midday/Evening whenever the event picture changes.
+9. **Star Chart (standing feature, added Oct 31, 2026 at Dave's direction):** tonight's
+   sky over San Jose & the valley — an evening star chart, moon phase, which planets
+   are up, and notable events (meteor showers, bright passes, eclipses when they
+   come). **Pitched honestly for valley light pollution:** lead with what a city
+   reader can actually see (Moon, planets, boldest stars), then what a short drive
+   up Mt. Hamilton toward Lick Observatory opens up. Public astronomy sources
+   (EarthSky, StarWalk, timeanddate, Almanac), in our own words, attributed/linked.
+   Set in the Morning Edition; carried forward at Midday/Evening unless correcting.
+   Lives in the sidebar (`#sky`, after This Day in History).
 
 ## Pre-publish privacy gate — EVERY item, EVERY edition
 - [ ] Public source? (agency alert, public notice, venue/business public posting)
