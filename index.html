@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The San Jose Gazette — San Jose &amp; the Santa Clara Valley</title>
+<meta name="description" content="A public hyperlocal daily newspaper for San Jose and the Santa Clara Valley: the safety news residents need, plus the valley's public events. Updated all day.">
+<style>
+:root{--bg:#eef3f2;--paper:#ffffff;--text:#10262e;--muted:#5b6f76;--border:#c9d8d5;--ink:#10262e;--accent:#0b7285;--gold:#e07a1f;--ok:#177245}
+@media (prefers-color-scheme: dark){:root{--bg:#0b1418;--paper:#152329;--text:#e8f2f0;--muted:#9db4b8;--border:#2c4148;--ink:#e8f2f0;--accent:#4dd0e1;--gold:#ffb35c;--ok:#5fd08a}}
+*{box-sizing:border-box;margin:0;padding:0} body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text);line-height:1.55;padding:0 16px 48px;max-width:1020px;margin:0 auto;overflow-x:hidden}
+a{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;background:var(--bg);border-bottom:3px double var(--ink);padding:10px 2px;font-family:-apple-system,sans-serif;font-weight:700;flex-wrap:wrap}
+.topbar nav{margin-left:auto;display:flex;gap:14px;font-size:13.5px}.topbar nav a{color:var(--text);text-decoration:none}.topbar nav a:hover{text-decoration:underline}
+.masthead{text-align:center;padding:30px 8px 16px}
+.kicker{font-family:-apple-system,sans-serif;letter-spacing:.22em;text-transform:uppercase;font-size:11px;color:var(--gold);font-weight:800}
+.masthead h1{font-size:clamp(36px,7.5vw,64px);line-height:1.02;margin:8px 0 6px}
+.dateline{color:var(--muted);font-style:italic}
+.weatherbug{display:inline-block;margin-top:10px;border:1px solid var(--border);border-radius:999px;padding:5px 14px;background:var(--paper);font-size:13.5px;font-family:-apple-system,sans-serif}
+.rule{height:4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:16px 0}
+.banner{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--paper));border-radius:12px;padding:16px 20px;margin-bottom:18px}
+.banner b{color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr;gap:22px}@media(min-width:760px){.grid{grid-template-columns:2fr 1fr}}
+h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:26px 0 12px}
+.lead h2{border-bottom:0;font-size:clamp(26px,4.5vw,38px);line-height:1.15;margin-top:0}
+.item{padding:10px 0;border-bottom:1px dashed var(--border)}.item:last-child{border-bottom:0}
+.meta{font-family:-apple-system,sans-serif;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.empty{color:var(--muted);font-style:italic;padding:8px 0}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.footer{margin-top:44px;padding-top:18px;border-top:3px double var(--ink);color:var(--muted);font-size:13.5px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+.header-tip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:.45em;padding:6px 12px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:800;line-height:1;color:#fff;background:linear-gradient(135deg,#7c4dff,#b388ff);box-shadow:0 4px 14px rgba(124,77,255,.35);animation:tip-breathe 3.2s ease-in-out infinite;white-space:nowrap;font-family:-apple-system,sans-serif}
+.header-tip::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%);transform:translateX(-110%);animation:tip-sheen 8s ease-in-out infinite}
+.header-tip .jar{display:inline-block;font-size:1.1em}.header-tip:hover .jar{animation:tip-spin .7s cubic-bezier(.34,1.56,.64,1)}
+.header-tip:focus-visible{outline:3px solid #ffd54f;outline-offset:3px}
+@keyframes tip-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes tip-sheen{0%{transform:translateX(-110%)}16%{transform:translateX(110%)}100%{transform:translateX(110%)}}
+@keyframes tip-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.header-tip,.header-tip:hover .jar{animation:none}.header-tip::after{display:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><span>🗞️ The San Jose Gazette</span><nav><a href="index.html">Front Page</a><a href="archive.html">Editions Archive</a><a href="#colophon">About</a></nav><a class="header-tip" href="https://ko-fi.com/davedellaquila" target="_blank" rel="noopener" aria-label="Tip Jar — if this page helped you, you can leave Dave a tip on Ko-fi"><span class="jar" aria-hidden="true">🫙</span><span>Tip Jar</span></a></div>
+
+<header class="masthead">
+  <div class="kicker">San Jose &amp; the Santa Clara Valley · Updated all day</div>
+  <h1>The San Jose Gazette</h1>
+  <p class="dateline"><!-- EDITION:DATE -->Friday, October 30, 2026<!-- /EDITION:DATE --> · <!-- EDITION:NAME -->Launch scaffold — first edition pending<!-- /EDITION:NAME --></p>
+  <div><span class="weatherbug">🌤️ <!-- WEATHER:BUG -->San Jose zone forecast appears here at press time (NWS Bay Area)<!-- /WEATHER:BUG --></span></div>
+  <div class="rule"></div>
+</header>
+
+<!-- BANNER: out-of-cycle safety banner is injected here by the hourly poll when a qualifying event breaks. -->
+<div id="safety-banner"></div>
+
+<section class="lead">
+  <p class="meta">The Lead</p>
+  <h2><!-- LEAD:HEADLINE -->A valley of a million neighbors gets its own paper<!-- /LEAD:HEADLINE --></h2>
+  <p><!-- LEAD:BODY -->The San Jose Gazette launches with one promise: the safety news residents need — emergency alerts, major freeway closures and transit disruptions, flood and severe-weather warnings — leads every edition, and the valley’s public events are listed completely and usefully, South San Jose and downtown first. On a quiet day, the lead will say so. No manufactured drama, ever.<!-- /LEAD:BODY --></p>
+</section>
+
+<div class="grid">
+<main>
+  <h2>🚨 Need to Know — the Safety Wire</h2>
+  <div id="safety-wire"><p class="empty">No active safety items at press time. This wire is re-polled every hour between editions (AlertSCC · City of San Jose · SJFD/SJPD public feeds · CHP Golden Gate · NWS Bay Area · Valley Water · VTA).</p></div>
+
+  <h2>Today in the Valley</h2>
+  <div id="today-events"><p class="empty">Today’s public events appear here in the Morning Edition, drawn only from public listings — the City of San Jose events calendar, SAP Center, San Jose Theaters, Children’s Discovery Museum, The Tech Interactive, and San Jose Public Library events.</p></div>
+
+  <h2>The Week Ahead</h2>
+  <div id="week-events"><p class="empty">The next seven days of public events appear here each edition.</p></div>
+
+  <h2>The Community Wire</h2>
+  <div id="community-wire"><p class="empty">Pertinent posts from official and public Facebook pages — summarized in our own words, attributed, and linked to the original — appear here each edition. No private groups unless the publisher names them.</p></div>
+</main>
+<aside>
+  <h2>Around Town</h2>
+  <div class="card" id="around-town"><p class="empty">City notices, road work, permits of note, and public meetings appear here.</p></div>
+  <h2>Weather</h2>
+  <div class="card" id="weather"><p class="empty">The National Weather Service forecast for the San Jose / Bay Area zone appears here each edition.</p></div>
+</aside>
+</div>
+
+<footer class="footer" id="colophon">
+  <p><b>Colophon.</b> The San Jose Gazette is a public hyperlocal daily newspaper for San Jose &amp; the Santa Clara Valley, published three times a day (Morning ~7:00 AM, Midday ~12:30 PM, Evening ~5:30 PM PT) with hourly safety checks between editions. Editor: San Jose Gazette Buddy (“The City Editor”). Publisher: Dave Dell’Aquila.</p>
+  <p style="margin-top:8px"><b>Our privacy line:</b> we publish public sources and public events only — agency alerts, public notices, and venues with their public addresses. No private residents’ data, no home addresses, no private or family events, nothing from anyone’s mail, calendar, or private accounts. Every item is timestamped and sourced, and passes a pre-publish privacy gate before it prints: public source? public event? no private names or addresses?</p>
+  <p style="margin-top:8px"><b>Tips:</b> no comments in v1 — send news tips to the tips address listed here at launch. <b>Archive:</b> every edition is kept in the <a href="archive.html">Editions Archive</a>.</p>
+  <p style="margin-top:8px"><b>Sister paper:</b> our sibling under the same wire, in the other hometown — <a href="https://davedellaquila.github.io/fiddletown-gazette/">The Fiddletown Gazette</a>, for Fiddletown &amp; the Shenandoah Valley. Separate paper, separate newsroom; we recommend each other warmly.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editions Archive — The San Jose Gazette</title>
+<style>
+:root{--bg:#eef3f2;--paper:#ffffff;--text:#10262e;--muted:#5b6f76;--border:#c9d8d5;--ink:#10262e;--accent:#0b7285;--gold:#e07a1f}
+@media (prefers-color-scheme: dark){:root{--bg:#0b1418;--paper:#152329;--text:#e8f2f0;--muted:#9db4b8;--border:#2c4148;--ink:#e8f2f0;--accent:#4dd0e1;--gold:#ffb35c}}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Georgia,serif;background:var(--bg);color:var(--text);line-height:1.55;padding:0 16px 48px;max-width:1020px;margin:0 auto}
+a{color:var(--accent)}
+.topbar{position:sticky;top:0;display:flex;align-items:center;gap:10px;background:var(--bg);border-bottom:3px double var(--ink);padding:10px 2px;font-family:-apple-system,sans-serif;font-weight:700;flex-wrap:wrap}
+.topbar nav{margin-left:auto;display:flex;gap:14px;font-size:13.5px}.topbar nav a{color:var(--text);text-decoration:none}
+h1{font-size:clamp(30px,6vw,48px);margin:26px 0 6px;text-align:center}
+.sub{text-align:center;color:var(--muted);font-style:italic;margin-bottom:20px}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+.empty{color:var(--muted);font-style:italic}
+.header-tip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:.45em;padding:6px 12px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:800;line-height:1;color:#fff;background:linear-gradient(135deg,#7c4dff,#b388ff);box-shadow:0 4px 14px rgba(124,77,255,.35);animation:tip-breathe 3.2s ease-in-out infinite;white-space:nowrap;font-family:-apple-system,sans-serif}
+.header-tip .jar{display:inline-block;font-size:1.1em}
+@keyframes tip-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@media (prefers-reduced-motion: reduce){.header-tip{animation:none}}
+</style>
+</head>
+<body>
+<div class="topbar"><span>🗞️ The San Jose Gazette</span><nav><a href="index.html">Front Page</a><a href="archive.html">Editions Archive</a><a href="index.html#colophon">About</a></nav><a class="header-tip" href="https://ko-fi.com/davedellaquila" target="_blank" rel="noopener" aria-label="Tip Jar — if this page helped you, you can leave Dave a tip on Ko-fi"><span class="jar" aria-hidden="true">🫙</span><span>Tip Jar</span></a></div>
+<h1>Editions Archive</h1>
+<p class="sub">Every edition, kept. Three a day — Morning ~7:00 AM · Midday ~12:30 PM · Evening ~5:30 PM PT — plus any out-of-cycle banner updates, stamped with their time.</p>
+<div class="card"><p class="empty">No editions yet — the first Morning Edition archives here at launch. Edition pages live under <code>editions/YYYY-MM-DD-{morning,midday,evening}.html</code>.</p></div>
+</body>
+</html>
