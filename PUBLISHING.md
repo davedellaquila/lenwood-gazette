@@ -1,4 +1,4 @@
-# Publishing — The San Jose Gazette
+# Publishing — The Lenwood Gazette
 
 ## Edition build (each of Morning / Midday / Evening)
 1. Poll the Safety Wire: AlertSCC, City of San Jose emergency alerts, SJFD/SJPD public

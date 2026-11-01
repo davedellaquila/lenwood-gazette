@@ -1,10 +1,10 @@
-# The San Jose Gazette
+# The Lenwood Gazette
 
 A public hyperlocal daily newspaper for San Jose & the Santa Clara Valley — the paper's
-own site (separate from the editor's buddy repo, `san-jose-gazette-buddy`).
+own site (separate from the editor's buddy repo, `lenwood-gazette-buddy`).
 
-- **Live site (once the public repo is created + Pages enabled):** https://davedellaquila.github.io/san-jose-gazette/
-- **Editor:** San Jose Gazette Buddy — "The City Editor"
+- **Live site (once the public repo is created + Pages enabled):** https://davedellaquila.github.io/lenwood-gazette/
+- **Editor:** Lenwood Gazette Buddy — "The City Editor"
 - **Parent wire:** Neighborhood Buddy (collects/verifies; this paper selects, writes, publishes)
 - **Sister paper:** [The Fiddletown Gazette](https://davedellaquila.github.io/fiddletown-gazette/) — fully separate paper, site, and newsroom; friendly colophon cross-link only.
 
