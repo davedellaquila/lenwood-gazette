@@ -47,6 +47,14 @@
    Each Morning Edition rebuilds the section (this weekend first, then the next two
    weeks); Midday/Evening carry it forward unless a listing changes. Public events
    only, same privacy gate.
+   **LINKS RULE (Dave, Nov 1, 2026): every listed event's name links to its real event
+   or source page** — the organizer's event page, the venue's event page, or the
+   calendar page the listing was sourced from. Only URLs actually verified (opened or
+   returned by search) — never a guessed or constructed address. An event with no
+   findable page runs unlinked, and the edition report names it as unlinked. Verify
+   date/day/terms against the ORGANIZER's current page when one exists — calendar
+   aggregators go stale (the Nov 1 Cars & Croissants correction: the organizer's 2026
+   season runs Sundays, not the fourth-Saturday pattern the blogs still repeat).
 10. **Star Chart (standing feature, added Oct 31, 2026 at Dave's direction):** tonight's
    sky over San Jose & the valley — an evening star chart, moon phase, which planets
    are up, and notable events (meteor showers, bright passes, eclipses when they
