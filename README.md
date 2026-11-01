@@ -9,7 +9,7 @@ own site (separate from the editor's buddy repo, `lenwood-gazette-buddy`).
 - **Sister paper:** [The Fiddletown Gazette](https://davedellaquila.github.io/fiddletown-gazette/) — fully separate paper, site, and newsroom; friendly colophon cross-link only.
 
 ## Rhythm
-Morning ~7:00 AM · Midday ~12:30 PM · Evening ~5:30 PM PT, plus an hourly safety poll
+Morning ~6:00 AM · Midday ~12:30 PM · Evening ~5:30 PM PT, plus an hourly safety poll
 with out-of-cycle banner updates for qualifying events (evacuation order/warning,
 major freeway closure, severe-weather warning, flood notice).
 
