@@ -89,3 +89,9 @@ every item carries a timestamp and source.
 front page and archive carry a `PTR:BEGIN … PTR:END` block before `</body>` (indicator
 pill + touch handler that reloads the page on a pull from the top). Every edition
 rebuild must PRESERVE this block verbatim. Added to both gazettes the same day.
+
+**Site icons (added Nov 1, 2026):** the site root carries Dave's custom icon set —
+`favicon.ico`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`,
+`icon-192.png`, `icon-512.png`, and `site.webmanifest`. The `<head>` icon/manifest
+link tags on index.html and archive.html are standing elements: every edition
+rebuild preserves them (and new snapshots inherit them from the front page).
