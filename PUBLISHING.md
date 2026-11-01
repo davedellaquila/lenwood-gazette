@@ -95,3 +95,12 @@ rebuild must PRESERVE this block verbatim. Added to both gazettes the same day.
 `icon-192.png`, `icon-512.png`, and `site.webmanifest`. The `<head>` icon/manifest
 link tags on index.html and archive.html are standing elements: every edition
 rebuild preserves them (and new snapshots inherit them from the front page).
+
+
+**Standing element — photo viewer (added Nov 1, 2026, at Dave's direction):** the
+front page and archive carry an `LBX:BEGIN … LBX:END` block before `</body>` — a
+full-screen photo viewer: tapping any photo opens it fit-to-screen on a dark backdrop;
+the way out is a 56px ✕ button (top right, unmissable), a tap on the backdrop, or Esc.
+Markup and script travel together in the one block (a sibling page once shipped viewer
+markup after its scripts and taps silently did nothing — never split this block).
+Every edition rebuild must PRESERVE it verbatim.

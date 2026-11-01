@@ -60,5 +60,37 @@ if(armed){el.textContent='Refreshing…';el.style.transform='translate(-50%,0)';
 else{el.classList.remove('on');el.style.transform='translate(-50%,-70px)';}});})();
 </script>
 <!-- PTR:END -->
+
+<!-- LBX:BEGIN — full-screen photo viewer (standing element, added Nov 1, 2026 at Dave's direction; edition rebuilds must preserve this block verbatim, markup AND script together) -->
+<style>
+body img{cursor:zoom-in}
+#lbx{position:fixed;inset:0;z-index:400;background:rgba(3,8,11,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+#lbx[hidden]{display:none}
+#lbxImg{max-width:96vw;max-height:84vh;object-fit:contain;border-radius:8px;cursor:default;box-shadow:0 10px 44px rgba(0,0,0,.6)}
+#lbxCap{color:#e8f2f0;font-family:-apple-system,sans-serif;font-size:14px;margin-top:12px;text-align:center;max-width:92vw}
+#lbxClose{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;width:56px;height:56px;border-radius:50%;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-size:27px;font-weight:700;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+#lbxClose:active{background:#0b7285}
+</style>
+<div id="lbx" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button id="lbxClose" type="button" aria-label="Close photo viewer">✕</button>
+  <img id="lbxImg" alt="">
+  <div id="lbxCap"></div>
+</div>
+<script>
+(function(){
+var lbx=document.getElementById('lbx'),im=document.getElementById('lbxImg'),cap=document.getElementById('lbxCap'),btn=document.getElementById('lbxClose');
+function open(src,alt){im.src=src;im.alt=alt||'';cap.textContent=alt||'';lbx.hidden=false;document.body.style.overflow='hidden';btn.focus({preventScroll:true});}
+function close(){lbx.hidden=true;im.removeAttribute('src');document.body.style.overflow='';}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  if(t===btn){close();return;}
+  if(t===lbx){close();return;}
+  var pic=t.closest?t.closest('img'):null;
+  if(pic&&pic.id!=='lbxImg'&&!pic.closest('#lbx')){e.preventDefault();open(pic.currentSrc||pic.src,pic.alt||'');}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden)close();});
+})();
+</script>
+<!-- LBX:END -->
 </body>
 </html>
