@@ -34,7 +34,20 @@
    Wire itself**, and qualifying ones (severe-weather warning, flood notice) fire the
    out-of-cycle banner per the hourly poll rule. Set in the Morning; updated at
    Midday/Evening whenever the event picture changes.
-9. **Star Chart (standing feature, added Oct 31, 2026 at Dave's direction):** tonight's
+9. **Car Shows (standing section, added Nov 1, 2026 at Dave's direction):** the paper
+   carries a 🏁 Car Shows section (`#car-shows`, main column after The Week Ahead)
+   listing Bay Area car shows — **South Bay first** (San Jose, Willow Glen, Morgan Hill,
+   Los Gatos, Santa Clara, Gilroy, the Peninsula), **North Bay included** (Marin, Sonoma,
+   Napa), and a rare "worth the drive" exception for a major show just outside (e.g.
+   Goodguys at Pleasanton). One-off shows AND recurring meets (cars & coffee, cruise-ins)
+   both count. The car-show desk sweeps the public calendars every edition
+   (CarCruiseFinder, NorCal Car Culture, club calendars like the Redwood Empire Early
+   Ford V8 Club, Goodguys, Eventbrite public listings), verifies date/time/place
+   against the listing, and writes items in our own words with the source credited.
+   Each Morning Edition rebuilds the section (this weekend first, then the next two
+   weeks); Midday/Evening carry it forward unless a listing changes. Public events
+   only, same privacy gate.
+10. **Star Chart (standing feature, added Oct 31, 2026 at Dave's direction):** tonight's
    sky over San Jose & the valley — an evening star chart, moon phase, which planets
    are up, and notable events (meteor showers, bright passes, eclipses when they
    come). **Pitched honestly for valley light pollution:** lead with what a city
@@ -62,3 +75,9 @@ Routine changes wait for the next edition.
 Each edition is saved as `editions/YYYY-MM-DD-{morning,midday,evening}.html` and linked
 from `archive.html`. The masthead always shows when the front page was last rebuilt;
 every item carries a timestamp and source.
+
+
+**Standing element — pull-to-refresh (added Nov 1, 2026, at Dave's direction):** the
+front page and archive carry a `PTR:BEGIN … PTR:END` block before `</body>` (indicator
+pill + touch handler that reloads the page on a pull from the top). Every edition
+rebuild must PRESERVE this block verbatim. Added to both gazettes the same day.
