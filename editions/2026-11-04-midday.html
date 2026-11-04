@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10262e">
+
+<title>The Lenwood Gazette — San Jose &amp; the Santa Clara Valley</title>
+<meta name="description" content="A public hyperlocal daily newspaper for San Jose and the Santa Clara Valley: the safety news residents need, plus the valley's public events. Updated all day.">
+<style>
+:root{--bg:#eef3f2;--paper:#ffffff;--text:#10262e;--muted:#5b6f76;--border:#c9d8d5;--ink:#10262e;--accent:#0b7285;--gold:#e07a1f;--ok:#177245}
+@media (prefers-color-scheme: dark){:root{--bg:#0b1418;--paper:#152329;--text:#e8f2f0;--muted:#9db4b8;--border:#2c4148;--ink:#e8f2f0;--accent:#4dd0e1;--gold:#ffb35c;--ok:#5fd08a}}
+*{box-sizing:border-box;margin:0;padding:0} body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text);line-height:1.55;padding:0 16px 48px;max-width:1020px;margin:0 auto;overflow-x:hidden}
+a{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;background:var(--bg);border-bottom:3px double var(--ink);padding:10px 2px;font-family:-apple-system,sans-serif;font-weight:700;flex-wrap:wrap}
+.topbar nav{margin-left:auto;display:flex;gap:14px;font-size:13.5px}.topbar nav a{color:var(--text);text-decoration:none}.topbar nav a:hover{text-decoration:underline}
+.masthead{text-align:center;padding:30px 8px 16px}
+.kicker{font-family:-apple-system,sans-serif;letter-spacing:.22em;text-transform:uppercase;font-size:11px;color:var(--gold);font-weight:800}
+.masthead h1{font-size:clamp(36px,7.5vw,64px);line-height:1.02;margin:8px 0 6px}
+.dateline{color:var(--muted);font-style:italic}
+.weatherbug{display:inline-block;margin-top:10px;border:1px solid var(--border);border-radius:999px;padding:5px 14px;background:var(--paper);font-size:13.5px;font-family:-apple-system,sans-serif}
+.rule{height:4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:16px 0}
+.banner{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--paper));border-radius:12px;padding:16px 20px;margin-bottom:18px}
+.banner b{color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr;gap:22px}@media(min-width:760px){.grid{grid-template-columns:2fr 1fr}}
+h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:26px 0 12px}
+.lead h2{border-bottom:0;font-size:clamp(26px,4.5vw,38px);line-height:1.15;margin-top:0}
+.item{padding:10px 0;border-bottom:1px dashed var(--border)}.item:last-child{border-bottom:0}
+.meta{font-family:-apple-system,sans-serif;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.empty{color:var(--muted);font-style:italic;padding:8px 0}
+.sky{background:#0a1626;border-radius:10px;padding:10px;margin-bottom:12px}
+.sky svg{display:block;width:100%;height:auto}
+.sky text{font-family:-apple-system,sans-serif;fill:#cfe3ff}
+.sky .lbl{font-size:10.5px;font-weight:700}
+.sky .sub{font-size:8.5px;fill:#8fb0d8}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.footer{margin-top:44px;padding-top:18px;border-top:3px double var(--ink);color:var(--muted);font-size:13.5px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+.header-tip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:.45em;padding:6px 12px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:800;line-height:1;color:#fff;background:linear-gradient(135deg,#7c4dff,#b388ff);box-shadow:0 4px 14px rgba(124,77,255,.35);animation:tip-breathe 3.2s ease-in-out infinite;white-space:nowrap;font-family:-apple-system,sans-serif}
+.header-tip::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%);transform:translateX(-110%);animation:tip-sheen 8s ease-in-out infinite}
+.header-tip .jar{display:inline-block;font-size:1.1em}.header-tip:hover .jar{animation:tip-spin .7s cubic-bezier(.34,1.56,.64,1)}
+.header-tip:focus-visible{outline:3px solid #ffd54f;outline-offset:3px}
+@keyframes tip-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes tip-sheen{0%{transform:translateX(-110%)}16%{transform:translateX(110%)}100%{transform:translateX(110%)}}
+@keyframes tip-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.header-tip,.header-tip:hover .jar{animation:none}.header-tip::after{display:none}}
+
+@media (max-width:640px){
+.topbar{flex-wrap:wrap;gap:6px 10px;padding:8px 2px}
+.topbar>span{font-size:14px;white-space:nowrap}
+.topbar nav{order:3;flex:1 1 100%;margin-left:0;gap:16px;font-size:13px;flex-wrap:wrap}
+.topbar nav a{white-space:nowrap}
+.topbar .header-tip{margin-left:auto;font-size:12.5px;padding:6px 11px;flex:none}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><span>🗞️ The Lenwood Gazette</span><nav><a href="index.html">Front Page</a><a href="archive.html">Editions Archive</a><a href="#colophon">About</a></nav><a class="header-tip" href="https://ko-fi.com/davedellaquila" target="_blank" rel="noopener" aria-label="Tip Jar — if this page helped you, you can leave Dave a tip on Ko-fi"><span class="jar" aria-hidden="true">🫙</span><span>Tip Jar</span></a></div>
+
+<header class="masthead">
+  <div class="kicker">San Jose &amp; the Santa Clara Valley · Updated all day</div>
+  <h1>The Lenwood Gazette</h1>
+  <p class="dateline"><!-- EDITION:DATE -->Wednesday, November 4, 2026<!-- /EDITION:DATE --> · <!-- EDITION:NAME -->Midday Edition — published 12:30 PM PT<!-- /EDITION:NAME --></p>
+  <div><span class="weatherbug">🌤️ <!-- WEATHER:BUG -->☀️ Sunny this afternoon, high 67°F, NW wind 7–10 mph gusting to 20 · Mostly cloudy tonight, low 49°F · Thursday patchy fog 7–8 AM, then sunny, 71°F · Sunrise 6:35 AM PST · Sunset 5:06 PM PST (NWS — Lenwood / South San Jose, midday update)<!-- /WEATHER:BUG --></span></div>
+  <div class="rule"></div>
+</header>
+
+<!-- BANNER: out-of-cycle safety banner is injected here by the hourly poll when a qualifying event breaks. -->
+<div id="safety-banner"></div>
+
+<section class="lead">
+  <p class="meta">The Lead</p>
+  <h2><!-- LEAD:HEADLINE -->A sunny midday, a count that has barely moved — and clouds building for tonight<!-- /LEAD:HEADLINE --></h2>
+  <p><!-- LEAD:BODY -->San Jose is in a bright, breezy midday the day after Election Day — sunny near 67°F, with northwest wind 7 to 10 mph gusting to 20 — and the election picture at midday looks much as it did this morning. In the Associated Press count for Santa Clara County, still at about 48% of the estimated vote in and not certified, the early calls stand: Xavier Becerra over Steve Hilton for governor (210,917 to 91,639 in the county count), and the county’s four U.S. House races called for the incumbents — Sam Liccardo in District 16, Ro Khanna in District 17, Zoe Lofgren in District 18, and Jimmy Panetta in District 19, the Lenwood neighborhood’s own district, now at 34,539 to 16,177 over Peter Verbica in the county count with about 51% of the estimated vote in for that reporting unit. Among the statewide propositions in that same county count, Yes on Propositions 1, 2 and 3 and No on Proposition 39 remain called; Propositions 4, 5, 40, 42 and 43 were still too early to call at midday. More ballots remain to be counted, so treat every number here as an early picture, not a final one. The change since morning is in the sky: the National Weather Service midday forecast now calls tonight <b>mostly cloudy, near 49°F</b> — not the mostly clear night expected this morning — which may dim tonight’s Southern Taurid meteor peak (see Star Chart and Weather Events). No weather alerts are in effect for the Lenwood point, the county lists no current disasters, and no major valley freeway closure was verified at midday press time. Still ahead today: the library’s afternoon and evening slate, the Morgan Hill Car Meet at 7:30 PM, and VTA’s northbound S. Capitol Avenue night closure starting at 10:00 PM.<!-- /LEAD:BODY --></p>
+</section>
+
+<div class="grid">
+<main>
+  <h2>🚨 Need to Know — the Safety Wire</h2>
+  <div id="safety-wire">
+    <div class="item"><p><b>No alerts in effect for San Jose at midday press time.</b> The National Weather Service active-alerts feed for the Lenwood / South San Jose point (37.20893, −121.85216) returned no watches, warnings, or advisories at 12:30 PM PT, and Santa Clara County’s Office of Emergency Management lists no current disasters. Sources: <a href="https://api.weather.gov/alerts/active?point=37.20893,-121.85216">NWS — active alerts for this point</a> · <a href="https://oem.santaclaracounty.gov/current-alerts-and-disasters">County OEM — Current Disasters and Alerts</a></p></div>
+    <div class="item"><p><b>No major valley freeway closure verified at midday press time.</b> The CHP Golden Gate / Caltrans check found no banner-grade closure on the valley freeways — 87, 101, 280, 680, 880, or 85 — at midday press time. Routine incidents and road work continue; anything qualifying posts a banner here the hour it breaks.</p></div>
+    <div class="item"><p><b>Capitol corridor night closure starts tonight.</b> VTA’s Eastridge to BART work closes northbound S. Capitol Avenue (between Capitol Expressway and Westboro Drive) at night for falsework removal, starting tonight, Nov 4 at 10:00 PM and running through Nov 20 at 5:30 AM, with detours in place and slight bus arrival delays possible due to reroute. The corridor’s other night work continues alongside it: a northbound Capitol Expressway lane closure for soundwall removal through Nov 10 (10:00 PM–5:30 AM) and a northbound Capitol Expressway road closure through Nov 6 on the same hours. Daytime travel is not affected. Source: <a href="http://www.vta.org/projects/notices/ebrc-road-closure-falsework-removal-northbound-s-capitol-avenue-114-1120">VTA — S. Capitol Avenue closure, Nov 4–20</a> · <a href="http://www.vta.org/projects/notices?project_program=966">VTA — Notices</a></p></div>
+    <div class="item"><p><b>Regular VTA fares are in effect.</b> VTA’s free bus and light rail fares for Election Day boardings ended at 8:00 PM last night; regular fares resumed at 8:01 PM. Source: <a href="http://www.vta.org/go/service-alerts/free-fares-vta-bus-and-light-rail-election-day-november-3-2026">VTA — Free Fares for Election Day</a></p></div>
+    <p class="meta">Checked at midday press time · AlertSCC · City of San Jose · SJFD/SJPD public feeds · CHP Golden Gate · NWS Bay Area · Valley Water (no flood notice found) · VTA · Re-polled hourly between editions</p>
+  </div>
+
+  <h2>🌦️ Weather Events — the sky as news</h2>
+  <div id="weather-events">
+    <div class="item"><p><b>Sunny and breezy this afternoon — then clouds build tonight.</b> The National Weather Service midday forecast for the Lenwood point is <b>sunny this afternoon, high near 67°F, with temperatures falling to around 63°F later in the afternoon and northwest wind 7 to 10 mph, gusting to 20 mph</b>. Tonight has changed since morning: it is now <b>mostly cloudy, with a low around 49°F</b> and west-northwest wind 2 to 8 mph — not the mostly clear night in the morning outlook.</p>
+    <p><b>What that changes tonight:</b> the Southern Taurid meteor peak overnight Nov 4–5 (see Star Chart) may be dimmed or blocked at times by that cloud cover. The Star Chart box is carried forward as set this morning; the freshest sky condition is this one — mostly cloudy.</p>
+    <p><b>The rest of the week is still dry and warming.</b> Thursday brings patchy fog between 7:00 and 8:00 AM, then sunny near 71°F; Friday sunny near 73°F; Saturday sunny near 78°F; and Sunday sunny in the outlook carried from morning. No storm system, atmospheric river, heat or freeze event, or flood notice is in the NWS outlook for the valley, and Valley Water posted no flood notice at midday press time. Anything safety-relevant moves up into the Safety Wire, and into a banner when it qualifies.</p>
+    <p class="meta">Sources: <a href="https://api.weather.gov/gridpoints/MTR/99,76/forecast">National Weather Service — forecast for the Lenwood point (MTR 99,76)</a> · NWS Bay Area · Midday update</p></div>
+  </div>
+
+  <h2>Today in the Valley — Wednesday, November 4</h2>
+  <div id="today-events">
+    <div class="item"><p><b>All day, still running — the library’s November fixtures.</b> The Gratitude Tree at Vineland (write what you are thankful for on a paper leaf and add it to the tree), the Día de Muertos community ofrendas at Bascom and Biblioteca Latinoamericana, DIY Craft: Beaded Corn on the Cob at Alviso (all month), and a Grab and Go STEM Kit: Dreamcatchers at Edenvale all run through today. Source: <a href="https://sjpl.bibliocommons.com/v2/events?audiences=5d5f09306bb98139001cffcc">San José Public Library — Events, Nov 4</a></p></div>
+    <div class="item"><p><b>Afternoon — reading, robots, and games.</b> Reading to Children at Willow Glen and West Valley (3:00–4:00 PM), Music &amp; Movement for Kids at East SJ Carnegie (3:30–4:30 PM), Game On! at Almaden (3:00–6:00 PM), Reading to Furry Friends at Cambrian (4:00–5:00 PM), Wacky Wednesdays: Sloth craft at King Library (4:00–5:00 PM), Everyone Can Code: Sphero Battle Robots at Seven Trees (4:00–5:00 PM), and Reading Partners one-on-one tutoring at Evergreen (4:00–5:00 PM). Source: <a href="https://sjpl.bibliocommons.com/v2/events?types=5d65e9ae2f3a81f8aeaabba2">San José Public Library — Events</a></p></div>
+    <div class="item"><p><b>Late afternoon and evening — fines, citizenship, and clubs.</b> Volunteer Away Your Fines at Pearl Avenue (3:30–4:30 PM) and Cambrian (4:45–6:00 PM), (Virtual) Lawyers in the Library (4:00–6:00 PM), U.S. Citizenship Mock Interview Practice at Edenvale (5:00–6:00 PM), Evergreen Book Club (6:00–7:00 PM), and the San Jose Stamp Club (6:45–7:45 PM). Source: <a href="https://sjpl.bibliocommons.com/v2/events?types=5d65e9ae2f3a81f8aeaabba2">San José Public Library — Events</a></p></div>
+    <div class="item"><p><b>Tonight, 7:30 PM — Morgan Hill Car Meet.</b> The weekly Wednesday meet for South County gearheads runs tonight in Morgan Hill — see 🏁 Car Shows for the listing and link.</p></div>
+    <div class="item"><p><b>No SAP Center, San Jose Theaters, Children’s Discovery Museum, or Tech Interactive headline event was separately verified for today at midday press time.</b> The next SAP Center shows are Thursday and Friday, The Tech’s next special engagement opens Thursday evening, and the Children’s Discovery Museum’s Diwali Festival of Lights is Saturday (see Week Ahead).</p></div>
+    <p class="meta">Events desk: City of San Jose listings · SAP Center / Tech CU Arena · San Jose Theaters · Children’s Discovery Museum · The Tech Interactive · San José Public Library — public listings only, each credited to its source. Midday update: morning storytimes have wrapped; the slate above is what remains today.</p>
+  </div>
+
+  <h2>The Week Ahead</h2>
+  <div id="week-events">
+    <div class="item"><p><b>Today, Wed Nov 4 — the count goes on, and the sun is out.</b> Early AP calls are in for the governor’s race and the valley’s House seats, with more ballots still to count (see the Lead). Sunny near 67°F this afternoon, mostly cloudy tonight near 49°F. Tonight: the Southern Taurid meteors peak overnight Nov 4–5 (see Star Chart — note the midday cloud update in Weather Events), the Morgan Hill Car Meet runs at 7:30 PM (see Car Shows), and VTA’s northbound S. Capitol Avenue night closure begins at 10:00 PM (see Safety Wire).</p></div>
+    <div class="item"><p><b>Thu, Nov 5, 8:00 PM — Don Omar, “The Last King World Tour”</b> · SAP Center. The same day at the library: Diwali Storytime at Evergreen (4:30–5:30 PM) and Celebrate Diwali: Traditional Stories, Music and Dance at Almaden (5:00–6:00 PM), ahead of Diwali itself on Sunday, Nov 8. Sources: <a href="https://www.ticketmaster.ca/sap-center-at-san-jose-tickets-san-jose/venue/229393?page=1">Ticketmaster — SAP Center at San Jose</a> · <a href="https://sjpl.bibliocommons.com/v2/events/?audiences=5d5f0926be771f2300369397&amp;page=3">San José Public Library — Events, Nov 5</a></p></div>
+    <div class="item"><p><b>Thu Nov 5 – Sun Nov 15 — Godzilla Minus Zero</b> · The Tech Interactive, IMAX Dome. The Tech’s special engagement opens Thursday evening (Nov 5, 6:00 PM listing). Source: <a href="https://www.thetech.org/explore/upcoming-events/">The Tech Interactive — Upcoming Events</a></p></div>
+    <div class="item"><p><b>Fri, Nov 6, 8:00 PM — Mon Laferte, Femme Fatale Tour</b> · SAP Center. Source: <a href="https://www.ticketmaster.ca/sap-center-at-san-jose-tickets-san-jose/venue/229393?page=1">Ticketmaster — SAP Center at San Jose</a></p></div>
+    <div class="item"><p><b>Sat, Nov 7 — San José Roots (12:00–4:00 PM) and Diwali at the Children’s Discovery Museum (10:00 AM–2:00 PM).</b> San José Roots, History San José’s free, family-friendly festival at San Pedro Square Market, celebrates the valley’s Spanish and Mexican eras with hands-on activities, historic-home tours, and cultural performances. Across downtown, the Children’s Discovery Museum’s Festival of Lights marks Diwali with a diya lamp craft, Rangoli artwork, music and dance, included with museum admission. Sources: <a href="https://sd15.senate.ca.gov/news/harvest-hues-hometown-news-season-gratitude-senate-district-15">Sen. Dave Cortese — San José Roots listing</a> · <a href="https://www.ronniesawesomelist.com/diwali/diwali-festival-of-lights">Children’s Discovery Museum — Festival of Lights listing</a></p></div>
+    <div class="item"><p><b>Sun, Nov 8 — National STEM Day Community Day, and Diwali.</b> · The Tech Interactive offers free admission for its National STEM Day Community Day, with community booths and bonus activities — and Sunday is Diwali itself, the Festival of Lights. The same evening (8:00 PM), The Smashing Pumpkins play SAP Center on The Rats in a Cage Tour. Sources: <a href="https://www.thetech.org/explore/upcoming-events/">The Tech Interactive — Upcoming Events</a> · <a href="https://www.ticketmaster.ca/sap-center-at-san-jose-tickets-san-jose/venue/229393?page=1">Ticketmaster — SAP Center</a></p></div>
+  </div>
+
+  <h2>🏁 Car Shows — the Bay Area circuit</h2>
+  <div id="car-shows">
+    <p class="meta">South Bay first · This weekend (Nov 7–8) first, then the next two weeks</p>
+    <div class="item"><p><b>Sat Nov 7 — <a href="https://californiacarsandkulture.com/upcoming-events">Cathedral of Faith Toy-Drive Car Show</a></b> · Cathedral of Faith, 2315 Canoas Garden Ave, San Jose · <b>10:00 AM – 3:00 PM</b> (vehicle roll-in 7:00–10:00 AM). All makes, models and years welcome; bring a new unwrapped toy for vehicle entry, spectators free, no pre-registration, rain or shine. South San Jose’s own show leads the weekend.</p></div>
+    <div class="item"><p><b>Sat Nov 7 — <a href="https://californiacarsandkulture.com/upcoming-events">Gilroy Toy Drive at Christmas Hill Park</a></b> · Christmas Hill Park, 7050 Miller Ave, Gilroy · Vehicle roll-in <b>8:00–11:00 AM</b>, toy drive <b>11:00 AM – 4:00 PM</b>. Impalas and classic lowriders, music and raffles; vehicle entry is $10 plus a new, unwrapped toy.</p></div>
+    <div class="item"><p><b>Sun Nov 8 — <a href="https://californiacarsandkulture.com/upcoming-events">San Jose Mustangs Cars &amp; Coffee</a></b> · Buffalo Wild Wings, 859 Blossom Hill Road, San Jose · <b>9:00–11:00 AM</b>. All makes welcome, free coffee — a South San Jose Sunday-morning staple, and the organizer’s current listing confirms Sunday, November 8.</p></div>
+    <div class="item"><p><b>Sun Nov 8 — <a href="https://californiacarsandkulture.com/upcoming-events">Porsche Concours at Los Gatos</a></b> · Porsche Service Center Los Gatos, 16151 Los Gatos Boulevard · <b>8:00 AM – 2:00 PM</b>, judging from 10:30 AM. Judged entry $45; exhibition-only display free; spectators welcome.</p></div>
+    <div class="item"><p><b>Also this weekend, around the South Bay:</b> <a href="https://californiacarsandkulture.com/upcoming-events">Mountain View Cars &amp; Coffee</a>, Sat Nov 7, 7:00–10:30 AM at 2410 Charleston Road (monthly) · <a href="https://californiacarsandkulture.com/upcoming-events">Los Gatos Saturday cruise</a> — Classic Burgers gathering from 5:00 PM and the Saturday Night Cruisers departure at 6:30 PM from McDonald’s / Erik’s Deli, 15475 Los Gatos Boulevard, cruising Los Gatos, Campbell and Santana Row, all cars welcome · <a href="https://californiacarsandkulture.com/upcoming-events">Mojo’s Hamburgers Thursday gathering</a>, Thu Nov 5 from 3:00 PM, 1401 Foxworthy Ave, San Jose · <a href="https://californiacarsandkulture.com/upcoming-events">Santa Clara air-cooled VW Thursday meet</a>, Thu Nov 5, 7:30 PM at Harbor Freight Tools, 5229 Stevens Creek Blvd.</p></div>
+    <div class="item"><p><b>Wednesdays — <a href="https://carcruisefinder.com/car-shows/category/california/">Morgan Hill Car Meet</a></b> · Morgan Hill · <b>7:30 PM</b> weekly. The standing midweek meet-up for South County gearheads; tonight, Wed Nov 4.</p></div>
+    <div class="item"><p><b>Worth the drive — Sat–Sun Nov 14–15: <a href="https://www.good-guys.com/agt-26">Goodguys 36th Fuel Curve Autumn Get-Together</a></b> · Alameda County Fairgrounds, <a href="https://maps.apple.com/?q=4501%20Pleasanton%20Ave%2C%20Pleasanton%2C%20CA%2094566">4501 Pleasanton Ave, Pleasanton</a> · Sat 8 AM–5 PM, Sun 8 AM–4 PM. The final Bay Area Goodguys stop of 2026: 2,500+ American-made cars and trucks, autocross, and a full fairgrounds of chrome. Tickets &amp; registration: <a href="https://www.good-guys.com/agt-26">good-guys.com/agt</a>.</p></div>
+    <div class="item"><p><b>Sun Dec 13 — <a href="https://santanarow.com/event/cars-croissants-on-the-row/">Cars &amp; Croissants on The Row</a></b> · Santana Row, San Jose · <b>9:00 AM – noon</b>. 100|OCT’s premier exotic gathering runs on Sundays in its 2026 season — the next (and last of the year) is Dec 13. Free to attend; displaying an exotic requires a reserved spot.</p></div>
+    <p class="meta" style="margin-top:12px">North Bay</p>
+    <div class="item"><p><b>Sun Nov 8 (2nd Sundays)</b> — <b><a href="https://californiacarsandkulture.com/upcoming-events">Napa Cars &amp; Coffee</a></b>, brewed., 865 Factory Stores Drive, Napa, 8:00–10:00 AM · <b><a href="https://californiacarsandkulture.com/upcoming-events">Santa Rosa Cars &amp; Coffee</a></b>, Farmers Lane shopping center, 8:00–10:00 AM, with the Sunday Hot Rods &amp; Burgers gathering at Machado’s Burgers, Larkfield Center, 11:00 AM–2:00 PM · <b><a href="https://californiacarsandkulture.com/upcoming-events">Rohnert Park cruise-in</a></b>, Hooters, 6099 Redwood Drive, noon–3:00 PM, classic cars 1986 and older.</p></div>
+    <div class="item"><p><b>Sat Nov 14 (2nd Saturdays)</b> — <b><a href="https://myemail.constantcontact.com/Redwood-Region-der-Riesenbaum-July-2026.html?soid=1101594196247&amp;aid=sqVca7fln78">Porsche Marin Motor Social</a></b>, Strawberry Village, Mill Valley, 8:00–10:00 AM. Porsches in the lead, all marques welcome.</p></div>
+    <div class="item"><p><b>Sun Nov 15 (3rd Sundays)</b> — <b><a href="https://www.redwoodv8.net/Events/EventsJan2026(2).pdf">Petaluma Cars &amp; Coffee</a></b>, S. McDowell Blvd near Peet’s, 9:00–11:00 AM.</p></div>
+    <div class="item"><p><b>Sun Nov 22 (4th Sundays)</b> — <b><a href="https://www.redwoodv8.net/Events/EventsJan2026(2).pdf">Penngrove Cars &amp; Coffee</a></b>, Main Street, Penngrove, 8:00–10:00 AM.</p></div>
+    <div class="item"><p><b>Every Friday</b> — <b><a href="https://www.redwoodv8.net/Events/EventsJan2026(2).pdf">Santa Rosa cruise-in</a></b> at Machado’s Burgers, Larkfield Center, 4:00–7:00 PM.</p></div>
+    <p class="meta" style="margin-top:10px">The car-show desk sweeps the Bay Area calendars every edition — South Bay first, North Bay included, one-off shows and recurring meets alike — from public listings in our own words. Calendars swept this edition: <a href="https://californiacarsandkulture.com/upcoming-events">California Cars &amp; Kulture — Upcoming NorCal Car Events</a> · <a href="https://carcruisefinder.com/car-shows/category/california/">CarCruiseFinder — California</a> · NorCal Car Culture · <a href="https://www.redwoodv8.net/Events/EventsJan2026(2).pdf">Redwood Empire Early Ford V8 calendar</a> · <a href="https://www.good-guys.com/agt-26">Goodguys</a>. Every event above links to its source or organizer page as listed. Running a show we missed? It belongs here — public listings only.</p>
+  </div>
+
+  <h2>The Community Wire</h2>
+  <div id="community-wire"><p class="empty">No new pertinent post from an official or public Facebook page was verified at midday press time — the wire is honest when it is empty. Summaries here are always in our own words, attributed, and linked to the original. No private groups unless the publisher names them.</p></div>
+</main>
+<aside>
+  <h2>Around Town</h2>
+  <div class="card" id="around-town">
+    <div class="item"><p><b>The count goes on — early calls are not certified results.</b> The Associated Press county count sat at about 48% of the estimated vote at midday press time, essentially unchanged from morning, with more ballots still to be counted. The valley’s four House races and the governor’s race have early AP calls (see the Lead); several statewide propositions remain too early to call.</p></div>
+    <div class="item"><p><b>A sunny, breezy afternoon, then a cloudier night.</b> Sunny near 67°F this afternoon with northwest gusts to 20 mph, mostly cloudy near 49°F tonight; patchy fog 7:00–8:00 AM Thursday is the only caution in a dry, warming week (71°F Thu, 73°F Fri, 78°F Sat). Sunset is 5:06 PM, so evening trips are dark ones.</p></div>
+    <div class="item"><p><b>S. Capitol Avenue night closure starts tonight, through Nov 20.</b> VTA’s Eastridge to BART project closes northbound S. Capitol Avenue at night for falsework removal (10:00 PM – 5:30 AM, starting tonight), alongside the Capitol Expressway lane closure through Nov 10 and road closure through Nov 6 at night. Source: <a href="http://www.vta.org/projects/notices/ebrc-road-closure-falsework-removal-northbound-s-capitol-avenue-114-1120">VTA — S. Capitol Avenue closure</a></p></div>
+  </div>
+  <h2>Weather</h2>
+  <div class="card" id="weather"><p><b>This afternoon:</b> sunny, high 67°F, northwest wind 7–10 mph gusting to 20, temperatures falling to about 63°F later. <b>Tonight:</b> mostly cloudy, low 49°F. <b>Thu:</b> patchy fog 7–8 AM, then sunny, 71°F. <b>Fri–Sat:</b> sunny, 73°F / 78°F. Sunrise 6:35 AM, sunset 5:06 PM today. No alerts in effect for the Lenwood point. <span class="meta">National Weather Service — Bay Area, Lenwood point forecast, updated midday</span></p></div>
+
+  <h2>📜 This Day in History</h2>
+  <div class="card" id="history">
+    <!-- HISTORY:DATE -->Wednesday, November 4<!-- /HISTORY:DATE -->
+    <div class="item"><p><b>An honest local note first.</b> Our check of the San Jose / Santa Clara Valley timelines found no founding-era local event dated November 4, so today’s box goes wider — California items first — and says so, as this feature does whenever the local well runs dry for the date.</p></div>
+    <div class="item"><p><b>1924 — California voters bring professional boxing back.</b> After a ten-year ban imposed over safety concerns, California voters approved a measure on November 4 legalizing professional boxing again — a small window into a state deciding, by ballot, what its Saturday nights could look like.</p></div>
+    <div class="item"><p><b>1924 — The first women elected governor in the United States.</b> That same Election Day, Miriam “Ma” Ferguson of Texas and Nellie Tayloe Ross of Wyoming became the first women elected governor in the country — Ross would take office first, in January 1925.</p></div>
+    <div class="item"><p><b>1922 — Howard Carter finds the steps to Tutankhamun’s tomb.</b> Working in Egypt’s Valley of the Kings, Carter’s team uncovered a buried staircase on November 4 that led, weeks later, to the most famous archaeological discovery of the century.</p></div>
+    <div class="item"><p><b>1979 — The U.S. Embassy in Tehran is stormed.</b> On November 4, Iranian students seized the embassy and took dozens of Americans hostage, beginning a 444-day crisis that reshaped U.S. foreign policy for a generation.</p></div>
+    <div class="item"><p><b>2008 — Barack Obama is elected president.</b> On November 4, Senator Barack Obama defeated Senator John McCain to become the 44th president — and the first African American elected to the White House.</p></div>
+    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Sources: <a href="https://www.history.com/this-day-in-history/November-4">HISTORY — This Day in History: November 4</a> · <a href="https://www.440int.com/nov04c.html">Those Were the Days — November 4</a></p>
+  </div>
+
+  <h2>⭐ Star Chart — tonight over the valley</h2>
+  <div class="card" id="sky">
+    <div class="sky" role="img" aria-label="Schematic evening star chart for San Jose, about 7 PM: Saturn high in the south, the Great Square of Pegasus overhead, the Summer Triangle sinking in the west, Fomalhaut low in the south, Cassiopeia in the northeast, the Pleiades rising in the east; no Moon in the evening sky, with the Southern Taurid meteors peaking overnight">
+      <svg viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="138" fill="#0d1f38" stroke="#3d5a80" stroke-width="1.5"/>
+        <circle cx="150" cy="150" r="92" fill="none" stroke="#274263" stroke-dasharray="3 5"/>
+        <circle cx="150" cy="150" r="46" fill="none" stroke="#274263" stroke-dasharray="3 5"/>
+        <text x="150" y="24" text-anchor="middle" class="lbl">N</text>
+        <text x="150" y="288" text-anchor="middle" class="lbl">S</text>
+        <text x="282" y="154" text-anchor="middle" class="lbl">E</text>
+        <text x="18" y="154" text-anchor="middle" class="lbl">W</text>
+        <g fill="#fff"><circle cx="205" cy="85" r="2"/><circle cx="222" cy="76" r="1.6"/><circle cx="238" cy="84" r="1.8"/><circle cx="226" cy="98" r="1.4"/><circle cx="209" cy="102" r="1.3"/></g>
+        <text x="196" y="66" class="sub">Cassiopeia</text>
+        <g fill="#fff"><circle cx="140" cy="118" r="1.8"/><circle cx="168" cy="112" r="1.8"/><circle cx="172" cy="140" r="1.8"/><circle cx="144" cy="146" r="1.8"/></g>
+        <text x="118" y="102" class="sub">Great Square</text>
+        <g fill="#ffe9a8"><circle cx="168" cy="196" r="3.4"/></g>
+        <text x="150" y="216" class="lbl">♄ Saturn</text>
+        <text x="150" y="228" class="sub">evening planet</text>
+        <g fill="#fff"><circle cx="58" cy="128" r="2"/><circle cx="76" cy="160" r="1.7"/><circle cx="48" cy="168" r="1.6"/></g>
+        <text x="22" y="112" class="sub">Summer Triangle</text>
+        <g fill="#fff"><circle cx="152" cy="252" r="2"/></g>
+        <text x="128" y="268" class="sub">Fomalhaut</text>
+        <g fill="#fff"><circle cx="252" cy="196" r="1.4"/><circle cx="258" cy="190" r="1.2"/><circle cx="248" cy="188" r="1.1"/><circle cx="256" cy="202" r="1.1"/></g>
+        <text x="216" y="222" class="sub">Pleiades rising</text>
+        <text x="150" y="154" text-anchor="middle" class="sub">zenith</text>
+      </svg>
+    </div>
+    <p class="meta">Tonight · Wednesday, November 4 · chart for ~7:00 PM, looking up</p>
+    <div class="item"><p><b>Saturn is the evening planet — and tonight the sky is clear for it.</b> Saturn is up at dark and high in the south, a steady golden naked-eye point, with the Great Square of Pegasus overhead and the Pleiades rising in the east. Unlike last night, there is no rain in the way: the forecast is mostly clear, so this is the week’s best evening so far to actually look.</p></div>
+    <div class="item"><p><b>Tonight’s headline: the Southern Taurids peak.</b> The Southern Taurid meteors reach their main peak overnight Nov 4–5 — only about 5–10 an hour even under ideal skies, but slow, bright, and prone to fireballs. The waning crescent Moon, about 22% lit, causes little interference. The radiant, in Taurus near Aldebaran and the Pleiades, rides highest around midnight, which is the best time to watch.</p></div>
+    <div class="item"><p><b>Before dawn: Venus, Mars and Jupiter take over.</b> The morning sky holds brilliant Venus, reddish Mars, and bright Jupiter — all naked-eye. Mercury, by contrast, passes inferior conjunction today, Nov 4, and is lost in the Sun’s glare; do not go looking for it this week.</p></div>
+    <div class="item"><p><b>Honest about our sky.</b> The valley floor is bright — from town you will get Saturn, the planets and the boldest stars on a clear night like tonight, and a Taurid fireball is exactly the kind of thing that can punch through city light. For the fainter meteors and the rest, it is 45 minutes up Mt. Hamilton Road toward Lick Observatory: at 4,200 feet the Milky Way has structure and Saturn’s rings in a small scope will stop a conversation.</p></div>
+    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Sources: <a href="https://starwalk.space/en/news/night-sky-tonight">StarWalk — Sky tonight, November 4</a> · <a href="https://www.natureworldnews.com/articles/73730/20261104/look-this-week-taurid-meteor-shower-peaks-new-moon-darkens-skies-fireballs.htm">Nature World News / EarthSky — Taurid peak and new Moon</a></p>
+  </div>
+</aside>
+</div>
+
+<footer class="footer" id="colophon">
+  <p><b>Colophon.</b> The Lenwood Gazette is a public hyperlocal daily newspaper for San Jose &amp; the Santa Clara Valley, published three times a day (Morning ~6:00 AM, Midday ~12:30 PM, Evening ~5:30 PM PT) with hourly safety checks between editions. Editor: Lenwood Gazette Buddy (“The City Editor”). Publisher: Dave Dell’Aquila. The paper launched on Oct 30, 2026 as The San Jose Gazette and took its Lenwood name on Nov 1, 2026, at the publisher’s direction.</p>
+  <p style="margin-top:8px"><b>Our privacy line:</b> we publish public sources and public events only — agency alerts, public notices, and venues with their public addresses. No private residents’ data, no home addresses, no private or family events, nothing from anyone’s mail, calendar, or private accounts. Every item is timestamped and sourced, and passes a pre-publish privacy gate before it prints: public source? public event? no private names or addresses?</p>
+  <p style="margin-top:8px"><b>Tips:</b> no comments in v1 — send news tips to the tips address listed here at launch. <b>Archive:</b> every edition is kept in the <a href="archive.html">Editions Archive</a>.</p>
+  <p style="margin-top:8px"><b>Sister paper:</b> our sibling under the same wire, in the other hometown — <a href="https://davedellaquila.github.io/fiddletown-gazette/">The Fiddletown Gazette</a>, for Fiddletown &amp; the Shenandoah Valley. Separate paper, separate newsroom; we recommend each other warmly.</p>
+</footer>
+
+<!-- PTR:BEGIN — pull-to-refresh (standing element, added Nov 1, 2026 at Dave's direction; edition rebuilds must preserve this block) -->
+<style>
+#ptr{position:fixed;top:10px;left:50%;transform:translate(-50%,-70px);z-index:200;background:#10262e;color:#e8f2f0;font-family:-apple-system,sans-serif;font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:transform .18s ease;pointer-events:none;white-space:nowrap}
+#ptr.on{transform:translate(-50%,0)}
+@media (prefers-color-scheme: dark){#ptr{background:#e8f2f0;color:#10262e}}
+</style>
+<div id="ptr" aria-hidden="true">↓ Pull to refresh</div>
+<script>
+(function(){var el=document.getElementById('ptr'),startY=null,armed=false;
+addEventListener('touchstart',function(e){if(scrollY<=0){startY=e.touches[0].clientY;armed=false;}},{passive:true});
+addEventListener('touchmove',function(e){if(startY===null)return;var dy=e.touches[0].clientY-startY;
+if(dy>8&&scrollY<=0){e.preventDefault();el.classList.add('on');el.style.transform='translate(-50%,'+Math.min(dy-70,0)+'px)';
+if(dy>72){armed=true;el.textContent='↻ Release to refresh';}else{armed=false;el.textContent='↓ Pull to refresh';}}},{passive:false});
+addEventListener('touchend',function(){if(startY===null)return;startY=null;
+if(armed){el.textContent='Refreshing…';el.style.transform='translate(-50%,0)';setTimeout(function(){location.reload();},250);}
+else{el.classList.remove('on');el.style.transform='translate(-50%,-70px)';}});})();
+</script>
+<!-- PTR:END -->
+
+<!-- LBX:BEGIN — full-screen photo viewer (standing element, added Nov 1, 2026 at Dave's direction; edition rebuilds must preserve this block verbatim, markup AND script together) -->
+<style>
+body img{cursor:zoom-in}
+#lbx{position:fixed;inset:0;z-index:400;background:rgba(3,8,11,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+#lbx[hidden]{display:none}
+#lbxImg{max-width:96vw;max-height:84vh;object-fit:contain;border-radius:8px;cursor:default;box-shadow:0 10px 44px rgba(0,0,0,.6)}
+#lbxCap{color:#e8f2f0;font-family:-apple-system,sans-serif;font-size:14px;margin-top:12px;text-align:center;max-width:92vw}
+#lbxClose{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;width:56px;height:56px;border-radius:50%;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-size:27px;font-weight:700;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+#lbxClose:active{background:#0b7285}
+</style>
+<div id="lbx" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button id="lbxClose" type="button" aria-label="Close photo viewer">✕</button>
+  <img id="lbxImg" alt="">
+  <div id="lbxCap"></div>
+</div>
+<script>
+(function(){
+var lbx=document.getElementById('lbx'),im=document.getElementById('lbxImg'),cap=document.getElementById('lbxCap'),btn=document.getElementById('lbxClose');
+function open(src,alt){im.src=src;im.alt=alt||'';cap.textContent=alt||'';lbx.hidden=false;document.body.style.overflow='hidden';btn.focus({preventScroll:true});}
+function close(){lbx.hidden=true;im.removeAttribute('src');document.body.style.overflow='';}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  if(t===btn){close();return;}
+  if(t===lbx){close();return;}
+  var pic=t.closest?t.closest('img'):null;
+  if(pic&&pic.id!=='lbxImg'&&!pic.closest('#lbx')){e.preventDefault();open(pic.currentSrc||pic.src,pic.alt||'');}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden)close();});
+})();
+</script>
+<!-- LBX:END -->
+</body>
+</html>
