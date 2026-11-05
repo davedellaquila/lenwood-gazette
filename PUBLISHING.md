@@ -90,6 +90,23 @@ front page and archive carry a `PTR:BEGIN … PTR:END` block before `</body>` (i
 pill + touch handler that reloads the page on a pull from the top). Every edition
 rebuild must PRESERVE this block verbatim. Added to both gazettes the same day.
 
+**Standing element — the TICKER BAR table of contents (added Nov 4, 2026, at Dave's
+direction; designed on The Fiddletown Gazette and ported here the same day):** the
+front page carries a `<nav id="toc">` "IN THIS EDITION" strip under the masthead —
+ONE sticky row in ticker style that sticks directly under the sticky topbar (JS
+measures the topbar height; CSS fallback top:52px) while the section list slides
+horizontally: drag with a mouse, swipe on touch, • separators, edge fades + chevrons
+at whichever end has more to slide to, one gentle nudge on load (never under
+prefers-reduced-motion, never auto-scrolls). It is SELF-BUILDING: the builder script
+before the PTR block rebuilds the items on every load from the page's own <h2>s —
+an <h2>'s own id wins, then its content div's id; an <h2> with neither gets a slug
+id assigned at runtime. Anchors are baked in for the lead (`#the-lead` on the
+section) and the rail headings (`#around-town`, `#weather`, `#history`,
+`#star-chart`). Every edition rebuild must PRESERVE: the nav block, the ticker
+styles in <head>, the builder + ticker-behavior scripts, and the
+[id]{scroll-margin-top} rules (jumps land below both sticky rows). The static items
+in #toc-list are only a no-JS fallback; never maintain them by hand.
+
 **Site icons (added Nov 1, 2026):** the site root carries Dave's custom icon set —
 `favicon.ico`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`,
 `icon-192.png`, `icon-512.png`, and `site.webmanifest`. The `<head>` icon/manifest
