@@ -58,6 +58,32 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 .topbar .header-tip{margin-left:auto;font-size:12.5px;padding:6px 11px;flex:none}
 }
 </style>
+<style>
+/* Ticker bar (Dave, Nov 4, 2026 — ported from The Fiddletown Gazette, where Dave designed it):
+   the IN THIS EDITION strip is ONE sticky row in ticker style — it sticks under the topbar and the
+   section list slides horizontally (drag with mouse, swipe on touch). The builder script at the end
+   of the page generates the items live from the page's own <h2>s; static items are a no-JS fallback. */
+#toc{position:sticky;top:52px;z-index:55;display:flex;align-items:center;gap:10px;background:var(--bg);border-top:3px double var(--ink);border-bottom:1px solid var(--border);padding:7px 0;margin:16px 0 6px}
+.ticker-slug{flex:none;font-family:-apple-system,sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+.ticker-wrap{position:relative;flex:1;min-width:0}
+#toc-list{display:flex;flex-wrap:nowrap;align-items:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-y;-webkit-overflow-scrolling:touch}
+#toc-list::-webkit-scrollbar{display:none}
+#toc-list.dragging{cursor:grabbing}
+#toc-list.dragging a{pointer-events:none}
+.ticker-item{flex:none;white-space:nowrap;color:var(--text);text-decoration:none;font-family:-apple-system,sans-serif;font-size:13px;font-weight:600;line-height:1.5;padding:3px 0}
+.ticker-item:hover{color:var(--accent)}
+.ticker-item + .ticker-item::before{content:'•';margin:0 9px;color:var(--gold);font-weight:400}
+.ticker-arch{color:var(--gold);font-weight:700}
+.ticker-fade{position:absolute;top:0;bottom:0;width:46px;pointer-events:none;display:flex;align-items:center;transition:opacity .25s}
+.ticker-fade.right{right:0;justify-content:flex-end;background:linear-gradient(to right,transparent,var(--bg) 78%)}
+.ticker-fade.left{left:0;justify-content:flex-start;background:linear-gradient(to left,transparent,var(--bg) 78%);opacity:0}
+.ticker-fade .chev{font-family:-apple-system,sans-serif;font-size:20px;font-weight:800;color:var(--accent);padding:0 2px;animation:ticker-chev 1.8s ease-in-out infinite}
+@keyframes ticker-chev{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@media (prefers-reduced-motion: reduce){.ticker-fade .chev{animation:none}}
+@media (max-width:640px){.ticker-slug{display:none}.ticker-item{font-size:12.5px}}
+[id]{scroll-margin-top:112px}
+@media (max-width:640px){[id]{scroll-margin-top:150px}}
+</style>
 </head>
 <body>
 <div class="topbar"><span>🗞️ The Lenwood Gazette</span><nav><a href="index.html">Front Page</a><a href="archive.html">Editions Archive</a><a href="#colophon">About</a></nav><a class="header-tip" href="https://ko-fi.com/davedellaquila" target="_blank" rel="noopener" aria-label="Tip Jar — if this page helped you, you can leave Dave a tip on Ko-fi"><span class="jar" aria-hidden="true">🫙</span><span>Tip Jar</span></a></div>
@@ -73,7 +99,16 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 <!-- BANNER: out-of-cycle safety banner is injected here by the hourly poll when a qualifying event breaks. -->
 <div id="safety-banner"></div>
 
-<section class="lead">
+<nav id="toc" aria-label="Table of contents">
+<span class="ticker-slug" aria-hidden="true">In this edition</span>
+<div class="ticker-wrap">
+<div id="toc-list"><a class="ticker-item" href="#the-lead">The Lead</a><a class="ticker-item" href="#safety-wire">🚨 Need to Know — the Safety Wire</a><a class="ticker-item" href="#weather-events">🌦️ Weather Events — the sky as news</a><a class="ticker-item" href="#today-events">Today in the Valley</a><a class="ticker-item" href="#week-events">The Week Ahead</a><a class="ticker-item" href="#car-shows">🏁 Car Shows — the Bay Area circuit</a><a class="ticker-item" href="#community-wire">The Community Wire</a><a class="ticker-item" href="#around-town">Around Town</a><a class="ticker-item" href="#weather">Weather</a><a class="ticker-item" href="#history">📜 This Day in History</a><a class="ticker-item" href="#star-chart">⭐ Star Chart — tonight over the valley</a><a class="ticker-item ticker-arch" href="archive.html">📚 Editions Archive</a></div>
+<div class="ticker-fade left" id="ticker-fade-l" aria-hidden="true"><span class="chev">‹</span></div>
+<div class="ticker-fade right" id="ticker-fade-r" aria-hidden="true"><span class="chev">›</span></div>
+</div>
+</nav>
+
+<section class="lead" id="the-lead">
   <p class="meta">The Lead</p>
   <h2><!-- LEAD:HEADLINE -->The count passes halfway in the county, clouds settle in for the night — and the valley heads into a dry, warming rest of the week<!-- /LEAD:HEADLINE --></h2>
   <p><!-- LEAD:BODY -->San Jose closes a sunny, breezy Election Day-after at about 67°F, with the evening turning mostly cloudy ahead of a low near 49°F — and the election count has moved a step since midday. In the Associated Press count for Santa Clara County, now at about 50% of the estimated vote in and still not certified, the early calls stand: Xavier Becerra over Steve Hilton for governor (220,622 to 95,324 in the county count), and the county’s four U.S. House races called for the incumbents — Sam Liccardo in District 16, Ro Khanna in District 17, Zoe Lofgren in District 18, and Jimmy Panetta in District 19, the Lenwood neighborhood’s own district, now at 36,489 to 17,042 over Peter Verbica in the county count with about 54% of the estimated vote in for that reporting unit. Among the statewide propositions in that same county count, Yes on Propositions 1, 2 and 3 and No on Proposition 39 remain called; Propositions 4 and 42 were still too early to call in the latest AP updates, as were others at midday. More ballots remain to be counted, so treat every number here as an early picture, not a final one. Tonight’s sky is mostly cloudy — not the mostly clear night expected this morning — which may dim tonight’s Southern Taurid meteor peak (see Weather Events and the refreshed Star Chart note). No weather alerts are in effect for the Lenwood point, the county lists no current alerts or disasters, and no major valley freeway closure was verified at evening press time. Still ahead tonight: the library’s evening slate and the Morgan Hill Car Meet at 7:30 PM, and VTA’s northbound S. Capitol Avenue night closure starting at 10:00 PM. Tomorrow brings Don Omar at SAP Center, the opening of Godzilla Minus Zero at The Tech, and Diwali storytimes at the library.<!-- /LEAD:BODY --></p>
@@ -141,16 +176,16 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
   <div id="community-wire"><p class="empty">No new pertinent post from an official or public Facebook page was verified at evening press time — the wire is honest when it is empty. Summaries here are always in our own words, attributed, and linked to the original. No private groups unless the publisher names them.</p></div>
 </main>
 <aside>
-  <h2>Around Town</h2>
+  <h2 id="around-town">Around Town</h2>
   <div class="card" id="around-town">
     <div class="item"><p><b>The count passes about 50% in the county — early calls are not certified results.</b> The Associated Press county count sat at about 50% of the estimated vote at evening press time, up from about 48% at midday, with more ballots still to be counted. The valley’s four House races and the governor’s race have early AP calls (see the Lead); several statewide propositions remain too early to call.</p></div>
     <div class="item"><p><b>A sunny day, then a cloudier night — and a dry, warming week ahead.</b> Sunny near 67°F today, mostly cloudy near 49°F tonight; patchy fog 7:00–8:00 AM Thursday is the only caution in a dry, warming week (71°F Thu, 73°F Fri, 78°F Sat, 76°F Sun). Sunset was 5:06 PM, so evening trips are dark ones.</p></div>
     <div class="item"><p><b>S. Capitol Avenue night closure starts tonight at 10:00 PM, through Nov 20.</b> VTA’s Eastridge to BART project closes northbound S. Capitol Avenue at night for falsework removal (10:00 PM – 5:30 AM, starting tonight), alongside the Capitol Expressway lane closure through Nov 10 and road closure through Nov 6 at night. Source: <a href="http://www.vta.org/projects/notices/ebrc-road-closure-falsework-removal-northbound-s-capitol-avenue-114-1120">VTA — S. Capitol Avenue closure</a></p></div>
   </div>
-  <h2>Weather</h2>
+  <h2 id="weather">Weather</h2>
   <div class="card" id="weather"><p><b>Tonight:</b> mostly cloudy, low 49°F, west-northwest wind 2–8 mph. <b>Thu:</b> patchy fog 7–8 AM, then sunny, 71°F. <b>Fri–Sun:</b> sunny, 73°F / 78°F / 76°F. Sunrise 6:35 AM, sunset 5:06 PM today. No alerts in effect for the Lenwood point, and none in the overnight outlook. <span class="meta">National Weather Service — Bay Area, Lenwood point forecast, updated evening</span></p></div>
 
-  <h2>📜 This Day in History</h2>
+  <h2 id="history">📜 This Day in History</h2>
   <div class="card" id="history">
     <!-- HISTORY:DATE -->Wednesday, November 4<!-- /HISTORY:DATE -->
     <div class="item"><p><b>An honest local note first.</b> Our check of the San Jose / Santa Clara Valley timelines found no founding-era local event dated November 4, so today’s box goes wider — California items first — and says so, as this feature does whenever the local well runs dry for the date.</p></div>
@@ -162,7 +197,7 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
     <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Sources: <a href="https://www.history.com/this-day-in-history/November-4">HISTORY — This Day in History: November 4</a> · <a href="https://www.440int.com/nov04c.html">Those Were the Days — November 4</a></p>
   </div>
 
-  <h2>⭐ Star Chart — tonight over the valley</h2>
+  <h2 id="star-chart">⭐ Star Chart — tonight over the valley</h2>
   <div class="card" id="sky">
     <div class="sky" role="img" aria-label="Schematic evening star chart for San Jose, about 7 PM: Saturn high in the south, the Great Square of Pegasus overhead, the Summer Triangle sinking in the west, Fomalhaut low in the south, Cassiopeia in the northeast, the Pleiades rising in the east; no Moon in the evening sky, with the Southern Taurid meteors peaking overnight">
       <svg viewBox="0 0 300 300">
@@ -205,6 +240,68 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
   <p style="margin-top:8px"><b>Tips:</b> no comments in v1 — send news tips to the tips address listed here at launch. <b>Archive:</b> every edition is kept in the <a href="archive.html">Editions Archive</a>.</p>
   <p style="margin-top:8px"><b>Sister paper:</b> our sibling under the same wire, in the other hometown — <a href="https://davedellaquila.github.io/fiddletown-gazette/">The Fiddletown Gazette</a>, for Fiddletown &amp; the Shenandoah Valley. Separate paper, separate newsroom; we recommend each other warmly.</p>
 </footer>
+
+<script>
+/* Table of contents — built live from the page's own section headings on every load, so a renamed or
+   brand-new section appears automatically. An <h2> with no anchor of its own gets a slug id assigned
+   at runtime. The static items in #toc-list are only a no-JS fallback. Rendered as the one-row ticker. */
+(function(){
+  var list=document.getElementById('toc-list'); if(!list) return;
+  function slug(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+  var seen={}, chips=[];
+  document.querySelectorAll('h2').forEach(function(h2){
+    var host=h2.closest('section[id],div[id],article[id]');
+    var id=h2.id||(host&&host.id)||(h2.nextElementSibling&&h2.nextElementSibling.id)||'';
+    var label=h2.textContent.trim().replace(/\s+/g,' ');
+    if(h2.closest('.lead')){ label='The Lead'; if(!id){ var sec=h2.closest('section'); if(sec){ sec.id='the-lead'; id='the-lead'; } } }
+    if(!id){ id=slug(label); if(id) h2.id=id; }
+    if(!id||seen[id]) return; seen[id]=1;
+    if(label) chips.push({id:id,label:label});
+  });
+  if(chips.length<5) return;
+  var extras=[['archive.html','\u{1F4DA} Editions Archive']];
+  list.innerHTML='';
+  chips.forEach(function(c){var a=document.createElement('a');a.href='#'+c.id;a.textContent=c.label;a.className='ticker-item';list.appendChild(a);});
+  extras.forEach(function(e){var a=document.createElement('a');a.href=e[0];a.textContent=e[1];a.className='ticker-item ticker-arch';list.appendChild(a);});
+})();
+/* Ticker bar behavior (Dave, Nov 4, 2026): stick exactly under the topbar; edge fades + chevrons show
+   there is more to slide to; mouse drag slides the row (past an 8px threshold a drag is not a tap);
+   touch swipe is native and vertical page scroll always wins (touch-action: pan-y). One gentle nudge
+   on load shows the row moves — never under prefers-reduced-motion, never auto-scrolls after. */
+(function(){
+  var toc=document.getElementById('toc'), list=document.getElementById('toc-list'); if(!toc||!list) return;
+  var topbar=document.querySelector('.topbar');
+  function stickTop(){ if(topbar) toc.style.top=topbar.offsetHeight+'px'; }
+  stickTop(); window.addEventListener('resize',stickTop);
+  var fl=document.getElementById('ticker-fade-l'), fr=document.getElementById('ticker-fade-r');
+  function fades(){ var max=list.scrollWidth-list.clientWidth, x=list.scrollLeft;
+    if(fr) fr.style.opacity=(max>2&&x<max-2)?'1':'0';
+    if(fl) fl.style.opacity=(x>2)?'1':'0'; }
+  list.addEventListener('scroll',fades,{passive:true});
+  window.addEventListener('resize',fades);
+  setTimeout(fades,0);
+  var down=false, dragged=false, startX=0, startL=0, suppress=false;
+  list.addEventListener('pointerdown',function(e){ if(e.pointerType==='touch') return;
+    down=true; dragged=false; startX=e.clientX; startL=list.scrollLeft; });
+  list.addEventListener('pointermove',function(e){ if(!down) return;
+    var dx=e.clientX-startX;
+    if(!dragged&&Math.abs(dx)>8){ dragged=true; list.classList.add('dragging'); }
+    if(dragged) list.scrollLeft=startL-dx; });
+  function endDrag(){ if(down&&dragged){ suppress=true; setTimeout(function(){ list.classList.remove('dragging'); },60); } down=false; }
+  list.addEventListener('pointerup',endDrag);
+  list.addEventListener('pointercancel',endDrag);
+  list.addEventListener('click',function(e){ if(suppress){ e.preventDefault(); e.stopPropagation(); suppress=false; } },true);
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce) setTimeout(function(){
+    if(list.scrollLeft!==0||list.scrollWidth-list.clientWidth<10) return;
+    var t0=null;
+    function step(ts){ if(!t0) t0=ts; var p=(ts-t0)/650;
+      if(p>=1){ list.scrollLeft=0; fades(); return; }
+      list.scrollLeft=26*Math.sin(p*Math.PI); requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  },700);
+})();
+</script>
 
 <!-- PTR:BEGIN — pull-to-refresh (standing element, added Nov 1, 2026 at Dave's direction; edition rebuilds must preserve this block) -->
 <style>
