@@ -121,3 +121,15 @@ the way out is a 56px ✕ button (top right, unmissable), a tap on the backdrop,
 Markup and script travel together in the one block (a sibling page once shipped viewer
 markup after its scripts and taps silently did nothing — never split this block).
 Every edition rebuild must PRESERVE it verbatim.
+
+
+**Standing element — tip jar crossings with the pause (added Nov 5, 2026, at Dave's
+direction):** the front page carries a `TIPFLY:BEGIN … TIPFLY:END` block before
+`</body>` — the traveling tip jar (the sister paper's repertoire: race / tumble /
+march / bounce / sneak / victory, first crossing ~40s after load, then about one
+every couple of minutes, smoke puffs on the race, all skipped under
+prefers-reduced-motion). Dave's rule: **on every crossing the jar PAUSES about a
+second directly underneath the Tip Jar pill** (its position is measured from the
+pill's live rect, it settles just below the pill with a small bow, and the pill
+glows during the pause) — then continues its route unchanged. Every edition
+rebuild must PRESERVE this block verbatim.

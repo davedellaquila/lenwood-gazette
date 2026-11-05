@@ -354,5 +354,94 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden
 })();
 </script>
 <!-- LBX:END -->
+
+<!-- TIPFLY:BEGIN — tip jar crossings with the pause under the pill (standing element, added Nov 5, 2026 at Dave's direction; edition rebuilds must preserve this block verbatim). The traveling jar (the Fiddletown repertoire, mirrored) pauses ~1s directly underneath the Tip Jar pill on every crossing, and the pill glows during the pause. Skipped entirely under prefers-reduced-motion. -->
+<style>
+.header-tip{transition:box-shadow .25s ease}
+.header-tip.tip-glow{box-shadow:0 0 0 3px #ffd54f,0 6px 22px rgba(124,77,255,.65)}
+.jar-flyby{position:fixed;left:-70px;font-size:34px;z-index:999;pointer-events:none;text-shadow:0 6px 14px rgba(0,0,0,.25);will-change:transform}
+.jar-puff{position:fixed;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,rgba(235,230,220,.85),rgba(235,230,220,0) 70%);filter:blur(3px);z-index:998;pointer-events:none;animation:jar-pufffade .95s ease-out forwards}
+@keyframes jar-pufffade{from{transform:scale(.6);opacity:.9}to{transform:scale(2.4) translateY(-10px);opacity:0}}
+</style>
+<script>
+(function(){
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var DWELL = 1000; /* the pause under the pill, ms (Dave, Nov 5 2026) */
+  /* stops: [offset, x in vw, y px, rotate deg, scale, rotateY deg] — the Gazette repertoire */
+  var MODES = {
+    race:   {dur:1700, top:58, puffs:true,  ease:function(p){return p*p;}, stops:[[0,0,0,0,1,0],[1,118,0,24,1,0]]},
+    tumble: {dur:2800, top:72, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.25,28,-18,270,1,0],[.5,56,0,540,1,0],[.75,84,-18,810,1,0],[1,114,0,1080,1,0]]},
+    march:  {dur:4800, top:52, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.12,13,0,0,1.35,0],[.25,27,0,0,.78,0],[.37,40,0,0,1.35,0],[.5,54,0,0,.78,0],[.62,67,0,0,1.35,0],[.75,81,0,0,.78,0],[.87,94,0,0,1.35,0],[1,112,0,0,1,0]]},
+    bounce: {dur:3000, top:66, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.15,16,-46,0,1,0],[.3,32,0,0,1,0],[.45,48,-38,0,1,0],[.6,64,0,0,1,0],[.75,80,-26,0,1,0],[.9,96,0,0,1,0],[1,114,-8,0,1,0]]},
+    sneak:  {dur:5400, top:36, size:26, ease:function(p){return p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;}, stops:[[0,0,0,-8,1,0],[.35,38,0,-8,1,0],[.55,38,0,6,1,0],[.62,38,0,-8,1,0],[1,114,0,-8,1,0]]},
+    victory:{dur:4600, top:60, ease:function(p){return p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;}, stops:[[0,0,0,0,1,0],[.42,110,0,0,1,0],[.5,110,0,0,1,180],[.92,-4,0,0,1,180],[1,-14,0,0,1,180]]}
+  };
+  var NAMES = Object.keys(MODES), last = -1;
+  function interp(stops, p){
+    for (var i=1;i<stops.length;i++){
+      if (p<=stops[i][0] || i===stops.length-1){
+        var a=stops[i-1], b=stops[i], span=(b[0]-a[0])||1, q=Math.min(1,Math.max(0,(p-a[0])/span)), out=[];
+        for (var k=1;k<6;k++) out.push(a[k]+(b[k]-a[k])*q);
+        return out;
+      }
+    }
+    return stops[stops.length-1].slice(1);
+  }
+  function pauseOffset(stops, xStar){
+    for (var i=1;i<stops.length;i++){
+      var a=stops[i-1], b=stops[i];
+      if (b[1]>=xStar && b[1]>a[1]) return a[0]+(b[0]-a[0])*((xStar-a[1])/(b[1]-a[1]));
+    }
+    return 0.5;
+  }
+  function cross(){
+    if (document.hidden){ schedule(); return; }
+    var i; do { i=Math.floor(Math.random()*NAMES.length); } while (i===last);
+    last=i; var name=NAMES[i], M=MODES[name];
+    var pill=document.querySelector('.header-tip');
+    var jar=document.createElement('div');
+    jar.textContent='\u{1FAD9}'; jar.className='jar-flyby'; jar.setAttribute('aria-hidden','true');
+    jar.style.top=M.top+'px'; if (M.size) jar.style.fontSize=M.size+'px';
+    document.body.appendChild(jar);
+    var vw=window.innerWidth, jarW=jar.offsetWidth||40, jarH=jar.offsetHeight||40;
+    var pillCX=vw-70, pillBottomY=M.top+jarH, xStar=38;
+    if (pill){ var r=pill.getBoundingClientRect(); pillCX=r.left+r.width/2; pillBottomY=r.bottom; }
+    xStar=(pillCX - jarW/2 + 70)*100/vw;               /* jar-centre x (in vw travel units) that sits directly under the pill */
+    var f=pauseOffset(M.stops, xStar);                  /* route offset where that happens */
+    var tP=f*M.dur, T=M.dur+DWELL, start=null, iv=null, glowing=false;
+    if (M.puffs){
+      iv=setInterval(function(){
+        var r=jar.getBoundingClientRect(); if(!r.width){clearInterval(iv);return;}
+        var s=document.createElement('div'); s.className='jar-puff';
+        s.style.left=(r.left+r.width*0.2)+'px'; s.style.top=(r.top+r.height*0.6)+'px';
+        document.body.appendChild(s); setTimeout(function(){s.remove();},1000);
+      },90);
+    }
+    function frame(ts){
+      if (start===null) start=ts;
+      var el=ts-start;
+      if (el>=T){ if (iv) clearInterval(iv); if (pill) pill.classList.remove('tip-glow'); jar.remove(); schedule(); return; }
+      var p, dwellP=-1;
+      if (el<tP) p=el/M.dur;
+      else if (el<tP+DWELL){ p=f; dwellP=(el-tP)/DWELL; }
+      else p=(el-DWELL)/M.dur;
+      var v=interp(M.stops, M.ease(Math.min(1,p)));
+      var x=v[0]/100*vw, y=v[1], rot=v[2], sc=v[3], ry=v[4];
+      if (dwellP>=0){
+        var targetY=pillBottomY+6-(M.top), lift=Math.sin(Math.PI*dwellP);
+        y += (targetY-y)*lift;                        /* settle directly underneath the pill */
+        sc *= 1+0.16*Math.sin(Math.PI*dwellP);        /* a small bow while it waits */
+        if (!glowing){ glowing=true; if (pill) pill.classList.add('tip-glow'); }
+      } else if (glowing){ glowing=false; if (pill) pill.classList.remove('tip-glow'); }
+      jar.style.transform='translateX('+x+'px) translateY('+y+'px) rotate('+rot+'deg) rotateY('+ry+'deg) scale('+sc+')';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  function schedule(){ setTimeout(cross, 100000 + Math.random()*60000); }
+  setTimeout(cross, 40000);
+})();
+</script>
+<!-- TIPFLY:END -->
 </body>
 </html>
