@@ -367,6 +367,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden
 (function(){
   if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var DWELL = 1000; /* the pause under the pill, ms (Dave, Nov 5 2026) */
+  /* Pause effects (Dave, Nov 5 2026): one picked at random per pause, never the same
+     twice in a row. Each returns extra {dy, drot, ds} for dwell progress p in [0,1]
+     and lands back at neutral at p=1 so the crossing resumes without a snap. */
+  var EFFECTS = [
+    {name:'spin',    fn:function(p){ return {dy:0, drot:360*(1-Math.pow(1-p,3)), ds:1}; }},
+    {name:'bounce',  fn:function(p){ return {dy:-20*Math.abs(Math.sin(2*Math.PI*p)), drot:0, ds:1}; }},
+    {name:'expand',  fn:function(p){ return {dy:0, drot:0, ds:1+0.5*Math.sin(Math.PI*Math.pow(p,0.8))}; }},
+    {name:'grow',    fn:function(p){ var g = p<0.85 ? (p/0.85) : (1-(p-0.85)/0.15); return {dy:0, drot:0, ds:1+0.45*g}; }},
+    {name:'shrink',  fn:function(p){ return {dy:0, drot:0, ds:1-0.45*Math.sin(Math.PI*p)}; }},
+    {name:'pulsate', fn:function(p){ return {dy:0, drot:0, ds:1+0.22*Math.sin(4*Math.PI*p)}; }}
+  ];
+  var lastFx = -1;
   /* stops: [offset, x in vw, y px, rotate deg, scale, rotateY deg] — the Gazette repertoire */
   var MODES = {
     race:   {dur:1700, top:58, puffs:true,  ease:function(p){return p*p;}, stops:[[0,0,0,0,1,0],[1,118,0,24,1,0]]},
@@ -398,6 +410,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden
     if (document.hidden){ schedule(); return; }
     var i; do { i=Math.floor(Math.random()*NAMES.length); } while (i===last);
     last=i; var name=NAMES[i], M=MODES[name];
+    var fi; do { fi=Math.floor(Math.random()*EFFECTS.length); } while (fi===lastFx); lastFx=fi; var FX=EFFECTS[fi].fn;
     var pill=document.querySelector('.header-tip');
     var jar=document.createElement('div');
     jar.textContent='\u{1FAD9}'; jar.className='jar-flyby'; jar.setAttribute('aria-hidden','true');
@@ -430,7 +443,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden
       if (dwellP>=0){
         var targetY=pillBottomY+6-(M.top), lift=Math.sin(Math.PI*dwellP);
         y += (targetY-y)*lift;                        /* settle directly underneath the pill */
-        sc *= 1+0.16*Math.sin(Math.PI*dwellP);        /* a small bow while it waits */
+        var fx=FX(dwellP);                            /* this pause's effect (Dave's menu) */
+        y += fx.dy; rot += fx.drot; sc *= fx.ds;
         if (!glowing){ glowing=true; if (pill) pill.classList.add('tip-glow'); }
       } else if (glowing){ glowing=false; if (pill) pill.classList.remove('tip-glow'); }
       jar.style.transform='translateX('+x+'px) translateY('+y+'px) rotate('+rot+'deg) rotateY('+ry+'deg) scale('+sc+')';

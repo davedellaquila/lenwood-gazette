@@ -131,5 +131,9 @@ every couple of minutes, smoke puffs on the race, all skipped under
 prefers-reduced-motion). Dave's rule: **on every crossing the jar PAUSES about a
 second directly underneath the Tip Jar pill** (its position is measured from the
 pill's live rect, it settles just below the pill with a small bow, and the pill
-glows during the pause) — then continues its route unchanged. Every edition
+glows during the pause) — and during the pause the jar performs ONE brief effect
+picked at random from Dave's menu (spin · bounce · expand · grow · shrink ·
+pulsate), never the same effect twice in a row — then continues its route
+unchanged. Every effect lands back at neutral as the pause ends, so the
+crossing resumes without a snap, and the system works across all six gaits. Every edition
 rebuild must PRESERVE this block verbatim.
