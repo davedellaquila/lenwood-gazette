@@ -152,3 +152,23 @@ two sizes above the old 116% maximum — this scale's 155% top clears that with
 room to spare, and the steps stay ~8–10 points apart (extended, not stretched). The choice persists per
 reader in localStorage under 'lg-font-size'. (Same control and same rebase on the
 sister paper; her storage key is 'fg-font-size'.)
+
+
+**Standing element — visitor counter beacon (Analytics Buddy; endpoint pending,
+recorded Nov 6, 2026):** Dave chose a Dave-owned Cloudflare Worker counter for the
+fleet (this paper, Fiddletown, the dashboard, dellaquila.com): unique visitors per
+page/edition via a daily-rotating salted hash (sha256 of daily salt | site | IP |
+UA) — hashes only, deleted at day close, no cookies, no raw IPs, aggregate counts
+only. **Once Analytics Buddy confirms the live ENDPOINT (Dave's one deploy step),
+wire it the same day, exactly:**
+- Add `<script async src="https://<ENDPOINT>/beacon.js" data-site="lenwood-gazette"></script>`
+  to the front page, the Editions Archive, and every future edition snapshot
+  (snapshots are born carrying it; counts are fetched live at view time, so frozen
+  snapshots are NEVER edited after publication to change a count).
+- Show counts with `<span data-visitor-count></span>` (counts the page it sits on);
+  on archive listings use `<span data-visitor-count data-count-path="/editions/YYYY-MM-DD-<edition>.html"></span>`.
+- NEVER ship the literal placeholder `<ENDPOINT>` — the real endpoint comes from
+  Analytics Buddy. Editions published before the beacon lands cannot be counted
+  retroactively; they start at zero under a "counting since <go-live date>" note.
+Once wired, this beacon is a preserved standing element — rebuilds keep it like
+PTR / LBX / TIPFLY / fsctl.
