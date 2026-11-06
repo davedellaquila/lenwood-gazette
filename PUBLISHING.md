@@ -143,10 +143,12 @@ rebuild must PRESERVE this block verbatim.
 Dave's direction):** the front page and archive carry Dave's text-size control in the
 top bar (small A · five dots · big A, before the Tip Jar; boot script `fsctl-boot` +
 `fsctl-style` in the head, behavior script `fsctl-script` before </body> — preserve
-all three pieces in every rebuild). **The scale, rebased Nov 5, 2026:** five levels —
-**1 = 100%, 2 = 108%, 3 = 116%, 4 = 125%, 5 = 135%** — where level 1 (100%, the old
-middle "normal") is both the SMALLEST setting and the DEFAULT: a reader who never
-touches the control gets exactly today's reading size, and the steps climb to a top
-(135%) genuinely larger than the old scale's 116% maximum. The choice persists per
+all three pieces in every rebuild). **The scale, rebased Nov 5, 2026 (with Dave's ceiling amendment the same evening):**
+seven levels — **1 = 100%, 2 = 108%, 3 = 116%, 4 = 125%, 5 = 135%, 6 = 145%,
+7 = 155%** — where level 1 (100%, the old middle "normal") is both the SMALLEST
+setting and the DEFAULT: a reader who never touches the control gets exactly
+today's reading size. Standing spec: floor = the old normal, ceiling = at least
+two sizes above the old 116% maximum — this scale's 155% top clears that with
+room to spare, and the steps stay ~8–10 points apart (extended, not stretched). The choice persists per
 reader in localStorage under 'lg-font-size'. (Same control and same rebase on the
 sister paper; her storage key is 'fg-font-size'.)
