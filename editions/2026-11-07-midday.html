@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10262e">
+
+<title>The Lenwood Gazette — San Jose &amp; the Santa Clara Valley</title>
+<meta name="description" content="A public hyperlocal daily newspaper for San Jose and the Santa Clara Valley: the safety news residents need, plus the valley's public events. Updated all day.">
+<style>
+:root{--bg:#eef3f2;--paper:#ffffff;--text:#10262e;--muted:#5b6f76;--border:#c9d8d5;--ink:#10262e;--accent:#0b7285;--gold:#e07a1f;--ok:#177245}
+@media (prefers-color-scheme: dark){:root{--bg:#0b1418;--paper:#152329;--text:#e8f2f0;--muted:#9db4b8;--border:#2c4148;--ink:#e8f2f0;--accent:#4dd0e1;--gold:#ffb35c;--ok:#5fd08a}}
+*{box-sizing:border-box;margin:0;padding:0} body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text);line-height:1.55;padding:0 16px 48px;max-width:1020px;margin:0 auto;overflow-x:hidden}
+a{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;background:var(--bg);border-bottom:3px double var(--ink);padding:10px 2px;font-family:-apple-system,sans-serif;font-weight:700;flex-wrap:wrap}
+.topbar nav{margin-left:auto;display:flex;gap:14px;font-size:13.5px}.topbar nav a{color:var(--text);text-decoration:none}.topbar nav a:hover{text-decoration:underline}
+.masthead{text-align:center;padding:30px 8px 16px}
+.kicker{font-family:-apple-system,sans-serif;letter-spacing:.22em;text-transform:uppercase;font-size:11px;color:var(--gold);font-weight:800}
+.masthead h1{font-size:clamp(36px,7.5vw,64px);line-height:1.02;margin:8px 0 6px}
+.dateline{color:var(--muted);font-style:italic}
+.weatherbug{display:inline-block;margin-top:10px;border:1px solid var(--border);border-radius:999px;padding:5px 14px;background:var(--paper);font-size:13.5px;font-family:-apple-system,sans-serif}
+.rule{height:4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:16px 0}
+.banner{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--paper));border-radius:12px;padding:16px 20px;margin-bottom:18px}
+.banner b{color:var(--accent)}
+.grid{display:grid;grid-template-columns:1fr;gap:22px}@media(min-width:760px){.grid{grid-template-columns:2fr 1fr}}
+h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:26px 0 12px}
+.lead h2{border-bottom:0;font-size:clamp(26px,4.5vw,38px);line-height:1.15;margin-top:0}
+.item{padding:10px 0;border-bottom:1px dashed var(--border)}.item:last-child{border-bottom:0}
+.meta{font-family:-apple-system,sans-serif;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.empty{color:var(--muted);font-style:italic;padding:8px 0}
+.sky{background:#0a1626;border-radius:10px;padding:10px;margin-bottom:12px}
+.sky svg{display:block;width:100%;height:auto}
+.sky text{font-family:-apple-system,sans-serif;fill:#cfe3ff}
+.sky .lbl{font-size:10.5px;font-weight:700}
+.sky .sub{font-size:8.5px;fill:#8fb0d8}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.footer{margin-top:44px;padding-top:18px;border-top:3px double var(--ink);color:var(--muted);font-size:13.5px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+.header-tip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:.45em;padding:6px 12px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:800;line-height:1;color:#fff;background:linear-gradient(135deg,#7c4dff,#b388ff);box-shadow:0 4px 14px rgba(124,77,255,.35);animation:tip-breathe 3.2s ease-in-out infinite;white-space:nowrap;font-family:-apple-system,sans-serif}
+.header-tip::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%);transform:translateX(-110%);animation:tip-sheen 8s ease-in-out infinite}
+.header-tip .jar{display:inline-block;font-size:1.1em}.header-tip:hover .jar{animation:tip-spin .7s cubic-bezier(.34,1.56,.64,1)}
+.header-tip:focus-visible{outline:3px solid #ffd54f;outline-offset:3px}
+@keyframes tip-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes tip-sheen{0%{transform:translateX(-110%)}16%{transform:translateX(110%)}100%{transform:translateX(110%)}}
+@keyframes tip-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.header-tip,.header-tip:hover .jar{animation:none}.header-tip::after{display:none}}
+
+@media (max-width:640px){
+.topbar{flex-wrap:wrap;gap:6px 10px;padding:8px 2px}
+.topbar>span{font-size:14px;white-space:nowrap}
+.topbar nav{order:3;flex:1 1 100%;margin-left:0;gap:16px;font-size:13px;flex-wrap:wrap}
+.topbar nav a{white-space:nowrap}
+.topbar .header-tip{margin-left:auto;font-size:12.5px;padding:6px 11px;flex:none}
+}
+</style>
+<style>
+/* Ticker bar (Dave, Nov 4, 2026 — ported from The Fiddletown Gazette, where Dave designed it):
+   the IN THIS EDITION strip is ONE sticky row in ticker style — it sticks under the topbar and the
+   section list slides horizontally (drag with mouse, swipe on touch). The builder script at the end
+   of the page generates the items live from the page's own <h2>s; static items are a no-JS fallback. */
+#toc{position:sticky;top:52px;z-index:55;display:flex;align-items:center;gap:10px;background:var(--bg);border-top:3px double var(--ink);border-bottom:1px solid var(--border);padding:7px 0;margin:16px 0 6px}
+.ticker-slug{flex:none;font-family:-apple-system,sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+.ticker-wrap{position:relative;flex:1;min-width:0}
+#toc-list{display:flex;flex-wrap:nowrap;align-items:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-y;-webkit-overflow-scrolling:touch}
+#toc-list::-webkit-scrollbar{display:none}
+#toc-list.dragging{cursor:grabbing}
+#toc-list.dragging a{pointer-events:none}
+.ticker-item{flex:none;white-space:nowrap;color:var(--text);text-decoration:none;font-family:-apple-system,sans-serif;font-size:13px;font-weight:600;line-height:1.5;padding:3px 0}
+.ticker-item:hover{color:var(--accent)}
+.ticker-item + .ticker-item::before{content:'•';margin:0 9px;color:var(--gold);font-weight:400}
+.ticker-arch{color:var(--gold);font-weight:700}
+.ticker-fade{position:absolute;top:0;bottom:0;width:46px;pointer-events:none;display:flex;align-items:center;transition:opacity .25s}
+.ticker-fade.right{right:0;justify-content:flex-end;background:linear-gradient(to right,transparent,var(--bg) 78%)}
+.ticker-fade.left{left:0;justify-content:flex-start;background:linear-gradient(to left,transparent,var(--bg) 78%);opacity:0}
+.ticker-fade .chev{font-family:-apple-system,sans-serif;font-size:20px;font-weight:800;color:var(--accent);padding:0 2px;animation:ticker-chev 1.8s ease-in-out infinite}
+@keyframes ticker-chev{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@media (prefers-reduced-motion: reduce){.ticker-fade .chev{animation:none}}
+@media (max-width:640px){.ticker-slug{display:none}.ticker-item{font-size:12.5px}}
+[id]{scroll-margin-top:112px}
+@media (max-width:640px){[id]{scroll-margin-top:150px}}
+</style>
+<script id="fsctl-boot">/* Text-size control (Dave, Nov 5, 2026): apply the reader's saved level before first paint. REBASED scale (Dave, Nov 5): level 1 = 100% (the old "normal") is the smallest setting AND the default; the scale climbs from there. */
+try{var n=parseInt(localStorage.getItem('lg-font-size'),10);if(!(n>=0&&n<=6))n=0;document.documentElement.classList.add('fs-'+n);}catch(e){document.documentElement.classList.add('fs-0');}</script>
+<style id="fsctl-style">
+/* Text-size control (Dave, Nov 5, 2026): five reader-chosen levels — small A, five dots, big A in the
+   top bar before the Tip Jar (Dave's design, same as the sister paper). REBASED SCALE (Dave, Nov 5, 2026):
+   level 1 = 100% (what used to be the middle "normal"), then 108% / 116% (the old maximum) /
+   125% / 135% / 145% / 155% — seven levels, ceiling well past two sizes above the old top (Dave's amendment). The default is level 1, so an untouched paper reads exactly as before;
+   the choice persists in localStorage ('lg-font-size'). Standing element — preserve in every rebuild. */
+html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}html.fs-4{zoom:1.35}html.fs-5{zoom:1.45}html.fs-6{zoom:1.55}
+.fsctl{display:flex;align-items:center;gap:7px;flex:none}
+.fs-btn{background:none;border:none;color:var(--text);cursor:pointer;font-family:Georgia,serif;font-weight:700;line-height:1;padding:4px 2px;-webkit-tap-highlight-color:transparent}
+.fs-btn.fs-down{font-size:11px}
+.fs-btn.fs-up{font-size:18px}
+.fs-btn[disabled]{opacity:.3;cursor:default}
+.fs-dots{display:flex;gap:5px}
+.fs-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--muted,#6b6259);background:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.fs-dot.on{background:var(--gold);border-color:var(--gold)}
+@media (max-width:640px){.fsctl{gap:5px}.fs-dot{width:8px;height:8px}}
+</style>
+</head>
+<body>
+<div class="topbar"><span>🗞️ The Lenwood Gazette</span><nav><a href="index.html">Front Page</a><a href="archive.html">Editions Archive</a><a href="#colophon">About</a></nav><div class="fsctl" role="group" aria-label="Text size"><button type="button" class="fs-btn fs-down" id="fs-down" aria-label="Smaller text">A</button><span class="fs-dots"><button type="button" class="fs-dot" data-lvl="0" aria-label="Text size level 1 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="1" aria-label="Text size level 2 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="2" aria-label="Text size level 3 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="3" aria-label="Text size level 4 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="4" aria-label="Text size level 5 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="5" aria-label="Text size level 6 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="6" aria-label="Text size level 7 of 7" aria-pressed="false"></button></span><button type="button" class="fs-btn fs-up" id="fs-up" aria-label="Larger text">A</button></div><a class="header-tip" href="https://ko-fi.com/davedellaquila" target="_blank" rel="noopener" aria-label="Tip Jar — if this page helped you, you can leave Dave a tip on Ko-fi"><span class="jar" aria-hidden="true">🫙</span><span>Tip Jar</span></a></div>
+
+<header class="masthead">
+  <div class="kicker">San Jose &amp; the Santa Clara Valley · Updated all day</div>
+  <h1>The Lenwood Gazette</h1>
+  <p class="dateline"><!-- EDITION:DATE -->Saturday, November 7, 2026<!-- /EDITION:DATE --> · <!-- EDITION:NAME -->Midday Edition — published 12:30 PM PT<!-- /EDITION:NAME --></p>
+  <div><span class="weatherbug">🌤️ <!-- WEATHER:BUG -->☀️ Mostly sunny this afternoon, high 78°F · Tonight partly cloudy, low 52°F · Sunday mostly sunny 74°F · Sunrise 6:38 AM PST · Sunset 5:03 PM PST (NWS — Lenwood / South San Jose)<!-- /WEATHER:BUG --></span></div>
+  <div class="rule"></div>
+</header>
+
+<!-- BANNER: out-of-cycle safety banner is injected here by the hourly poll when a qualifying event breaks. -->
+<div id="safety-banner"></div>
+
+<nav id="toc" aria-label="Table of contents">
+<span class="ticker-slug" aria-hidden="true">In this edition</span>
+<div class="ticker-wrap">
+<div id="toc-list"><a class="ticker-item" href="#the-lead">The Lead</a><a class="ticker-item" href="#safety-wire">🚨 Need to Know — the Safety Wire</a><a class="ticker-item" href="#weather-events">🌦️ Weather Events — the sky as news</a><a class="ticker-item" href="#today-events">Today in the Valley</a><a class="ticker-item" href="#week-events">The Week Ahead</a><a class="ticker-item" href="#car-shows">🏁 Car Shows — the Bay Area circuit</a><a class="ticker-item" href="#community-wire">The Community Wire</a><a class="ticker-item" href="#around-town">Around Town</a><a class="ticker-item" href="#weather">Weather</a><a class="ticker-item" href="#history">📜 This Day in History</a><a class="ticker-item" href="#star-chart">⭐ Star Chart — tonight over the valley</a><a class="ticker-item ticker-arch" href="archive.html">📚 Editions Archive</a></div>
+<div class="ticker-fade left" id="ticker-fade-l" aria-hidden="true"><span class="chev">‹</span></div>
+<div class="ticker-fade right" id="ticker-fade-r" aria-hidden="true"><span class="chev">›</span></div>
+</div>
+</nav>
+
+<section class="lead" id="the-lead">
+  <p class="meta">The Lead</p>
+  <h2><!-- LEAD:HEADLINE -->Midday on the warmest Saturday of the run: Roots and Diwali still ahead this afternoon, no alerts — and tonight’s clouds now only partly cloudy<!-- /LEAD:HEADLINE --></h2>
+  <p><!-- LEAD:BODY -->San Jose is at the warm peak at midday — mostly sunny near 78°F this afternoon, temperatures easing toward 70°F later — and the day’s headline events are still ahead or still running. Downtown, History San José’s free San José Roots festival runs until 4:00 PM at San Pedro Square Market, and the Children’s Discovery Museum’s Diwali: Festival of Lights runs until 3:30 PM. The car-show afternoon is still live too: the Cathedral of Faith toy-drive show in South San Jose runs until 3:00 PM, Gilroy’s toy drive at Christmas Hill Park until 4:00 PM, and Hot Rods at the Beach in Santa Cruz until 4:00 PM — then the Los Gatos Saturday cruise gathers from 5:00 PM for a 6:30 PM departure. The safety picture stays quiet at midday — the National Weather Service lists no alerts in effect for the Lenwood / South San Jose point (feed updated 12:25 PM PT), the county lists no current alerts and no current disasters, and no major valley freeway closure was verified — with the weekend’s three road-work items still in effect (see Safety Wire). One forecast change helps tonight: the NWS now calls tonight partly cloudy near 52°F, an improvement on the morning’s mostly cloudy, which gives Saturn a better early-evening window before the 5:03 PM sunset’s dark (see Star Chart, carried forward). SAP Center is dark tonight — the Sharks are in Dallas at 5:00 PM PT — and Godzilla Minus Zero continues at The Tech ahead of tomorrow’s free National STEM Day Community Day.<!-- /LEAD:BODY --></p>
+</section>
+
+<div class="grid">
+<main>
+  <h2>🚨 Need to Know — the Safety Wire</h2>
+  <div id="safety-wire">
+    <div class="item"><p><b>No alerts in effect for San Jose at midday.</b> The National Weather Service active-alerts feed for the Lenwood / South San Jose point (37.20893, −121.85216) returned no watches, warnings, or advisories at midday press time (feed updated 12:25 PM PT), and Santa Clara County’s Office of Emergency Management lists no current alerts and no current disasters. Anything qualifying posts a banner here the hour it is verified. Sources: <a href="https://api.weather.gov/alerts/active?point=37.20893,-121.85216">NWS — active alerts for this point</a> · <a href="https://oem.santaclaracounty.gov/current-alerts-and-disasters">County OEM — Current Disasters and Alerts</a></p></div>
+    <div class="item"><p><b>No major valley freeway closure verified at midday.</b> The CHP Golden Gate / Caltrans check found no banner-grade closure on the valley freeways — 87, 101, 280, 680, 880, or 85. The planned closures below remain the weekend’s known work, not incidents.</p></div>
+    <div class="item"><p><b>Still in effect all weekend: all southbound US-101 at San Francisco’s Hospital Curve is closed.</b> Caltrans’ final weekend closure for the Bayshore Freeway rehabilitation runs through Monday, Nov 9 at 6:00 AM — all southbound lanes between 17th Street and Cesar Chavez Street, with several on-ramps and the westbound I-80 connector also closed; northbound lanes stay open, and Caltrans advises southbound I-280 as the alternate. Sources: <a href="https://dot.ca.gov/caltrans-near-me/district-4/d4-projects/d4-san-francisco-freeway-and-road-rehabilitation">Caltrans District 4 — San Francisco Freeway &amp; Road Rehabilitation</a></p></div>
+    <div class="item"><p><b>Still in effect today: weekend ramp closures at I-280 and Wolfe Road.</b> VTA’s notices list weekend ramp closures and overnight work at the I-280 / Wolfe Road interchange through Sunday, Nov 8 at 5:00 AM. Source: <a href="http://www.vta.org/projects/notices?project_program=966">VTA — Notices</a></p></div>
+    <div class="item"><p><b>Capitol corridor night work resumes tonight at 10:00 PM.</b> VTA’s Eastridge to BART work keeps its night pattern: a northbound Capitol Expressway closure through Nov 9 and a northbound Capitol Expressway lane closure for soundwall removal through Nov 10, both on night hours (10:00 PM–5:30 AM). Daytime travel is not affected. Sources: <a href="https://www.vta.org/projects/notices/ebrc-road-closure-northbound-capitol-expressway-1025-119">VTA — Capitol Expressway closure, Oct 25–Nov 9</a> · <a href="http://www.vta.org/projects/notices/ebrc-lane-closure-soundwall-removal-northbound-capitol-expy-111-1110">VTA — Capitol Expressway lane closure, Nov 1–10</a></p></div>
+    <p class="meta">Checked at midday press time · AlertSCC · City of San Jose · SJFD/SJPD public feeds · CHP Golden Gate · NWS Bay Area · Valley Water (no flood notice found) · VTA · Re-polled hourly between editions</p>
+  </div>
+
+  <h2>🌦️ Weather Events — the sky as news</h2>
+  <div id="weather-events">
+    <div class="item"><p><b>The warm peak is holding at midday: mostly sunny near 78°F this afternoon, easing toward 70°F later.</b> The National Weather Service forecast for the Lenwood point gives a mostly sunny afternoon with north-northwest wind 3 to 7 mph. No storm system, atmospheric river, heat or freeze event, wind event, or flood notice is in the picture, and Valley Water posted no flood notice at midday press time. Nothing here is safety-relevant; the Safety Wire stays quiet.</p>
+    <p><b>What changed since morning, and what is ahead:</b> tonight is now <b>partly cloudy, low near 52°F</b> — an improvement on the morning’s mostly cloudy near 51°F, and a better early-evening window for Saturn. Sunday turns mostly sunny near 74°F, Monday mostly sunny near 74°F, Tuesday sunny near 75°F, and Veterans Day (Wed Nov 11) is now sunny near <b>80°F</b> — warmer than the morning outlook. The dry stretch also lengthened: Wednesday night is now mostly clear with no rain hint, Thursday is mostly sunny near 75°F, and the first rain chance now holds off until late Thursday night (a slight chance after 4:00 AM), with Friday near 70°F and a chance of light rain. Anything safety-relevant moves up into the Safety Wire, and into a banner when it qualifies.</p>
+    <p class="meta">Sources: <a href="https://api.weather.gov/gridpoints/MTR/99,76/forecast">National Weather Service — forecast for the Lenwood point (MTR 99,76)</a> · NWS Bay Area</p></div>
+  </div>
+
+  <h2>Today in the Valley — Saturday, November 7</h2>
+  <div id="today-events">
+    <div class="item"><p><b>Still running until 3:30 PM — Diwali: Festival of Lights</b> · Children’s Discovery Museum of San Jose, 180 Woz Way. Diya lamp making, Rangoli artwork, music and dance — included with museum admission, on the eve of Diwali itself (Sunday). Source: <a href="https://www.cdm.org/event/diwali/">Children’s Discovery Museum — Diwali: Festival of Lights</a></p></div>
+    <div class="item"><p><b>Still running until 4:00 PM — San José Roots</b> · San Pedro Square Market, downtown. History San José’s free, family-friendly festival celebrating the valley’s Spanish and Mexican eras, with hands-on activities, historic-home tours, and cultural performances. Source: <a href="https://sd15.senate.ca.gov/news/harvest-hues-hometown-news-season-gratitude-senate-district-15">Sen. Dave Cortese — San José Roots listing</a></p></div>
+    <div class="item"><p><b>Afternoon at the library.</b> Still ahead: Everyone Can Create: Emoji Art at King Library (3:00–4:30 PM) and 3D printing workshops at Almaden (4:00–5:00 PM), plus the all-day Gratitude Tree at Vineland and West Valley and the Día de Muertos Community Ofrenda at Bascom. The morning’s Teen Hacks, Evergreen 20th anniversary, and Almaden book sale have wrapped or are wrapping. Source: <a href="https://sjpl.bibliocommons.com/v2/events?audiences=5d5f0913be771f230036938d%2C5d714d6c4464033900bac7c2&amp;page=2">San José Public Library — Events, Nov 7</a></p></div>
+    <div class="item"><p><b>Continuing in its run — Godzilla Minus Zero</b> · The Tech Interactive, IMAX Dome, through Nov 15 — and tomorrow the museum opens free for its National STEM Day Community Day (see Week Ahead). Source: <a href="https://www.thetech.org/tti-hours-of-operation/hours-of-operation-calendar/">The Tech Interactive — Hours &amp; Events Calendar</a></p></div>
+    <div class="item"><p><b>5:00 PM PT — Sharks at Dallas (away).</b> SAP Center is dark tonight: San Jose plays the Stars in Dallas at 5:00 PM PT, closing the road trip before Monday’s home game against the Islanders. Source: <a href="https://www.nhl.com/news/nhl-on-tap-news-and-notes-november-7-2026">NHL.com — On Tap, November 7</a></p></div>
+    <div class="item"><p><b>Car-show afternoon still live, evening cruise ahead.</b> Cathedral of Faith toy-drive show until 3:00 PM, Gilroy toy drive and Hot Rods at the Beach (Santa Cruz) until 4:00 PM, then the Los Gatos Saturday cruise — gathering from 5:00 PM, departure 6:30 PM. Full circuit in 🏁 Car Shows below (carried forward).</p></div>
+    <p class="meta">Events desk: City of San Jose listings · SAP Center / Tech CU Arena (dark tonight — Sharks away) · San Jose Theaters (no headline event separately verified for today) · Children’s Discovery Museum · The Tech Interactive · San José Public Library — public listings only, each credited to its source.</p>
+  </div>
+
+  <h2>The Week Ahead</h2>
+  <div id="week-events">
+    <div class="item"><p><b>Today, Sat Nov 7 — the warm peak, afternoon still ahead.</b> San José Roots downtown until 4:00 PM (free), Diwali at the Children’s Discovery Museum until 3:30 PM, the library afternoon slate, and the car-show afternoon into the Los Gatos evening cruise — under mostly sunny skies near 78°F, tonight partly cloudy near 52°F. Road work in effect: the Hospital Curve southbound US-101 closure in San Francisco all weekend, I-280 / Wolfe Road ramps today into early Sunday, and Capitol corridor night work from 10:00 PM.</p></div>
+    <div class="item"><p><b>Sun, Nov 8 — National STEM Day: free admission at The Tech, Diwali itself, and the Smashing Pumpkins.</b> The Tech Interactive opens free for its National STEM Day Community Day (11:00 AM–5:00 PM, community booths, hands-on labs and free IMAX films). Sunday is Diwali, the Festival of Lights. In the morning: San Jose Mustangs Cars &amp; Coffee (9:00–11:00 AM) and the Porsche Concours at Los Gatos (from 8:00 AM). At 8:00 PM, The Smashing Pumpkins play SAP Center. Mostly sunny near 74°F. Sources: <a href="https://www.thetech.org/tti-hours-of-operation/hours-of-operation-calendar/">The Tech Interactive — Hours &amp; Events Calendar</a> · <a href="https://www.ticketmaster.com/sap-center-at-san-jose-tickets-san-jose/venue/229393">Ticketmaster — SAP Center at San Jose</a></p></div>
+    <div class="item"><p><b>Mon, Nov 9 — Sharks back home.</b> San Jose hosts the New York Islanders at SAP Center, 7:00 PM. Mostly sunny near 74°F. Source: <a href="https://www.ticketmaster.com/sap-center-at-san-jose-tickets-san-jose/venue/229393">Ticketmaster — SAP Center at San Jose</a></p></div>
+    <div class="item"><p><b>Wed, Nov 11 — Veterans Day.</b> Sunny near 80°F in the updated outlook — the warmest Veterans Day in this run — with Wednesday night now mostly clear and no rain hint. The Morgan Hill Car Meet runs its standing Wednesday meet at 7:30 PM (see Car Shows). VTA’s next Capitol phases run through the week: southbound lane closure Nov 9–17 and S. Capitol Avenue falsework removal Nov 10–17, nights only.</p></div>
+    <div class="item"><p><b>Thu–Fri, Nov 12–13 — the dry stretch softens, later than thought.</b> Thursday is now mostly sunny near 75°F; the first rain chance arrives late Thursday night (slight chance after 4:00 AM), and Friday cools to near 70°F with a chance of light rain.</p></div>
+  </div>
+
+  <h2>🏁 Car Shows — the Bay Area circuit</h2>
+  <div id="car-shows">
+    <p class="meta">South Bay first · This weekend (Nov 7–8) first, then the next two weeks</p>
+    <div class="item"><p><b>Sat Nov 7 — <a href="https://californiacarsandkulture.com/upcoming-events">Cathedral of Faith Toy-Drive Car Show</a></b> · Cathedral of Faith, 2315 Canoas Garden Ave, San Jose · <b>10:00 AM – 3:00 PM</b> (vehicle roll-in 7:00–10:00 AM). All makes, models and years welcome; bring a new unwrapped toy for vehicle entry, spectators free, no pre-registration, rain or shine. South San Jose’s own show leads the weekend.</p></div>
+    <div class="item"><p><b>Sat Nov 7 — <a href="https://californiacarsandkulture.com/upcoming-events">Gilroy Toy Drive at Christmas Hill Park</a></b> · Christmas Hill Park, 7050 Miller Ave, Gilroy · Vehicle roll-in <b>8:00–11:00 AM</b>, toy drive <b>11:00 AM – 4:00 PM</b>. Impalas and classic lowriders, music and raffles; vehicle entry is $10 plus a new, unwrapped toy.</p></div>
+    <div class="item"><p><b>Sat Nov 7 — <a href="https://sf.funcheap.com/2026-hot-rods-beach-hundreds-cars-santa-cruz/">Hot Rods at the Beach</a></b> · Santa Cruz Beach Boardwalk main parking lot, 400 Beach Street, Santa Cruz · <b>8:00 AM – 4:00 PM</b>. The 28th annual show brings hundreds of hot rods, classic cars, customs, and motorcycles to the Boardwalk — the weekend’s worth-the-drive pick over the hill.</p></div>
+    <div class="item"><p><b>Sat Nov 7 — <a href="https://californiacarsandkulture.com/upcoming-events">History in Motion opening, San Mateo County History Museum</a></b> · 2200 Broadway, Redwood City · <b>10:00 AM – 2:00 PM</b>. Free opening of the Taube carriage and automobile galleries, featuring a Pantera, vintage Fords and other historic vehicles — a Peninsula stop worth the short drive north.</p></div>
+    <div class="item"><p><b>Also today around the South Bay:</b> <a href="https://californiacarsandkulture.com/upcoming-events">Mountain View Cars &amp; Coffee</a>, Sat Nov 7, 7:00–10:30 AM at 2410 Charleston Road (monthly) · <a href="https://californiacarsandkulture.com/upcoming-events">Los Gatos Saturday cruise</a> — Classic Burgers gathering from 5:00 PM and the Saturday Night Cruisers departure at 6:30 PM from McDonald’s / Erik’s Deli, 15475 Los Gatos Boulevard, cruising Los Gatos, Campbell and Santana Row, all cars welcome.</p></div>
+    <div class="item"><p><b>Sun Nov 8 — <a href="https://californiacarsandkulture.com/upcoming-events">San Jose Mustangs Cars &amp; Coffee</a></b> · Buffalo Wild Wings, 859 Blossom Hill Road, San Jose · <b>9:00–11:00 AM</b>. All makes welcome, free coffee — a South San Jose Sunday-morning staple, and the organizer’s current listing confirms Sunday, November 8.</p></div>
+    <div class="item"><p><b>Sun Nov 8 — <a href="https://californiacarsandkulture.com/upcoming-events">Porsche Concours at Los Gatos</a></b> · Porsche Service Center Los Gatos, 16151 Los Gatos Boulevard · <b>8:00 AM – 2:00 PM</b>, judging from 10:30 AM. Judged entry $45; exhibition-only display free; spectators welcome.</p></div>
+    <div class="item"><p><b>Wednesdays — <a href="https://carcruisefinder.com/car-shows/category/california/">Morgan Hill Car Meet</a></b> · Morgan Hill · <b>7:30 PM</b> weekly. The standing midweek meet-up for South County gearheads; next meet Wed Nov 11.</p></div>
+    <div class="item"><p><b>Worth the drive — Sat–Sun Nov 14–15: <a href="https://www.good-guys.com/agt-26">Goodguys 36th Fuel Curve Autumn Get-Together</a></b> · Alameda County Fairgrounds, <a href="https://maps.apple.com/?q=4501%20Pleasanton%20Ave%2C%20Pleasanton%2C%20CA%2094566">4501 Pleasanton Ave, Pleasanton</a> · Sat 8 AM–5 PM, Sun 8 AM–4 PM. The final Bay Area Goodguys stop of 2026: 2,500+ American-made cars and trucks, autocross, and a full fairgrounds of chrome. Tickets &amp; registration: <a href="https://www.good-guys.com/agt-26">good-guys.com/agt</a>.</p></div>
+    <div class="item"><p><b>Sun Dec 13 — <a href="https://santanarow.com/event/cars-croissants-on-the-row/">Cars &amp; Croissants on The Row</a></b> · Santana Row, San Jose · <b>9:00 AM – noon</b>. 100|OCT’s premier exotic gathering runs on Sundays in its 2026 season — the next (and last of the year) is Dec 13. Free to attend; displaying an exotic requires a reserved spot.</p></div>
+    <p class="meta" style="margin-top:12px">North Bay</p>
+    <div class="item"><p><b>Sun Nov 8 (2nd Sundays)</b> — <b><a href="https://californiacarsandkulture.com/upcoming-events">Napa Cars &amp; Coffee</a></b>, brewed., 865 Factory Stores Drive, Napa, 8:00–10:00 AM · <b><a href="https://californiacarsandkulture.com/upcoming-events">Santa Rosa Cars &amp; Coffee</a></b>, Farmers Lane shopping center, 8:00–10:00 AM, with the Sunday Hot Rods &amp; Burgers gathering at Machado’s Burgers, Larkfield Center, 11:00 AM–2:00 PM · <b><a href="https://californiacarsandkulture.com/upcoming-events">Rohnert Park cruise-in</a></b>, Hooters, 6099 Redwood Drive, noon–3:00 PM, classic cars 1986 and older.</p></div>
+    <div class="item"><p><b>Sat Nov 14 (2nd Saturdays)</b> — <b><a href="https://myemail.constantcontact.com/Redwood-Region-der-Riesenbaum-July-2026.html?soid=1101594196247&amp;aid=sqVca7fln78">Porsche Marin Motor Social</a></b>, Strawberry Village, Mill Valley, 8:00–10:00 AM. Porsches in the lead, all marques welcome.</p></div>
+    <div class="item"><p><b>Sun Nov 15 (3rd Sundays)</b> — <b><a href="https://www.redwoodv8.net/Events/EventsJan2026(2).pdf">Petaluma Cars &amp; Coffee</a></b>, S. McDowell Blvd near Peet’s, 9:00–11:00 AM.</p></div>
+    <div class="item"><p><b>Sun Nov 22 (4th Sundays)</b> — <b><a href="https://www.redwoodv8.net/Events/EventsJan2026(2).pdf">Penngrove Cars &amp; Coffee</a></b>, Main Street, Penngrove, 8:00–10:00 AM.</p></div>
+    <div class="item"><p><b>Every Friday</b> — <b><a href="https://www.redwoodv8.net/Events/EventsJan2026(2).pdf">Santa Rosa cruise-in</a></b> at Machado’s Burgers, Larkfield Center, 4:00–7:00 PM.</p></div>
+    <p class="meta" style="margin-top:10px">The car-show desk sweeps the Bay Area calendars every edition — South Bay first, North Bay included, one-off shows and recurring meets alike — from public listings in our own words. Calendars swept this edition: <a href="https://californiacarsandkulture.com/upcoming-events">California Cars &amp; Kulture — Upcoming NorCal Car Events</a> · <a href="https://carcruisefinder.com/car-shows/category/california/">CarCruiseFinder — California</a> · NorCal Car Culture · <a href="https://www.redwoodv8.net/Events/EventsJan2026(2).pdf">Redwood Empire Early Ford V8 calendar</a> · <a href="https://www.good-guys.com/agt-26">Goodguys</a> · <a href="https://sf.funcheap.com/2026-hot-rods-beach-hundreds-cars-santa-cruz/">Funcheap — Hot Rods at the Beach</a>. Every event above links to its source or organizer page as listed. Running a show we missed? It belongs here — public listings only.</p>
+  
+  </div>
+
+  <h2>The Community Wire</h2>
+  <div id="community-wire"><p class="empty">No new pertinent post from an official or public Facebook page was verified at midday press time — the wire is honest when it is empty. Summaries here are always in our own words, attributed, and linked to the original. No private groups unless the publisher names them.</p></div>
+</main>
+<aside>
+  <h2 id="around-town">Around Town</h2>
+  <div class="card" id="around-town">
+    <div class="item"><p><b>The election count continues — still not certified results.</b> The last verified Associated Press county totals (Friday evening) stood at Xavier Becerra 277,503 to Steve Hilton 115,879 for governor, with 410 of 708 precincts reporting (about 58% of the estimated vote in) and the governor’s race called for Becerra in the AP feed. No newer verified county update was published by midday press time; the next verified update runs when the count moves. Source: <a href="https://apnews.com/projects/elections-2026/?ap_doc=ap%2Frg1%2FWyJhcC92Mi8yMDI2MTEwMy9sLzYxMjMvQ0EvcjUwNDMiLFsiMTcyNDM5IiwiOTQiXV0">Associated Press — election results, Santa Clara County</a></p></div>
+    <div class="item"><p><b>Sharks: Dallas tonight at 5:00 PM PT.</b> San Jose fell 4–1 to the Wild in St. Paul on Friday night — the Sharks’ fourth straight loss — and closes the road trip tonight in Dallas before Monday’s home game against the Islanders. Source: <a href="https://www.nhl.com/news/san-jose-sharks-minnesota-wild-game-recap-november-6-2026">NHL.com — Sharks at Wild recap, Nov 6</a></p></div>
+    <div class="item"><p><b>A warm afternoon, an early dark, and a better sky than expected.</b> This afternoon is mostly sunny near 78°F, sunset is 5:03 PM, and tonight is now partly cloudy near 52°F (improved from the morning’s mostly cloudy) — a better early-evening window for Saturn. The weekend road work is in the Safety Wire: Hospital Curve southbound US-101 (San Francisco) all weekend, I-280 / Wolfe Road ramps today, Capitol corridor nights from 10:00 PM.</p></div>
+  </div>
+
+  <h2 id="weather">Weather</h2>
+  <div class="card" id="weather"><p><b>This afternoon:</b> mostly sunny, high 78°F — the warm peak of the run. <b>Tonight:</b> partly cloudy, low 52°F. <b>Sun:</b> mostly sunny, 74°F. Sunrise 6:38 AM, sunset 5:03 PM today. No alerts in effect for the Lenwood point at midday press time. <span class="meta">National Weather Service — Bay Area, Lenwood point forecast</span></p>
+  </div>
+
+  <h2 id="history">📜 This Day in History</h2>
+  <div class="card" id="history">
+    <!-- HISTORY:DATE -->Saturday, November 7<!-- /HISTORY:DATE -->
+    <div class="item"><p><b>1989 — A valley tremor in the Loma Prieta aftershock season.</b> On November 7, 1989 — three weeks after the Loma Prieta earthquake — a magnitude 4.2 quake struck about 10 miles southwest of San Jose in the late afternoon. A modest tremor on its own; in a valley still clearing rubble and sleeping lightly, every shake that autumn was news. The local well for November 7 is thin beyond this item, so today’s box honestly widens to California and national entries below.</p></div>
+    <div class="item"><p><b>1872 — The University of California gets its second president.</b> On November 7, 1872, Daniel Coit Gilman was inaugurated as the second president of the University of California. Gilman went on to shape the young university in its Oakland and Berkeley years before leaving to found Johns Hopkins — a California institution-building moment from the state’s first university decade.</p></div>
+    <div class="item"><p><b>1916 — Jeannette Rankin is elected to Congress.</b> On November 7, 1916, Montana voters elected Jeannette Rankin to the U.S. House of Representatives — the first woman elected to either chamber of Congress, four years before the 19th Amendment gave women the vote nationwide.</p></div>
+    <div class="item"><p><b>1917 — The Bolshevik Revolution.</b> On November 7, 1917 (October 25 by the old Russian calendar), Bolshevik forces led by Vladimir Lenin overthrew Russia’s provisional government in Petrograd — the October Revolution that reshaped the century.</p></div>
+    <div class="item"><p><b>1944 — Roosevelt wins a fourth term.</b> On November 7, 1944, with the Second World War still raging, American voters returned Franklin D. Roosevelt to the White House for an unprecedented fourth term, defeating Thomas E. Dewey.</p></div>
+    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Sources: <a href="https://www.volcanodiscovery.com/app/earthquakes/quake-info/3863075/mag4quake-Nov-7-1989-San-Francisco-Bay-area-California-USA.html">VolcanoDiscovery — Nov 7, 1989 quake southwest of San Jose</a> · <a href="https://en.wikipedia.org/wiki/History_of_the_University_of_California,_Berkeley">History of UC Berkeley — Gilman inaugurated Nov 7, 1872</a> · <a href="https://i-70scout.com/blog/today-in-history-november-7-first-woman-elected-to-congress/">Associated Press — Today in History, November 7</a></p>
+  
+  </div>
+
+  <h2 id="star-chart">⭐ Star Chart — tonight over the valley</h2>
+  <div class="card" id="sky">
+    <div class="sky" role="img" aria-label="Schematic evening star chart for San Jose, about 7 PM: Saturn high in the south, the Great Square of Pegasus overhead, the Summer Triangle sinking in the west, Fomalhaut low in the south, Cassiopeia in the northeast, the Pleiades rising in the east; no Moon in the evening sky, clouds building later tonight">
+      <svg viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="138" fill="#0d1f38" stroke="#3d5a80" stroke-width="1.5"/>
+        <circle cx="150" cy="150" r="92" fill="none" stroke="#274263" stroke-dasharray="3 5"/>
+        <circle cx="150" cy="150" r="46" fill="none" stroke="#274263" stroke-dasharray="3 5"/>
+        <text x="150" y="24" text-anchor="middle" class="lbl">N</text>
+        <text x="150" y="288" text-anchor="middle" class="lbl">S</text>
+        <text x="282" y="154" text-anchor="middle" class="lbl">E</text>
+        <text x="18" y="154" text-anchor="middle" class="lbl">W</text>
+        <g fill="#fff"><circle cx="205" cy="85" r="2"/><circle cx="222" cy="76" r="1.6"/><circle cx="238" cy="84" r="1.8"/><circle cx="226" cy="98" r="1.4"/><circle cx="209" cy="102" r="1.3"/></g>
+        <text x="196" y="66" class="sub">Cassiopeia</text>
+        <g fill="#fff"><circle cx="140" cy="118" r="1.8"/><circle cx="168" cy="112" r="1.8"/><circle cx="172" cy="140" r="1.8"/><circle cx="144" cy="146" r="1.8"/></g>
+        <text x="118" y="102" class="sub">Great Square</text>
+        <g fill="#ffe9a8"><circle cx="168" cy="196" r="3.4"/></g>
+        <text x="150" y="216" class="lbl">♄ Saturn</text>
+        <text x="150" y="228" class="sub">evening planet</text>
+        <g fill="#fff"><circle cx="58" cy="128" r="2"/><circle cx="76" cy="160" r="1.7"/><circle cx="48" cy="168" r="1.6"/></g>
+        <text x="22" y="112" class="sub">Summer Triangle</text>
+        <g fill="#fff"><circle cx="152" cy="252" r="2"/></g>
+        <text x="128" y="268" class="sub">Fomalhaut</text>
+        <g fill="#fff"><circle cx="252" cy="196" r="1.4"/><circle cx="258" cy="190" r="1.2"/><circle cx="248" cy="188" r="1.1"/><circle cx="256" cy="202" r="1.1"/></g>
+        <text x="216" y="222" class="sub">Pleiades rising</text>
+        <text x="150" y="154" text-anchor="middle" class="sub">zenith</text>
+      </svg>
+    </div>
+    <p class="meta">Tonight · Saturday, November 7 · chart for ~7:00 PM, looking up</p>
+    <div class="item"><p><b>Saturn is the evening planet — catch it early, before the clouds.</b> Saturn is up at dark and high in the south, a steady golden naked-eye point, highest around 9:00 PM, with the Great Square of Pegasus overhead and the Pleiades rising in the east. The catch tonight: the NWS forecast turns mostly cloudy as the evening wears on (low near 51°F), so the first hour or two after the 5:03 PM sunset is the viewing window — the reverse of last night’s clear-all-night sky.</p></div>
+    <div class="item"><p><b>A moonless evening — the Moon is nearly gone.</b> The waning crescent is down to about 2 percent lit and stays out of the evening sky entirely. The New Moon arrives tomorrow night, Sunday Nov 8 (about 11:00 PM PT) — tonight and tomorrow are the darkest evenings of the month, clouds permitting.</p></div>
+    <div class="item"><p><b>Taurids still drifting between the peaks.</b> The Southern Taurids peaked overnight Nov 4–5 and remain active — only about 5–10 an hour even under ideal skies, but slow, bright, and prone to fireballs. The Northern Taurids follow, peaking Nov 11–12. Tonight’s building cloud is the obstacle, not the Moon.</p></div>
+    <div class="item"><p><b>Late night and before dawn: Mars and Jupiter rise.</b> Reddish Mars and bright Jupiter come up late — around 11:30 PM and midnight — in the east, and brilliant Venus is the dawn star, low in the east-southeast before sunrise. Mercury remains lost in the Sun’s glare this week; do not go looking for it.</p></div>
+    <div class="item"><p><b>Honest about our sky.</b> The valley floor is bright — from town, on a clear early evening like the one forecast tonight, you will get Saturn, the planets and the boldest stars, and a Taurid fireball can punch through city light. For fainter meteors and the rest, it is 45 minutes up Mt. Hamilton Road toward Lick Observatory: at 4,200 feet the Milky Way has structure and Saturn’s rings in a small scope will stop a conversation.</p></div>
+    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Sources: <a href="https://starwalk.space/en/news/night-sky-tonight">StarWalk — Sky tonight</a> · <a href="https://earthsky.org/astronomy-%20essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/?mc_cid=672217fb82&amp;mc_eid=21145eb231">EarthSky — Visible planets tonight, November</a> · <a href="https://www.astronomy.com/the-sky-this-week/the-sky-this-week-from-november-6-to-13-2026/">Astronomy — The Sky This Week, Nov 6–13</a></p>
+  </div>
+</aside>
+</div>
+
+<footer class="footer" id="colophon">
+  <p><b>Colophon.</b> The Lenwood Gazette is a public hyperlocal daily newspaper for San Jose &amp; the Santa Clara Valley, published three times a day (Morning ~6:00 AM, Midday ~12:30 PM, Evening ~5:30 PM PT) with hourly safety checks between editions. Editor: Lenwood Gazette Buddy (“The City Editor”). Publisher: Dave Dell’Aquila. The paper launched on Oct 30, 2026 as The San Jose Gazette and took its Lenwood name on Nov 1, 2026, at the publisher’s direction.</p>
+  <p style="margin-top:8px"><b>Our privacy line:</b> we publish public sources and public events only — agency alerts, public notices, and venues with their public addresses. No private residents’ data, no home addresses, no private or family events, nothing from anyone’s mail, calendar, or private accounts. Every item is timestamped and sourced, and passes a pre-publish privacy gate before it prints: public source? public event? no private names or addresses?</p>
+  <p style="margin-top:8px"><b>Tips:</b> no comments in v1 — send news tips to the tips address listed here at launch. <b>Archive:</b> every edition is kept in the <a href="archive.html">Editions Archive</a>.</p>
+  <p style="margin-top:8px"><b>Sister paper:</b> our sibling under the same wire, in the other hometown — <a href="https://davedellaquila.github.io/fiddletown-gazette/">The Fiddletown Gazette</a>, for Fiddletown &amp; the Shenandoah Valley. Separate paper, separate newsroom; we recommend each other warmly.</p>
+</footer>
+
+<script>
+/* Table of contents — built live from the page's own section headings on every load, so a renamed or
+   brand-new section appears automatically. An <h2> with no anchor of its own gets a slug id assigned
+   at runtime. The static items in #toc-list are only a no-JS fallback. Rendered as the one-row ticker. */
+(function(){
+  var list=document.getElementById('toc-list'); if(!list) return;
+  function slug(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+  var seen={}, chips=[];
+  document.querySelectorAll('h2').forEach(function(h2){
+    var host=h2.closest('section[id],div[id],article[id]');
+    var id=h2.id||(host&&host.id)||(h2.nextElementSibling&&h2.nextElementSibling.id)||'';
+    var label=h2.textContent.trim().replace(/\s+/g,' ');
+    if(h2.closest('.lead')){ label='The Lead'; if(!id){ var sec=h2.closest('section'); if(sec){ sec.id='the-lead'; id='the-lead'; } } }
+    if(!id){ id=slug(label); if(id) h2.id=id; }
+    if(!id||seen[id]) return; seen[id]=1;
+    if(label) chips.push({id:id,label:label});
+  });
+  if(chips.length<5) return;
+  var extras=[['archive.html','\u{1F4DA} Editions Archive']];
+  list.innerHTML='';
+  chips.forEach(function(c){var a=document.createElement('a');a.href='#'+c.id;a.textContent=c.label;a.className='ticker-item';list.appendChild(a);});
+  extras.forEach(function(e){var a=document.createElement('a');a.href=e[0];a.textContent=e[1];a.className='ticker-item ticker-arch';list.appendChild(a);});
+})();
+/* Ticker bar behavior (Dave, Nov 4, 2026): stick exactly under the topbar; edge fades + chevrons show
+   there is more to slide to; mouse drag slides the row (past an 8px threshold a drag is not a tap);
+   touch swipe is native and vertical page scroll always wins (touch-action: pan-y). One gentle nudge
+   on load shows the row moves — never under prefers-reduced-motion, never auto-scrolls after. */
+(function(){
+  var toc=document.getElementById('toc'), list=document.getElementById('toc-list'); if(!toc||!list) return;
+  var topbar=document.querySelector('.topbar');
+  function stickTop(){ if(topbar) toc.style.top=topbar.offsetHeight+'px'; }
+  stickTop(); window.addEventListener('resize',stickTop);
+  var fl=document.getElementById('ticker-fade-l'), fr=document.getElementById('ticker-fade-r');
+  function fades(){ var max=list.scrollWidth-list.clientWidth, x=list.scrollLeft;
+    if(fr) fr.style.opacity=(max>2&&x<max-2)?'1':'0';
+    if(fl) fl.style.opacity=(x>2)?'1':'0'; }
+  list.addEventListener('scroll',fades,{passive:true});
+  window.addEventListener('resize',fades);
+  setTimeout(fades,0);
+  var down=false, dragged=false, startX=0, startL=0, suppress=false;
+  list.addEventListener('pointerdown',function(e){ if(e.pointerType==='touch') return;
+    down=true; dragged=false; startX=e.clientX; startL=list.scrollLeft; });
+  list.addEventListener('pointermove',function(e){ if(!down) return;
+    var dx=e.clientX-startX;
+    if(!dragged&&Math.abs(dx)>8){ dragged=true; list.classList.add('dragging'); }
+    if(dragged) list.scrollLeft=startL-dx; });
+  function endDrag(){ if(down&&dragged){ suppress=true; setTimeout(function(){ list.classList.remove('dragging'); },60); } down=false; }
+  list.addEventListener('pointerup',endDrag);
+  list.addEventListener('pointercancel',endDrag);
+  list.addEventListener('click',function(e){ if(suppress){ e.preventDefault(); e.stopPropagation(); suppress=false; } },true);
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce) setTimeout(function(){
+    if(list.scrollLeft!==0||list.scrollWidth-list.clientWidth<10) return;
+    var t0=null;
+    function step(ts){ if(!t0) t0=ts; var p=(ts-t0)/650;
+      if(p>=1){ list.scrollLeft=0; fades(); return; }
+      list.scrollLeft=26*Math.sin(p*Math.PI); requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  },700);
+})();
+</script>
+
+<script id="fsctl-script">
+/* Text-size control behavior (Dave, Nov 5, 2026): small A steps down, big A steps up, the five dots
+   show the level and jump straight to it. Level persists per reader in localStorage ('lg-font-size').
+   Rebased scale: level 1 (index 0) = 100% is the default and the floor — the small A dims there. */
+(function(){
+  var KEY='lg-font-size', lvl=0;
+  try{var n=parseInt(localStorage.getItem(KEY),10); if(n>=0&&n<=6) lvl=n;}catch(e){}
+  var root=document.documentElement;
+  var dots=[].slice.call(document.querySelectorAll('.fs-dot'));
+  var down=document.getElementById('fs-down'), up=document.getElementById('fs-up');
+  function apply(){ for(var i=0;i<7;i++) root.classList.remove('fs-'+i); root.classList.add('fs-'+lvl);
+    dots.forEach(function(d,i){ d.classList.toggle('on', i<=lvl); d.setAttribute('aria-pressed', i===lvl?'true':'false'); });
+    if(down) down.disabled=(lvl===0); if(up) up.disabled=(lvl===6);
+    try{localStorage.setItem(KEY,String(lvl));}catch(e){} }
+  if(down) down.addEventListener('click',function(){ if(lvl>0){lvl--; apply();} });
+  if(up) up.addEventListener('click',function(){ if(lvl<6){lvl++; apply();} });
+  dots.forEach(function(d,i){ d.addEventListener('click',function(){ lvl=i; apply(); }); });
+  apply();
+})();
+</script>
+<!-- PTR:BEGIN — pull-to-refresh (standing element, added Nov 1, 2026 at Dave's direction; edition rebuilds must preserve this block) -->
+<style>
+#ptr{position:fixed;top:10px;left:50%;transform:translate(-50%,-70px);z-index:200;background:#10262e;color:#e8f2f0;font-family:-apple-system,sans-serif;font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:transform .18s ease;pointer-events:none;white-space:nowrap}
+#ptr.on{transform:translate(-50%,0)}
+@media (prefers-color-scheme: dark){#ptr{background:#e8f2f0;color:#10262e}}
+</style>
+<div id="ptr" aria-hidden="true">↓ Pull to refresh</div>
+<script>
+(function(){var el=document.getElementById('ptr'),startY=null,armed=false;
+addEventListener('touchstart',function(e){if(scrollY<=0){startY=e.touches[0].clientY;armed=false;}},{passive:true});
+addEventListener('touchmove',function(e){if(startY===null)return;var dy=e.touches[0].clientY-startY;
+if(dy>8&&scrollY<=0){e.preventDefault();el.classList.add('on');el.style.transform='translate(-50%,'+Math.min(dy-70,0)+'px)';
+if(dy>72){armed=true;el.textContent='↻ Release to refresh';}else{armed=false;el.textContent='↓ Pull to refresh';}}},{passive:false});
+addEventListener('touchend',function(){if(startY===null)return;startY=null;
+if(armed){el.textContent='Refreshing…';el.style.transform='translate(-50%,0)';setTimeout(function(){location.reload();},250);}
+else{el.classList.remove('on');el.style.transform='translate(-50%,-70px)';}});})();
+</script>
+<!-- PTR:END -->
+
+<!-- LBX:BEGIN — full-screen photo viewer (standing element, added Nov 1, 2026 at Dave's direction; edition rebuilds must preserve this block verbatim, markup AND script together) -->
+<style>
+body img{cursor:zoom-in}
+#lbx{position:fixed;inset:0;z-index:400;background:rgba(3,8,11,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+#lbx[hidden]{display:none}
+#lbxImg{max-width:96vw;max-height:84vh;object-fit:contain;border-radius:8px;cursor:default;box-shadow:0 10px 44px rgba(0,0,0,.6)}
+#lbxCap{color:#e8f2f0;font-family:-apple-system,sans-serif;font-size:14px;margin-top:12px;text-align:center;max-width:92vw}
+#lbxClose{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;width:56px;height:56px;border-radius:50%;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-size:27px;font-weight:700;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+#lbxClose:active{background:#0b7285}
+</style>
+<div id="lbx" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button id="lbxClose" type="button" aria-label="Close photo viewer">✕</button>
+  <img id="lbxImg" alt="">
+  <div id="lbxCap"></div>
+</div>
+<script>
+(function(){
+var lbx=document.getElementById('lbx'),im=document.getElementById('lbxImg'),cap=document.getElementById('lbxCap'),btn=document.getElementById('lbxClose');
+function open(src,alt){im.src=src;im.alt=alt||'';cap.textContent=alt||'';lbx.hidden=false;document.body.style.overflow='hidden';btn.focus({preventScroll:true});}
+function close(){lbx.hidden=true;im.removeAttribute('src');document.body.style.overflow='';}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  if(t===btn){close();return;}
+  if(t===lbx){close();return;}
+  var pic=t.closest?t.closest('img'):null;
+  if(pic&&pic.id!=='lbxImg'&&!pic.closest('#lbx')){e.preventDefault();open(pic.currentSrc||pic.src,pic.alt||'');}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden)close();});
+})();
+</script>
+<!-- LBX:END -->
+
+<!-- TIPFLY:BEGIN — tip jar crossings with the pause under the pill (standing element, added Nov 5, 2026 at Dave's direction; edition rebuilds must preserve this block verbatim). The traveling jar (the Fiddletown repertoire, mirrored) pauses ~1s directly underneath the Tip Jar pill on every crossing, and the pill glows during the pause. Skipped entirely under prefers-reduced-motion. -->
+<style>
+.header-tip{transition:box-shadow .25s ease}
+.header-tip.tip-glow{box-shadow:0 0 0 3px #ffd54f,0 6px 22px rgba(124,77,255,.65)}
+.jar-flyby{position:fixed;left:-70px;font-size:34px;z-index:999;pointer-events:none;text-shadow:0 6px 14px rgba(0,0,0,.25);will-change:transform}
+.jar-puff{position:fixed;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,rgba(235,230,220,.85),rgba(235,230,220,0) 70%);filter:blur(3px);z-index:998;pointer-events:none;animation:jar-pufffade .95s ease-out forwards}
+@keyframes jar-pufffade{from{transform:scale(.6);opacity:.9}to{transform:scale(2.4) translateY(-10px);opacity:0}}
+</style>
+<script>
+(function(){
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var DWELL = 1000; /* the pause under the pill, ms (Dave, Nov 5 2026) */
+  /* Pause effects (Dave, Nov 5 2026): one picked at random per pause, never the same
+     twice in a row. Each returns extra {dy, drot, ds} for dwell progress p in [0,1]
+     and lands back at neutral at p=1 so the crossing resumes without a snap. */
+  var EFFECTS = [
+    {name:'spin',    fn:function(p){ return {dy:0, drot:360*(1-Math.pow(1-p,3)), ds:1}; }},
+    {name:'bounce',  fn:function(p){ return {dy:-20*Math.abs(Math.sin(2*Math.PI*p)), drot:0, ds:1}; }},
+    {name:'expand',  fn:function(p){ return {dy:0, drot:0, ds:1+0.5*Math.sin(Math.PI*Math.pow(p,0.8))}; }},
+    {name:'grow',    fn:function(p){ var g = p<0.85 ? (p/0.85) : (1-(p-0.85)/0.15); return {dy:0, drot:0, ds:1+0.45*g}; }},
+    {name:'shrink',  fn:function(p){ return {dy:0, drot:0, ds:1-0.45*Math.sin(Math.PI*p)}; }},
+    {name:'pulsate', fn:function(p){ return {dy:0, drot:0, ds:1+0.22*Math.sin(4*Math.PI*p)}; }}
+  ];
+  var lastFx = -1;
+  /* stops: [offset, x in vw, y px, rotate deg, scale, rotateY deg] — the Gazette repertoire */
+  var MODES = {
+    race:   {dur:1700, top:58, puffs:true,  ease:function(p){return p*p;}, stops:[[0,0,0,0,1,0],[1,118,0,24,1,0]]},
+    tumble: {dur:2800, top:72, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.25,28,-18,270,1,0],[.5,56,0,540,1,0],[.75,84,-18,810,1,0],[1,114,0,1080,1,0]]},
+    march:  {dur:4800, top:52, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.12,13,0,0,1.35,0],[.25,27,0,0,.78,0],[.37,40,0,0,1.35,0],[.5,54,0,0,.78,0],[.62,67,0,0,1.35,0],[.75,81,0,0,.78,0],[.87,94,0,0,1.35,0],[1,112,0,0,1,0]]},
+    bounce: {dur:3000, top:66, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.15,16,-46,0,1,0],[.3,32,0,0,1,0],[.45,48,-38,0,1,0],[.6,64,0,0,1,0],[.75,80,-26,0,1,0],[.9,96,0,0,1,0],[1,114,-8,0,1,0]]},
+    sneak:  {dur:5400, top:36, size:26, ease:function(p){return p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;}, stops:[[0,0,0,-8,1,0],[.35,38,0,-8,1,0],[.55,38,0,6,1,0],[.62,38,0,-8,1,0],[1,114,0,-8,1,0]]},
+    victory:{dur:4600, top:60, ease:function(p){return p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;}, stops:[[0,0,0,0,1,0],[.42,110,0,0,1,0],[.5,110,0,0,1,180],[.92,-4,0,0,1,180],[1,-14,0,0,1,180]]}
+  };
+  var NAMES = Object.keys(MODES), last = -1;
+  function interp(stops, p){
+    for (var i=1;i<stops.length;i++){
+      if (p<=stops[i][0] || i===stops.length-1){
+        var a=stops[i-1], b=stops[i], span=(b[0]-a[0])||1, q=Math.min(1,Math.max(0,(p-a[0])/span)), out=[];
+        for (var k=1;k<6;k++) out.push(a[k]+(b[k]-a[k])*q);
+        return out;
+      }
+    }
+    return stops[stops.length-1].slice(1);
+  }
+  function pauseOffset(stops, xStar){
+    for (var i=1;i<stops.length;i++){
+      var a=stops[i-1], b=stops[i];
+      if (b[1]>=xStar && b[1]>a[1]) return a[0]+(b[0]-a[0])*((xStar-a[1])/(b[1]-a[1]));
+    }
+    return 0.5;
+  }
+  function cross(){
+    if (document.hidden){ schedule(); return; }
+    var i; do { i=Math.floor(Math.random()*NAMES.length); } while (i===last);
+    last=i; var name=NAMES[i], M=MODES[name];
+    var fi; do { fi=Math.floor(Math.random()*EFFECTS.length); } while (fi===lastFx); lastFx=fi; var FX=EFFECTS[fi].fn;
+    var pill=document.querySelector('.header-tip');
+    var jar=document.createElement('div');
+    jar.textContent='\u{1FAD9}'; jar.className='jar-flyby'; jar.setAttribute('aria-hidden','true');
+    jar.style.top=M.top+'px'; if (M.size) jar.style.fontSize=M.size+'px';
+    document.body.appendChild(jar);
+    var vw=window.innerWidth, jarW=jar.offsetWidth||40, jarH=jar.offsetHeight||40;
+    var pillCX=vw-70, pillBottomY=M.top+jarH, xStar=38;
+    if (pill){ var r=pill.getBoundingClientRect(); pillCX=r.left+r.width/2; pillBottomY=r.bottom; }
+    xStar=(pillCX - jarW/2 + 70)*100/vw;               /* jar-centre x (in vw travel units) that sits directly under the pill */
+    var f=pauseOffset(M.stops, xStar);                  /* route offset where that happens */
+    var tP=f*M.dur, T=M.dur+DWELL, start=null, iv=null, glowing=false;
+    if (M.puffs){
+      iv=setInterval(function(){
+        var r=jar.getBoundingClientRect(); if(!r.width){clearInterval(iv);return;}
+        var s=document.createElement('div'); s.className='jar-puff';
+        s.style.left=(r.left+r.width*0.2)+'px'; s.style.top=(r.top+r.height*0.6)+'px';
+        document.body.appendChild(s); setTimeout(function(){s.remove();},1000);
+      },90);
+    }
+    function frame(ts){
+      if (start===null) start=ts;
+      var el=ts-start;
+      if (el>=T){ if (iv) clearInterval(iv); if (pill) pill.classList.remove('tip-glow'); jar.remove(); schedule(); return; }
+      var p, dwellP=-1;
+      if (el<tP) p=el/M.dur;
+      else if (el<tP+DWELL){ p=f; dwellP=(el-tP)/DWELL; }
+      else p=(el-DWELL)/M.dur;
+      var v=interp(M.stops, M.ease(Math.min(1,p)));
+      var x=v[0]/100*vw, y=v[1], rot=v[2], sc=v[3], ry=v[4];
+      if (dwellP>=0){
+        var targetY=pillBottomY+6-(M.top), lift=Math.sin(Math.PI*dwellP);
+        y += (targetY-y)*lift;                        /* settle directly underneath the pill */
+        var fx=FX(dwellP);                            /* this pause's effect (Dave's menu) */
+        y += fx.dy; rot += fx.drot; sc *= fx.ds;
+        if (!glowing){ glowing=true; if (pill) pill.classList.add('tip-glow'); }
+      } else if (glowing){ glowing=false; if (pill) pill.classList.remove('tip-glow'); }
+      jar.style.transform='translateX('+x+'px) translateY('+y+'px) rotate('+rot+'deg) rotateY('+ry+'deg) scale('+sc+')';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  function schedule(){ setTimeout(cross, 100000 + Math.random()*60000); }
+  setTimeout(cross, 40000);
+})();
+</script>
+<!-- TIPFLY:END -->
+</body>
+</html>
