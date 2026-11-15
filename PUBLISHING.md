@@ -154,21 +154,25 @@ reader in localStorage under 'lg-font-size'. (Same control and same rebase on th
 sister paper; her storage key is 'fg-font-size'.)
 
 
-**Standing element — visitor counter beacon (Analytics Buddy; endpoint pending,
-recorded Nov 6, 2026):** Dave chose a Dave-owned Cloudflare Worker counter for the
-fleet (this paper, Fiddletown, the dashboard, dellaquila.com): unique visitors per
-page/edition via a daily-rotating salted hash (sha256 of daily salt | site | IP |
-UA) — hashes only, deleted at day close, no cookies, no raw IPs, aggregate counts
-only. **Once Analytics Buddy confirms the live ENDPOINT (Dave's one deploy step),
-wire it the same day, exactly:**
-- Add `<script async src="https://<ENDPOINT>/beacon.js" data-site="lenwood-gazette"></script>`
-  to the front page, the Editions Archive, and every future edition snapshot
+**Standing element — visitor counter beacon (Analytics Buddy; recorded Nov 6,
+2026; endpoint LIVE Nov 15, 2026):** Dave chose a Dave-owned Cloudflare Worker
+counter for the fleet (this paper, Fiddletown, the dashboard, dellaquila.com):
+unique visitors per page/edition via a daily-rotating salted hash (sha256 of
+daily salt | site | IP | UA) — hashes only, deleted at day close, no cookies, no
+raw IPs, aggregate counts only. **Dave completed the Cloudflare deploy on
+Nov 15, 2026; Astro verified the Worker end-to-end, and the desk wired it the
+same day.** The live endpoint is
+`https://visitor-counter.dave-5d7.workers.dev` — the beacon block travels as
+`BEACON:BEGIN…BEACON:END` before `</body>`:
+- `<script async src="https://visitor-counter.dave-5d7.workers.dev/beacon.js" data-site="lenwood-gazette"></script>`
+  rides the front page, the Editions Archive, and every future edition snapshot
   (snapshots are born carrying it; counts are fetched live at view time, so frozen
   snapshots are NEVER edited after publication to change a count).
-- Show counts with `<span data-visitor-count></span>` (counts the page it sits on);
-  on archive listings use `<span data-visitor-count data-count-path="/editions/YYYY-MM-DD-<edition>.html"></span>`.
-- NEVER ship the literal placeholder `<ENDPOINT>` — the real endpoint comes from
-  Analytics Buddy. Editions published before the beacon lands cannot be counted
-  retroactively; they start at zero under a "counting since <go-live date>" note.
-Once wired, this beacon is a preserved standing element — rebuilds keep it like
+- Counts show with `<span data-visitor-count></span>` (counts the page it sits
+  on) — the front page carries it in the colophon "Readers:" line; on archive
+  listings use `<span data-visitor-count data-count-path="/editions/YYYY-MM-DD-<edition>.html"></span>`.
+- Editions published before the beacon landed (before Nov 15, 2026) cannot be
+  counted retroactively; they start at zero under the archive's "tally from
+  Nov 15, 2026" note.
+This beacon is a preserved standing element — rebuilds keep it like
 PTR / LBX / TIPFLY / fsctl.
