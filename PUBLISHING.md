@@ -176,3 +176,9 @@ same day.** The live endpoint is
   Nov 15, 2026" note.
 This beacon is a preserved standing element — rebuilds keep it like
 PTR / LBX / TIPFLY / fsctl.
+**Counts caveat (Nov 15, 2026, Analytics Buddy):** the counter's same-day
+dedupe over-counts repeat visits from the same reader. The fix is built and
+committed (analytics-buddy 4c326a3) but needs Dave to re-paste worker.js in
+Cloudflare. Until Analytics Buddy sends the all-clear, the desk does NOT quote
+reader counts in editions or reports — the on-page spans fill themselves in and
+are the reader's own business; the desk just doesn't cite the numbers yet.
