@@ -182,3 +182,16 @@ committed (analytics-buddy 4c326a3) but needs Dave to re-paste worker.js in
 Cloudflare. Until Analytics Buddy sends the all-clear, the desk does NOT quote
 reader counts in editions or reports — the on-page spans fill themselves in and
 are the reader's own business; the desk just doesn't cite the numbers yet.
+
+**Running item — 🎁 Free Stuff: the tanker desk (Dave's direction, Nov 16,
+2026):** the front page carries a `FREEBIE:BEGIN…FREEBIE:END` block (main
+column, after the Community Wire) offering Dave's vintage steel tanker desk
+FREE, with its three photos (`images/tanker-desk-hero.jpg`,
+`tanker-desk-office.jpg`, `tanker-desk-drawers.jpg`), pickup at 18231 Llagas
+Creek Dr, Morgan Hill, pointing readers to the Facebook Marketplace listing
+(item 1447887447530120, verified Available/FREE Nov 16). Editions CARRY THE
+BLOCK FORWARD unchanged until the desk is gone — Dave or Marketplace Buddy
+gives the word — then remove it and note the removal in that edition's report.
+The publisher directed this item and its pickup address himself; it sets no
+privacy-gate precedent for anything else. (The same item runs in the
+Fiddletown and Llagas Creek Gazettes.)
