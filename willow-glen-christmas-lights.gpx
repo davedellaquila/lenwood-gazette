@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:trp="http://www.garmin.com/xmlschemas/TripExtensions/v1" version="1.1" creator="The Lenwood Gazette">
+  <metadata>
+    <name>Willow Glen Christmas Lights — Driving Route</name>
+    <desc>Driving route through Willow Glen's Christmas lights, San Jose: Carolyn Ave, Glen Eyrie Ave, Camino Ricardo, Glen Brook Ave, Glen Echo Ave, Camino Ramon, Glen Dell Dr, Camino Pablo, and the full run down Cherry Ave to Minnesota Ave, then back up Lincoln Ave. Native inRoute format (Garmin TripExtensions): start/finish are trp:ViaPoint; each turn is a trp:ShapingPoint placed just PAST the junction, on the street being turned onto, so the router is committed to the turn. From The Lenwood Gazette's Christmas Lights Guide 2026.</desc>
+  </metadata>
+  <rte>
+    <name>Willow Glen Christmas Lights — Driving Route</name>
+    <rtept lat="37.308470" lon="-121.901090">
+      <name>Start — Lincoln Ave &amp; Willow St</name>
+      <desc>Gateway to Willow Glen. Head west on Willow St into the lights.</desc>
+      <extensions>
+        <trp:ViaPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.306984" lon="-121.904998">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Carolyn Ave — just past Willow St</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.309638" lon="-121.907308">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Glen Eyrie Ave — just past Carolyn Ave</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.308902" lon="-121.907654">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Camino Ricardo — just past Glen Eyrie Ave</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.306199" lon="-121.906090">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Willow St — just past Camino Ricardo</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.304458" lon="-121.910636">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Glen Eyrie Ave — just past Willow St</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.306879" lon="-121.910385">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Glen Brook Ave — just past Glen Eyrie Ave</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.306160" lon="-121.910201">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Glen Echo Ave — just past Glen Brook Ave</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.304693" lon="-121.909425">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Willow St — just past Glen Echo Ave</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.304997" lon="-121.908029">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Camino Ramon — just past Willow St</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.301903" lon="-121.905907">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Glen Dell Dr — just past Camino Ramon</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.301908" lon="-121.905783">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Glen Dell Dr — mid-block</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.301917" lon="-121.905569">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Glen Dell Dr — approaching Camino Pablo</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.302379" lon="-121.905574">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Camino Pablo — heading north</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.304395" lon="-121.906691">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Camino Pablo — mid-run (south)</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.306412" lon="-121.907933">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Camino Pablo — mid-run (north)</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.308408" lon="-121.908996">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Glen Eyrie Ave — just past Camino Pablo</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.308384" lon="-121.908300">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Cherry Ave — just past Glen Eyrie Ave</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.305005" lon="-121.905954">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Cherry Ave — mid-run</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.301193" lon="-121.903672">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Minnesota Ave — just past Cherry Ave</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.303841" lon="-121.897533">
+      <time>1969-12-31T23:59:59Z</time>
+      <name>On Lincoln Ave — just past Minnesota Ave</name>
+      <extensions>
+        <trp:ShapingPoint/>
+      </extensions>
+    </rtept>
+    <rtept lat="37.308470" lon="-121.901090">
+      <name>Finish — Lincoln Ave &amp; Willow St</name>
+      <desc>Loop closed, back where you started.</desc>
+      <extensions>
+        <trp:ViaPoint/>
+      </extensions>
+    </rtept>
+  </rte>
+</gpx>
