@@ -195,3 +195,8 @@ gives the word — then remove it and note the removal in that edition's report.
 The publisher directed this item and its pickup address himself; it sets no
 privacy-gate precedent for anything else. (The same item runs in the
 Fiddletown and Llagas Creek Gazettes.)
+
+## Christmas Lights Guide (standing seasonal page — added Nov 19, 2026, at Dave's direction)
+- `christmas-lights.html` is a standing guide page (not an edition snapshot): the valley's 2026 Christmas lights — the big walk-throughs, neighborhood displays, town tree lightings, worth-the-drive spots, and a "Not This Year" list. Researched Nov 19, 2026 from official organizer/city/county sources; every entry links its official page; unconfirmed items (Downtown Ice dates, Widmer-World) are flagged in print as unconfirmed.
+- The front page carries a `LIGHTS:BEGIN…LIGHTS:END` pointer block right after the Lead. Editions carry it forward unchanged through Jan 3, 2027; remove it in the first edition after that date (or when Dave says).
+- Update the guide page itself as flagged items confirm or facts change; it is a living page, unlike edition snapshots. Key 2026 facts: NO drive-thru in Santa Clara County (Blinky's paused — official); Fantasy of Lights walk-through only, Dec 5/6/12/13, advance tickets required; Christmas in the Park Nov 27–Jan 3 per the official FAQ (secondary listings differ).
