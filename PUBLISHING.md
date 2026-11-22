@@ -106,6 +106,24 @@ section) and the rail headings (`#around-town`, `#weather`, `#history`,
 styles in <head>, the builder + ticker-behavior scripts, and the
 [id]{scroll-margin-top} rules (jumps land below both sticky rows). The static items
 in #toc-list are only a no-JS fallback; never maintain them by hand.
+**Ticker behavior UPGRADED Nov 22, 2026 (Dave's bug report: "the ticker sits
+static while the rest of the page scrolls" — Lenwood still carried the Nov 4
+script above; the Nov 5–16 upgrades had landed on Fiddletown only).** The
+behavior script is now Fiddletown's current one, transplanted verbatim: the
+tape **drifts on its own at 36 px/s in a seamless loop** (the item set is
+duplicated once and the scroll position normalized inside the seam) at the
+top of the page; a **scroll-spy** tracks the reader — as the page scrolls,
+the current section's chip lights up (`.ticker-item.on`: accent + gold
+underline) and the tape re-aligns so that chip is on screen, the drift
+parking while the reader is down in the paper; drag by mouse or touch
+pauses the drift (resuming after an idle beat) and a hand placement stands
+until another section is reached; the "In this edition" slug is also a
+drop-down menu of the same items. All of it stands down under
+prefers-reduced-motion. Supporting styles: `.ticker-item.on`,
+`.ticker-slug{cursor:pointer}` + `.tm-caret`, `#ticker-menu`, and
+`#toc-list{touch-action:pan-x pan-y}`. Edition rebuilds preserve the
+transplanted script and these styles exactly — do NOT regress to the
+Nov 4 behavior described above (kept for history).
 
 **Site icons (added Nov 1, 2026):** the site root carries Dave's custom icon set —
 `favicon.ico`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`,

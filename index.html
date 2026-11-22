@@ -49,6 +49,14 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 #brand-menu a:active,#brand-menu a:hover{background:rgba(11,114,133,.12)}
 #brand-menu .bm-sep{border-top:1px solid var(--border);margin:5px 4px}
 #brand-menu .bm-head{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding:7px 10px 3px}
+.ticker-item.on{color:var(--accent);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.ticker-slug{cursor:pointer}
+.ticker-slug .tm-caret{font-size:8.5px;letter-spacing:0;margin-left:3px}
+#ticker-menu{position:absolute;top:calc(100% + 4px);left:0;z-index:90;min-width:280px;max-width:88vw;max-height:62vh;overflow-y:auto;background:var(--paper);border:1px solid var(--border);border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.30);padding:6px}
+#ticker-menu[hidden]{display:none}
+#ticker-menu a{display:block;padding:9px 12px;border-radius:7px;color:var(--ink);text-decoration:none;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ticker-menu a:hover,#ticker-menu a:focus-visible{background:rgba(11,114,133,.10);outline:none}
+#ticker-menu a.on{color:var(--accent);font-weight:700}
 .header-tip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:.45em;padding:6px 12px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:800;line-height:1;color:#fff;background:linear-gradient(135deg,#7c4dff,#b388ff);box-shadow:0 4px 14px rgba(124,77,255,.35);animation:tip-breathe 3.2s ease-in-out infinite;white-space:nowrap;font-family:-apple-system,sans-serif}
 .header-tip::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%);transform:translateX(-110%);animation:tip-sheen 8s ease-in-out infinite}
 .header-tip .jar{display:inline-block;font-size:1.1em}.header-tip:hover .jar{animation:tip-spin .7s cubic-bezier(.34,1.56,.64,1)}
@@ -75,7 +83,7 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 #toc{position:sticky;top:52px;z-index:55;display:flex;align-items:center;gap:10px;background:var(--bg);border-top:3px double var(--ink);border-bottom:1px solid var(--border);padding:7px 0;margin:16px 0 6px}
 .ticker-slug{flex:none;font-family:-apple-system,sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
 .ticker-wrap{position:relative;flex:1;min-width:0}
-#toc-list{display:flex;flex-wrap:nowrap;align-items:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-y;-webkit-overflow-scrolling:touch}
+#toc-list{display:flex;flex-wrap:nowrap;align-items:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}
 #toc-list::-webkit-scrollbar{display:none}
 #toc-list.dragging{cursor:grabbing}
 #toc-list.dragging a{pointer-events:none}
@@ -392,42 +400,317 @@ document.getElementById('sugg-send').addEventListener('click', function(){
   chips.forEach(function(c){var a=document.createElement('a');a.href='#'+c.id;a.textContent=c.label;a.className='ticker-item';list.appendChild(a);});
   extras.forEach(function(e){var a=document.createElement('a');a.href=e[0];a.textContent=e[1];a.className='ticker-item ticker-arch';list.appendChild(a);});
 })();
-/* Ticker bar behavior (Dave, Nov 4, 2026): stick exactly under the topbar; edge fades + chevrons show
-   there is more to slide to; mouse drag slides the row (past an 8px threshold a drag is not a tap);
-   touch swipe is native and vertical page scroll always wins (touch-action: pan-y). One gentle nudge
-   on load shows the row moves — never under prefers-reduced-motion, never auto-scrolls after. */
+/* Ticker bar behavior (Dave, Nov 4, 2026; auto-scroll + grabbable loop Nov 5, 2026): stick exactly
+   under the topbar; the tape DRIFTS on its own at a slow, readable pace and loops seamlessly (the
+   item set is duplicated once and the scroll position is normalized inside the seam, so the wrap
+   is invisible). A reader can grab the tape with mouse or touch and drag it either way — dragging
+   pauses the drift, and it resumes after a 3-second idle beat; a clean tap (under the 8px drag
+   threshold) still jumps to the section. Vertical page scroll always wins on touch (pan-y).
+   prefers-reduced-motion: no drift, no nudge — the drag and the taps still work. */
 (function(){
   var toc=document.getElementById('toc'), list=document.getElementById('toc-list'); if(!toc||!list) return;
   var topbar=document.querySelector('.topbar');
   function stickTop(){ if(topbar) toc.style.top=topbar.offsetHeight+'px'; }
   stickTop(); window.addEventListener('resize',stickTop);
   var fl=document.getElementById('ticker-fade-l'), fr=document.getElementById('ticker-fade-r');
-  function fades(){ var max=list.scrollWidth-list.clientWidth, x=list.scrollLeft;
-    if(fr) fr.style.opacity=(max>2&&x<max-2)?'1':'0';
-    if(fl) fl.style.opacity=(x>2)?'1':'0'; }
-  list.addEventListener('scroll',fades,{passive:true});
-  window.addEventListener('resize',fades);
-  setTimeout(fades,0);
-  var down=false, dragged=false, startX=0, startL=0, suppress=false;
-  list.addEventListener('pointerdown',function(e){ if(e.pointerType==='touch') return;
-    down=true; dragged=false; startX=e.clientX; startL=list.scrollLeft; });
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* --- seamless loop: duplicate the set once, rest in the seam range [setW, 2*setW) --- */
+  var setW=0, loopOK=false;
+  function buildLoop(){
+    if(loopOK) return;
+    var w=list.scrollWidth;
+    if(!w||w<=list.clientWidth+2) return;
+    setW=w;
+    Array.prototype.slice.call(list.children).forEach(function(n){
+      var c=n.cloneNode(true); c.classList.add('ticker-dup'); c.setAttribute('aria-hidden','true');
+      if(c.tagName==='A') c.tabIndex=-1;
+      list.appendChild(c);
+    });
+    loopOK=true;
+    list.scrollLeft=setW;
+  }
+  var normalizing=false;
+  function normalize(){
+    if(!loopOK||normalizing) return;
+    var x=list.scrollLeft;
+    if(x>=2*setW||x<setW){
+      normalizing=true;
+      list.scrollLeft=setW+(((x-setW)%setW)+setW)%setW;
+      normalizing=false;
+    }
+  }
+  function fades(){ var on=loopOK||list.scrollWidth>list.clientWidth+2;
+    if(fr) fr.style.opacity=on?'1':'0';
+    if(fl) fl.style.opacity=on?'1':'0'; }
+  list.addEventListener('scroll',function(){ normalize(); },{passive:true});
+  window.addEventListener('resize',function(){ buildLoop(); normalize(); fades(); });
+  buildLoop(); fades();
+  /* --- "In this edition" drop-down menu (Dave, Nov 6, 2026): click the slug ->
+     a full section list; tap one to jump. Built from the same items as the tape,
+     so it always carries every section. --- */
+  var slug=document.querySelector('.ticker-slug');
+  if(slug){
+    slug.setAttribute('role','button'); slug.setAttribute('tabindex','0');
+    slug.setAttribute('aria-haspopup','true'); slug.setAttribute('aria-expanded','false');
+    slug.title='Jump to a section';
+    slug.insertAdjacentHTML('beforeend','<span class="tm-caret" aria-hidden="true">▾</span>');
+    var menu=document.createElement('div');
+    menu.id='ticker-menu'; menu.setAttribute('role','menu'); menu.hidden=true;
+    var srcItems=[].slice.call(list.querySelectorAll('a.ticker-item:not(.ticker-dup)'));
+    srcItems.forEach(function(a){
+      var m=document.createElement('a');
+      m.href=a.getAttribute('href'); m.textContent=a.textContent;
+      m.setAttribute('role','menuitem');
+      if(a.getAttribute('href').charAt(0)==='#') m.setAttribute('data-spy-id',a.getAttribute('href').slice(1));
+      if(a.classList.contains('ticker-arch')) m.classList.add('ticker-arch');
+      menu.appendChild(m);
+    });
+    var nav=document.getElementById('toc');
+    nav.appendChild(menu);
+    var menuOpen=false;
+    function setMenu(open){
+      menuOpen=open; menu.hidden=!open;
+      slug.setAttribute('aria-expanded',open?'true':'false');
+      if(open){ var cur=list.querySelector('a.ticker-item.on:not(.ticker-dup)');
+        menu.querySelectorAll('a').forEach(function(m){
+          m.classList.toggle('on',!!cur && m.getAttribute('href')===cur.getAttribute('href'));
+        });
+        var onEl=menu.querySelector('a.on');
+        if(onEl){var mt=onEl.offsetTop-6;var mx=menu.scrollHeight-menu.clientHeight;menu.scrollTop=Math.max(0,Math.min(mt,mx));}
+      }
+    }
+    slug.addEventListener('click',function(){ setMenu(!menuOpen); });
+    slug.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); setMenu(!menuOpen); }
+      if(e.key==='Escape') setMenu(false);
+    });
+    menu.addEventListener('click',function(e){
+      var a=e.target.closest('a'); if(!a) return;
+      e.preventDefault(); setMenu(false);
+      var href=a.getAttribute('href');
+      if(href.charAt(0)==='#'){
+        var el=document.getElementById(href.slice(1));
+        if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); history.replaceState(null,'',href); }
+      } else { window.location.href=href; }
+    });
+    document.addEventListener('click',function(e){
+      if(menuOpen && !menu.contains(e.target) && !slug.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') setMenu(false); });
+  }
+  /* --- drag (mouse + touch via pointer events; pan-y leaves vertical scroll to the page) --- */
+  var down=false, dragged=false, startX=0, startL=0, suppress=false, resumeAt=0, lastDragEnd=-1e9;
+  function pauseFor(ms){ resumeAt=Math.max(resumeAt, performance.now()+ms); }
+  list.addEventListener('pointerdown',function(e){
+    down=true; dragged=false; startX=e.clientX; startL=list.scrollLeft; pauseFor(4000); });
   list.addEventListener('pointermove',function(e){ if(!down) return;
     var dx=e.clientX-startX;
     if(!dragged&&Math.abs(dx)>8){ dragged=true; list.classList.add('dragging'); }
-    if(dragged) list.scrollLeft=startL-dx; });
-  function endDrag(){ if(down&&dragged){ suppress=true; setTimeout(function(){ list.classList.remove('dragging'); },60); } down=false; }
-  list.addEventListener('pointerup',endDrag);
-  list.addEventListener('pointercancel',endDrag);
+    if(dragged){ list.scrollLeft=startL-dx; normalize(); pauseFor(4000); } });
+  function endDrag(){ if(down&&dragged){ suppress=true; lastDragEnd=performance.now(); handHold=true; setTimeout(function(){ list.classList.remove('dragging'); suppress=false; },60); }
+    if(down) pauseFor(3000);
+    down=false; dragged=false; }
+  window.addEventListener('pointerup',endDrag);
+  window.addEventListener('pointercancel',endDrag);
   list.addEventListener('click',function(e){ if(suppress){ e.preventDefault(); e.stopPropagation(); suppress=false; } },true);
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduce) setTimeout(function(){
-    if(list.scrollLeft!==0||list.scrollWidth-list.clientWidth<10) return;
-    var t0=null;
-    function step(ts){ if(!t0) t0=ts; var p=(ts-t0)/650;
-      if(p>=1){ list.scrollLeft=0; fades(); return; }
-      list.scrollLeft=26*Math.sin(p*Math.PI); requestAnimationFrame(step); }
-    requestAnimationFrame(step);
-  },700);
+  /* --- the drift: 36 px/s — a readable glide, resumed 3s after any interaction --- */
+  var SPEED=36, lastT=0, driftAcc=0;
+  list.addEventListener('mouseenter',function(){ pauseFor(600); });
+  list.addEventListener('mouseleave',function(){ pauseFor(300); });
+  /* Scroll-spy (Dave, Nov 6, 2026): the tape also tracks the reader — as the page scrolls, the
+     item for the section currently under the sticky bars lights up (accent + gold underline)
+     and the tape re-aligns so that item is on screen; while the reader is down in the paper
+     the drift parks (the tape is a you-are-here marker, not a showcase), and back at the top
+     the showcase drift resumes. The reference line is the sections' own scroll-margin (150px),
+     so the spy agrees with where a tapped item lands. Archive items have no section on this
+     page and never spy. */
+  var spyItems=[], spySections=[], spyHeads=[], activeIdx=-1;
+  /* handHold (Nov 14, 2026 — Dave's "ticker looks locked up" report): once the reader drags
+     the tape by hand, their placement stands until they scroll into a DIFFERENT section.
+     Before this, alignTape re-centered on the active item 3.5s after every drag — down in
+     the paper, where the drift parks, that read as the tape being locked: slide it, and it
+     snapped back to the same spot. */
+  function buildSpy(){
+    spyItems=[]; spySections=[]; spyHeads=[];
+    var heads={};
+    document.querySelectorAll('h2').forEach(function(h2){
+      var host=h2.closest('section[id],div[id],article[id]');
+      var hid=h2.id||(host&&host.id)||(h2.nextElementSibling&&h2.nextElementSibling.id)||'';
+      if(hid&&!heads[hid]) heads[hid]=h2;
+    });
+    Array.prototype.slice.call(list.querySelectorAll('a.ticker-item')).forEach(function(a){
+      if(a.classList.contains('ticker-dup')||a.classList.contains('ticker-arch')) return;
+      var href=a.getAttribute('href')||'';
+      if(href.charAt(0)!=='#') return;
+      var el=document.getElementById(href.slice(1));
+      if(el){ spyItems.push(a); spySections.push(el); spyHeads.push(heads[href.slice(1)]||el); }
+    });
+  }
+  buildSpy();
+  window.addEventListener('resize',function(){ setTimeout(buildSpy,350); });
+  /* The spy also runs on scroll events (Nov 16, 2026): iOS throttles requestAnimationFrame
+     hard during a scroll, so a spy that only runs inside the drift loop can go blind
+     exactly while the reader is moving. spy() is cheap and idempotent. */
+  window.addEventListener('scroll',function(){ spy(window.scrollY||0); },{passive:true});
+  /* The spy reads HEADINGS against a line just under the sticky bars (retuned
+     Nov 16, 2026 — Dave's screenshot: the tape still marked Car Shows while the
+     Tasting Room heading was already at the top of the screen and its stories
+     filled the view). The old rule measured each section's CARD against a fixed
+     150px line: a heading reaches the reader's eye a full heading-height before
+     its card crosses that line, so the tape ran a section behind the screen.
+     Now the current section is the LAST one whose heading has crossed the line
+     under the bars — the section the reader is in, from the moment its name
+     reaches the top of the screen. */
+  function spyLine(){
+    var tb=document.querySelector('.topbar'), tc=document.getElementById('toc');
+    var h=(tb?tb.offsetHeight:52)+(tc?tc.offsetHeight:40)+2;
+    return h>40&&h<320?h:150;
+  }
+  function currentSection(y){
+    var n=spyHeads.length; if(!n) return -1;
+    var line=spyLine(), cur=-1;
+    for(var i=0;i<n;i++){
+      if(spyHeads[i].getBoundingClientRect().top<=line) cur=i; else break;
+    }
+    return cur;
+  }
+  function itemOffset(a){
+    var lr=list.getBoundingClientRect();
+    return a.getBoundingClientRect().left - lr.left + list.scrollLeft;
+  }
+  function alignTape(){
+    if(!loopOK||activeIdx<0||down||dragged) return;
+    if(performance.now()-lastDragEnd<3500) return; /* a fresh hand placement outranks the spy for a beat */
+    if(handHold) return; /* a hand placement stands until the reader reaches another section */
+    var orig=spyItems[activeIdx]; if(!orig) return;
+    var cands=[orig];
+    Array.prototype.slice.call(list.querySelectorAll('a.ticker-dup')).forEach(function(d){
+      if(d.getAttribute('href')===orig.getAttribute('href')) cands.push(d);
+    });
+    var sl=list.scrollLeft, vw=list.clientWidth, best=null, bestGap=1e18;
+    cands.forEach(function(c){
+      var off=itemOffset(c), w=c.getBoundingClientRect().width;
+      var gap=(off>=sl-2&&off+w<=sl+vw+2)?0:Math.min(Math.abs(off-sl),Math.abs(off+w-(sl+vw)));
+      if(gap<bestGap){ bestGap=gap; best={off:off,w:w}; }
+    });
+    if(!best||bestGap===0) return;
+    var target;
+    if(best.off<sl) target=best.off-10;
+    else target=best.off+best.w-vw+10;
+    if(target<0) target=0;
+    if(Math.abs(target-sl)>2.5){ list.scrollLeft=target; normalize(); } /* 2.5px deadband (Nov 16, 2026): fractional rect wobble at rest must not micro-nudge the tape */
+  }
+  /* Section changes must PERSIST ~150ms before the spy adopts them (Nov 14, 2026 — Dave's
+     "ticker jittering between a couple of values" report): iOS reports fractional scrollY
+     and its momentum tail hovers at section boundaries, so an instant-adopt spy flipped the
+     highlight — and re-aligned the tape — back and forth between two neighbouring sections
+     while Dave scrolled slowly. The tape also only re-aligns ON an adopted change now, not
+     every frame, so alignment can never fight itself or the reader's hand. */
+  var pendingIdx=-2, pendingSince=0, pendingLast=0;
+  function spy(y){
+    if(!spySections.length||down) return -1;
+    var idx=currentSection(y);
+    var now=performance.now();
+    if(idx===activeIdx){
+      /* A brief blip back to the current section does NOT reset the candidate's clock
+         (Nov 16, 2026 — Dave: "the ticker doesn't follow me down the page"): iOS's
+         fractional momentum tail micro-crosses a section boundary for seconds after a
+         scroll, and resetting on every blip starved adoption indefinitely — the tape
+         stayed sections behind and never scrolled along. The candidate now dies only
+         when it has not been the computed section for ~600ms. */
+      if(pendingIdx>=0&&now-pendingLast>600) pendingIdx=-2;
+      return activeIdx;
+    }
+    if(idx!==pendingIdx){ pendingIdx=idx; pendingSince=now; pendingLast=now; return activeIdx; }
+    pendingLast=now;
+    if(now-pendingSince<90) return activeIdx; /* 90ms since the Nov 16, 2026 retune (was 150ms) */
+    /* Decisiveness (Nov 16, 2026 retune): a candidate must be IN by a margin —
+       its heading at least 3px past the line, or the page resting at its bottom.
+       Fractional hover straddling the line (a pixel or two either way) can never
+       meet the margin, so a parked boundary cannot flicker the highlight the way
+       Dave caught on Nov 14; a real scroll crosses 3px in a single frame. The
+       margin is a ratchet: once a section is adopted, the one above cannot
+       reclaim the tape on a hair's retreat — scrolling back up, its heading is
+       far past the line, so upward adoption stays instant after the same 90ms. */
+    if(idx>=0){
+      var hr=spyHeads[idx].getBoundingClientRect().top;
+      var atBottom=y+window.innerHeight>=document.documentElement.scrollHeight-4;
+      if(hr>spyLine()-3&&!atBottom) return activeIdx;
+    }
+    handHold=false; /* new section adopted: the spy may align the tape to it again */
+    var old=activeIdx; activeIdx=idx; pendingIdx=-2;
+    [old,idx].forEach(function(k){
+      if(k<0||!spyItems[k]) return;
+      var href=spyItems[k].getAttribute('href');
+      Array.prototype.slice.call(list.querySelectorAll('a.ticker-item')).forEach(function(a){
+        if(a.getAttribute('href')!==href) return;
+        if(k===idx){ a.classList.add('on'); if(!a.classList.contains('ticker-dup')) a.setAttribute('aria-current','true'); }
+        else { a.classList.remove('on'); a.removeAttribute('aria-current'); }
+      });
+    });
+    alignTape();
+    return activeIdx;
+  }
+  /* Page rest detection (v3, Nov 5, 2026 — v2 still failed on Dave's iPhone: "the scrollable
+     area is not auto-scrolling when the page is static for more than about 1 second").
+     Why v2 failed live: iOS Safari reports scrollY as a FRACTION, and its momentum tail crawls
+     at sub-pixel rates for seconds after the page looks perfectly still — v2 demanded the
+     position be exactly unchanged for 250ms, a moment that arrives far too late, and its
+     watchdog required that same exact settle, so it never rescued. Rest is now judged the way
+     a reader sees it — by HOW MUCH the page moved lately, not whether it moved at all:
+     the loop keeps the last ~1.6s of positions; the page is at rest when the trailing ~0.5s
+     spans under 2px of movement, or the trailing ~1.5s spans under 4px (the slow fractional
+     tail). Genuine scrolling spans far more and keeps the tape held. The drag/hover deadline
+     is still checked in its own clock, and the watchdog now guards only that deadline: if it
+     ever stays stuck 4s past a settled page, it is force-cleared. */
+  var samples=[], startAt=0, blockedSince=0;
+  function rangeOver(win,ts){ var lo=Infinity,hi=-Infinity,seen=false;
+    for(var i=samples.length-1;i>=0;i--){ if(ts-samples[i][0]>win) break; seen=true;
+      if(samples[i][1]<lo)lo=samples[i][1]; if(samples[i][1]>hi)hi=samples[i][1]; }
+    return seen?(hi-lo):999; }
+  function drift(ts){
+    requestAnimationFrame(drift);
+    if(!startAt) startAt=ts+1200;
+    var y=window.scrollY||0;
+    samples.push([ts,y]);
+    while(samples.length&&ts-samples[0][0]>1600) samples.shift();
+    var settled = rangeOver(500,ts)<2 || rangeOver(1500,ts)<4;
+    var cur = spy(y); /* highlight + alignment update; -1 until sections resolve */
+    /* Park on scroll DEPTH as well as on adoption (Nov 16, 2026 — Dave, reading the
+       Roadside feature, found the banner showing the Recipe Archive, and jittering):
+       the showcase drift is a top-of-page pleasure, but the old gate parked it only
+       once the spy had ADOPTED a section past the first — any adoption lag on a real
+       phone left the tape free-drifting deep into the set while the reader was down
+       the page, where it could sit on the archive items at the seam's end. Now the
+       moment the reader scrolls to read (y past ~120px), the drift parks regardless
+       of adoption state; the settled alignment below still walks the tape to the
+       reader's section. */
+    var spyPark = cur>0 || y>120; /* down in the paper: the tape marks the reader's place */
+    normalize(); /* every frame, not only on scroll events — iOS can swallow those */
+    /* Alignment retry (Nov 16, 2026): adoption attempts alignment exactly once, and a
+       transient guard (a fresh hand drag, the 3.5s post-drag beat) can veto that one
+       attempt with no second chance — parked in a long section, the tape then never
+       followed the reader at all. While the page rests, re-ask: alignTape self-limits
+       (a no-op when the active item is already on screen) and still honours handHold
+       and the drag guards, so this can never fight the reader's hand. */
+    if(settled&&!down&&!dragged) alignTape();
+    var extBlocked = performance.now()<resumeAt;
+    var blocked = !loopOK || down || dragged || extBlocked || !settled || ts<startAt || spyPark;
+    if(extBlocked && settled && !down && !dragged){
+      if(!blockedSince) blockedSince=ts;
+      if(ts-blockedSince>4000){ resumeAt=0; blockedSince=0; blocked = !loopOK || ts<startAt || spyPark; }
+    } else blockedSince=0;
+    if(blocked) { lastT=ts; return; }
+    /* Whole-pixel steps with the fraction carried (Nov 16, 2026): 36px/s is ~0.6px
+       per frame, and iOS lands sub-pixel scrollLeft sets unevenly — some dropped,
+       some doubled — which reads as jitter. Accumulate the glide and step whole
+       pixels; the carried fraction keeps the rate exact. */
+    if(lastT&&ts-lastT<100){ driftAcc+=(ts-lastT)/1000*SPEED;
+      var stepPx=Math.floor(driftAcc);
+      if(stepPx>=1){ driftAcc-=stepPx; list.scrollLeft+=stepPx; normalize(); } }
+    lastT=ts;
+  }
+  if(!reduce&&loopOK) requestAnimationFrame(drift);
 })();
 </script>
 
