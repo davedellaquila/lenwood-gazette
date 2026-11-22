@@ -314,6 +314,17 @@ the email's pick (the email adds only framing), and Music Buddy's
 routine runs 5:11 AM PT with the homepage updated and verified live by
 ~5:30–5:45 AM — ahead of the 6:00 AM Morning edition. Lift from the
 homepage each morning; no direct send needed.
+**Album archive page (added Nov 22, 2026, Dave's direction):**
+`album-archive.html` lists every pick so far — date, artist + album
+Apple Music links, year, and Music Buddy's full write-up — newest first,
+inside `AOTD-ARCHIVE:BEGIN…END` markers. Its source is the
+`AOTD-FULL` block in Music Buddy's homepage archive
+(https://davedellaquila.github.io/buddy-system/music-buddy/#aotd-archive),
+which grows automatically with each pick; the Morning edition refreshes
+the Gazette's archive page from that block alongside the daily pick. The
+front-page Album card links to it with a standing line AFTER the
+`ALBUM:END` marker ("📚 Every Album of the Day so far — browse the
+archive") — outside the verbatim block, carried by every rebuild.
 
 **Standing element — masthead section menu (added Nov 22, 2026, Dave's
 direction; mirrors the Fiddletown Gazette's brand menu):** the paper's
