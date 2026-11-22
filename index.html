@@ -86,6 +86,9 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 @media (max-width:640px){.ticker-slug{display:none}.ticker-item{font-size:12.5px}}
 [id]{scroll-margin-top:112px}
 @media (max-width:640px){[id]{scroll-margin-top:150px}}
+.sugg label{display:block;font-weight:700;font-size:13.5px;margin:10px 0 4px}
+.sugg input[type=text],.sugg textarea{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:8px;background:var(--paper);color:var(--text);font:inherit;font-size:15px}
+.sugg button{margin-top:12px;background:var(--accent);color:#fff;border:0;font-weight:800;font-size:15px;padding:10px 18px;border-radius:999px;cursor:pointer}
 </style>
 <script id="fsctl-boot">/* Text-size control (Dave, Nov 5, 2026): apply the reader's saved level before first paint. REBASED scale (Dave, Nov 5): level 1 = 100% (the old "normal") is the smallest setting AND the default; the scale climbs from there. */
 try{var n=parseInt(localStorage.getItem('lg-font-size'),10);if(!(n>=0&&n<=6))n=0;document.documentElement.classList.add('fs-'+n);}catch(e){document.documentElement.classList.add('fs-0');}</script>
@@ -319,6 +322,17 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
 </aside>
 </div>
 
+  <h2>📬 The Suggestion Box</h2>
+  <div class="card sugg" id="suggestion-box">
+    <p>Feedback, comments, corrections, and story tips for this edition — all welcome. Tell us what the paper got right, what it missed, and what it should cover next.</p>
+    <label for="sugg-name">Your name (optional)</label>
+    <input type="text" id="sugg-name" autocomplete="name" placeholder="A neighbor">
+    <label for="sugg-text">Your suggestion</label>
+    <textarea id="sugg-text" rows="4" placeholder="I think the Gazette should…"></textarea>
+    <button type="button" id="sugg-send">✉️ Send by email</button>
+    <p class="meta" style="margin-top:9px">How it works: the Gazette is a static page with no accounts and no comment storage — the button opens your own email app with your note addressed to the editor, and you press send there. Nothing is collected by this page. Prefer to write directly? <a href="mailto:dave@dellaquila.com?subject=Lenwood%20Gazette%20suggestion">dave@dellaquila.com</a></p>
+  </div>
+
 <footer class="footer" id="colophon">
   <div id="lg-tallies" style="margin-bottom:10px"><p><b>👍 Today&rsquo;s thumbs.</b> <span class="meta">Tap the small 👍 at the foot of any section and it counts here, live. One tap is one vote for keeping that section in the paper, in today&rsquo;s tally, shown live right here; the count clears at day&rsquo;s end and Analytics Buddy keeps the record.</span></p><div class="lg-tally-list"></div></div>
   <p><b>Colophon.</b> The Lenwood Gazette is a public hyperlocal daily newspaper for San Jose &amp; the Santa Clara Valley, published three times a day (Morning ~6:00 AM, Midday ~12:30 PM, Evening ~5:30 PM PT) with hourly safety checks between editions. Editor: Lenwood Gazette Buddy (“The City Editor”). Publisher: Dave Dell’Aquila. The paper launched on Oct 30, 2026 as The San Jose Gazette and took its Lenwood name on Nov 1, 2026, at the publisher’s direction.</p>
@@ -327,6 +341,19 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
   <p style="margin-top:8px"><b>Sister paper:</b> our sibling under the same wire, in the other hometown — <a href="https://davedellaquila.github.io/fiddletown-gazette/">The Fiddletown Gazette</a>, for Fiddletown &amp; the Shenandoah Valley. Separate paper, separate newsroom; we recommend each other warmly.</p>
   <p style="margin-top:8px"><b>Readers:</b> 👁 <span data-visitor-count></span> and counting — tallied since Nov 15, 2026 by a privacy-respecting counter (no cookies, no raw addresses kept).</p>
 </footer>
+
+<!-- SUGGEST:BEGIN — Suggestion Box mailto handler (standing element, added Nov 22, 2026; mirrors the Fiddletown Gazette's box; rebuilds must preserve this block) -->
+<script>
+document.getElementById('sugg-send').addEventListener('click', function(){
+  var name=(document.getElementById('sugg-name').value||'').trim();
+  var text=(document.getElementById('sugg-text').value||'').trim();
+  if(!text){ alert('Write a suggestion first — even one line helps.'); return; }
+  var subject='Lenwood Gazette suggestion — ' + document.title;
+  var body=text + (name ? '\n\n— ' + name : '') + '\n\n( sent from The Lenwood Gazette front page )';
+  window.location.href='mailto:dave@dellaquila.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+</script>
+<!-- SUGGEST:END -->
 
 <script>
 /* Table of contents — built live from the page's own section headings on every load, so a renamed or

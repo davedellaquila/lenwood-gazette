@@ -254,6 +254,28 @@ Pieces, all preserved in every rebuild:
   quoted as results in editions; the footer board is the reader's own
   display, like the reader counts.
 
+**Standing element — 📬 The Suggestion Box (added Nov 22, 2026, Dave's
+direction; mirrors the Fiddletown Gazette's box):** after the grid and
+before the colophon, the front page carries an `<h2>📬 The Suggestion
+Box</h2>` and the `#suggestion-box` card: the standing intro ("Feedback,
+comments, corrections, and story tips for this edition — all welcome…"),
+a "Your name (optional)" field (`#sugg-name`), a "Your suggestion"
+textarea (`#sugg-text`), and an "✉️ Send by email" button (`#sugg-send`),
+with the how-it-works note printed under it. The page is static — nothing
+is collected or stored: the `SUGGEST:BEGIN…SUGGEST:END` handler after the
+footer composes a **mailto to dave@dellaquila.com** with subject
+"Lenwood Gazette suggestion — " + the page title and the typed suggestion
+(plus the name, if given) in the body, and opens it in the reader's own
+email app for them to send. The "write directly" link in the box uses
+subject `Lenwood Gazette suggestion` — the Lenwood subject line is what
+keeps the two papers' suggestion mail distinguishable. Form styling is
+the `.sugg` rules in the main stylesheet. The box sits OUTSIDE main/aside
+on purpose: the edition ticker picks its h2 up automatically (chip:
+"📬 The Suggestion Box" → #suggestion-box), and the section-thumbs script
+never decorates it. Edition rebuilds preserve the box, its styles, and
+the handler verbatim; frozen snapshots keep a working box (a mailto
+still composes from an archived edition — that's fine and intended).
+
 **Running item — 🎁 Free Stuff: the tanker desk (Dave's direction, Nov 16,
 2026):** the front page carries a `FREEBIE:BEGIN…FREEBIE:END` block (main
 column, after the Community Wire) offering Dave's vintage steel tanker desk
