@@ -16,8 +16,8 @@
 @media (prefers-color-scheme: dark){:root{--bg:#0b1418;--paper:#152329;--text:#e8f2f0;--muted:#9db4b8;--border:#2c4148;--ink:#e8f2f0;--accent:#4dd0e1;--gold:#ffb35c}}
 *{box-sizing:border-box;margin:0;padding:0}body{font-family:Georgia,serif;background:var(--bg);color:var(--text);line-height:1.55;padding:0 16px 48px;max-width:1020px;margin:0 auto}
 a{color:var(--accent)}
-.topbar{position:sticky;top:0;display:flex;align-items:center;gap:10px;background:var(--bg);border-bottom:3px double var(--ink);padding:10px 2px;font-family:-apple-system,sans-serif;font-weight:700;flex-wrap:wrap}
-.topbar nav{margin-left:auto;display:flex;gap:14px;font-size:13.5px}.topbar nav a{color:var(--text);text-decoration:none}
+.topbar{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg);border-bottom:3px double var(--ink);padding:10px 2px;font-family:-apple-system,sans-serif;font-weight:700;flex-wrap:wrap}
+.topbar nav{margin-left:0;display:flex;gap:14px;font-size:13.5px}.topbar nav a{color:var(--text);text-decoration:none}
 h1{font-size:clamp(30px,6vw,48px);margin:26px 0 6px;text-align:center}
 .sub{text-align:center;color:var(--muted);font-style:italic;margin-bottom:20px}
 .card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
@@ -30,9 +30,9 @@ h1{font-size:clamp(30px,6vw,48px);margin:26px 0 6px;text-align:center}
 @media (max-width:640px){
 .topbar{flex-wrap:wrap;gap:6px 10px;padding:8px 2px}
 .topbar>span{font-size:14px;white-space:nowrap}
-.topbar nav{order:3;flex:1 1 100%;margin-left:0;gap:16px;font-size:13px;flex-wrap:wrap}
+.topbar nav{order:3;flex:1 1 100%;margin-left:0;gap:16px;font-size:13px;flex-wrap:wrap;justify-content:space-between}
 .topbar nav a{white-space:nowrap}
-.topbar .header-tip{margin-left:auto;font-size:12.5px;padding:6px 11px;flex:none}
+.topbar .header-tip{margin-left:0;font-size:12.5px;padding:6px 11px;flex:none}
 }
 </style>
 <script id="fsctl-boot">/* Text-size control (Dave, Nov 5, 2026): apply the reader's saved level before first paint. REBASED scale (Dave, Nov 5): level 1 = 100% (the old "normal") is the smallest setting AND the default; the scale climbs from there. */

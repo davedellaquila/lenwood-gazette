@@ -153,6 +153,16 @@ room to spare, and the steps stay ~8–10 points apart (extended, not stretched)
 reader in localStorage under 'lg-font-size'. (Same control and same rebase on the
 sister paper; her storage key is 'fg-font-size'.)
 
+**Standing layout — top bar distribution (Dave's direction, Nov 22, 2026):**
+the top bar's items (paper name · nav · text-size control · reader count ·
+Tip Jar) spread EVENLY across the row's full width — `.topbar` carries
+`justify-content:space-between` and NO auto margins push groups around (the
+old `nav{margin-left:auto}` bunching is gone). At ≤640px the nav drops to its
+own full-width row (order 3) and spreads its links with
+`justify-content:space-between` too, and the Tip Jar carries no auto margin.
+Applies to the front page, the archive, and every standing page that clones
+the top bar; edition rebuilds preserve it.
+
 
 **Standing element — visitor counter beacon (Analytics Buddy; recorded Nov 6,
 2026; endpoint LIVE Nov 15, 2026):** Dave chose a Dave-owned Cloudflare Worker
