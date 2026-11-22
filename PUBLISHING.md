@@ -331,6 +331,18 @@ block verbatim; the top bar's even distribution and phone grouping are
 unaffected (the wrap is the flex item the plain name span used to be).
 Front page only for now — the guide pages keep their own navigation.
 
+**Phone header rule (Nov 22, 2026, Dave's direction):** at ≤640px the
+header is NOT sticky — `.topbar{position:static}` and (where the page has
+one) `#toc{position:static}` inside the existing phone media block, so
+the whole header zone scrolls away with the page on iPhone instead of
+eating the small screen; wider screens keep the sticky bars. The phone
+`[id]{scroll-margin-top}` drops to 12px with it (the old 150px phone
+value existed to clear the pinned stack; with nothing pinned, jumps
+should land flush). Applies to every page carrying the top bar: front
+page, Editions Archive, and both holiday guides. The ticker's stickTop
+script still sets the bar's top offset inline — inert while static, and
+correct again at wider widths. Edition rebuilds preserve the rule.
+
 **Running item — 🎁 Free Stuff: the tanker desk (Dave's direction, Nov 16,
 2026):** the front page carries a `FREEBIE:BEGIN…FREEBIE:END` block (main
 column, after the Community Wire) offering Dave's vintage steel tanker desk

@@ -54,6 +54,8 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 
 @media (max-width:640px){
 .topbar{flex-wrap:wrap;gap:6px 10px;padding:8px 2px}
+.topbar{position:static}
+#toc{position:static}
 .topbar>span{font-size:14px;white-space:nowrap}
 .topbar nav{order:3;flex:1 1 100%;margin-left:0;gap:16px;font-size:13px;flex-wrap:wrap;justify-content:space-between}
 .topbar .fsctl{order:2}.topbar .tb-readers{order:2}
@@ -85,7 +87,7 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 @media (prefers-reduced-motion: reduce){.ticker-fade .chev{animation:none}}
 @media (max-width:640px){.ticker-slug{display:none}.ticker-item{font-size:12.5px}}
 [id]{scroll-margin-top:112px}
-@media (max-width:640px){[id]{scroll-margin-top:150px}}
+@media (max-width:640px){[id]{scroll-margin-top:12px}}
 </style>
 <script id="fsctl-boot">/* Text-size control (Dave, Nov 5, 2026): apply the reader's saved level before first paint. REBASED scale (Dave, Nov 5): level 1 = 100% (the old "normal") is the smallest setting AND the default; the scale climbs from there. */
 try{var n=parseInt(localStorage.getItem('lg-font-size'),10);if(!(n>=0&&n<=6))n=0;document.documentElement.classList.add('fs-'+n);}catch(e){document.documentElement.classList.add('fs-0');}</script>
