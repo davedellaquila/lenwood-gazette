@@ -157,9 +157,13 @@ sister paper; her storage key is 'fg-font-size'.)
 the top bar's items (paper name · nav · text-size control · reader count ·
 Tip Jar) spread EVENLY across the row's full width — `.topbar` carries
 `justify-content:space-between` and NO auto margins push groups around (the
-old `nav{margin-left:auto}` bunching is gone). At ≤640px the nav drops to its
-own full-width row (order 3) and spreads its links with
-`justify-content:space-between` too, and the Tip Jar carries no auto margin.
+old `nav{margin-left:auto}` bunching is gone). At ≤640px (phone portrait)
+the row groups deliberately instead of crowding (Dave's addendum, Nov 22):
+Tip Jar takes order 1 so row 1 is paper name + Tip Jar spread edge to edge;
+the text-size control and the reader count take order 2 on row 2, also
+spread; the nav drops to its own full-width row (order 3) and spreads its
+links with `justify-content:space-between` too; the Tip Jar carries no auto
+margin.
 Applies to the front page, the archive, and every standing page that clones
 the top bar; edition rebuilds preserve it.
 
