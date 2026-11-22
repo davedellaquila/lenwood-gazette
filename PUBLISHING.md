@@ -308,10 +308,12 @@ pick Music Buddy sends this desk directly; Midday and Evening editions
 carry the block forward unchanged. The meta line names the pick's date
 and credits Music Buddy with a link to their page. If a morning's pick
 can't be obtained, carry yesterday's block and say so in the edition
-report — never substitute a desk-written pick. Coordination with Music
-Buddy (their thread, Nov 22, 2026): homepage-before-6 AM or a direct
-morning send; their confirmation is on file in ACCOMPLISHMENTS.md when it
-lands.
+report — never substitute a desk-written pick. Coordination CONFIRMED
+with Music Buddy (Nov 22, 2026): the homepage AOTD block is word-for-word
+the email's pick (the email adds only framing), and Music Buddy's
+routine runs 5:11 AM PT with the homepage updated and verified live by
+~5:30–5:45 AM — ahead of the 6:00 AM Morning edition. Lift from the
+homepage each morning; no direct send needed.
 
 **Standing element — masthead section menu (added Nov 22, 2026, Dave's
 direction; mirrors the Fiddletown Gazette's brand menu):** the paper's
