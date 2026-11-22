@@ -174,6 +174,24 @@ same day.** The live endpoint is
 - Editions published before the beacon landed (before Nov 15, 2026) cannot be
   counted retroactively; they start at zero under the archive's "tally from
   Nov 15, 2026" note.
+- **Header reader count (added Nov 22, 2026, Dave's request — same treatment
+  as the Fiddletown Gazette's masthead):** the front page's top bar carries
+  `<span class="tb-readers" title="…">👁 <span data-rc-today></span> /
+  <span data-rc-total></span></span>` immediately before the Tip Jar pill;
+  beacon.js fills the pair (readers today / all-time). Front page only — the
+  archive does not carry it (matching Fiddletown). The tooltip is
+  Fiddletown-style and honest: today over all-time, one count per reader per
+  day by a scrambled code discarded nightly, and it states THIS paper's first
+  counted day — **Nov 15, 2026** (beacon wired and live that day, commit
+  aca2e8c; the date coincides with Fiddletown's because Dave deployed the
+  Worker for both papers the same day — it is Lenwood's own date, verified in
+  this repo's history, not copied). First-reader red: the CSS rule
+  `html.vc-new-today [data-rc-today]{color:#c0271b}` paints the today number
+  red when the beacon's `vc-new-today` signal says this reader is being
+  counted for the first time today (Analytics Buddy API doc, Nov 21, 2026).
+  `.tb-readers{white-space:nowrap;font-weight:600;color:var(--ink)}`. This is
+  part of the preserved header — edition rebuilds keep the span and both CSS
+  rules like the rest of the top bar.
 This beacon is a preserved standing element — rebuilds keep it like
 PTR / LBX / TIPFLY / fsctl.
 **Counts caveat (Nov 15, 2026, Analytics Buddy):** the counter's same-day
