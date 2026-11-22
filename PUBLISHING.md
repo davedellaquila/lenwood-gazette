@@ -276,6 +276,25 @@ never decorates it. Edition rebuilds preserve the box, its styles, and
 the handler verbatim; frozen snapshots keep a working box (a mailto
 still composes from an archived edition — that's fine and intended).
 
+**Standing sidebar section — 💿 Album of the Day (added Nov 22, 2026, Dave's
+direction):** the sidebar carries an `ALBUM:BEGIN…ALBUM:END` block (h2 +
+card, both `id="album-of-the-day"`, between the Weather and History
+cards) printing **Music Buddy's daily pick verbatim** — artist (linked to
+its Apple Music artist page), album title (linked to its Apple Music
+album page), year, and Music Buddy's own write-up — the same content as
+Dave's Album of the Day email. The desk NEVER writes or edits the blurb.
+**Refresh rule:** the Morning edition replaces the block with the day's
+pick, lifted from the AOTD block on Music Buddy's homepage
+(https://davedellaquila.github.io/buddy-system/music-buddy/) or from the
+pick Music Buddy sends this desk directly; Midday and Evening editions
+carry the block forward unchanged. The meta line names the pick's date
+and credits Music Buddy with a link to their page. If a morning's pick
+can't be obtained, carry yesterday's block and say so in the edition
+report — never substitute a desk-written pick. Coordination with Music
+Buddy (their thread, Nov 22, 2026): homepage-before-6 AM or a direct
+morning send; their confirmation is on file in ACCOMPLISHMENTS.md when it
+lands.
+
 **Running item — 🎁 Free Stuff: the tanker desk (Dave's direction, Nov 16,
 2026):** the front page carries a `FREEBIE:BEGIN…FREEBIE:END` block (main
 column, after the Community Wire) offering Dave's vintage steel tanker desk
