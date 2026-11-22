@@ -555,6 +555,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden
 <!-- TIPFLY:END -->
 <!-- BEACON:BEGIN — visitor counter (standing element, wired Nov 15, 2026; Analytics Buddy Cloudflare Worker; rebuilds must preserve this block) -->
 <script async src="https://visitor-counter.dave-5d7.workers.dev/beacon.js" data-site="lenwood-gazette"></script>
+<script>
+/* Header reader-count filler (Nov 22, 2026): beacon.js fills only
+   [data-visitor-count] spans, so the top bar's today/total pair
+   ([data-rc-today] / [data-rc-total]) is filled here from the same
+   /counts endpoint, front-page path "/". Fails silent — pair stays blank. */
+(function(){function fill(){var t=document.querySelector("[data-rc-today]"),a=document.querySelector("[data-rc-total]");if(!t&&!a)return;fetch("https://visitor-counter.dave-5d7.workers.dev/counts?site=lenwood-gazette&paths=/").then(function(r){return r.json();}).then(function(d){var c=d&&d.counts&&d.counts["/"];if(!c)return;if(t)t.textContent=String(c.today);if(a)a.textContent=String(c.total);}).catch(function(){});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",fill);else fill();})();
+</script>
 <!-- BEACON:END -->
 </body>
 </html>

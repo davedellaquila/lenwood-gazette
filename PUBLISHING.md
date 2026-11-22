@@ -177,9 +177,15 @@ same day.** The live endpoint is
 - **Header reader count (added Nov 22, 2026, Dave's request — same treatment
   as the Fiddletown Gazette's masthead):** the front page's top bar carries
   `<span class="tb-readers" title="…">👁 <span data-rc-today></span> /
-  <span data-rc-total></span></span>` immediately before the Tip Jar pill;
-  beacon.js fills the pair (readers today / all-time). Front page only — the
-  archive does not carry it (matching Fiddletown). The tooltip is
+  <span data-rc-total></span></span>` immediately before the Tip Jar pill
+  (readers today / all-time). **Fill mechanics (verified Nov 22, 2026 by
+  reading the served beacon.js):** beacon.js fills ONLY `[data-visitor-count]`
+  spans — it never touches the rc pair (Fiddletown's rc numbers are static
+  text baked into its HTML). So the BEACON block carries a small RC filler
+  script after the beacon tag that fetches `/counts?site=lenwood-gazette&paths=/`
+  and fills the pair live from the front-page counts; it fails silent.
+  Rebuilds preserve the filler with the rest of the BEACON block. Front page
+  only — the archive does not carry the header pair (matching Fiddletown). The tooltip is
   Fiddletown-style and honest: today over all-time, one count per reader per
   day by a scrambled code discarded nightly, and it states THIS paper's first
   counted day — **Nov 15, 2026** (beacon wired and live that day, commit
