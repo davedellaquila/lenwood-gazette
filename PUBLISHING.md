@@ -221,6 +221,39 @@ Cloudflare. Until Analytics Buddy sends the all-clear, the desk does NOT quote
 reader counts in editions or reports — the on-page spans fill themselves in and
 are the reader's own business; the desk just doesn't cite the numbers yet.
 
+**Standing element — section 👍 voting (added Nov 22, 2026, Dave's
+direction; mirrors the Fiddletown Gazette's treatment, live there since
+Nov 19, 2026):** every content section of the front page carries one small
+👍 at its foot — one tap is one vote for keeping that section in the paper.
+Pieces, all preserved in every rebuild:
+- `thumbs.js` at the repo root, loaded by the front page only via the
+  `THUMBS:BEGIN…THUMBS:END` tag before the BEACON block. It injects the
+  buttons at runtime (nothing to hand-place per section): for each
+  `main h2, aside h2` it finds the section's host (first following sibling
+  carrying an id) and appends the control at the host's foot. The Free
+  Stuff block (`#free-stuff`) is skipped — a running classified, not an
+  editorial section. **The script self-disables on any page under
+  `/editions/`, so frozen snapshots never sprout live controls** even
+  though they carry the tag; snapshots therefore need no special handling.
+- The explainer card `#thumbs-notice` ("A quick word about the 👍") as the
+  first item of the main column, and the footer block `#lg-tallies`
+  ("👍 Today's thumbs.") as the first item of the colophon, with its
+  `.lg-tally-list` filled live by the script.
+- Counting is Analytics Buddy's votes API (same Worker as the counter):
+  POST /vote, site `lenwood-gazette`, target_type `section`. **Tallies are
+  DAY-scoped** — target_id `<YYYY-MM-DD>/<section-id>`, edition
+  `<YYYY-MM-DD>` — so one board runs across the day's three editions and
+  clears at day's end. The script derives the day from the
+  `<meta name="lg-edition" content="YYYY-MM-DD-<edition>">` tag in the
+  head: **every edition rebuild sets that meta alongside EDITION:DATE /
+  EDITION:NAME** (morning/midday/evening suffix included; the script uses
+  the date part). The reader's browser marker lives in localStorage as
+  `lg-voter`, their picks as `lg-thumbs-v1`; the server stores only a
+  salted hash of the marker. One vote per reader per section per day,
+  up-only (no 👎). Votes are reader feedback for the desk — they are NOT
+  quoted as results in editions; the footer board is the reader's own
+  display, like the reader counts.
+
 **Running item — 🎁 Free Stuff: the tanker desk (Dave's direction, Nov 16,
 2026):** the front page carries a `FREEBIE:BEGIN…FREEBIE:END` block (main
 column, after the Community Wire) offering Dave's vintage steel tanker desk

@@ -9,6 +9,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10262e">
+<meta name="lg-edition" content="2026-11-22-morning">
 
 <title>The Lenwood Gazette — San Jose &amp; the Santa Clara Valley</title>
 <meta name="description" content="A public hyperlocal daily newspaper for San Jose and the Santa Clara Valley: the safety news residents need, plus the valley's public events. Updated all day.">
@@ -139,6 +140,10 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
 
 <div class="grid">
 <main>
+  <div class="card" id="thumbs-notice">
+    <h3 style="margin:2px 0 6px">A quick word about the 👍</h3>
+    <p style="margin:0">New in today&rsquo;s paper: every section carries one small thumbs-up at its foot. If a section earns its place in the paper, tap it &mdash; one tap is one vote for keeping that section, counted anonymously, no accounts or names. You&rsquo;ll see &ldquo;Counted &mdash; thanks!&rdquo; beside the button, and the running totals are shown <a href="#lg-tallies">in the footer</a>. One vote per reader per section; the board clears at day&rsquo;s end.</p>
+  </div>
   <h2>🚨 Need to Know — the Safety Wire</h2>
   <div id="safety-wire">
     <div class="item"><p><b>Roads at the morning check: southbound I-280 has reopened — no restrictions on any valley freeway checked.</b> Caltrans highway conditions, latest reported at 5:55 AM PT, list no traffic restrictions on I-280 in the Central California area — the flooding closure at Lawrence Expy in San Jose, in its third day on Saturday, is no longer listed. At the same check, I-880, I-680, SR-87 and SR-85 each reported no traffic restrictions in the Central California area, and US-101 carried no closure in Santa Clara County (its only closure listed is northbound at SR-170 in Los Angeles County, out of area). Sources: <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=280">Caltrans — I-280</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=101">Caltrans — US-101</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=880">Caltrans — I-880</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=680">Caltrans — I-680</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=87">Caltrans — SR-87</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=85">Caltrans — SR-85</a></p></div>
@@ -312,6 +317,7 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
 </div>
 
 <footer class="footer" id="colophon">
+  <div id="lg-tallies" style="margin-bottom:10px"><p><b>👍 Today&rsquo;s thumbs.</b> <span class="meta">Tap the small 👍 at the foot of any section and it counts here, live. One tap is one vote for keeping that section in the paper, in today&rsquo;s tally, shown live right here; the count clears at day&rsquo;s end and Analytics Buddy keeps the record.</span></p><div class="lg-tally-list"></div></div>
   <p><b>Colophon.</b> The Lenwood Gazette is a public hyperlocal daily newspaper for San Jose &amp; the Santa Clara Valley, published three times a day (Morning ~6:00 AM, Midday ~12:30 PM, Evening ~5:30 PM PT) with hourly safety checks between editions. Editor: Lenwood Gazette Buddy (“The City Editor”). Publisher: Dave Dell’Aquila. The paper launched on Oct 30, 2026 as The San Jose Gazette and took its Lenwood name on Nov 1, 2026, at the publisher’s direction.</p>
   <p style="margin-top:8px"><b>Our privacy line:</b> we publish public sources and public events only — agency alerts, public notices, and venues with their public addresses. No private residents’ data, no home addresses, no private or family events, nothing from anyone’s mail, calendar, or private accounts. Every item is timestamped and sourced, and passes a pre-publish privacy gate before it prints: public source? public event? no private names or addresses?</p>
   <p style="margin-top:8px"><b>Tips:</b> no comments in v1 — send news tips to the tips address listed here at launch. <b>Archive:</b> every edition is kept in the <a href="archive.html">Editions Archive</a>.</p>
@@ -554,6 +560,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden
 })();
 </script>
 <!-- TIPFLY:END -->
+<!-- THUMBS:BEGIN — section 👍 voting (standing element, added Nov 22, 2026; thumbs.js mirrors the Fiddletown Gazette's treatment; rebuilds must preserve this tag; the script self-disables under /editions/ so frozen snapshots never sprout controls) -->
+<script src="thumbs.js" defer></script>
+<!-- THUMBS:END -->
 <!-- BEACON:BEGIN — visitor counter (standing element, wired Nov 15, 2026; Analytics Buddy Cloudflare Worker; rebuilds must preserve this block) -->
 <script async src="https://visitor-counter.dave-5d7.workers.dev/beacon.js" data-site="lenwood-gazette"></script>
 <script>
