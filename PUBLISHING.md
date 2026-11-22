@@ -295,6 +295,24 @@ Buddy (their thread, Nov 22, 2026): homepage-before-6 AM or a direct
 morning send; their confirmation is on file in ACCOMPLISHMENTS.md when it
 lands.
 
+**Standing element — masthead section menu (added Nov 22, 2026, Dave's
+direction; mirrors the Fiddletown Gazette's brand menu):** the paper's
+name at the left of the top bar is a button (`#brand-btn`, wrapped in
+`.brand-wrap`, with a gold ▾ affordance) opening a dropdown
+(`#brand-menu`) headed "Jump to a section." The `BRAND:BEGIN…BRAND:END`
+script builds the list live from the page's own `<h2>`s — the same
+section set as the edition ticker, resolved the same way — so sections
+that come and go stay right with no hand maintenance; it appends a
+separator and the Editions Archive link. Choosing a section jumps to it
+and closes the menu; an outside tap/click or Esc also closes;
+`aria-expanded` tracks the state. The menu is anchored left under the
+name (Lenwood's name sits at the bar's left edge — NOT centered like
+Fiddletown's) with `max-width:88vw`. Edition rebuilds preserve the
+button markup, the `.brand-wrap`/`#brand-menu` styles, and the BRAND
+block verbatim; the top bar's even distribution and phone grouping are
+unaffected (the wrap is the flex item the plain name span used to be).
+Front page only for now — the guide pages keep their own navigation.
+
 **Running item — 🎁 Free Stuff: the tanker desk (Dave's direction, Nov 16,
 2026):** the front page carries a `FREEBIE:BEGIN…FREEBIE:END` block (main
 column, after the Community Wire) offering Dave's vintage steel tanker desk
