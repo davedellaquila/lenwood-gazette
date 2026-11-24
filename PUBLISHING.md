@@ -141,6 +141,9 @@ markup after its scripts and taps silently did nothing — never split this bloc
 Every edition rebuild must PRESERVE it verbatim.
 
 
+**Standing element — THE PRIVACY SEAL (Jonny's Seal 2, Dave's pick + build order, Nov 23, 2026):** the die-cut Privacy Seal (rim "WE COUNT READERS · NEVER TRACK THEM", center ALWAYS FREE, "tips welcome") stands on the masthead's bottom-left corner in EVERY edition — preserve it in every rebuild. Form: `<a class="gz-seal">` as the masthead's last child, asset `images/seal-2-lenwood.png`, linking https://ko-fi.com/davedellaquila (the same destination as the header tip pill — no new plumbing); styles in `<style id="gz-seal-style">` (100px, +7° tilt, bottom:-33px so a third hangs below the rule, z-index 60; phone 96px — never below 92px). Design record: ~/workspace/gazette-always-free/design.md (Decision section). The seal and the older gradient header tip pill now both invite tips in the header stack — the pill is RETAINED until Dave rules (flagged to him Nov 23, 2026). The Fiddletown Gazette carries the same seal in its own dress under the same rule.
+
+
 **Standing element — tip jar crossings with the pause (added Nov 5, 2026, at Dave's
 direction):** the front page carries a `TIPFLY:BEGIN … TIPFLY:END` block before
 `</body>` — the traveling tip jar (the sister paper's repertoire: race / tumble /
