@@ -241,7 +241,7 @@ same day.** The live endpoint is
   counted for the first time today (Analytics Buddy API doc, Nov 21, 2026).
   `.tb-readers{white-space:nowrap;font-weight:600;color:var(--ink)}`. This is
   part of the preserved header — edition rebuilds keep the span and both CSS
-  rules like the rest of the top bar.
+  rules like the rest of the top bar. **COUNTER IS A LINK (Dave, Tue Nov 24, 2026):** the counter element is now an ANCHOR — `<a class="tb-readers" href="https://davedellaquila.github.io/buddy-system/analytics-buddy/">` — on the front page and every standing page that carries the pair (album archive, christmas guides, why-free), so tapping the reader count goes to the Analytics Buddy homepage. The data-rc spans inside, the tooltip, and the red-first-count rule are unchanged (the filler targets only the inner spans); a small `#rc-link-style` block keeps the anchor in the paper's ink, no underline, pointer cursor. Preserve the anchor in every rebuild. (This paper carries the pair in the topbar only — there is no dateline pair here.)
 This beacon is a preserved standing element — rebuilds keep it like
 PTR / LBX / TIPFLY / fsctl.
 **Counts caveat (Nov 15, 2026, Analytics Buddy):** the counter's same-day
