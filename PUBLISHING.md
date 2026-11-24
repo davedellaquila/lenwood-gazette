@@ -141,6 +141,9 @@ markup after its scripts and taps silently did nothing — never split this bloc
 Every edition rebuild must PRESERVE it verbatim.
 
 
+**Section removals — batch 2 (Dave's direction, Tue Nov 24, 2026):** the standalone lower **Weather** section (`#weather`, which ran below the Community Wire here) is REMOVED from this paper too — weather lives in the forecast panel up top and the Safety Wire; the 🌦️ Weather Events section up top is a different section and STAYS. **What We're Listening To** has never run in the Lenwood Gazette — nothing to remove, and do not add it (removed fleet-wide the same day; Fiddletown's Listening Archive page stands as an archive).
+
+
 **Section removals — fleet-wide (Dave's direction, Tue Nov 24, 2026):** Date Night, Featured Pets, and On the Wing were removed from the Gazette lineup. Checked against this paper the same day: **none of the three has ever run in the Lenwood Gazette** — nothing to remove here, and do not add them; the removal stands as the lineup rule for both papers.
 
 
