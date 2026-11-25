@@ -41,6 +41,21 @@
    way a named venue gets watched rather than swept occasionally. Shows
    there run in the events sections, town-named Santa Cruz, credited to
    the venue's own calendar.
+   **The wineries get a standing section of their own (Dave's direction,
+   Nov 25, 2026):** 🍇 Santa Cruz Mountains Wineries (`#scm-wineries`, MAIN
+   column after Car Shows) — a directory built from the places database's
+   Santa Cruz Mountains winery records (33 at launch: Ridge, Mount Eden,
+   Thomas Fogarty, Testarossa, Rhys, Cooper-Garrod, Kathryn Kennedy, Bonny
+   Doon and 25 more), grouped by slope (the ridge above the valley —
+   Cupertino/Saratoga/Los Gatos · Skyline · the Santa Cruz side). DB-fed:
+   each Morning Edition rebuilds it from the places feed (locations,
+   category=winery, published, in the Santa Clara / San Mateo / Santa Cruz
+   county set — the AVA set Events Buddy maintains); each winery's name
+   links its places-database record and the section carries the places
+   database foot line, per the database link rule. Midday/Evening carry it
+   forward. Dated winery events still run in the events sections via the
+   winery desk — the section is the standing directory, not a second
+   events listing.
    **Boulder Creek and Felton are in the beat (Dave's direction, Nov 25,
    2026):** the San Lorenzo Valley towns along SR-9 in the Santa Cruz
    Mountains. Their events join the listings with the rest of the expanded
