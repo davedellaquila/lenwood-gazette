@@ -186,9 +186,13 @@ hides the section's body (the siblings up to the next h2, never scripts/styles,
 never the colophon footer), clicking again re-expands; the choice persists in
 the reader's localStorage keyed by the section's stable id, so it survives
 reloads and carries across editions; a jump link into a collapsed section
-auto-expands it. The script is generic — it binds whatever h2 sections the
-rebuilt page contains — so no per-edition wiring is needed beyond preserving
-the two blocks.
+auto-expands it. **New-content rule (Dave, Nov 25, 2026):** alongside the
+collapsed flag the script stores a hash of the section body the reader last
+saw (vote UI excluded); on load, a section whose body differs from the stored
+hash renders EXPANDED and the marker refreshes — updated content opens on its
+own, and a re-collapse then holds until the content changes again. The script
+is generic — it binds whatever h2 sections the rebuilt page contains — so no
+per-edition wiring is needed beyond preserving the two blocks.
 
 **Standing element — the TICKER BAR table of contents (added Nov 4, 2026, at Dave's
 direction; designed on The Fiddletown Gazette and ported here the same day):** the
