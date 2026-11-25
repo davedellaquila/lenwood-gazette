@@ -420,6 +420,16 @@ front-page Album card links to it with a standing line AFTER the
 `ALBUM:END` marker ("📚 Every Album of the Day so far — browse the
 archive") — outside the verbatim block, carried by every rebuild.
 
+**Standing element — masthead coverage callout (Dave's pick, Nov 25,
+2026):** the masthead carries the paper's coverage callout directly
+under the nameplate, verbatim: "San Jose to Santa Cruz — and the
+mountains between" (`.mast-callout`, styles in
+`<style id="mast-callout-style">`). Preserve it in every rebuild,
+word for word — it is the one-line statement of the paper's expanded
+map (South Bay + Santa Cruz + the Hwy 1 towns + the Santa Cruz
+Mountains between them). Lenwood only; Fiddletown's masthead is
+unchanged.
+
 **Standing element — masthead section menu (added Nov 22, 2026, Dave's
 direction; mirrors the Fiddletown Gazette's brand menu):** the paper's
 name at the left of the top bar is a button (`#brand-btn`, wrapped in
