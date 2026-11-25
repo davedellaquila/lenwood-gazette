@@ -29,6 +29,12 @@
    Hwy 1 towns. Desk sources: the Santa Cruz Mountains Winegrowers
    Association events calendar and the wineries' own event pages, verified
    like any other listing.
+   **Saratoga is named explicitly in the beat (Dave's direction, Nov 25,
+   2026):** its events and venues — Montalvo Arts Center, The Mountain
+   Winery's concert season, the village, Hakone Gardens — belong in the
+   Lenwood listings, at the foot of SR-9 where the South Bay meets the
+   Santa Cruz Mountains. Desk sources: the venues' own calendars plus the
+   City of Saratoga and Saratoga Chamber listings.
    **The Catalyst is a named standing source (Dave's direction, Nov 25,
    2026):** the Santa Cruz concert hall on Pacific Ave — its concert
    calendar is watched as a standing source for the Lenwood listings, the
