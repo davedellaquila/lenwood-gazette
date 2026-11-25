@@ -21,6 +21,14 @@
    Pie Ranch and the coast's standing venues. Coastal listings run in the same
    two sections, town-named like the rest. **Lenwood's events map is now: South
    Bay + Santa Cruz + the Hwy 1 coastal towns.**
+   **The Santa Cruz Mountains wineries are in the beat too (Dave's direction,
+   Nov 25, 2026):** winery events, tastings and releases from the Santa Cruz
+   Mountains AVA — the Ridge / Mount Eden / Thomas Fogarty / Testarossa country
+   above Los Gatos, Saratoga and Cupertino, and down toward Santa Cruz —
+   belong in the Lenwood listings alongside the South Bay, Santa Cruz and the
+   Hwy 1 towns. Desk sources: the Santa Cruz Mountains Winegrowers
+   Association events calendar and the wineries' own event pages, verified
+   like any other listing.
    **Alice's Restaurant is a named standing venue in the beat (Dave's direction,
    Nov 25, 2026):** the landmark at the SR-84 × Skyline Blvd crossroads in
    Woodside (17288 Skyline Blvd) — the Peninsula's classic car-and-bike
