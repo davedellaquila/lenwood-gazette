@@ -51,8 +51,13 @@
    each Morning Edition rebuilds it from the places feed (locations,
    category=winery, published, in the Santa Clara / San Mateo / Santa Cruz
    county set — the AVA set Events Buddy maintains); each winery's name
-   links its places-database record and the section carries the places
-   database foot line, per the database link rule. Midday/Evening carry it
+   links its own detail card in the **Santa Cruz & South Bay Places
+   database** (`https://places.lenwoodgazette.com/#/place/<slug>`) and
+   the section's foot line credits that database ("From the Santa Cruz
+   & South Bay places database →", linking https://places.lenwoodgazette.com/).
+   These are SOUTHERN records — never credit or link the Gold Country
+   places database in this paper (Dave's correction, Nov 25, 2026, after
+   the section first ran with the Gold Country credit). Midday/Evening carry it
    forward. Dated winery events still run in the events sections via the
    winery desk — the section is the standing directory, not a second
    events listing.
