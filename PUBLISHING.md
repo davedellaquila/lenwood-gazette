@@ -12,6 +12,15 @@
    Art & History), Kuumbwa Jazz Center, Rio Theatre, Kaiser Permanente Arena.
    Santa Cruz listings run in Today in the Valley + The Week Ahead alongside the
    South Bay, town-named like any other listing, through this same desk step.
+   **The Highway 1 coastal towns are in the events beat too (Dave's direction,
+   Nov 25, 2026):** the Pacifica → Half Moon Bay → Pescadero → Davenport stretch —
+   Pacifica, Montara, Moss Beach, El Granada, Half Moon Bay, San Gregorio,
+   Pescadero, Davenport and their neighbors. Desk sources: City of Pacifica and
+   City of Half Moon Bay calendars, San Mateo County parks & libraries, Pacifica
+   Performances, Año Nuevo State Park, Pigeon Point Light Station, Harley Farms,
+   Pie Ranch and the coast's standing venues. Coastal listings run in the same
+   two sections, town-named like the rest. **Lenwood's events map is now: South
+   Bay + Santa Cruz + the Hwy 1 coastal towns.**
    (The Fiddletown Gazette is unchanged — its beat stays Amador/Foothills-local.)
 3. Around Town: city public notices, road-work/permit postings, public meeting agendas.
 4. Community Wire: official/public Facebook pages only — summarize in our own words,
