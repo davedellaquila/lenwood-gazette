@@ -29,6 +29,14 @@
    Hwy 1 towns. Desk sources: the Santa Cruz Mountains Winegrowers
    Association events calendar and the wineries' own event pages, verified
    like any other listing.
+   **Boulder Creek and Felton are in the beat (Dave's direction, Nov 25,
+   2026):** the San Lorenzo Valley towns along SR-9 in the Santa Cruz
+   Mountains. Their events join the listings with the rest of the expanded
+   map (South Bay + Santa Cruz + Hwy 1 coastal towns + SCM wineries +
+   Alice's). Desk sources: San Lorenzo Valley Chamber of Commerce, the
+   towns' community calendars, Roaring Camp Railroads (Felton), Henry
+   Cowell Redwoods State Park, the SLV Museum and the towns' standing
+   venues.
    **Alice's Restaurant is a named standing venue in the beat (Dave's direction,
    Nov 25, 2026):** the landmark at the SR-84 × Skyline Blvd crossroads in
    Woodside (17288 Skyline Blvd) — the Peninsula's classic car-and-bike
