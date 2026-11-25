@@ -73,7 +73,10 @@
    well as the Sierra) and prints them in the events sections like any
    other listing — the event name linked to its database detail page
    (https://events.fiddletowngazette.com/?event=<slug>#/event/<slug>) and
-   credited to the database, per the database link rule.
+   credited to the database, per the database link rule. **SCBMCC joins on
+   the same terms (Dave, Nov 25, 2026):** the same database check covers
+   SCBMCC events — a standing source whose events print from the DB
+   wherever they fall in the map.
    **Alice's Restaurant is a named standing venue in the beat (Dave's direction,
    Nov 25, 2026):** the landmark at the SR-84 × Skyline Blvd crossroads in
    Woodside (17288 Skyline Blvd) — the Peninsula's classic car-and-bike
