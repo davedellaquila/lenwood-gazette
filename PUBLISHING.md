@@ -177,6 +177,19 @@ front page and archive carry a `PTR:BEGIN … PTR:END` block before `</body>` (i
 pill + touch handler that reloads the page on a pull from the top). Every edition
 rebuild must PRESERVE this block verbatim. Added to both gazettes the same day.
 
+**Standing element — section collapse toggles (experiment, Dave's direction,
+Nov 25, 2026):** the front page carries `<style id="gz-collapse-style">` +
+`<script id="gz-collapse-script">` before `</body>` — PRESERVE BOTH verbatim in
+every rebuild. The script turns the leading icon of every section heading (h2)
+into a collapse switch (headings with no icon get a ▾ chevron switch): clicking
+hides the section's body (the siblings up to the next h2, never scripts/styles,
+never the colophon footer), clicking again re-expands; the choice persists in
+the reader's localStorage keyed by the section's stable id, so it survives
+reloads and carries across editions; a jump link into a collapsed section
+auto-expands it. The script is generic — it binds whatever h2 sections the
+rebuilt page contains — so no per-edition wiring is needed beyond preserving
+the two blocks.
+
 **Standing element — the TICKER BAR table of contents (added Nov 4, 2026, at Dave's
 direction; designed on The Fiddletown Gazette and ported here the same day):** the
 front page carries a `<nav id="toc">` "IN THIS EDITION" strip under the masthead —
