@@ -5,7 +5,14 @@
    feeds, CHP Golden Gate incidents, NWS Bay Area, Valley Water, VTA service alerts.
 2. Pull Today's + Week Ahead public events from the paper's own events desk:
    City of San Jose events calendar, SAP Center, San Jose Theaters, Children's Discovery
-   Museum, The Tech Interactive, San Jose Public Library events.
+   Museum, The Tech Interactive, San Jose Public Library events. **Santa Cruz is in
+   the events beat (Dave's direction, Nov 25, 2026 — it is the far side of the SR-17
+   run the Hill & Mountain Roads panel covers):** City of Santa Cruz events, Santa
+   Cruz Beach Boardwalk, Santa Cruz County parks & libraries, the MAH (Museum of
+   Art & History), Kuumbwa Jazz Center, Rio Theatre, Kaiser Permanente Arena.
+   Santa Cruz listings run in Today in the Valley + The Week Ahead alongside the
+   South Bay, town-named like any other listing, through this same desk step.
+   (The Fiddletown Gazette is unchanged — its beat stays Amador/Foothills-local.)
 3. Around Town: city public notices, road-work/permit postings, public meeting agendas.
 4. Community Wire: official/public Facebook pages only — summarize in our own words,
    attribute to the posting page, link the original. Never copy wholesale. No private
