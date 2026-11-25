@@ -29,6 +29,12 @@
    Hwy 1 towns. Desk sources: the Santa Cruz Mountains Winegrowers
    Association events calendar and the wineries' own event pages, verified
    like any other listing.
+   **The Catalyst is a named standing source (Dave's direction, Nov 25,
+   2026):** the Santa Cruz concert hall on Pacific Ave — its concert
+   calendar is watched as a standing source for the Lenwood listings, the
+   way a named venue gets watched rather than swept occasionally. Shows
+   there run in the events sections, town-named Santa Cruz, credited to
+   the venue's own calendar.
    **Boulder Creek and Felton are in the beat (Dave's direction, Nov 25,
    2026):** the San Lorenzo Valley towns along SR-9 in the Santa Cruz
    Mountains. Their events join the listings with the rest of the expanded
