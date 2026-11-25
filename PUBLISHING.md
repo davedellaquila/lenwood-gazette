@@ -420,6 +420,30 @@ front-page Album card links to it with a standing line AFTER the
 `ALBUM:END` marker ("📚 Every Album of the Day so far — browse the
 archive") — outside the verbatim block, carried by every rebuild.
 
+**Standing format — the Editions Archive (Dave, Nov 25, 2026 —
+matched to the Fiddletown Gazette's editions page so the two papers'
+archives feel like siblings):** `archive.html` is a FLAT newest-first
+list (Evening → Midday → Morning within a day), one
+`<li class="arch-entry">` per edition: a floated thumbnail of that
+edition's front page (a real 480×360 capture of the edition's top —
+masthead + dateline + weather banner + lead — saved as
+`editions/thumbs/<same-name>.jpg`, shown with the `#ed-thumbs-style`
+treatment: float left at 168×126 desktop / 118×92 phone, the entry's
+text wrapping around it, `.arch-entry` a plain block with clearfix,
+never flex), then the edition's title link, its published time, the
+👁 reader-count span, and a SHORT italic summary — the edition's lede
+plus a headline fact or two, roughly 200–350 characters, condensed
+from the edition's own recap; the sweep-by-sweep bookkeeping belongs
+in the edition report, NOT the archive. Every edition job adds its
+entry AND its thumbnail in the same push that archives the edition
+(capture route in this sandbox: render the archived HTML locally and
+screenshot its top — `~/workspace/tmp-gazette/make_lenwood_thumbs.py`
+is the desk's batch tool). An entry whose thumbnail genuinely cannot
+be captured ships text-only — never a placeholder or another edition's
+image. The Nov 25, 2026 rebuild converted all 73 editions (Nov 1–25)
+to this format; the day-card format it replaced is retired — do not
+revive it.
+
 **Standing element — masthead coverage callout (Dave's pick, Nov 25,
 2026):** the masthead carries the paper's coverage callout directly
 under the nameplate, verbatim: "San Jose to Santa Cruz — and the
