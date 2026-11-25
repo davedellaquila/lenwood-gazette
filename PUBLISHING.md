@@ -21,6 +21,14 @@
    Pie Ranch and the coast's standing venues. Coastal listings run in the same
    two sections, town-named like the rest. **Lenwood's events map is now: South
    Bay + Santa Cruz + the Hwy 1 coastal towns.**
+   **Alice's Restaurant is a named standing venue in the beat (Dave's direction,
+   Nov 25, 2026):** the landmark at the SR-84 × Skyline Blvd crossroads in
+   Woodside (17288 Skyline Blvd) — the Peninsula's classic car-and-bike
+   gathering spot, in the middle of the roads the Hill & Mountain Roads panel
+   covers. Its events and gatherings belong in the Lenwood listings — dated
+   events in the events sections, and its weekend car/bike gatherings watched
+   by the Car Shows desk under step 9. Source: the restaurant's own site and
+   posted event listings, verified like any other listing.
    (The Fiddletown Gazette is unchanged — its beat stays Amador/Foothills-local.)
 3. Around Town: city public notices, road-work/permit postings, public meeting agendas.
 4. Community Wire: official/public Facebook pages only — summarize in our own words,
@@ -62,7 +70,9 @@
    against the listing, and writes items in our own words with the source credited.
    Each Morning Edition rebuilds the section (this weekend first, then the next two
    weeks); Midday/Evening carry it forward unless a listing changes. Public events
-   only, same privacy gate.
+   only, same privacy gate. **Alice's Restaurant (Woodside, SR-84 × Skyline Blvd)
+   is a standing watch for this desk** — its weekend car-and-bike gatherings are
+   in scope whenever they are publicly posted (Dave, Nov 25, 2026).
    **LINKS RULE (Dave, Nov 1, 2026): every listed event's name links to its real event
    or source page** — the organizer's event page, the venue's event page, or the
    calendar page the listing was sourced from. Only URLs actually verified (opened or
