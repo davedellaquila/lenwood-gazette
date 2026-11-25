@@ -392,3 +392,9 @@ Fiddletown and Llagas Creek Gazettes.)
 - The front page carries an `EVENTS:BEGIN…EVENTS:END` pointer block right after the LIGHTS pointer. Editions carry BOTH pointers forward unchanged through Jan 3, 2027; remove them in the first edition after that date (or when Dave says).
 - Like the Lights Guide, the events page is a living page: update it as flagged items confirm (Downtown Ice dates above all) or facts change.
 - Both guide pages carry the current top bar including the header reader-count pair (`.tb-readers` + the RC filler in the BEACON block, added to the Lights Guide Nov 22, 2026 for consistency with the front page).
+
+## Pass Cameras panel (standing, added Nov 25, 2026 at Dave's direction)
+- `<h2>🏔️ Pass Cameras — the high country, live</h2>` + `<div class="item" id="pass-cams">` sits in MAIN immediately after the Safety Wire block. Preserve on every rebuild.
+- Six stills, in this order: Carson Pass (Caltrans SR-88 at Pine Grove — the only SR-88 camera; caption says so), Echo Summit (US-50), Donner Summit (I-80), Luther Pass (US-50 at Meyers), Ebbetts Pass (Bear Valley Summit Cam still), Sonora Pass (Dodge Ridge Summit Cam still). Resort stills are the resorts' live-stream thumbnails, credited to the resort, never to Caltrans. Every caption names the camera's ACTUAL location — no borrowed views.
+- Stills refresh in place every 2 minutes (`#pass-cams-script`); a still that fails to load hides its own tile. Tapping a still opens the paper's photo viewer.
+- The panel foot links the full tracker: https://passes.fiddletowngazette.com/. The same panel runs in the Fiddletown Gazette with a foothills intro line.
