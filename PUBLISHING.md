@@ -91,6 +91,15 @@
    by the Car Shows desk under step 9. Source: the restaurant's own site and
    posted event listings, verified like any other listing.
    (The Fiddletown Gazette is unchanged — its beat stays Amador/Foothills-local.)
+   **EVENT ORDERING (Dave's standing rule, Thu Nov 26, 2026): everywhere the
+   paper lists events — Today in the Valley, The Week Ahead, Car Shows, and the
+   dated items inside Around Town — events print in DATE ORDER: soonest first,
+   furthest away last, no exceptions by section. Within one day, by start time;
+   a day's untimed items follow its timed ones. A multi-day event sorts by its
+   FIRST day. Closures and standing notes are not events and keep their places
+   after the day's events.** (First audit, Nov 26, 2026: Today in the Valley
+   printed the 8:30 AM Turkey Trot ahead of the 5:30 AM Turkey Cup — swapped on
+   the spot.)
 3. Around Town: city public notices, road-work/permit postings, public meeting agendas.
 4. Community Wire: official/public Facebook pages only — summarize in our own words,
    attribute to the posting page, link the original. Never copy wholesale. No private
