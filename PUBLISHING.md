@@ -61,6 +61,8 @@
    forward. Dated winery events still run in the events sections via the
    winery desk — the section is the standing directory, not a second
    events listing.
+**FRONT-PAGE LAYOUT INVARIANTS (desk fix, Thu Nov 26, 2026 — never rebuild these away): (1) the base stylesheet carries `img{max-width:100%;height:auto}` — Lenwood shipped without it until today, so any unconstrained photo rendered at natural width; (2) the body grid's tracks are `minmax(0,1fr)` single-column and `minmax(0,2fr) minmax(0,1fr)` at ≥760px — the bare `1fr`/`2fr 1fr` forms let a wide item's min-content blow the tracks out (a 1200px photo in MAIN forced the main track to 1200px and squeezed the rail to ~146px on the live page, Nov 26, 2026; the Fiddletown paper's grid has used the minmax(0,…) forms all along). Any rebuild or restyle keeps both rules verbatim; a new section with a wide photo is exactly the case they protect.**
+
    **📍 Landmark of the Day (Dave's commission, Nov 26, 2026 — the name is
    his pick):** a standing daily feature in MAIN immediately after
    `#scm-wineries`, before The Community Wire: `<h2>📍 Landmark of the

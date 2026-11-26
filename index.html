@@ -16,7 +16,7 @@
 <style>
 :root{--bg:#eef3f2;--paper:#ffffff;--text:#10262e;--muted:#5b6f76;--border:#c9d8d5;--ink:#10262e;--accent:#0b7285;--gold:#e07a1f;--ok:#177245}
 @media (prefers-color-scheme: dark){:root{--bg:#0b1418;--paper:#152329;--text:#e8f2f0;--muted:#9db4b8;--border:#2c4148;--ink:#e8f2f0;--accent:#4dd0e1;--gold:#ffb35c;--ok:#5fd08a}}
-*{box-sizing:border-box;margin:0;padding:0} body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text);line-height:1.55;padding:0 16px 48px;max-width:1020px;margin:0 auto;overflow-x:hidden}
+*{box-sizing:border-box;margin:0;padding:0} img{max-width:100%;height:auto} body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text);line-height:1.55;padding:0 16px 48px;max-width:1020px;margin:0 auto;overflow-x:hidden}
 a{color:var(--accent)}
 .topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg);border-bottom:3px double var(--ink);padding:10px 2px;font-family:-apple-system,sans-serif;font-weight:700;flex-wrap:wrap}
 .topbar nav{margin-left:0;display:flex;gap:14px;font-size:13.5px}.topbar nav a{color:var(--text);text-decoration:none}.topbar nav a:hover{text-decoration:underline}
@@ -28,7 +28,7 @@ a{color:var(--accent)}
 .rule{height:4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:16px 0}
 .banner{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--paper));border-radius:12px;padding:16px 20px;margin-bottom:18px}
 .banner b{color:var(--accent)}
-.grid{display:grid;grid-template-columns:1fr;gap:22px}@media(min-width:760px){.grid{grid-template-columns:2fr 1fr}}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}@media(min-width:760px){.grid{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}}
 h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:26px 0 12px}
 .lead h2{border-bottom:0;font-size:clamp(26px,4.5vw,38px);line-height:1.15;margin-top:0}
 .item{padding:10px 0;border-bottom:1px dashed var(--border)}.item:last-child{border-bottom:0}
