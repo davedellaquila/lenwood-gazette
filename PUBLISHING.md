@@ -61,6 +61,40 @@
    forward. Dated winery events still run in the events sections via the
    winery desk — the section is the standing directory, not a second
    events listing.
+   **📍 Landmark of the Day (Dave's commission, Nov 26, 2026 — the name is
+   his pick):** a standing daily feature in MAIN immediately after
+   `#scm-wineries`, before The Community Wire: `<h2>📍 Landmark of the
+   Day</h2>` + `<div class="item" id="landmark-of-the-day">`, with its
+   ticker item beside the SCM one. ONE place a day from the Santa Cruz &
+   South Bay places database — the pool is every published record in the
+   Santa Clara / San Mateo / Santa Cruz county region set (63 at launch:
+   33 wineries + 30 food, Alice's Restaurant among them; the pool grows
+   as southern records are published, and new records join the un-drawn
+   remainder mid-cycle). **Selection is a SHUFFLED DRAW** (the principle
+   Dave set for the Fiddletown Featured Marker the same day): no set
+   order, NO REPEATS until the pool runs through, then a fresh cycle;
+   the database order itself never changes. The desk keeps the run
+   ledger (`~/workspace/projects/gazette-buddy/lenwood-places-featured.json`)
+   and the next-pick file (`lenwood-places-next.json`, same repo).
+   **The Morning Edition sets the day's card:** feature EXACTLY the slug
+   the next-pick file names for that file's date, append the ledger entry
+   in the same flow, then draw the next day's pick (at random from the
+   published pool minus the ledger) and write it into the next-pick file.
+   **ADVANCE CHECK:** the card's kicker must carry TODAY's date and No. =
+   the ledger's last n + 1 — a card carried forward unchanged is a FAILED
+   build (the Fiddletown marker's Nov 20 lesson). Midday/Evening carry
+   the card unchanged. **Card format:** kicker "ONE PLACE A DAY FROM THE
+   SANTA CRUZ & SOUTH BAY PLACES DATABASE · No. <n> · <DAY MON D, YYYY> ·
+   DRAWN IN NO SET ORDER — NO REPEATS UNTIL EVERY PLACE HAS HAD ITS DAY";
+   a photo figure ONLY when the record carries a real photo (real-or-none
+   — most records have none; the card is text-first by design), captioned
+   with the record's photo credit; the body = bold "Name — Town." + the
+   record's short_description (the name prefix dropped, the rest
+   verbatim); the closing line links the place's own detail card
+   (`https://places.lenwoodgazette.com/#/place/<slug>`) and, where the
+   record carries coordinates, an Apple Maps link built from them
+   (`https://maps.apple.com/?ll=<lat>,<lon>&q=<name>`). Launched Thu
+   Nov 26, 2026 with No. 1 = Alice's Restaurant (placed by the desk).
    **Boulder Creek and Felton are in the beat (Dave's direction, Nov 25,
    2026):** the San Lorenzo Valley towns along SR-9 in the Santa Cruz
    Mountains. Their events join the listings with the rest of the expanded
