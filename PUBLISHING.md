@@ -94,9 +94,10 @@
    **EVENT ORDERING (Dave's standing rule, Thu Nov 26, 2026): everywhere the
    paper lists events — Today in the Valley, The Week Ahead, Car Shows, and the
    dated items inside Around Town — events print in DATE ORDER: soonest first,
-   furthest away last, no exceptions by section. Within one day, by start time;
-   a day's untimed items follow its timed ones. A multi-day event sorts by its
-   FIRST day. Closures and standing notes are not events and keep their places
+   furthest away last, no exceptions by section. Within one day, holiday
+   events list before non-holiday ones, then by start time (Dave's Nov 22
+   design, confirmed Nov 26, 2026); a day's untimed items follow its timed
+   ones. A multi-day event sorts by its FIRST day. Closures and standing notes are not events and keep their places
    after the day's events.** (First audit, Nov 26, 2026: Today in the Valley
    printed the 8:30 AM Turkey Trot ahead of the 5:30 AM Turkey Cup — swapped on
    the spot.)
