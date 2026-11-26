@@ -476,19 +476,38 @@ map (South Bay + Santa Cruz + the Hwy 1 towns + the Santa Cruz
 Mountains between them). Lenwood only; Fiddletown's masthead is
 unchanged.
 
-**Standing element — masthead treatment (Dave's pick, Nov 25, 2026;
-installs in the Fri Nov 27, 2026 Morning edition):** the masthead
-carries the same doghouse treatment as the Fiddletown Gazette — the
-beagle atop his doghouse at the masthead's bottom-left, a chimney
-whose smoke curls up in a gentle pure-CSS loop, and two windows (a
-round gable window, a mullioned front window) glowing warm amber
-with a slow breathing halo. Canonical fragment:
-`sections/masthead-fx.html` (a `<style id="mast-fx-style">` block +
-the `.fx-vignette` SVG); install = splice the whole fragment as the
-FIRST child of `<header class="masthead">`. Preserve it verbatim in
-every rebuild. Reduced-motion readers get one still wisp and a
-steady glow. Desk-verified before staging (Nov 25, 2026): renders on
-desktop + phone; tag balance clean on the spliced page.
+**Standing element — masthead treatment, the rotating effects (Dave's
+direction, Nov 25, 2026; installs in the Fri Nov 27, 2026 Morning
+edition):** the masthead carries the same doghouse treatment as the
+Fiddletown Gazette. The CONSTANT is the doghouse: the beagle atop
+his doghouse at the masthead's bottom-left, his two windows (a round
+gable window, a mullioned front window) glowing warm amber in EVERY
+edition. Layered on top, ONE effect per edition, ROTATING — never
+the same effect twice in a row. The pool: **fx-smoke** (chimney
+smoke curling up) · **fx-twinkle** (warm bulbs along the roofline
+and eave, twinkling in three phases) · **fx-leaves** (autumn leaves
+drifting down the masthead) · **fx-snow** (gentle snowfall). The
+active effect is ONE class on the masthead:
+`<header class="masthead fx-smoke">` (etc.). **ROTATION FORMULA:
+N = 3 × (days since Fri Nov 27, 2026) + (Morning 0 · Midday 1 ·
+Evening 2); N mod 4 → 0 fx-smoke · 1 fx-twinkle · 2 fx-leaves ·
+3 fx-snow.** First cycles: Fri Nov 27 smoke/twinkle/leaves · Sat
+Nov 28 snow/smoke/twinkle · Sun Nov 29 leaves/snow/smoke · Mon
+Nov 30 twinkle/leaves/snow · Tue Dec 1 smoke/twinkle/leaves (the
+pattern repeats every 4 days). **Every edition build SETS the class
+from the formula — the fx class is NEVER carried forward unchanged;
+after pushing, grep the served copy's masthead class and confirm it
+matches the formula before reporting the edition.** Canonical
+fragment: `sections/masthead-fx.html` (a
+`<style id="mast-fx-style">` block + the `.fx-vignette` SVG + the
+leaves/snow layers); install = splice the whole fragment as the
+FIRST child of `<header class="masthead">` AND set that edition's
+fx class on the header. Every edition preserves the FRAGMENT
+verbatim; only the class changes. Reduced-motion readers: smoke
+shows one still wisp, bulbs and window glow hold steady, leaves and
+snow do not fall. Desk-verified before staging (Nov 25, 2026): all
+four effects rendered; layer gating exact in Chromium; tag balance
+clean on the spliced page.
 
 **Standing element — masthead section menu (added Nov 22, 2026, Dave's
 direction; mirrors the Fiddletown Gazette's brand menu):** the paper's
