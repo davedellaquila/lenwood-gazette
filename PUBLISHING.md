@@ -476,6 +476,20 @@ map (South Bay + Santa Cruz + the Hwy 1 towns + the Santa Cruz
 Mountains between them). Lenwood only; Fiddletown's masthead is
 unchanged.
 
+**Standing element — masthead treatment (Dave's pick, Nov 25, 2026;
+installs in the Fri Nov 27, 2026 Morning edition):** the masthead
+carries the same doghouse treatment as the Fiddletown Gazette — the
+beagle atop his doghouse at the masthead's bottom-left, a chimney
+whose smoke curls up in a gentle pure-CSS loop, and two windows (a
+round gable window, a mullioned front window) glowing warm amber
+with a slow breathing halo. Canonical fragment:
+`sections/masthead-fx.html` (a `<style id="mast-fx-style">` block +
+the `.fx-vignette` SVG); install = splice the whole fragment as the
+FIRST child of `<header class="masthead">`. Preserve it verbatim in
+every rebuild. Reduced-motion readers get one still wisp and a
+steady glow. Desk-verified before staging (Nov 25, 2026): renders on
+desktop + phone; tag balance clean on the spliced page.
+
 **Standing element — masthead section menu (added Nov 22, 2026, Dave's
 direction; mirrors the Fiddletown Gazette's brand menu):** the paper's
 name at the left of the top bar is a button (`#brand-btn`, wrapped in
