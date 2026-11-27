@@ -84,6 +84,8 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
    section list slides horizontally (drag with mouse, swipe on touch). The builder script at the end
    of the page generates the items live from the page's own <h2>s; static items are a no-JS fallback. */
 #toc{position:sticky;top:52px;z-index:55;display:flex;align-items:center;gap:10px;background:var(--bg);border-top:3px double var(--ink);border-bottom:1px solid var(--border);padding:7px 0;margin:16px 0 6px}
+/* Phone: NO sticky bars (Dave's design — the base block's ≤640 static rule for #toc silently lost on source order to the sticky rule above, same specificity, later block; the strip stuck alone at the topbar's height over the article — Dave's screenshot, Nov 26, 2026. This twin sits after the sticky rule so it wins.) */
+@media (max-width:640px){#toc{position:static}}
 .ticker-slug{flex:none;font-family:-apple-system,sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
 .ticker-wrap{position:relative;flex:1;min-width:0}
 #toc-list{display:flex;flex-wrap:nowrap;align-items:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}
@@ -102,6 +104,7 @@ h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:2
 @media (prefers-reduced-motion: reduce){.ticker-fade .chev{animation:none}}
 @media (max-width:640px){.ticker-slug{display:none}.ticker-item{font-size:12.5px}}
 [id]{scroll-margin-top:112px}
+@media (min-width:641px) and (max-width:900px){[id]{scroll-margin-top:144px}}
 @media (max-width:640px){[id]{scroll-margin-top:12px}}
 .sugg label{display:block;font-weight:700;font-size:13.5px;margin:10px 0 4px}
 .sugg input[type=text],.sugg textarea{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:8px;background:var(--paper);color:var(--text);font:inherit;font-size:15px}
