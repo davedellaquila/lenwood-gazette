@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#10262e">
-<meta name="lg-edition" content="2026-11-26-evening">
+<meta name="lg-edition" content="2026-11-27-morning">
 
 <title>The Lenwood Gazette — San Jose &amp; the Santa Clara Valley</title>
 <meta name="description" content="A public hyperlocal daily newspaper for San Jose and the Santa Clara Valley: the safety news residents need, plus the valley's public events. Updated all day.">
@@ -142,17 +142,176 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
 <body>
 <div class="topbar"><span class="brand-wrap"><button id="brand-btn" type="button" aria-haspopup="true" aria-expanded="false" style="background:none;border:none;font:inherit;color:inherit;font-weight:700;cursor:pointer;padding:0;display:flex;align-items:center;gap:6px">🗞️ The Lenwood Gazette <span aria-hidden="true" style="color:var(--gold);font-size:14px">▾</span></button><div id="brand-menu" hidden role="menu" aria-label="Jump to a section"></div></span><nav><a href="index.html">Front Page</a><a href="archive.html">Editions Archive</a><a href="#colophon">About</a></nav><div class="fsctl" role="group" aria-label="Text size"><button type="button" class="fs-btn fs-down" id="fs-down" aria-label="Smaller text">A</button><span class="fs-dots"><button type="button" class="fs-dot" data-lvl="0" aria-label="Text size level 1 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="1" aria-label="Text size level 2 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="2" aria-label="Text size level 3 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="3" aria-label="Text size level 4 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="4" aria-label="Text size level 5 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="5" aria-label="Text size level 6 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="6" aria-label="Text size level 7 of 7" aria-pressed="false"></button></span><button type="button" class="fs-btn fs-up" id="fs-up" aria-label="Larger text">A</button></div><span class="tb-readers" title="Readers today / readers all-time: the first number is how many readers have visited today; the second is the all-time total since counting began on Nov 15, 2026. If the readers-today number is showing in red, you’re being counted for the first time today — you are that reader. Each reader counts once a day, by a scrambled code that is discarded nightly — no names, no tracking, just the count.">👁 <span data-rc-today></span> / <span data-rc-total></span></span><a class="header-tip" href="https://ko-fi.com/davedellaquila" target="_blank" rel="noopener" aria-label="Tip Jar — if this page helped you, you can leave Dave a tip on Ko-fi"><span class="jar" aria-hidden="true">🫙</span><span>Tip Jar</span></a></div>
 
-<header class="masthead">
+<header class="masthead fx-smoke">
+<!-- ============================================================
+     MASTHEAD TREATMENT — the rotating effects (Dave's direction,
+     Wed Nov 25, 2026, superseding the single fixed treatment).
+     The doghouse is the CONSTANT: the beagle atop his doghouse,
+     windows glowing warm in every edition. One EFFECT layers on
+     top per edition, rotating — never the same effect twice in a
+     row. The active effect is chosen by ONE class on the masthead:
+       <header class="masthead fx-smoke">   (or fx-twinkle,
+       fx-leaves, fx-snow)
+     ROTATION FORMULA (both papers): let N = 3 × (days since
+     Fri Nov 27, 2026) + (0 Morning · 1 Midday · 2 Evening).
+     N mod 4 → 0 fx-smoke · 1 fx-twinkle · 2 fx-leaves · 3 fx-snow.
+     Every edition build SETS the class from the formula — it is
+     never carried forward unchanged. (First cycle: Fri Nov 27 =
+     smoke / twinkle / leaves; Sat Nov 28 = snow / smoke / twinkle;
+     Sun Nov 29 = leaves / snow / smoke; Mon Nov 30 = twinkle /
+     leaves / snow; then the 4-day pattern repeats.)
+     Install: splice this whole fragment as the first child of
+     <header class="masthead"> AND set the edition's fx-* class on
+     that header. Editions preserve the fragment verbatim; only the
+     class changes. A season slot replaces the whole treatment for
+     the slot's run; the treatment (and the rotation) returns when
+     the slot retires. Removal = delete this block + the fx class.
+     ============================================================ -->
+<style id="mast-fx-style">
+.masthead{position:relative}
+.masthead .fx-vignette{position:absolute;bottom:8px;left:6px;z-index:2;overflow:visible;pointer-events:none}
+@media (min-width:761px){ .masthead{ padding-left:150px; padding-right:150px; } }
+@media (max-width:760px){ .masthead .fx-vignette{ transform:scale(.6); transform-origin:bottom left; } }
+/* the constant warm glow */
+.masthead .fx-win{animation:fxGlow 5.5s ease-in-out infinite alternate}
+.masthead .fx-halo{animation:fxHalo 5.5s ease-in-out infinite alternate}
+@keyframes fxGlow{from{opacity:.85}to{opacity:1}}
+@keyframes fxHalo{from{opacity:.5}to{opacity:.95}}
+/* effect layers — exactly one shows, chosen by the masthead's fx-* class */
+.masthead .fx-layer{display:none}
+.masthead.fx-smoke .fx-layer[data-fx="smoke"],
+.masthead.fx-twinkle .fx-layer[data-fx="twinkle"],
+.masthead.fx-leaves .fx-layer[data-fx="leaves"],
+.masthead.fx-snow .fx-layer[data-fx="snow"]{display:block}
+/* smoke */
+.masthead .fx-puff{fill:#d9d3c5;opacity:0;transform-box:fill-box;transform-origin:center;animation-name:fxRise;animation-duration:7.5s;animation-timing-function:linear;animation-iteration-count:infinite}
+.masthead .fx-puff.p2{animation-delay:-1.9s}
+.masthead .fx-puff.p3{animation-delay:-3.8s}
+.masthead .fx-puff.p4{animation-delay:-5.7s}
+@keyframes fxRise{0%{transform:translate(0,0) scale(.45);opacity:0}16%{opacity:.5}55%{opacity:.36}100%{transform:translate(13px,-38px) scale(1.55);opacity:0}}
+/* twinkle */
+.masthead .fx-bulb{animation:fxTwinkle 2.4s ease-in-out infinite}
+.masthead .fx-bulb.b2{animation-delay:-.8s}
+.masthead .fx-bulb.b3{animation-delay:-1.6s}
+@keyframes fxTwinkle{0%,100%{opacity:.32}50%{opacity:1}}
+/* leaves */
+.masthead .fx-leaf{position:absolute;top:-26px;z-index:1;pointer-events:none;opacity:0;animation-name:fxFall;animation-timing-function:linear;animation-iteration-count:infinite}
+@keyframes fxFall{0%{transform:translate3d(0,-26px,0) rotate(0deg);opacity:0}8%{opacity:.92}25%{transform:translate3d(16px,42px,0) rotate(96deg)}50%{transform:translate3d(-12px,86px,0) rotate(184deg)}75%{transform:translate3d(14px,128px,0) rotate(268deg)}92%{opacity:.85}100%{transform:translate3d(-6px,168px,0) rotate(344deg);opacity:0}}
+/* snow */
+.masthead .fx-flake{position:absolute;top:-14px;z-index:1;pointer-events:none;border-radius:50%;background:#a9c6d8;box-shadow:0 0 3px rgba(120,155,180,.55);opacity:0;animation-name:fxSnowFall;animation-timing-function:linear;animation-iteration-count:infinite}
+@keyframes fxSnowFall{0%{transform:translate3d(0,-14px,0);opacity:0}10%{opacity:.95}30%{transform:translate3d(10px,50px,0)}55%{transform:translate3d(-8px,100px,0)}80%{transform:translate3d(8px,145px,0);opacity:.9}100%{transform:translate3d(-4px,178px,0);opacity:0}}
+@media (prefers-reduced-motion: reduce){
+  .masthead .fx-puff{animation:none;opacity:0}
+  .masthead .fx-puff.p3{opacity:.32}
+  .masthead .fx-bulb,.masthead .fx-win,.masthead .fx-halo{animation:none}
+  .masthead .fx-layer[data-fx="leaves"],.masthead .fx-layer[data-fx="snow"]{display:none!important}
+}
+</style>
+<svg class="fx-vignette" width="168" height="118" viewBox="0 0 176 124" aria-hidden="true">
+  <defs>
+    <radialGradient id="fx-win-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe6a6"/>
+      <stop offset="55%" stop-color="#ffcb60"/>
+      <stop offset="100%" stop-color="#f59e2c"/>
+    </radialGradient>
+    <radialGradient id="fx-halo-g" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffca6a" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#ffca6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <line x1="2" y1="116" x2="174" y2="116" stroke="#c9b892" stroke-width="2"/>
+  <!-- chimney (drawn first so the roof line crosses its base) -->
+  <rect x="101" y="47" width="11" height="24" fill="#8a4a34" stroke="#1c1917" stroke-width="1.6"/>
+  <rect x="98.5" y="44" width="16" height="5" rx="1" fill="#6e3a28" stroke="#1c1917" stroke-width="1.4"/>
+  <!-- the doghouse -->
+  <rect x="30" y="78" width="96" height="38" fill="#9c4a2f" stroke="#1c1917" stroke-width="2"/>
+  <polygon points="22,80 78,54 134,80" fill="#7c3a22" stroke="#1c1917" stroke-width="2"/>
+  <!-- EFFECT · smoke (fx-smoke) -->
+  <g class="fx-layer" data-fx="smoke">
+    <circle class="fx-puff p1" cx="106.5" cy="39" r="4.5"/>
+    <circle class="fx-puff p2" cx="106.5" cy="39" r="5.5"/>
+    <circle class="fx-puff p3" cx="106.5" cy="39" r="6.5"/>
+    <circle class="fx-puff p4" cx="106.5" cy="39" r="7.5"/>
+  </g>
+  <!-- EFFECT · twinkling lights (fx-twinkle) -->
+  <g class="fx-layer" data-fx="twinkle">
+    <path d="M24 78 L78 52 L132 78" stroke="#1c1917" stroke-width="1" fill="none" opacity=".45"/>
+    <path d="M31 85 Q78 97 125 85" stroke="#1c1917" stroke-width="1" fill="none" opacity=".45"/>
+    <g class="fx-bulb b1"><circle cx="33" cy="74.5" r="5.6" fill="#ffd98a" opacity=".28"/><circle cx="33" cy="74.5" r="2.7" fill="#ffd98a"/></g>
+    <g class="fx-bulb b2"><circle cx="44" cy="69.5" r="5.6" fill="#fff3d6" opacity=".28"/><circle cx="44" cy="69.5" r="2.7" fill="#fff3d6"/></g>
+    <g class="fx-bulb b3"><circle cx="56" cy="64.5" r="5.6" fill="#ffb35c" opacity=".28"/><circle cx="56" cy="64.5" r="2.7" fill="#ffb35c"/></g>
+    <g class="fx-bulb b1"><circle cx="67" cy="59.5" r="5.6" fill="#ffd98a" opacity=".28"/><circle cx="67" cy="59.5" r="2.7" fill="#ffd98a"/></g>
+    <g class="fx-bulb b2"><circle cx="78" cy="53.5" r="5.6" fill="#fff3d6" opacity=".28"/><circle cx="78" cy="53.5" r="2.7" fill="#fff3d6"/></g>
+    <g class="fx-bulb b3"><circle cx="89" cy="59.5" r="5.6" fill="#ffb35c" opacity=".28"/><circle cx="89" cy="59.5" r="2.7" fill="#ffb35c"/></g>
+    <g class="fx-bulb b1"><circle cx="100" cy="64.5" r="5.6" fill="#ffd98a" opacity=".28"/><circle cx="100" cy="64.5" r="2.7" fill="#ffd98a"/></g>
+    <g class="fx-bulb b2"><circle cx="112" cy="69.5" r="5.6" fill="#fff3d6" opacity=".28"/><circle cx="112" cy="69.5" r="2.7" fill="#fff3d6"/></g>
+    <g class="fx-bulb b3"><circle cx="123" cy="74.5" r="5.6" fill="#ffb35c" opacity=".28"/><circle cx="123" cy="74.5" r="2.7" fill="#ffb35c"/></g>
+    <g class="fx-bulb b2"><circle cx="44" cy="89.5" r="5.6" fill="#ffb35c" opacity=".28"/><circle cx="44" cy="89.5" r="2.7" fill="#ffb35c"/></g>
+    <g class="fx-bulb b3"><circle cx="60" cy="92.5" r="5.6" fill="#ffd98a" opacity=".28"/><circle cx="60" cy="92.5" r="2.7" fill="#ffd98a"/></g>
+    <g class="fx-bulb b1"><circle cx="78" cy="93.5" r="5.6" fill="#fff3d6" opacity=".28"/><circle cx="78" cy="93.5" r="2.7" fill="#fff3d6"/></g>
+    <g class="fx-bulb b2"><circle cx="96" cy="92.5" r="5.6" fill="#ffb35c" opacity=".28"/><circle cx="96" cy="92.5" r="2.7" fill="#ffb35c"/></g>
+    <g class="fx-bulb b3"><circle cx="112" cy="89.5" r="5.6" fill="#ffd98a" opacity=".28"/><circle cx="112" cy="89.5" r="2.7" fill="#ffd98a"/></g>
+  </g>
+  <!-- the constant warm windows -->
+  <circle class="fx-halo" cx="78" cy="67" r="11" fill="url(#fx-halo-g)"/>
+  <circle class="fx-win" cx="78" cy="67" r="5.2" fill="url(#fx-win-glow)" stroke="#1c1917" stroke-width="1.4"/>
+  <circle class="fx-halo" cx="48" cy="96" r="14" fill="url(#fx-halo-g)"/>
+  <rect class="fx-win" x="41" y="89" width="14" height="14" rx="2" fill="url(#fx-win-glow)" stroke="#1c1917" stroke-width="1.5"/>
+  <path d="M48 89v14 M41 96h14" stroke="#1c1917" stroke-width="1.2"/>
+  <!-- the door -->
+  <path d="M66 116 v-16 a12 12 0 0 1 24 0 v16 z" fill="#3a2418"/>
+  <!-- the beagle, atop the doghouse -->
+  <path d="M39 59 q-9 -1 -11 -11" stroke="#1c1917" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M44 64 C40 46 48 34 60 33 C72 32 78 42 76 54 L75 64 Z" fill="#ffffff" stroke="#1c1917" stroke-width="2"/>
+  <ellipse cx="50" cy="64" rx="10" ry="4.5" fill="#ffffff" stroke="#1c1917" stroke-width="1.6"/>
+  <path d="M70 49 L69 63" stroke="#1c1917" stroke-width="3" stroke-linecap="round"/>
+  <path d="M65 31 q9 6 17 1 l-2 6 q-9 3 -17 -1 z" fill="#b5541f"/>
+  <circle cx="80" cy="22" r="12" fill="#ffffff" stroke="#1c1917" stroke-width="2"/>
+  <path d="M72 13 C66 19 65 28 68 35 C72 37 76 33 76 26 C76 20 75 15 72 13 Z" fill="#2b2823"/>
+  <ellipse cx="90" cy="26" rx="7" ry="4.5" fill="#ffffff" stroke="#1c1917" stroke-width="1.6"/>
+  <ellipse cx="96" cy="24.5" rx="2.6" ry="2" fill="#1c1917"/>
+  <circle cx="82" cy="20" r="1.7" fill="#1c1917"/>
+</svg>
+<!-- EFFECT · falling leaves (fx-leaves) -->
+<span class="fx-layer" data-fx="leaves">
+  <span class="fx-leaf" style="left:6%;  animation-duration:11s; animation-delay:-2s;"><svg width="15" height="19" viewBox="0 0 16 20"><path d="M8 0C13 4 14 10 8 16C2 10 3 4 8 0Z" fill="#c96a1e"/><path d="M8 16v3" stroke="#8a5a1d" stroke-width="1.4"/></svg></span>
+  <span class="fx-leaf" style="left:17%;  animation-duration:9s; animation-delay:-6s;"><svg width="12" height="15" viewBox="0 0 16 20"><path d="M8 0C13 4 14 10 8 16C2 10 3 4 8 0Z" fill="#b8860b"/><path d="M8 16v3" stroke="#8a5a1d" stroke-width="1.4"/></svg></span>
+  <span class="fx-leaf" style="left:31%;  animation-duration:12s; animation-delay:-9s;"><svg width="16" height="20" viewBox="0 0 16 20"><path d="M8 0C13 4 14 10 8 16C2 10 3 4 8 0Z" fill="#9c3d1e"/><path d="M8 16v3" stroke="#7c2d12" stroke-width="1.4"/></svg></span>
+  <span class="fx-leaf" style="left:47%;  animation-duration:10s; animation-delay:-4s;"><svg width="13" height="16" viewBox="0 0 16 20"><path d="M8 0C13 4 14 10 8 16C2 10 3 4 8 0Z" fill="#d9a441"/><path d="M8 16v3" stroke="#8a5a1d" stroke-width="1.4"/></svg></span>
+  <span class="fx-leaf" style="left:58%;  animation-duration:8.5s; animation-delay:-1s;"><svg width="12" height="15" viewBox="0 0 16 20"><path d="M8 0C13 4 14 10 8 16C2 10 3 4 8 0Z" fill="#a8641c"/><path d="M8 16v3" stroke="#8a5a1d" stroke-width="1.4"/></svg></span>
+  <span class="fx-leaf" style="left:71%;  animation-duration:11.5s; animation-delay:-7s;"><svg width="15" height="19" viewBox="0 0 16 20"><path d="M8 0C13 4 14 10 8 16C2 10 3 4 8 0Z" fill="#b5502a"/><path d="M8 16v3" stroke="#7c2d12" stroke-width="1.4"/></svg></span>
+  <span class="fx-leaf" style="left:84%;  animation-duration:9.5s; animation-delay:-5s;"><svg width="13" height="16" viewBox="0 0 16 20"><path d="M8 0C13 4 14 10 8 16C2 10 3 4 8 0Z" fill="#c9902e"/><path d="M8 16v3" stroke="#8a5a1d" stroke-width="1.4"/></svg></span>
+  <span class="fx-leaf" style="left:93%;  animation-duration:10.5s; animation-delay:-8s;"><svg width="12" height="15" viewBox="0 0 16 20"><path d="M8 0C13 4 14 10 8 16C2 10 3 4 8 0Z" fill="#9c3d1e"/><path d="M8 16v3" stroke="#7c2d12" stroke-width="1.4"/></svg></span>
+</span>
+<!-- EFFECT · snowfall (fx-snow) -->
+<span class="fx-layer" data-fx="snow">
+  <span class="fx-flake" style="left:4%;  width:5px; height:5px; animation-duration:9s;  animation-delay:-1s;"></span>
+  <span class="fx-flake" style="left:11%; width:3px; height:3px; animation-duration:12s; animation-delay:-7s;"></span>
+  <span class="fx-flake" style="left:19%; width:6px; height:6px; animation-duration:8s;  animation-delay:-4s;"></span>
+  <span class="fx-flake" style="left:27%; width:3px; height:3px; animation-duration:11s; animation-delay:-9s;"></span>
+  <span class="fx-flake" style="left:35%; width:5px; height:5px; animation-duration:10s; animation-delay:-2s;"></span>
+  <span class="fx-flake" style="left:43%; width:4px; height:4px; animation-duration:13s; animation-delay:-6s;"></span>
+  <span class="fx-flake" style="left:51%; width:6px; height:6px; animation-duration:8.5s; animation-delay:-3s;"></span>
+  <span class="fx-flake" style="left:59%; width:3px; height:3px; animation-duration:12s; animation-delay:-10s;"></span>
+  <span class="fx-flake" style="left:66%; width:5px; height:5px; animation-duration:9.5s; animation-delay:-5s;"></span>
+  <span class="fx-flake" style="left:73%; width:4px; height:4px; animation-duration:11s; animation-delay:-8s;"></span>
+  <span class="fx-flake" style="left:80%; width:6px; height:6px; animation-duration:8s;  animation-delay:-1.5s;"></span>
+  <span class="fx-flake" style="left:87%; width:3px; height:3px; animation-duration:12.5s; animation-delay:-4.5s;"></span>
+  <span class="fx-flake" style="left:93%; width:5px; height:5px; animation-duration:10s; animation-delay:-6.5s;"></span>
+  <span class="fx-flake" style="left:97%; width:4px; height:4px; animation-duration:11.5s; animation-delay:-2.5s;"></span>
+</span>
+<!-- ================= MASTHEAD TREATMENT · END ================= -->
+
   <div class="kicker">San Jose &amp; the Santa Clara Valley · Updated all day</div>
   <h1>The Lenwood Gazette</h1>
   <p class="mast-callout">San Jose to Santa Cruz — and the mountains between</p>
-  <p class="dateline"><!-- EDITION:DATE -->Thursday, November 26, 2026<!-- /EDITION:DATE --> · <!-- EDITION:NAME -->Evening Edition — published 5:30 PM PT<!-- /EDITION:NAME --></p>
-  <div><span class="weatherbug">⚠️ Bayshore: the Coastal Flood Warning expired at 4:00 PM today; a Coastal Flood Advisory now runs through Sunday, Nov 29 at 5:00 PM — up to 1.7 feet of inundation possible at bayshore high tides (NWS, issued today at 3:35 PM) &middot; Friday&rsquo;s high tide: 7.5 feet at 12:31 PM at the San Francisco gauge &middot; No active alert at the Lenwood point at the 5:26 PM check &middot; Tonight: mostly cloudy, patchy fog between 2&ndash;3 AM, low near 45&deg;F &middot; Friday: partly sunny, high near 66&deg;F (NWS — Lenwood / South San Jose)</span></div>
+  <p class="dateline"><!-- EDITION:DATE -->Friday, November 27, 2026<!-- /EDITION:DATE --> · <!-- EDITION:NAME -->Morning Edition — published 6:00 AM PT<!-- /EDITION:NAME --></p>
+  <div><span class="weatherbug">⚠️ Coast &amp; bayshore: a Coastal Flood Advisory runs through Sunday, Nov 29 at 5:00 PM and a Beach Hazards Statement through Saturday 7:00 AM (NWS, issued today at 1:31 AM) &middot; No active alert at the Lenwood point at the 5:54 AM check &middot; Today: partly sunny, high near 68&deg;F &middot; Tonight: mostly cloudy, low near 52&deg;F &middot; Rain returns late Saturday night into Sunday (NWS — Lenwood / South San Jose)</span></div>
   <div class="rule"></div>
   </header>
 
 <!-- BANNER: out-of-cycle safety banner is injected here by the hourly poll when a qualifying event breaks. -->
-<div id="safety-banner"><div class="banner"><p><b>⚠️ Bayshore update: the Coastal Flood Warning expired at 4:00 PM Thursday — a Coastal Flood Advisory now runs through 5:00 PM Sunday.</b> NWS San Francisco issued the advisory today at 3:35 PM PT: up to 1.7 feet of inundation above ground level is possible in low-lying areas near shorelines and tidal waterways at high tide through Sunday — flooding of low-lying infrastructure, isolated road closures and coastal erosion possible. Friday&rsquo;s high tide at the San Francisco gauge is expected at 12:31 PM — 7.5 feet, 1.7 feet above normal, including up to 1.3 feet of surge; Saturday 1:28 PM (7.4 feet) and Sunday 2:32 PM (6.8 feet) follow. The NWS feed for the Lenwood point returned no active alerts at the 5:26 PM check. Do not drive through flooded roads or around barricades — turn around, don&rsquo;t drown. <span class="meta">Banner updated 5:30 PM PT &middot; Sources: <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — San Francisco Bay Shoreline (CAZ508) alerts</a> &middot; <a href="https://api.weather.gov/alerts/active?point=37.20893,-121.85216">NWS — active alerts for the Lenwood point</a></span></p></div></div>
+<div id="safety-banner"><div class="banner"><p><b>⚠️ Coast &amp; bayshore: a Coastal Flood Advisory runs through 5:00 PM Sunday, and a Beach Hazards Statement through 7:00 AM Saturday.</b> NWS San Francisco issued both today at 1:31 AM PT: minor flooding of low-lying areas near shorelines and tidal waterways is possible at high tide through Sunday, and hazardous beach conditions — sneaker waves and rip currents — run through early Saturday along the coast. No alert is active at the Lenwood point itself. Do not drive through flooded roads or around barricades — turn around, don&rsquo;t drown. <span class="meta">Banner updated 6:00 AM PT &middot; Sources: <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — San Francisco Bay Shoreline (CAZ508) alerts</a> &middot; <a href="https://api.weather.gov/alerts/active?point=37.20893,-121.85216">NWS — active alerts for the Lenwood point</a></span></p></div></div>
 <nav id="toc" aria-label="Table of contents">
 <span class="ticker-slug" aria-hidden="true">In this edition</span>
 <div class="ticker-wrap">
@@ -164,8 +323,8 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
 
 <section class="lead" id="the-lead">
   <p class="meta">The Lead</p>
-  <h2><!-- LEAD:HEADLINE -->Thanksgiving evening in the valley — the flood warning steps down to an advisory, and the Holiday Lights are on tonight<!-- /LEAD:HEADLINE --></h2>
-  <p><!-- LEAD:BODY -->Thanksgiving Day, Thursday, November 26, closes quiet inland and gentler at the bayshore. The National Weather Service&rsquo;s Coastal Flood Warning expired at 4:00 PM, and the service replaced it at 3:35 PM with a Coastal Flood Advisory through 5:00 PM Sunday — up to 1.7 feet of inundation possible at the bayshore high tides, starting with Friday&rsquo;s 12:31 PM tide at the San Francisco gauge (7.5 feet, 1.7 feet above normal). At the Lenwood point itself there is no active alert at the 5:26 PM check. What remains tonight is San Jose Holiday Lights at Discovery Meadow, running 4:30&ndash;10:30 PM. Overnight: mostly cloudy with patchy fog between 2&ndash;3 AM and a low near 45&deg;F; Friday turns partly sunny near 66&deg;F, and Christmas in the Park opens downtown. VTA ran a Sunday schedule today, and San Jos&eacute; Public Library locations stay closed Friday.<!-- /LEAD:BODY --></p>
+  <h2><!-- LEAD:HEADLINE -->The day after Thanksgiving in the valley — Christmas in the Park opens at noon, Saratoga lights its tree tonight, and the coast stays under a flood advisory<!-- /LEAD:HEADLINE --></h2>
+  <p><!-- LEAD:BODY -->Friday, November 27 — the valley&rsquo;s holiday season opens in earnest today. Christmas in the Park opens at noon downtown (its Opening Night Ceremony follows Saturday at 6:00 PM on the organizer&rsquo;s season calendar), the Sharks host Vegas at SAP Center at 1:00 PM, and tonight Saratoga runs its whole holiday evening on Big Basin Way — Candy Cane Village at 3:00 PM, the tree lighting at Blaney Plaza at 5:30 PM, and the Holiday Wine Experience pouring Santa Cruz Mountains wineries from 6:00 PM. At the coast and bayshore, a Coastal Flood Advisory runs through Sunday at 5:00 PM with a Beach Hazards Statement through Saturday morning; at the Lenwood point itself there is no active alert. Inland it is a mild day — partly sunny near 68&deg;F — before rain returns late Saturday night into Sunday. VTA runs modified weekday service today with no Express routes.<!-- /LEAD:BODY --></p>
 </section>
 <!-- LIGHTS:BEGIN — Christmas Lights guide pointer (Dave's direction, Nov 19, 2026): carry forward every edition through Jan 3, 2027; see PUBLISHING.md -->
 <div class="banner"><b>&#127876; The Gazette&rsquo;s Christmas Lights Guide is here.</b> The 2026 twist: there&rsquo;s no drive-thru in the county this year &mdash; Blinky&rsquo;s is paused and Fantasy of Lights is walk-through only, four nights. Every good place to see the lights, valley first: <a href="christmas-lights.html"><b>read the guide &rarr;</b></a></div>
@@ -182,17 +341,13 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
   </div>
   <h2>🚨 Need to Know — the Safety Wire</h2>
   <div id="safety-wire">
-    <div class="item"><p><b>Bayshore: the warning is over — a Coastal Flood Advisory runs through Sunday at 5:00 PM.</b> NWS San Francisco&rsquo;s Coastal Flood Warning expired at 4:00 PM today; the advisory issued today at 3:35 PM PT covers bayshore locations along San Francisco and San Pablo Bays, Alviso included: up to 1.7 feet of inundation above ground level possible in low-lying areas near shorelines and tidal waterways at high tide, with flooding of low-lying infrastructure, isolated road closures and coastal erosion possible. The remaining tides: Friday 12:31 PM at the San Francisco gauge — 7.5 feet, 1.7 feet above normal, including up to 1.3 feet of surge; Saturday 1:28 PM, 7.4 feet; Sunday 2:32 PM, 6.8 feet. High tide timing varies up to 90 minutes along the coast and through the Bay. Take action to protect flood-prone property; do not drive around barricades or through water of unknown depth. Source: <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — San Francisco Bay Shoreline (CAZ508)</a></p></div>
-    <div class="item"><p><b>No active alert at the Lenwood point at the evening check.</b> The NWS active-alerts feed for the Lenwood point, checked at 5:26 PM PT, returned no active alerts — the advisory above is a bayshore-zone alert, and inland South San Jose is not under an alert tonight. Source: <a href="https://api.weather.gov/alerts/active?point=37.20893,-121.85216">NWS — active alerts for the Lenwood point</a></p></div>
-    <div class="item"><p><b>Roads at midday: valley freeways and SR-17 clear.</b> Caltrans highway conditions at 12:26 PM report no traffic restrictions in the central area on SR-17, SR-87 or I-280. Caltrans&rsquo; US-101 central-area note is outside the valley: the northbound connector to northbound SR-1 in Marin County is closed 11:00 AM–4:00 PM today due to high tide, with a high-wind advisory at the San Francisco/Marin line. Sources: <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=17">Caltrans — SR-17</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=87">Caltrans — SR-87</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=280">Caltrans — I-280</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=101">Caltrans — US-101</a></p></div>
-    <div class="item"><p><b>County picture: no evacuation order or warning verified this evening.</b> No evacuation order or warning for San Jose was verified in the AlertSCC / City of San Jose / SJFD / SJPD public feeds checked at press time, and no new Valley Water flood notice was verified beyond the bayshore NWS advisory above. CHP Golden Gate showed no new qualifying incident for the valley freeways in the evening sweep.</p></div>
-    <div class="item"><p><b>Transit today: VTA runs a Sunday schedule for Thanksgiving.</b> On Thanksgiving Day, Thursday, November 26, VTA service operates on a Sunday schedule and its offices are closed. VTA&rsquo;s Turkey Trot reroute — routes 68, 72, 73, 500, 522 and 523 — runs 3:00 AM–2:00 PM today. Source: <a href="https://www.vta.org/go/service-alerts">VTA — service alerts</a></p></div>
-    <div class="item"><p><b>Storm readiness, standing.</b> Valley Water offers free filled sandbags for county residents at its five sites (Nov 1–Apr 15 season). Report creek debris to Valley Water at (408) 630-2378.</p></div>
-    <p class="meta">Checked at midday press time (12:07–12:26 PM PT) &middot; NWS Bay Area (no active alert at the Lenwood point at 12:07 PM; Bayshore Warning re-issued Nov 25 at 11:54 PM, to today 4:00 PM, up to 2.5 feet, today&rsquo;s tide 8.0 feet at 11:38 AM) &middot; Caltrans SR-17 / SR-87 / I-280 (no central-area restrictions at 12:26 PM) &middot; AlertSCC / City / SJFD / SJPD / CHP Golden Gate / Valley Water / VTA polled with no new qualifying alert verified &middot; Re-polled hourly between editions</p>
+    <div class="item"><p><b>Coast &amp; bayshore: Coastal Flood Advisory through Sunday 5:00 PM; Beach Hazards Statement through Saturday 7:00 AM.</b> NWS San Francisco issued both at 1:31 AM today. Minor flooding of low-lying shoreline and tidal-waterway areas is possible at high tide through Sunday; at the beaches, sneaker waves and rip currents make the water hazardous through early Saturday — stay off jetties and keep back from the surf. These are coastal and bayshore notices, not a valley flood warning. Source: <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — San Francisco Bay Shoreline (CAZ508)</a></p></div>
+    <div class="item"><p><b>Lenwood point: no active alert.</b> The NWS feed for the Lenwood / South San Jose point (37.20893, -121.85216) returned no active alerts at the 5:54 AM check. A Dense Fog Advisory for coastal and shoreline areas ran to 9:00 AM this morning — valley drivers meeting fog should slow down and use low beams. Source: <a href="https://api.weather.gov/alerts/active?point=37.20893,-121.85216">NWS — active alerts for the Lenwood point</a></p></div>
+    <div class="item"><p><b>Valley freeways: no major closure found this morning.</b> The morning sweep of CHP Golden Gate / valley freeways (87, 101, 280, 680, 880, 85) found no major closure — only minor shoulder- and ramp-grade items on I-280, US-101 and CA-87 in the overnight hours, none banner-grade. Source: CHP Golden Gate incidents via the morning traffic sweep.</p></div>
+    <div class="item"><p><b>VTA today: modified weekday service, no Express routes.</b> Friday, November 27 runs on VTA&rsquo;s modified weekday schedule (Thanksgiving Day ran a Sunday/holiday schedule; normal weekend schedules follow Saturday–Sunday). City of San Jos&eacute; offices are closed today for the holiday. No emergency VTA alert was found this morning; the service-alerts page carries routine detours and stop moves. Source: <a href="https://www.vta.org/go/service-alerts">VTA service alerts</a></p></div>
+    <p class="meta">AlertSCC / City of San Jose emergency alerts / SJFD / SJPD / Valley Water polled this morning — no current emergency alert or flood notice for the valley was found (reported as nothing found, not as an all-clear) &middot; Re-polled hourly between editions</p>
   </div>
-  
-
-<h2>🏔️ Hill & Mountain Roads — the crossings, live</h2>
+  <h2>🏔️ Hill & Mountain Roads — the crossings, live</h2>
   <div class="item" id="hill-roads">
     <p class="meta">THE HILL CROSSINGS VALLEY DRIVERS USE · CAMERA STILLS REFRESH EVERY COUPLE OF MINUTES · TAP A PICTURE TO ENLARGE</p>
     <p>The mountain roads out of the valley, as the cameras see them right now — and, for the climbs Caltrans keeps no camera on, the road report that carries their word.</p>
@@ -227,48 +382,67 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
 
   <h2>🌦️ Weather Events — the sky as news</h2>
   <div id="weather-events">
-    <div class="item"><p><b>Weather-event close-out: the flood warning ended at 4:00 PM; an advisory carries the bayshore through Sunday, and rain arrives Sunday.</b> The week&rsquo;s weather event — the bayshore king-tide flood sequence — stepped down today, Thursday, November 26: the morning&rsquo;s 8.0-foot tide was the peak, the Coastal Flood Warning expired at 4:00 PM, and a Coastal Flood Advisory (issued 3:35 PM) runs through 5:00 PM Sunday with up to 1.7 feet of inundation possible at each high tide (see the Safety Wire). For Lenwood itself the evening NWS forecast reads: <b>Thursday night:</b> mostly cloudy, patchy fog between 2&ndash;3 AM, low near 45&deg;F. <b>Friday, November 27:</b> partly sunny, high near 66&deg;F. <b>Saturday, November 28:</b> partly sunny near 68&deg;F, with a slight chance of rain late Saturday night. <b>Sunday, November 29:</b> rain (a 93% chance in the current forecast), high near 65&deg;F — the day that matters for Sunday&rsquo;s outdoor car meets (see Car Shows). <b>Monday, November 30:</b> rain likely, near 64&deg;F, and <b>Tuesday, December 1:</b> rain, near 61&deg;F, before the pattern eases Wednesday. Sources: <a href="https://forecast.weather.gov/MapClick.php?lat=37.20893&lon=-121.85216">National Weather Service — forecast for the Lenwood point</a> &middot; <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — Bay Shoreline alerts</a></p></div>
+    <div class="item"><p><b>The coastal flood event continues — advisory through Sunday.</b> The king-tide flooding that began earlier this week steps down but does not end: a Coastal Flood Advisory covers the bayshore and coast through Sunday, November 29 at 5:00 PM, with minor inundation of low-lying shoreline areas possible at each high tide, and a Beach Hazards Statement for the coast through Saturday at 7:00 AM. Safety-relevant details lead the Safety Wire above.</p></div>
+    <div class="item"><p><b>Today: the mild day of the weekend.</b> Partly sunny with a high near 68&deg;F at the Lenwood point, light north-northwest wind; tonight mostly cloudy, low near 52&deg;F. Saturday turns partly sunny near 72&deg;F — the pick of the weekend for outdoor plans.</p></div>
+    <div class="item"><p><b>Rain returns late Saturday night into Sunday.</b> The NWS forecast brings a chance of rain after 4:00 AM Saturday night (50%, less than a tenth of an inch), then rain on Sunday — 90% chance, a tenth to a quarter inch, high near 62&deg;F — with rain likely continuing into Monday near 60&deg;F. Outdoor weekend plans: Saturday is the dry window; Sunday events should plan for wet weather. Source: <a href="https://api.weather.gov/gridpoints/MTR/99,76/forecast">National Weather Service — forecast for the Lenwood point</a></p></div>
   </div>
-  
-
-<h2>Today in the Valley — Thursday, November 26</h2>
+  <h2>Today in the Valley — Friday, November 27</h2>
   <div id="today-events">
-    <div class="item"><p><b>This morning: the 15th Annual Turkey Cup at Sharks Ice, from 5:30 AM.</b> Thanksgiving hockey at Sharks Ice San Jose (1500 S. 10th St) — doors 5:30 AM, puck drop 5:40 AM, trophy ceremony 7:50 AM, then a postgame tailgate breakfast behind Tech CU Arena at 8:00 AM. Free to watch. Source: <a href="https://www.eventbrite.com/e/15th-annual-turkey-cup-thanksgiving-hockey-tailgate-for-a-good-cause-tickets-2003630265059?aff=ebdssbpointsofinterest">Eventbrite — 15th Annual Turkey Cup, Thu Nov 26</a></p></div>
-    <div class="item"><p><b>This morning downtown: the Applied Materials Silicon Valley Turkey Trot, 8:30 AM.</b> The Thanksgiving Day 5K run/walk and 10K run start together at 8:30 AM in downtown San Jose, at W. Santa Clara St and N. First St — one of the largest Thanksgiving Day runs in the country, with a Kids Fun Run in the morning program. Sources: <a href="https://southbaytoday.org/event/2026-11-26-applied-materials-silicon-valley-turkey-trot">South Bay Today — Turkey Trot, Thu Nov 26, 8:30 AM</a> &middot; <a href="https://laraces.com/race/103660">LA Races — Silicon Valley Turkey Trot, Thu Nov 26</a></p></div>
-    <div class="item"><p><b>Tonight: San Jose Holiday Lights at Discovery Meadow, 4:30–10:30 PM.</b> The nightly run through January 1 continues on Thanksgiving evening at Discovery Meadow (330 W. San Carlos St). Source: <a href="christmas-lights.html">The Gazette&rsquo;s Christmas Lights Guide</a></p></div>
-    <div class="item"><p><b>Closed for the holiday.</b> Children&rsquo;s Discovery Museum is closed today, Thursday, November 26, for Thanksgiving (it reopens Friday with extended holiday hours, 9:30 AM–4:30 PM), and all San Jose Public Library locations are closed today and Friday, November 27. Sources: <a href="https://sjpl.bibliocommons.com/v2/events">San Jose Public Library — events</a> &middot; Children&rsquo;s Discovery Museum holiday-hours notice</p></div>
-    <div class="item"><p><b>Santa Cruz, Coastside, Saratoga and the San Lorenzo Valley desks.</b> No Thanksgiving Day public event in Santa Cruz, the Highway 1 coastal towns, Saratoga, Boulder Creek or Felton was verified in this morning&rsquo;s sweep, and none was added at midday or evening from the standing venue and city calendars — the desks report an honest quiet holiday rather than fill the space. The weekend listings pick up in The Week Ahead and Car Shows.</p></div>
-    <p class="meta">Events desk (evening edition — tonight&rsquo;s remaining public events first, South San Jose and downtown first; Santa Cruz and coastal listings town-named alongside. No DWA or SCBMCC event falling inside this paper&rsquo;s coverage map was verified in the Gold Country events database check at press time, so none is listed) &middot; City of San Jose listings &middot; SAP Center / San Jose Theaters &middot; Children&rsquo;s Discovery Museum &middot; The Tech Interactive &middot; San Jose Public Library — public listings only, each credited to its source.</p>
+    <div class="item"><p><b>12:00 PM — <a href="https://www.vta.org/downtown-holidays">Christmas in the Park opens for the season</a></b> · Downtown San Jose · <b>noon–10:00 PM, free</b>. The downtown tree-and-displays tradition opens today at the plaza (Plaza de C&eacute;sar Ch&aacute;vez / Plaza de San Jos&eacute;) and runs through the holidays. Note for planners: the organizer&rsquo;s season calendar puts the Opening Night Ceremony on <b>Saturday, November 28, 6:00–7:00 PM</b> — the park itself opens today at noon. Source: VTA Downtown Holidays / organizer season calendar.</p></div>
+    <div class="item"><p><b>12:00 PM — 2026 Give Thanks Festival (day one)</b> · San Jose Convention Center · Two-day festival pass runs Friday–Saturday. Source: AXS San Jose listings.</p></div>
+    <div class="item"><p><b>12:30 PM — San Jose State football vs North Dakota State</b> · CEFCU Stadium, San Jose. Source: AXS San Jose listings.</p></div>
+    <div class="item"><p><b>1:00 PM — <a href="https://www.axs.com/events/1528681/vegas-golden-knights-at-san-jose-sharks-tickets">San Jose Sharks vs Vegas Golden Knights</a></b> · SAP Center at San Jose. A holiday-afternoon puck drop downtown. Source: SAP Center / AXS.</p></div>
+    <div class="item"><p><b>All day — Winter Wonderland opens downtown</b> · Paseo de San Antonio / Market St, San Jose · Runs Nov 27–Jan 3, with a free-rides opening special today 4:00–6:00 PM. The Museum Passport also starts today: The Tech Interactive, San Jose Museum of Art and Children&rsquo;s Discovery Museum, 20% off one admission at each. Source: <a href="https://www.vta.org/downtown-holidays">VTA Downtown Holidays</a>.</p></div>
+    <div class="item"><p><b>All day — San Jose Holiday Lights</b> · 330 W San Carlos St, San Jose · The drive/walk holiday lights display runs Nov 13–Jan 1. Source: VTA Downtown Holidays.</p></div>
+    <div class="item"><p><b>3:00 PM — Saratoga: Candy Cane Village</b> · Saratoga Chamber, 14460 Big Basin Way, Saratoga · <b>3:00–5:00 PM, free</b> — the start of Saratoga Village&rsquo;s holiday evening. Source: <a href="https://www.saratogachamber.org/">Saratoga Chamber</a>.</p></div>
+    <div class="item"><p><b>5:30 PM — Saratoga: Holiday Tree Lighting</b> · Blaney Plaza, Historic Saratoga Village, Saratoga · <b>5:30–6:30 PM</b>. Source: City of Saratoga / Saratoga Chamber listings.</p></div>
+    <div class="item"><p><b>6:00 PM — Saratoga: Holiday Wine Experience</b> · Historic Saratoga Village, Saratoga · <b>6:00–9:00 PM</b> (check-in 5:00 PM at the Chamber) — Santa Cruz Mountains wineries pouring in the village, including Cooper-Garrod, Mount Eden, Testarossa, Thomas Fogarty, House Family and Vidovich. Ticket prices differed between Chamber-linked listings this morning — confirm at the Chamber before you go. Source: <a href="https://www.saratogachamber.org/">Saratoga Chamber</a>.</p></div>
+    <div class="item"><p><b>7:00 PM — The Carpenters Songbook</b> · San Jose Center for the Performing Arts, San Jose. Source: San Jose Theaters / AXS.</p></div>
+    <div class="item"><p><b>7:30 PM — Chris Porter (comedy)</b> · San Jose Improv, San Jose. Source: AXS San Jose listings.</p></div>
+    <div class="item"><p><b>8:00 PM — Mariachi Vargas de Tecalitl&aacute;n</b> · San Jose Civic, San Jose. Source: San Jose Theaters / AXS.</p></div>
+    <div class="item"><p><b>All day — Santa Cruz: Boardwalk Winter Wonderland</b> · Santa Cruz Beach Boardwalk, 400 Beach St, Santa Cruz · <b>12:00–7:00 PM</b>, free admission (rides extra) — light shows and Santa photos; today is also a Season Pass bring-a-friend-free day. Source: <a href="https://beachboardwalk.com/events-and-entertainment/">Santa Cruz Beach Boardwalk</a>.</p></div>
+    <div class="item"><p><b>5:00 &amp; 6:30 PM — Santa Cruz: Holiday Lights Train</b> · Departs in front of the Boardwalk Merry-Go-Round, Santa Cruz · Roaring Camp&rsquo;s 60-minute lighted round trip, tonight and Saturday. Source: Roaring Camp Railroads listings.</p></div>
+    <div class="item"><p><b>8:00 PM — Santa Cruz: Jackie Greene at The Catalyst</b> · 1011 Pacific Ave, Santa Cruz. Source: The Catalyst calendar via Lookout Santa Cruz listings.</p></div>
+    <div class="item"><p><b>10:00 AM–5:00 PM — Felton: Holiday Tree Walk at Roaring Camp</b> · Roaring Camp Railroads, Graham Hill Rd, Felton · Runs today through Sunday (and select December dates) — the Redwood Forest Steam Train to Bear Mountain, hot cider and Santa. Source: <a href="https://www.santacruz.org/upcoming-events/category/holiday/photo/">Visit Santa Cruz County</a>.</p></div>
+    <div class="item"><p><b>8:00 PM — Felton: Moonalice</b> · Felton Music Hall, Felton · 21+. Source: AXS listings.</p></div>
+    <div class="item"><p><b>Winery desk — Los Gatos: Wrights Station Friendsgiving Wine Sale</b> · 24250 Loma Prieta Ave, Los Gatos · Today through Monday, Nov 30 (50% off select wines). And <b>Burrell School&rsquo;s Cellar Alumni Weekend Sale</b>, 24060 Summit Rd, Los Gatos, today through Sunday, noon–5:30 PM. Sources: the wineries&rsquo; listings via Los Gatos events roundups.</p></div>
+    <p class="meta">The paper&rsquo;s own events desk — City of San Jose events calendar &middot; SAP Center / San Jose Theaters &middot; Children&rsquo;s Discovery Museum &middot; The Tech Interactive &middot; San Jose Public Library &middot; Saratoga (Montalvo, the village, Hakone) &middot; Santa Cruz (Boardwalk, MAH, Kuumbwa, Rio, The Catalyst, Kaiser Arena) &middot; the Coastside (Pacifica, Half Moon Bay) &middot; Boulder Creek &amp; Felton &middot; the Santa Cruz Mountains winery desk — public listings only, each credited to its source. No verified standalone SJPL or Children&rsquo;s Discovery Museum special was returned for today beyond the Museum Passport above, so none is invented here.</p>
   </div>
-  
-
-<h2>The Week Ahead</h2>
+  <h2>The Week Ahead</h2>
   <div id="week-events">
-    <div class="item"><p><b>Fri Nov 27 — Christmas in the Park opens; Sharks host Vegas.</b> Partly sunny near 66&deg;F. Christmas in the Park&rsquo;s downtown season runs November 27–January 1, daily noon–10:00 PM, per the guides linked at the top of this edition. The San Jose Sharks host the Vegas Golden Knights at SAP Center, listed at 1:00 PM. San Jose Public Library locations remain closed Friday for the holiday.</p></div>
-    <div class="item"><p><b>Sat Nov 28 — the Holiday Toy Drive at the Fairgrounds.</b> Partly sunny near 68&deg;F. The BLVD Kings / Viejitos holiday toy drive runs at the Santa Clara County Fairgrounds (see Car Shows), and cars &amp; coffee meets run in Orinda, San Juan Bautista and Watsonville.</p></div>
-    <div class="item"><p><b>Sun Nov 29 — rain.</b> Rain — a 93% chance in the current NWS forecast — mostly cloudy near 65&deg;F. The Lafayette and Moraga cars &amp; coffee meets are listed that morning — rain cancels, per their listings, so check before going. San Jose&rsquo;s founding anniversary falls Sunday: the pueblo was founded November 29, 1777 (see This Day in History).</p></div>
-    <div class="item"><p><b>Mon Nov 30 — rain.</b> Rain likely, mostly cloudy near 64&deg;F, per the NWS extended forecast at evening press time; rain continues Tuesday near 61&deg;F before easing Wednesday.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — Christmas in the Park Opening Night Ceremony</b> · Downtown San Jose · <b>6:00–7:00 PM</b> per the organizer&rsquo;s season calendar (the park itself opens Fri Nov 27 at noon). Source: organizer season calendar via VTA Downtown Holidays.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — Santa Cruz: Boardwalk Winter Wonderland Opening Celebration</b> · Boardwalk Main Plaza, Santa Cruz · Live entertainment 5:00 PM, tree-lighting countdown 5:30 PM, drone show 6:00 PM; park open noon–7:00 PM, free. Source: <a href="https://beachboardwalk.com/events-and-entertainment/">Santa Cruz Beach Boardwalk</a>.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — Felton: Santa Cruz Mountains Holiday Makers Market &amp; Felton Santa &amp; Tree Lighting</b> · Felton · Makers Market 10:00 AM–5:00 PM at Felton Community Hall (6191 Hwy 9, free); Santa &amp; Tree Lighting 5:00–7:30 PM at Felton Deck (6237 Hwy 9, free) — caroling and cocoa from 5:00 PM, Santa and the lighting at 5:30 PM. The Coffis Brothers play Felton Music Hall the same night (doors 7:00 PM). Source: Visit Santa Cruz County / SLV listings.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — Coastside: Small Business Saturday on the coast</b> · Pacifica &amp; Half Moon Bay · Ceramics ornaments workshop 11:00 AM at Art Space on the Coast, Pacifica; Palmetto Pop-Up Lot makers market 11:00 AM–4:00 PM, Pacifica; Arts &amp; Crafts Holiday Boutique 9:00 AM–3:00 PM and a wreath workshop 1:00–3:00 PM, Half Moon Bay; Sandy Mountain plays the San Gregorio General Store 11:00 AM–1:00 PM, free; Sing The Beatles at Pacifica Performances&rsquo; Mildred Owen Concert Hall, 7:30 PM. Sources: Coastside listings / Visit Half Moon Bay / Pacifica Performances.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — Los Gatos: Testarossa Sensory Table Tasting</b> · Testarossa Winery, 300-A College Ave, Los Gatos · <b>2:00 PM</b>. Source: winery listing via Los Gatos events roundups.</p></div>
+    <div class="item"><p><b>Sat–Sun Nov 28–29 — San Jose: The Tech&rsquo;s Flavor Lab — Festive Feast</b> · The Tech Interactive, 201 S Market St, San Jose · Part of Winter Wonderlab. Source: <a href="https://www.thetech.org/tti-hours-of-operation/hours-of-operation-calendar/">The Tech Interactive calendar</a>.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — Santa Cruz: <a href="https://events.fiddletowngazette.com/?event=dwa-morning-motors-2026-11-29#/event/dwa-morning-motors-2026-11-29">DWA! Morning Motors</a></b> · The Old Wrigley Building, Santa Cruz · <b>8:00–9:30 AM</b> — Driving While Awesome&rsquo;s monthly car hangout on the Westside; coffee and donuts on the house. Source: the Gold Country events database (DWA is a standing source; the name links its database detail page). Also in Santa Cruz Sunday: Sandra Bernhard at the Rio Theatre. Source: Rio Theatre listings.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — Ben Lomond: Village Holiday Party &amp; Tree Lighting</b> · Ben Lomond County Park, 9525 Mill St, Ben Lomond · From 4:30 PM — live music 4:30 PM, Santa 5:15 PM, caroling 6:00 PM. Source: SLV listings.</p></div>
+    <div class="item"><p><b>Mon Nov 30 — Santa Cruz: Benny Green at Kuumbwa</b> · Kuumbwa Jazz Center, 320 Cedar St, Santa Cruz · 7:00 PM (listed sold out in Kuumbwa&rsquo;s November graphic — check before you go). Source: Kuumbwa Jazz Center listings.</p></div>
+    <div class="item"><p><b>Wed Dec 2 — San Jose: Polar Play Days opens at The Tech</b> · The Tech Interactive, San Jose · 10:00 AM–3:00 PM opening day; runs Dec 2–Jan 3. Source: <a href="https://www.sanjose.org/events/polar-play-days-tech-interactive">San Jose / The Tech listing</a>.</p></div>
+    <div class="item"><p><b>Wed Dec 2 — Saratoga: wild-foraged wreath-making (evening)</b> · Montalvo Arts Center, Saratoga · 6:00 PM (listed waitlist in earlier coverage — check Montalvo). And Santa Cruz the same night: Kassa Overall at Kuumbwa, 7:00 PM. Sources: Montalvo / Kuumbwa listings.</p></div>
+    <div class="item"><p><b>Thu Dec 3 — Saratoga &amp; Santa Cruz &amp; San Jose</b> · Top of the World — A Carpenters Tribute at Montalvo Arts Center, Saratoga; Isaiah Sharkey at Kuumbwa Jazz Center, Santa Cruz, 7:00 PM; SJSU Night at Christmas in the Park, downtown San Jose, 6:00–10:00 PM; and a Queer Maker Pop-Up in Half Moon Bay, 6:00–8:00 PM. Sources: the venues&rsquo; own listings.</p></div>
+    <div class="item"><p><b>Fri Dec 4 — Saratoga &amp; Santa Cruz</b> · Silicon Valley Shakespeare&rsquo;s roving A Christmas Carol opens at Montalvo Arts Center, Saratoga (runs Dec 4–20); AZA — Moroccan music at Kuumbwa Jazz Center, Santa Cruz, 7:00 PM; Boardwalk Holiday Bash at The Grove, Santa Cruz, 6:00–11:00 PM. Sources: the venues&rsquo; own listings.</p></div>
+    <p class="meta">Just past the window: Sat Dec 5 — the PCA Golden Gate Region Porsche Brunch at Alice&rsquo;s Restaurant, Woodside (9:00 AM, see Car Shows), Charo at Montalvo (7:30 PM), and Boulder Creek&rsquo;s town holiday festival. The Gold Country events database was also checked for SCBMCC events in this paper&rsquo;s map — none are currently published there.</p>
   </div>
-  
-
-<h2>🏁 Car Shows — the Bay Area circuit</h2>
+  <h2>🏁 Car Shows — the Bay Area circuit</h2>
   <div id="car-shows">
-    <p class="meta">South Bay first · This weekend (Sat Nov 28–Sun Nov 29) first, then the next two weeks · Rebuilt fresh this morning from the public Bay Area calendars · Sunday, November 29 is forecast for rain, which matters for the two Sunday meets below — both list rain as cancelling</p>
-    <div class="item"><p><b>Thu Nov 26 — <a href="https://californiacarsandkulture.com/upcoming-events">San Jose Cars — weekly Thursday gathering</a></b> · Mojo&rsquo;s Hamburgers, 1401 Foxworthy Ave, San Jose · <b>from 3:00 PM</b> (advertised 8:00 PM finish). A weekly listing falling on Thanksgiving Day — confirm with the organizer before going. Source: California Cars &amp; Kulture.</p></div>
-    <div class="item"><p><b>Fri Nov 27 — Chelu Bay Area Car Club Summer Nights</b> · Nation&rsquo;s Giant Hamburgers, South San Francisco · <b>6:00 PM</b>. Listed on CarCruiseFinder&rsquo;s Bay Area weekend calendar for Friday, November 27. Source: CarCruiseFinder.</p></div>
-    <div class="item"><p><b>Sat Nov 28 — <a href="https://carcruisefinder.com/car-show/holiday-toy-drive-blvd-kings-car-club-san-jose/">Holiday Toy Drive — BLVD Kings Car Club San Jose</a></b> · Santa Clara County Fairgrounds Lot C / Gateway Hall, 344 Tully Rd, San Jose · <b>7:00 AM – 6:00 PM</b> (the Fairgrounds&rsquo; own listing shows the Gateway Hall gathering 12:00–6:00 PM). BLVD Kings San Jose and Viejitos Car Club – Silicon Valley host; new, unwrapped toys requested; all car clubs and solo riders welcome; photos with Santa, raffles and a 50/50. Free for spectators. Sources: CarCruiseFinder &middot; <a href="https://roaringshifts.com/public-meets/santa-clara-county-fairgrounds-holiday-toy-drive-2026-mw6sj1rvy52ujlewjm">RoaringShifts — Fairgrounds Holiday Toy Drive</a></p></div>
-    <div class="item"><p><b>Sat Nov 28 — <a href="https://californiacarsandkulture.com/upcoming-events">Orinda Cars — cars &amp; coffee</a></b> · 204 Village Square, Orinda · <b>8:00–10:00 AM</b>. A second- and fourth-Saturday gathering; this date follows the regular schedule but has not been confirmed separately — check for holiday or venue changes before going. Source: California Cars &amp; Kulture.</p></div>
-    <div class="item"><p><b>Sat Nov 28 — <a href="https://californiacarsandkulture.com/upcoming-events">San Juan Bautista Cars — cars &amp; coffee</a></b> · Mariposa &amp; 3rd Street, San Juan Bautista · <b>8:00–11:00 AM</b>. A second- and fourth-Saturday gathering for cars and trucks; this date follows the regular schedule — check for holiday changes before driving. Source: California Cars &amp; Kulture.</p></div>
-    <div class="item"><p><b>Sat Nov 28 — Cars and Coffee, Watsonville</b> · East Lake Village Shopping Center, Watsonville · <b>9:00–11:00 AM</b>, free. Classic cars and coffee every Saturday morning, per the Santa Cruz County events calendar. Source: <a href="https://santacruzscene.com/?count=90&date_from=2026-11-28&date_to=2026-11-29">Santa Cruz Scene — events, Nov 28–29</a>.</p></div>
-    <div class="item"><p><b>Sun Nov 29 — Pit Stop, Cars, Coffee &amp; Pastries — Lafayette</b> · 3466 Mount Diablo Blvd, Lafayette · <b>8:00–10:00 AM</b>. Le Pit Club cars &amp; coffee, free and open to the public; no burnouts or revving, and rain cancels — and rain is forecast Sunday, so check before going. Source: RoaringShifts / Le Pit Club.</p></div>
-    <div class="item"><p><b>Sun Nov 29 — <a href="https://roaringshifts.com/public-meets/moraga-pit-stop-mvukn6l77hdt2ow01tu">Moraga Pit Stop</a></b> · 380 Moraga Rd, Moraga · <b>10:00 AM – noon</b>. Le Pit Club cars &amp; coffee, free and open to the public; rain cancels — and rain is forecast Sunday, so check before going. Source: RoaringShifts / Le Pit Club.</p></div>
-    <div class="item"><p><b>Sun Nov 29 — Anacarcrew Fam Annual Toy Drive — San Leandro</b> · San Leandro · <b>10:00 AM</b>. Listed in RoaringShifts&rsquo; this-week-near-San-Jose roundup for Sunday, November 29; its name runs unlinked this morning because no organizer page for it was verified in this sweep. Source: RoaringShifts.</p></div>
+    <p class="meta">South Bay first · This weekend first (Fri Nov 27–Sun Nov 29), then the next two weeks · One-off shows and recurring meets alike, each verified against its listing and credited</p>
+    <div class="item"><p><b>Sat Nov 28 — <a href="https://carcruisefinder.com/car-show/holiday-toy-drive-blvd-kings-car-club-san-jose/">Holiday Toy Drive — BLVD Kings Car Club</a></b> · Santa Clara County Fairgrounds Lot C, 344 Tully Rd, San Jose · <b>7:00 AM–6:00 PM</b>, free for spectators. BLVD Kings with Viejitos Silicon Valley — bring new unwrapped toys; Santa photos and a raffle. (A secondary aggregator lists a same-name fairgrounds toy drive at a different hour and hall — the CarCruiseFinder Lot C listing is the one printed.) Source: CarCruiseFinder.</p></div>
+    <div class="item"><p><b>Fri Nov 27 — Chelu Bay Area Car Club Summer Nights</b> · Nation&rsquo;s Giant Hamburgers, 925 El Camino Real, South San Francisco · <b>6:00–10:00 PM</b>. Source: CarCruiseFinder.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — NORCALRACING Cars &amp; Coffee Pop Up</b> · 6160 Jarvis Ave, Newark · <b>9:00 AM–1:00 PM</b>. Source: organizer&rsquo;s public listing.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — Capitola Cars &amp; Coffee (weekly)</b> · Capitola Mall, 1855 41st Ave, Capitola · <b>7:00–9:30 AM</b>. Source: California Cars &amp; Kulture.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — Concord Cars &amp; Coffee (weekly)</b> · 1776 Arnold Industrial Way, Concord · <b>8:00–11:00 AM</b>. Source: California Cars &amp; Kulture.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — Santa Cruz: <a href="https://events.fiddletowngazette.com/?event=dwa-morning-motors-2026-11-29#/event/dwa-morning-motors-2026-11-29">DWA! Morning Motors</a></b> · The Old Wrigley Building, Santa Cruz · <b>8:00–9:30 AM</b> — the monthly Driving While Awesome hangout; coffee and donuts on the house. Source: the Gold Country events database.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — Moraga Pit Stop (Cars &amp; Coffee)</b> · 380 Moraga Rd, Moraga · <b>10:00 AM–12:00 PM</b>, free; canceled if rain — and Sunday rain is in the forecast, so check before the drive. Source: RoaringShifts.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — Anacarcrew Fam Annual Toy Drive</b> · 14110 Washington Ave, San Leandro · <b>10:00 AM</b>; bring a toy. Source: RoaringShifts.</p></div>
     <p class="meta" style="margin-top:12px">Also on the calendar</p>
-    <div class="item"><p><b>Sun Dec 13 — Cars &amp; Croissants on The Row</b> · Santana Row, San Jose · <b>9:00 AM – noon</b>. Carried from the previously verified listing; its name runs unlinked this morning because no organizer page for the December date was re-verified in today&rsquo;s sweep.</p></div>
-    <p class="meta" style="margin-top:10px">The car-show desk sweeps the Bay Area calendars every edition — South Bay first, North Bay included, one-off shows and recurring meets alike — from public listings in our own words, each verified against its listing and credited. No Alice&rsquo;s Restaurant car or bike gathering was publicly posted for this weekend in this morning&rsquo;s sweep, so none is listed. Sources swept this morning: CarCruiseFinder, RoaringShifts, California Cars &amp; Kulture, Santa Cruz Scene, and the Santa Clara County Fairgrounds.</p>
+    <div class="item"><p><b>Sat Dec 5 — <a href="https://www.exoticsgroup.com/events/pca-golden-gate-region-porsche-brunch-alices-woodside-ca-december-5-2026/">PCA Golden Gate Region Porsche Brunch at Alice&rsquo;s</a></b> · Alice&rsquo;s Restaurant, 17288 Skyline Blvd, Woodside · <b>9:00–10:30 AM</b> — the standing Alice&rsquo;s watch pays off: the monthly Porsche brunch at the SR-84 × Skyline crossroads. Source: PCA Golden Gate Region listing.</p></div>
+    <div class="item"><p><b>Sun Dec 6 — San Mateo Cars &amp; Coffee + Toy Drive</b> · Bridgepointe Pkwy, San Mateo · <b>9:00–11:00 AM</b> (Peninsula Mustangs) — bring new unwrapped toys; all makes welcome. The same day, a Toy Drive and Car Show runs at Lumpy&rsquo;s Diner, Antioch. Source: organizer listings.</p></div>
+    <div class="item"><p><b>Sun Dec 13 — <a href="https://southbaytoday.org/event/2026-12-13-cars-and-croissants-on-the-row">Cars &amp; Croissants on The Row</a></b> · Santana Row, San Jose · <b>9:00 AM–12:00 PM</b>, free — the Row&rsquo;s supercar and exotic morning. Source: Santana Row / 100|OCT listing.</p></div>
+    <p class="meta" style="margin-top:10px">The car-show desk sweeps the Bay Area calendars every edition — South Bay first, North Bay included — from public listings in our own words, each verified against its listing and credited. No Alice&rsquo;s Restaurant car or bike gathering was publicly posted for this weekend, so none is listed; the next posted Alice&rsquo;s gathering is the Dec 5 Porsche brunch above. No Goodguys show falls in the Nov 28–Dec 13 window. Sources swept this morning: CarCruiseFinder, NorCal Car Culture / California Cars &amp; Kulture, RoaringShifts, club calendars, Goodguys, and Eventbrite public listings.</p>
   </div>
-  
-
+  <h2>🍇 Santa Cruz Mountains Wineries</h2>
 <div id="scm-wineries">
     <p class="meta">The Santa Cruz Mountains AVA, from the places database · 33 wineries — the ridge above Cupertino, Saratoga and Los Gatos, the Skyline crest, and the Santa Cruz side of the range · Winery events, tastings and releases also run in Today in the Valley and The Week Ahead as the winery desk finds them · The directory is refreshed from the database each morning; each name opens its record there</p>
     <p class="meta">The ridge above the valley — Cupertino · Saratoga · Los Gatos</p>
@@ -312,13 +486,11 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
 
 <h2>📍 Landmark of the Day</h2>
   <div class="item" id="landmark-of-the-day">
-    <p class="meta">ONE PLACE A DAY FROM THE SANTA CRUZ &amp; SOUTH BAY PLACES DATABASE · No. 1 · THU NOV 26, 2026 · DRAWN IN NO SET ORDER — NO REPEATS UNTIL EVERY PLACE HAS HAD ITS DAY</p>
-    <figure><img src="https://ydftcebaftngcdjvxrgl.supabase.co/storage/v1/object/public/event-images/event-images/alices-restaurant-real.jpg" alt="Alice's Restaurant at Four Corners, Skyline Boulevard, Woodside — the patio under the redwoods"><figcaption>Alice's Restaurant at Four Corners — the patio under the redwoods. Photo by Dave Dell'Aquila</figcaption></figure>
-    <p><b>Alice's Restaurant — Woodside.</b> The landmark at Four Corners, where Skyline Boulevard (SR-35) meets La Honda Road (SR-84) above Woodside. The building went up in the early 1900s as a general store for the logging industry, became a restaurant in the 1950s, and took Alice Taylor's name in the 1960s; still family owned and operated. In the restaurant's own words a world-famous stop for motorcyclists — and a favorite gathering spot for car enthusiasts, hikers and locals — with gourmet burgers, scrambles, homemade pie, local microbrews and wines under the redwoods. Hours: Mon-Sat 8:00 AM-8:00 PM, Sun 8:00 AM-7:00 PM.</p>
-    <p class="meta"><a href="https://places.lenwoodgazette.com/#/place/alices-restaurant">Alice's Restaurant in Santa Cruz &amp; South Bay Places →</a> · <a href="https://maps.apple.com/?ll=37.3866917,-122.2653987&amp;q=Alice%27s%20Restaurant">17288 Skyline Blvd on the map</a></p>
+    <p class="meta">ONE PLACE A DAY FROM THE SANTA CRUZ &amp; SOUTH BAY PLACES DATABASE · No. 2 · FRI NOV 27, 2026 · DRAWN IN NO SET ORDER — NO REPEATS UNTIL EVERY PLACE HAS HAD ITS DAY</p>
+    <p><b>Beauregard Vineyards — Bonny Doon.</b> The Beauregard family&rsquo;s winery and tasting room on Pine Flat Road in Bonny Doon, in the redwoods above Santa Cruz. Open weekdays and weekends.</p>
+    <p class="meta"><a href="https://places.lenwoodgazette.com/#/place/beauregard-vineyards">Beauregard Vineyards in Santa Cruz &amp; South Bay Places →</a> · <a href="https://maps.apple.com/?ll=37.04201,-122.150273&amp;q=Beauregard%20Vineyards">10 Pine Flat Rd on the map</a></p>
   </div>
-
-<h2>The Community Wire</h2>
+  <h2>The Community Wire</h2>
   <div id="community-wire">
  <p class="empty">No new pertinent post from an official or public Facebook page was verified at midday press time — the wire is honest when it is empty. Summaries here are always in our own words, attributed, and linked to the original.</p>
 </div>
@@ -347,24 +519,21 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
 <h2 id="album-of-the-day">💿 Album of the Day</h2>
   <div class="card" id="album-of-the-day">
     <!-- ALBUM:BEGIN — Music Buddy's daily pick, printed verbatim (artist, album, year, write-up, Apple Music links) from Music Buddy's Album of the Day; refreshed in the Morning edition, carried forward at midday and evening. See PUBLISHING.md. -->
-    <div class="item"><p><b><a href="https://music.apple.com/us/artist/elton-john/54657">Elton John</a> — <a href="https://music.apple.com/us/album/elton-john-deluxe-edition/1440754854"><i>Elton John</i></a> (1970)</b></p>
-    <p>Following Dave's Nov 21 Elton listening — the original 1970 piano-first record behind the live session he loved, with “Your Song,” the gospel-tinged “Border Song” and “The Greatest Discovery.” Melody and piano up front, strings swelling behind; the Quests will love the space in it.</p>
-    <p class="meta">Music Buddy's pick for Wednesday, November 25, 2026 — the same Album of the Day that goes to Dave by email each morning. <a href="https://davedellaquila.github.io/buddy-system/music-buddy/">Music Buddy's page</a></p></div>
+    <div class="item"><p><b><a href="https://music.apple.com/gb/artist/journey/486597">Journey</a> — <a href="https://music.apple.com/us/album/escape-2022-remaster/1640102583"><i>Escape</i></a> (1981)</b></p>
+    <p>A Friday record from Dave&rsquo;s classic-rock shelf — Journey at their arena peak, with &ldquo;Don&rsquo;t Stop Believin&rsquo;,&rdquo; &ldquo;Who&rsquo;s Crying Now&rdquo; and &ldquo;Open Arms,&rdquo; Steve Perry soaring over Neal Schon&rsquo;s guitar and Jonathan Cain&rsquo;s piano. Big melodies and bigger choruses, made to fill a room.</p>
+    <p class="meta">Music Buddy's pick for Friday, November 27, 2026 — the same Album of the Day that goes to Dave by email each morning. <a href="https://davedellaquila.github.io/buddy-system/music-buddy/">Music Buddy's page</a></p></div>
         <!-- ALBUM:END -->
     <p class="meta">📚 <a href="album-archive.html">Every Album of the Day so far — browse the archive</a></p>
   </div>
   <h2 id="history">📜 This Day in History</h2>
   <div class="card" id="history">
-    <div class="item"><p><b>Honestly: no San Jose proper item dated November 26 was verified in the standing local sources this morning</b> &mdash; the SJPL timeline and History San Jose bench runs dry for this date, so the box says so and reaches wider, as the standing rule allows. San Jose&rsquo;s founding anniversary is three days away: the pueblo was founded on November 29, 1777.</p></div>
-    <div class="item"><p><b>1863 &mdash; the first national Thanksgiving.</b> On November 26, 1863, Americans observed Thanksgiving as a national holiday for the first time, under President Lincoln&rsquo;s proclamation setting the last Thursday of November — the direct ancestor of the holiday this paper&rsquo;s readers are celebrating today, Thursday, November 26, 2026.</p></div>
-    <div class="item"><p><b>1942 &mdash; <i>Casablanca</i> premieres.</b> The film opened in New York on November 26, 1942 — a California studio picture that became one of the most quoted movies ever made.</p></div>
-    <div class="item"><p><b>1922 &mdash; into Tutankhamun&rsquo;s tomb.</b> On November 26, 1922, Howard Carter and Lord Carnarvon entered the burial chambers of Tutankhamun&rsquo;s tomb in Egypt&rsquo;s Valley of the Kings, the first people to do so in more than 3,000 years.</p></div>
-    <div class="item"><p><b>1941 &mdash; the Hull Note.</b> On November 26, 1941, the United States delivered its final diplomatic note to Japan — eleven days before Pearl Harbor brought the country into the Second World War, a war that would transform this valley&rsquo;s orchards and airfields.</p></div>
-    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Local first &mdash; today no San Jose proper item was verified, and the box says so honestly. Sources: <a href="https://www.sjpl.org/sjhistory/">San Jose Public Library &mdash; Timeline of San Jose History</a> &middot; <a href="https://en.wikipedia.org/wiki/History_of_San_Jose,_California">History of San Jose, California</a></p>
+    <div class="item"><p><b>Honestly: no San Jose or Santa Clara Valley event dated November 27 was verified in the standing local sources this morning</b> — the SJPL timeline and History San Jos&eacute; bench runs dry for this date, so the box says so and reaches wider, as the standing rule allows. The valley&rsquo;s own November anniversary is two days away: El Pueblo de San Jos&eacute; de Guadalupe was founded on <b>November 29, 1777</b> — not today — and the box will mark it on its day. Source: <a href="https://www.sjpl.org/blogs/post/looking-back-the-founding-of-our-city-el-pueblo-de-san-jose-de-guadalupe/">San Jose Public Library — the founding of the pueblo</a>.</p></div>
+    <div class="item"><p><b>1940 — Bruce Lee is born in San Francisco.</b> The martial-arts star was born on November 27, 1940 in San Francisco&rsquo;s Chinatown, while his father&rsquo;s opera company was on tour. Source: <a href="https://www.history.com/this-day-in-history/November-27">HISTORY — This Day in History, November 27</a>.</p></div>
+    <div class="item"><p><b>1978 — San Francisco&rsquo;s mayor and a supervisor are assassinated.</b> On November 27, 1978, former Supervisor Dan White killed Mayor George Moscone and Supervisor Harvey Milk at City Hall — Milk was the first openly gay elected official in California. Source: <a href="https://www.history.com/this-day-in-history/November-27">HISTORY — This Day in History, November 27</a>.</p></div>
+    <div class="item"><p><b>1895 — Alfred Nobel signs the will that creates the Nobel Prizes.</b> Nobel&rsquo;s November 27, 1895 will left the bulk of his fortune to fund the prizes first awarded in 1901. Source: <a href="https://www.history.com/this-day-in-history/November-27">HISTORY — This Day in History, November 27</a>.</p></div>
+    <div class="item"><p><b>1924 — The first Macy&rsquo;s Thanksgiving Day Parade.</b> The first parade marched on November 27, 1924 — store employees and live animals, years before the giant balloons. And a local footnote: San Jose&rsquo;s all-time November 27 high is 78&deg;F, set in 1959. Sources: <a href="https://www.history.com/this-day-in-history/november-27/first-macys-thanksgiving-day-parade">HISTORY</a> &middot; <a href="https://www.extremeweatherwatch.com/cities/san-jose/day/november-27">Extreme Weather Watch — San Jose, November 27</a>.</p></div>
   </div>
-  
-  
-<h2 id="star-chart">⭐ Star Chart — tonight over the valley</h2>
+  <h2 id="star-chart">⭐ Star Chart — tonight over the valley</h2>
   <div class="card" id="sky">
     <div class="sky" role="img" aria-label="Schematic evening star chart for San Jose, about 7 PM: the waning gibbous Moon, about 95 percent lit, near Castor and Pollux in Gemini in the evening per EarthSky, Saturn high in the south in the evening, Uranus just past opposition in Taurus, and Jupiter and Mars before dawn, with Venus at its greatest morning brilliancy today — under a mostly cloudy sky tonight">
       <svg viewBox="0 0 300 300">
@@ -421,17 +590,14 @@ html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}htm
         <text x="200" y="100" class="sub">Leo late E · Jupiter &amp; Mars</text>
         <text x="150" y="154" text-anchor="middle" class="sub">zenith</text>
       </svg>
-
     </div>
-    <p class="meta">Tonight · Thursday, November 26 · chart for ~7:00 PM, looking up — Saturn in the south in the evening; the Moon a waning gibbous, about 95% lit, moving toward Castor and Pollux in Gemini; Uranus just past opposition; tonight is mostly cloudy, so the Moon and Saturn through any clearing are the realistic targets</p>
-    <div class="item"><p><b>A waning gibbous Moon, toward the Twins.</b> Two days past full, the Moon is about 95% lit. A few hours after sunset tonight and Friday night, it floats near Castor and Pollux, the twin stars of Gemini — an easy naked-eye pairing if cloud breaks. Earlier in the night the Moon also completes the wide triangle with Aldebaran and Betelgeuse carried in Wednesday&rsquo;s chart.</p></div>
-    <div class="item"><p><b>Evening: Saturn; all night: Uranus just past opposition.</b> Saturn is the bright evening planet, high in the south after sunset, steady and golden and bright enough for valley light pollution. Uranus, at opposition on November 25, is up nearly all night in Taurus at the naked-eye limit — binoculars and a finder chart are the honest way to try, and moonlight plus cloud work against it.</p></div>
-    <div class="item"><p><b>Before dawn Friday: Venus at its brightest, with Mercury, Jupiter and Mars.</b> Venus reaches its greatest brilliancy in the morning sky today, November 26 — brilliant low in the east before dawn, with Mercury even lower (easiest this week, just past its November 21 greatest elongation), and Jupiter and Mars in Leo above them, Mars passing near Regulus through November 27.</p></div>
-    <div class="item"><p><b>Mt. Hamilton note.</b> Tonight&rsquo;s mostly cloudy forecast tempers expectations everywhere; if a clearing opens, the drive up Mt. Hamilton toward Lick Observatory remains the upgrade — darker sky for Uranus and the fainter stars around the Moon.</p></div>
-    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening unless correcting. Sources: <a href="https://starwalk.space/en/news/night-sky-tonight">StarWalk — sky tonight, November 26 (Moon, Aldebaran &amp; Betelgeuse triangle; Uranus at opposition Nov 25; November Orionids peak Nov 27–28)</a> &middot; <a href="https://earthsky.org/astronomy-essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/">EarthSky — visible planets (Moon near Castor and Pollux Nov 26–27 evenings; Mercury greatest elongation Nov 21)</a></p>
+    <p class="meta">Tonight · Friday, November 27 · chart for ~7:00 PM, looking up — a waning gibbous Moon near Castor and Pollux in Gemini; Saturn the one bright evening planet, high in the south; Jupiter and Mars later, and a brilliant Venus before dawn Saturday</p>
+    <div class="item"><p><b>A waning gibbous Moon, up all night near the Twins.</b> About 87–90% lit and some 18 days old, the Moon rides near Castor and Pollux, the twin stars of Gemini, a few hours after sunset and stays up until dawn. Its glare washes out faint objects — tonight belongs to the Moon and the planets. Source: <a href="https://earthsky.org/astronomy-essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/">EarthSky — visible planets tonight</a>.</p></div>
+    <div class="item"><p><b>Evening: Saturn alone.</b> Saturn is the only bright evening planet — high in the south around 8–9 PM in Cetus, steady and golden, an easy city-visible target from the valley floor before it sets in the small hours.</p></div>
+    <div class="item"><p><b>Midnight to dawn: Jupiter, Mars, then Venus at its brightest.</b> Jupiter rises in the east around midnight with red Mars following; before dawn Saturday, Venus blazes low in the east at magnitude −4.9, days from its greatest brilliancy (November 29), with Mercury even lower near the sunrise point — this is prime Mercury week, just past its November 21 greatest elongation — and Jupiter and Mars above them in Leo.</p></div>
+    <div class="item"><p><b>Mt. Hamilton note.</b> The Leonids are still technically active, but the bright gibbous Moon makes them a poor show from the valley; the drive up Mt. Hamilton toward Lick Observatory remains the upgrade for anything fainter than the planets.</p></div>
   </div>
-
-</aside>
+  </aside>
 </div>
 
   <h2>📬 The Suggestion Box</h2>
