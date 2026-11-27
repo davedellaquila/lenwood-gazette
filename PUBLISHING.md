@@ -137,6 +137,12 @@
    after the day's events.** (First audit, Nov 26, 2026: Today in the Valley
    printed the 8:30 AM Turkey Trot ahead of the 5:30 AM Turkey Cup — swapped on
    the spot.)
+   **NO DAY HEADINGS IN LENWOOD'S OWN LISTINGS (Dave's correction, Fri Nov
+   27, 2026): the by-day grouping belongs on the Christmas events page, NOT
+   on this paper. Lenwood's Today in the Valley and The Week Ahead stay a
+   continuous stream in the date order above — do not regroup them under
+   day headings. (A grouping shipped briefly on Nov 27 was reverted the
+   same day at Dave's direction.)**
 3. Around Town: city public notices, road-work/permit postings, public meeting agendas.
 4. Community Wire: official/public Facebook pages only — summarize in our own words,
    attribute to the posting page, link the original. Never copy wholesale. No private
