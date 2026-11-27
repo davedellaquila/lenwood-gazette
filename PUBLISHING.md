@@ -137,18 +137,6 @@
    after the day's events.** (First audit, Nov 26, 2026: Today in the Valley
    printed the 8:30 AM Turkey Trot ahead of the 5:30 AM Turkey Cup — swapped on
    the spot.)
-   **EVENTS GROUPED BY DAY (Dave's direction, Fri Nov 27, 2026): any events
-   listing that spans more than one day — The Week Ahead above all — groups
-   its items under day headings, `<h3 class="day-head">` in the form
-   "Saturday, November 28" (full weekday, month, day), days in date order,
-   soonest first. A multi-day event sits under its FIRST day. A single-day
-   section whose h2 already carries the full date (Today in the Valley)
-   needs no extra heading — the h2 is its day heading. Day headings are NOT
-   links; each item's source line keeps its own links exactly as before.
-   Presentation only — the events, their sources, and the ordering rules
-   above do not change. First applied Fri Nov 27, 2026 to The Week Ahead on
-   the live front page (13 items under 6 day headings, count-verified
-   against the pre-change listing).**
 3. Around Town: city public notices, road-work/permit postings, public meeting agendas.
 4. Community Wire: official/public Facebook pages only — summarize in our own words,
    attribute to the posting page, link the original. Never copy wholesale. No private
