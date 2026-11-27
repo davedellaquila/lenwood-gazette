@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#10262e">
+<meta name="lg-edition" content="2026-11-26-evening">
+
+<title>The Lenwood Gazette — San Jose &amp; the Santa Clara Valley</title>
+<meta name="description" content="A public hyperlocal daily newspaper for San Jose and the Santa Clara Valley: the safety news residents need, plus the valley's public events. Updated all day.">
+<style>
+:root{--bg:#eef3f2;--paper:#ffffff;--text:#10262e;--muted:#5b6f76;--border:#c9d8d5;--ink:#10262e;--accent:#0b7285;--gold:#e07a1f;--ok:#177245}
+@media (prefers-color-scheme: dark){:root{--bg:#0b1418;--paper:#152329;--text:#e8f2f0;--muted:#9db4b8;--border:#2c4148;--ink:#e8f2f0;--accent:#4dd0e1;--gold:#ffb35c;--ok:#5fd08a}}
+*{box-sizing:border-box;margin:0;padding:0} img{max-width:100%;height:auto} body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text);line-height:1.55;padding:0 16px 48px;max-width:1020px;margin:0 auto;overflow-x:hidden}
+a{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg);border-bottom:3px double var(--ink);padding:10px 2px;font-family:-apple-system,sans-serif;font-weight:700;flex-wrap:wrap}
+.topbar nav{margin-left:0;display:flex;gap:14px;font-size:13.5px}.topbar nav a{color:var(--text);text-decoration:none}.topbar nav a:hover{text-decoration:underline}
+.masthead{text-align:center;padding:30px 8px 16px}
+.kicker{font-family:-apple-system,sans-serif;letter-spacing:.22em;text-transform:uppercase;font-size:11px;color:var(--gold);font-weight:800}
+.masthead h1{font-size:clamp(36px,7.5vw,64px);line-height:1.02;margin:8px 0 6px}
+.dateline{color:var(--muted);font-style:italic}
+.weatherbug{display:block;max-width:680px;margin:12px auto 0;border:1px solid var(--border);border-radius:14px;padding:10px 16px;background:var(--paper);font-size:13.5px;font-family:-apple-system,sans-serif;text-align:left;line-height:1.5}
+.rule{height:4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:16px 0}
+.banner{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--paper));border-radius:12px;padding:16px 20px;margin-bottom:18px}
+.banner b{color:var(--accent)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}@media(min-width:760px){.grid{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}}
+h2{font-size:22px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin:26px 0 12px}
+.lead h2{border-bottom:0;font-size:clamp(26px,4.5vw,38px);line-height:1.15;margin-top:0}
+.item{padding:10px 0;border-bottom:1px dashed var(--border)}.item:last-child{border-bottom:0}
+.meta{font-family:-apple-system,sans-serif;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.empty{color:var(--muted);font-style:italic;padding:8px 0}
+.sky{background:#0a1626;border-radius:10px;padding:10px;margin-bottom:12px}
+.sky svg{display:block;width:100%;height:auto}
+.sky text{font-family:-apple-system,sans-serif;fill:#cfe3ff}
+.sky .lbl{font-size:10.5px;font-weight:700}
+.sky .sub{font-size:8.5px;fill:#8fb0d8}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.footer{margin-top:44px;padding-top:18px;border-top:3px double var(--ink);color:var(--muted);font-size:13.5px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+.tb-readers{white-space:nowrap;font-weight:600;color:var(--ink)}html.vc-new-today [data-rc-today]{color:#c0271b}
+.brand-wrap{position:relative;display:inline-block}
+#brand-menu{position:absolute;top:calc(100% + 6px);left:0;z-index:60;min-width:250px;max-width:88vw;max-height:62vh;overflow:auto;background:var(--paper);border:1px solid var(--border);border-top:3px double var(--ink);border-radius:12px;box-shadow:0 14px 34px rgba(16,38,46,.28);padding:6px}
+#brand-menu a{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:8px;color:var(--text);text-decoration:none;font-size:14.5px;font-weight:600;line-height:1.25}
+#brand-menu a:active,#brand-menu a:hover{background:rgba(11,114,133,.12)}
+#brand-menu .bm-sep{border-top:1px solid var(--border);margin:5px 4px}
+#brand-menu .bm-head{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding:7px 10px 3px}
+.ticker-item.on{color:var(--accent);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.ticker-slug{cursor:pointer}
+.ticker-slug:hover,.ticker-slug:focus-visible{color:var(--ink);outline:none;text-decoration:underline;text-underline-offset:3px}
+.ticker-slug .tm-caret{font-size:8.5px;letter-spacing:0;margin-left:3px}
+#ticker-menu{position:absolute;top:calc(100% + 4px);left:0;z-index:90;min-width:280px;max-width:88vw;max-height:62vh;overflow-y:auto;background:var(--paper);border:1px solid var(--border);border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.30);padding:6px}
+#ticker-menu[hidden]{display:none}
+#ticker-menu a{display:block;padding:9px 12px;border-radius:7px;color:var(--ink);text-decoration:none;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ticker-menu a:hover,#ticker-menu a:focus-visible{background:rgba(11,114,133,.10);outline:none}
+#ticker-menu a.on{color:var(--accent);font-weight:700}
+.header-tip{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:.45em;padding:6px 12px;border-radius:999px;text-decoration:none;font-size:13px;font-weight:800;line-height:1;color:#fff;background:linear-gradient(135deg,#7c4dff,#b388ff);box-shadow:0 4px 14px rgba(124,77,255,.35);animation:tip-breathe 3.2s ease-in-out infinite;white-space:nowrap;font-family:-apple-system,sans-serif}
+.header-tip::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.45) 50%,rgba(255,255,255,0) 65%);transform:translateX(-110%);animation:tip-sheen 8s ease-in-out infinite}
+.header-tip .jar{display:inline-block;font-size:1.1em}.header-tip:hover .jar{animation:tip-spin .7s cubic-bezier(.34,1.56,.64,1)}
+.header-tip:focus-visible{outline:3px solid #ffd54f;outline-offset:3px}
+@keyframes tip-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes tip-sheen{0%{transform:translateX(-110%)}16%{transform:translateX(110%)}100%{transform:translateX(110%)}}
+@keyframes tip-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.header-tip,.header-tip:hover .jar{animation:none}.header-tip::after{display:none}}
+
+@media (max-width:640px){
+.topbar{flex-wrap:wrap;gap:6px 10px;padding:8px 2px}
+.topbar{position:static}
+#toc{position:static}
+.topbar>span{font-size:14px;white-space:nowrap}
+.topbar nav{order:3;flex:1 1 100%;margin-left:0;gap:16px;font-size:13px;flex-wrap:wrap;justify-content:space-between}
+.topbar .fsctl{order:2}.topbar .tb-readers{order:2}
+.topbar nav a{white-space:nowrap}
+.topbar .header-tip{order:1;margin-left:0;font-size:12.5px;padding:6px 11px;flex:none}
+}
+</style>
+<style>
+/* Ticker bar (Dave, Nov 4, 2026 — ported from The Fiddletown Gazette, where Dave designed it):
+   the IN THIS EDITION strip is ONE sticky row in ticker style — it sticks under the topbar and the
+   section list slides horizontally (drag with mouse, swipe on touch). The builder script at the end
+   of the page generates the items live from the page's own <h2>s; static items are a no-JS fallback. */
+#toc{position:sticky;top:52px;z-index:55;display:flex;align-items:center;gap:10px;background:var(--bg);border-top:3px double var(--ink);border-bottom:1px solid var(--border);padding:7px 0;margin:16px 0 6px}
+/* Phone: NO sticky bars (Dave's design — the base block's ≤640 static rule for #toc silently lost on source order to the sticky rule above, same specificity, later block; the strip stuck alone at the topbar's height over the article — Dave's screenshot, Nov 26, 2026. This twin sits after the sticky rule so it wins.) */
+@media (max-width:640px){#toc{position:static}}
+.ticker-slug{flex:none;font-family:-apple-system,sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;white-space:nowrap}
+.ticker-wrap{position:relative;flex:1;min-width:0}
+#toc-list{display:flex;flex-wrap:nowrap;align-items:center;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}
+#toc-list::-webkit-scrollbar{display:none}
+#toc-list.dragging{cursor:grabbing}
+#toc-list.dragging a{pointer-events:none}
+.ticker-item{flex:none;white-space:nowrap;color:var(--text);text-decoration:none;font-family:-apple-system,sans-serif;font-size:13px;font-weight:600;line-height:1.5;padding:3px 0}
+.ticker-item:hover{color:var(--accent)}
+.ticker-item + .ticker-item::before{content:'•';margin:0 9px;color:var(--gold);font-weight:400}
+.ticker-arch{color:var(--gold);font-weight:700}
+.ticker-fade{position:absolute;top:0;bottom:0;width:46px;pointer-events:none;display:flex;align-items:center;transition:opacity .25s}
+.ticker-fade.right{right:0;justify-content:flex-end;background:linear-gradient(to right,transparent,var(--bg) 78%)}
+.ticker-fade.left{left:0;justify-content:flex-start;background:linear-gradient(to left,transparent,var(--bg) 78%);opacity:0}
+.ticker-fade .chev{font-family:-apple-system,sans-serif;font-size:20px;font-weight:800;color:var(--accent);padding:0 2px;animation:ticker-chev 1.8s ease-in-out infinite}
+@keyframes ticker-chev{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@media (prefers-reduced-motion: reduce){.ticker-fade .chev{animation:none}}
+@media (max-width:640px){.ticker-slug{display:none}.ticker-item{font-size:12.5px}}
+[id]{scroll-margin-top:112px}
+@media (min-width:641px) and (max-width:900px){[id]{scroll-margin-top:144px}}
+@media (max-width:640px){[id]{scroll-margin-top:12px}}
+.sugg label{display:block;font-weight:700;font-size:13.5px;margin:10px 0 4px}
+.sugg input[type=text],.sugg textarea{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:8px;background:var(--paper);color:var(--text);font:inherit;font-size:15px}
+.sugg button{margin-top:12px;background:var(--accent);color:#fff;border:0;font-weight:800;font-size:15px;padding:10px 18px;border-radius:999px;cursor:pointer}
+</style>
+<script id="fsctl-boot">/* Text-size control (Dave, Nov 5, 2026): apply the reader's saved level before first paint. REBASED scale (Dave, Nov 5): level 1 = 100% (the old "normal") is the smallest setting AND the default; the scale climbs from there. */
+try{var n=parseInt(localStorage.getItem('lg-font-size'),10);if(!(n>=0&&n<=6))n=0;document.documentElement.classList.add('fs-'+n);}catch(e){document.documentElement.classList.add('fs-0');}</script>
+<style id="fsctl-style">
+/* Text-size control (Dave, Nov 5, 2026): five reader-chosen levels — small A, five dots, big A in the
+   top bar before the Tip Jar (Dave's design, same as the sister paper). REBASED SCALE (Dave, Nov 5, 2026):
+   level 1 = 100% (what used to be the middle "normal"), then 108% / 116% (the old maximum) /
+   125% / 135% / 145% / 155% — seven levels, ceiling well past two sizes above the old top (Dave's amendment). The default is level 1, so an untouched paper reads exactly as before;
+   the choice persists in localStorage ('lg-font-size'). Standing element — preserve in every rebuild. */
+html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}html.fs-4{zoom:1.35}html.fs-5{zoom:1.45}html.fs-6{zoom:1.55}
+.fsctl{display:flex;align-items:center;gap:7px;flex:none}
+.fs-btn{background:none;border:none;color:var(--text);cursor:pointer;font-family:Georgia,serif;font-weight:700;line-height:1;padding:4px 2px;-webkit-tap-highlight-color:transparent}
+.fs-btn.fs-down{font-size:11px}
+.fs-btn.fs-up{font-size:18px}
+.fs-btn[disabled]{opacity:.3;cursor:default}
+.fs-dots{display:flex;gap:5px}
+.fs-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--muted,#6b6259);background:none;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.fs-dot.on{background:var(--gold);border-color:var(--gold)}
+@media (max-width:640px){.fsctl{gap:5px}.fs-dot{width:8px;height:8px}}
+</style>
+<style id="hill-roads-style">
+#hill-roads .pc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:8px}
+#hill-roads .pc-fig{margin:0}
+#hill-roads .pc-fig img{width:100%;height:auto;display:block;border-radius:6px;cursor:zoom-in}
+#hill-roads .pc-fig figcaption{font-size:12px;line-height:1.45;margin-top:4px;opacity:.85}
+</style>
+<style id="mast-callout-style">
+.mast-callout{font-family:-apple-system,sans-serif;font-size:14px;letter-spacing:.06em;color:var(--ink);font-weight:600;margin:2px 0 4px}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="brand-wrap"><button id="brand-btn" type="button" aria-haspopup="true" aria-expanded="false" style="background:none;border:none;font:inherit;color:inherit;font-weight:700;cursor:pointer;padding:0;display:flex;align-items:center;gap:6px">🗞️ The Lenwood Gazette <span aria-hidden="true" style="color:var(--gold);font-size:14px">▾</span></button><div id="brand-menu" hidden role="menu" aria-label="Jump to a section"></div></span><nav><a href="index.html">Front Page</a><a href="archive.html">Editions Archive</a><a href="#colophon">About</a></nav><div class="fsctl" role="group" aria-label="Text size"><button type="button" class="fs-btn fs-down" id="fs-down" aria-label="Smaller text">A</button><span class="fs-dots"><button type="button" class="fs-dot" data-lvl="0" aria-label="Text size level 1 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="1" aria-label="Text size level 2 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="2" aria-label="Text size level 3 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="3" aria-label="Text size level 4 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="4" aria-label="Text size level 5 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="5" aria-label="Text size level 6 of 7" aria-pressed="false"></button><button type="button" class="fs-dot" data-lvl="6" aria-label="Text size level 7 of 7" aria-pressed="false"></button></span><button type="button" class="fs-btn fs-up" id="fs-up" aria-label="Larger text">A</button></div><span class="tb-readers" title="Readers today / readers all-time: the first number is how many readers have visited today; the second is the all-time total since counting began on Nov 15, 2026. If the readers-today number is showing in red, you’re being counted for the first time today — you are that reader. Each reader counts once a day, by a scrambled code that is discarded nightly — no names, no tracking, just the count.">👁 <span data-rc-today></span> / <span data-rc-total></span></span><a class="header-tip" href="https://ko-fi.com/davedellaquila" target="_blank" rel="noopener" aria-label="Tip Jar — if this page helped you, you can leave Dave a tip on Ko-fi"><span class="jar" aria-hidden="true">🫙</span><span>Tip Jar</span></a></div>
+
+<header class="masthead">
+  <div class="kicker">San Jose &amp; the Santa Clara Valley · Updated all day</div>
+  <h1>The Lenwood Gazette</h1>
+  <p class="mast-callout">San Jose to Santa Cruz — and the mountains between</p>
+  <p class="dateline"><!-- EDITION:DATE -->Thursday, November 26, 2026<!-- /EDITION:DATE --> · <!-- EDITION:NAME -->Evening Edition — published 5:30 PM PT<!-- /EDITION:NAME --></p>
+  <div><span class="weatherbug">⚠️ Bayshore: the Coastal Flood Warning expired at 4:00 PM today; a Coastal Flood Advisory now runs through Sunday, Nov 29 at 5:00 PM — up to 1.7 feet of inundation possible at bayshore high tides (NWS, issued today at 3:35 PM) &middot; Friday&rsquo;s high tide: 7.5 feet at 12:31 PM at the San Francisco gauge &middot; No active alert at the Lenwood point at the 5:26 PM check &middot; Tonight: mostly cloudy, patchy fog between 2&ndash;3 AM, low near 45&deg;F &middot; Friday: partly sunny, high near 66&deg;F (NWS — Lenwood / South San Jose)</span></div>
+  <div class="rule"></div>
+  </header>
+
+<!-- BANNER: out-of-cycle safety banner is injected here by the hourly poll when a qualifying event breaks. -->
+<div id="safety-banner"><div class="banner"><p><b>⚠️ Bayshore update: the Coastal Flood Warning expired at 4:00 PM Thursday — a Coastal Flood Advisory now runs through 5:00 PM Sunday.</b> NWS San Francisco issued the advisory today at 3:35 PM PT: up to 1.7 feet of inundation above ground level is possible in low-lying areas near shorelines and tidal waterways at high tide through Sunday — flooding of low-lying infrastructure, isolated road closures and coastal erosion possible. Friday&rsquo;s high tide at the San Francisco gauge is expected at 12:31 PM — 7.5 feet, 1.7 feet above normal, including up to 1.3 feet of surge; Saturday 1:28 PM (7.4 feet) and Sunday 2:32 PM (6.8 feet) follow. The NWS feed for the Lenwood point returned no active alerts at the 5:26 PM check. Do not drive through flooded roads or around barricades — turn around, don&rsquo;t drown. <span class="meta">Banner updated 5:30 PM PT &middot; Sources: <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — San Francisco Bay Shoreline (CAZ508) alerts</a> &middot; <a href="https://api.weather.gov/alerts/active?point=37.20893,-121.85216">NWS — active alerts for the Lenwood point</a></span></p></div></div>
+<nav id="toc" aria-label="Table of contents">
+<span class="ticker-slug" aria-hidden="true">In this edition</span>
+<div class="ticker-wrap">
+<div id="toc-list"><a class="ticker-item" href="#the-lead">The Lead</a><a class="ticker-item" href="#safety-wire">🚨 Need to Know — the Safety Wire</a><a class="ticker-item" href="#hill-roads">🏔️ Hill & Mountain Roads</a><a class="ticker-item" href="#weather-events">🌦️ Weather Events — the sky as news</a><a class="ticker-item" href="#today-events">Today in the Valley</a><a class="ticker-item" href="#week-events">The Week Ahead</a><a class="ticker-item" href="#car-shows">🏁 Car Shows — the Bay Area circuit</a><a class="ticker-item" href="#scm-wineries">🍇 Santa Cruz Mountains Wineries</a><a class="ticker-item" href="#landmark-of-the-day">📍 Landmark of the Day</a><a class="ticker-item" href="#community-wire">The Community Wire</a><a class="ticker-item" href="#around-town">Around Town</a><a class="ticker-item" href="#history">📜 This Day in History</a><a class="ticker-item" href="#star-chart">⭐ Star Chart — tonight over the valley</a><a class="ticker-item ticker-arch" href="archive.html">📚 Editions Archive</a></div>
+<div class="ticker-fade left" id="ticker-fade-l" aria-hidden="true"><span class="chev">‹</span></div>
+<div class="ticker-fade right" id="ticker-fade-r" aria-hidden="true"><span class="chev">›</span></div>
+</div>
+</nav>
+
+<section class="lead" id="the-lead">
+  <p class="meta">The Lead</p>
+  <h2><!-- LEAD:HEADLINE -->Thanksgiving evening in the valley — the flood warning steps down to an advisory, and the Holiday Lights are on tonight<!-- /LEAD:HEADLINE --></h2>
+  <p><!-- LEAD:BODY -->Thanksgiving Day, Thursday, November 26, closes quiet inland and gentler at the bayshore. The National Weather Service&rsquo;s Coastal Flood Warning expired at 4:00 PM, and the service replaced it at 3:35 PM with a Coastal Flood Advisory through 5:00 PM Sunday — up to 1.7 feet of inundation possible at the bayshore high tides, starting with Friday&rsquo;s 12:31 PM tide at the San Francisco gauge (7.5 feet, 1.7 feet above normal). At the Lenwood point itself there is no active alert at the 5:26 PM check. What remains tonight is San Jose Holiday Lights at Discovery Meadow, running 4:30&ndash;10:30 PM. Overnight: mostly cloudy with patchy fog between 2&ndash;3 AM and a low near 45&deg;F; Friday turns partly sunny near 66&deg;F, and Christmas in the Park opens downtown. VTA ran a Sunday schedule today, and San Jos&eacute; Public Library locations stay closed Friday.<!-- /LEAD:BODY --></p>
+</section>
+<!-- LIGHTS:BEGIN — Christmas Lights guide pointer (Dave's direction, Nov 19, 2026): carry forward every edition through Jan 3, 2027; see PUBLISHING.md -->
+<div class="banner"><b>&#127876; The Gazette&rsquo;s Christmas Lights Guide is here.</b> The 2026 twist: there&rsquo;s no drive-thru in the county this year &mdash; Blinky&rsquo;s is paused and Fantasy of Lights is walk-through only, four nights. Every good place to see the lights, valley first: <a href="christmas-lights.html"><b>read the guide &rarr;</b></a></div>
+<!-- LIGHTS:END -->
+<!-- EVENTS:BEGIN — Christmas Events guide pointer (Dave's direction, Nov 22, 2026): carry forward every edition through Jan 3, 2027; see PUBLISHING.md -->
+<div class="banner"><b>&#127876; And now the Christmas Events Guide.</b> The lights guide&rsquo;s companion: the dated happenings &mdash; tree lightings and parades, two different San Jose Nutcrackers, concerts, markets, Santa and the holiday trains, and the rinks, with the sold-out favorites marked honestly: <a href="christmas-events.html"><b>read the guide &rarr;</b></a></div>
+<!-- EVENTS:END -->
+
+<div class="grid">
+<main>
+  <div class="card" id="thumbs-notice">
+    <h3 style="margin:2px 0 6px">A quick word about the 👍</h3>
+    <p style="margin:0">Every section carries one small thumbs-up at its foot. If a section earns its place in the paper, tap it &mdash; one tap is one vote for keeping that section, counted anonymously, no accounts or names. You&rsquo;ll see &ldquo;Counted &mdash; thanks!&rdquo; beside the button, and the running totals are shown <a href="#lg-tallies">in the footer</a>. One vote per reader per section; the board clears at day&rsquo;s end.</p>
+  </div>
+  <h2>🚨 Need to Know — the Safety Wire</h2>
+  <div id="safety-wire">
+    <div class="item"><p><b>Bayshore: the warning is over — a Coastal Flood Advisory runs through Sunday at 5:00 PM.</b> NWS San Francisco&rsquo;s Coastal Flood Warning expired at 4:00 PM today; the advisory issued today at 3:35 PM PT covers bayshore locations along San Francisco and San Pablo Bays, Alviso included: up to 1.7 feet of inundation above ground level possible in low-lying areas near shorelines and tidal waterways at high tide, with flooding of low-lying infrastructure, isolated road closures and coastal erosion possible. The remaining tides: Friday 12:31 PM at the San Francisco gauge — 7.5 feet, 1.7 feet above normal, including up to 1.3 feet of surge; Saturday 1:28 PM, 7.4 feet; Sunday 2:32 PM, 6.8 feet. High tide timing varies up to 90 minutes along the coast and through the Bay. Take action to protect flood-prone property; do not drive around barricades or through water of unknown depth. Source: <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — San Francisco Bay Shoreline (CAZ508)</a></p></div>
+    <div class="item"><p><b>No active alert at the Lenwood point at the evening check.</b> The NWS active-alerts feed for the Lenwood point, checked at 5:26 PM PT, returned no active alerts — the advisory above is a bayshore-zone alert, and inland South San Jose is not under an alert tonight. Source: <a href="https://api.weather.gov/alerts/active?point=37.20893,-121.85216">NWS — active alerts for the Lenwood point</a></p></div>
+    <div class="item"><p><b>Roads at midday: valley freeways and SR-17 clear.</b> Caltrans highway conditions at 12:26 PM report no traffic restrictions in the central area on SR-17, SR-87 or I-280. Caltrans&rsquo; US-101 central-area note is outside the valley: the northbound connector to northbound SR-1 in Marin County is closed 11:00 AM–4:00 PM today due to high tide, with a high-wind advisory at the San Francisco/Marin line. Sources: <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=17">Caltrans — SR-17</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=87">Caltrans — SR-87</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=280">Caltrans — I-280</a> &middot; <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=101">Caltrans — US-101</a></p></div>
+    <div class="item"><p><b>County picture: no evacuation order or warning verified this evening.</b> No evacuation order or warning for San Jose was verified in the AlertSCC / City of San Jose / SJFD / SJPD public feeds checked at press time, and no new Valley Water flood notice was verified beyond the bayshore NWS advisory above. CHP Golden Gate showed no new qualifying incident for the valley freeways in the evening sweep.</p></div>
+    <div class="item"><p><b>Transit today: VTA runs a Sunday schedule for Thanksgiving.</b> On Thanksgiving Day, Thursday, November 26, VTA service operates on a Sunday schedule and its offices are closed. VTA&rsquo;s Turkey Trot reroute — routes 68, 72, 73, 500, 522 and 523 — runs 3:00 AM–2:00 PM today. Source: <a href="https://www.vta.org/go/service-alerts">VTA — service alerts</a></p></div>
+    <div class="item"><p><b>Storm readiness, standing.</b> Valley Water offers free filled sandbags for county residents at its five sites (Nov 1–Apr 15 season). Report creek debris to Valley Water at (408) 630-2378.</p></div>
+    <p class="meta">Checked at midday press time (12:07–12:26 PM PT) &middot; NWS Bay Area (no active alert at the Lenwood point at 12:07 PM; Bayshore Warning re-issued Nov 25 at 11:54 PM, to today 4:00 PM, up to 2.5 feet, today&rsquo;s tide 8.0 feet at 11:38 AM) &middot; Caltrans SR-17 / SR-87 / I-280 (no central-area restrictions at 12:26 PM) &middot; AlertSCC / City / SJFD / SJPD / CHP Golden Gate / Valley Water / VTA polled with no new qualifying alert verified &middot; Re-polled hourly between editions</p>
+  </div>
+  
+
+<h2>🏔️ Hill & Mountain Roads — the crossings, live</h2>
+  <div class="item" id="hill-roads">
+    <p class="meta">THE HILL CROSSINGS VALLEY DRIVERS USE · CAMERA STILLS REFRESH EVERY COUPLE OF MINUTES · TAP A PICTURE TO ENLARGE</p>
+    <p>The mountain roads out of the valley, as the cameras see them right now — and, for the climbs Caltrans keeps no camera on, the road report that carries their word.</p>
+    <div class="pc-grid">
+      <figure class="pc-fig"><img class="hr-still" data-base="https://cwwp2.dot.ca.gov/data/d5/cctv/image/sr17southofsummitroad/sr17southofsummitroad.jpg" src="https://cwwp2.dot.ca.gov/data/d5/cctv/image/sr17southofsummitroad/sr17southofsummitroad.jpg" alt="Highway 17 over the Santa Cruz Mountains — SR-17 just south of Summit Rd, at the top of the climb. Caltrans CCTV still." loading="lazy"><figcaption>Highway 17 over the Santa Cruz Mountains — SR-17 just south of Summit Rd, at the top of the climb. Caltrans CCTV still.</figcaption></figure>
+      <figure class="pc-fig"><img class="hr-still" data-base="https://cwwp2.dot.ca.gov/data/d4/cctv/image/tva05i680atkoopmanrduc/tva05i680atkoopmanrduc.jpg" src="https://cwwp2.dot.ca.gov/data/d4/cctv/image/tva05i680atkoopmanrduc/tva05i680atkoopmanrduc.jpg" alt="The Sunol Grade — I-680 at Koopman Rd, Sunol, on the climb between Sunol and Pleasanton. Caltrans CCTV still." loading="lazy"><figcaption>The Sunol Grade — I-680 at Koopman Rd, Sunol, on the climb between Sunol and Pleasanton. Caltrans CCTV still.</figcaption></figure>
+    </div>
+    <p style="margin-top:8px"><b>Highway 9</b> — Saratoga over the Santa Cruz Mountains to Santa Cruz, through the redwoods. No Caltrans camera on the climb; closures and one-way control ride in the <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=9">Caltrans road report</a>.</p>
+    <p style="margin-top:8px"><b>Skyline Blvd (SR-35)</b> — the ridge-top run along the Santa Cruz Mountains, SR-17 to SR-92. No Caltrans camera on the ridge; its word rides in the <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=35">Caltrans road report</a>.</p>
+    <p style="margin-top:8px"><b>Mt. Hamilton Road (SR-130)</b> — Alum Rock Ave up the switchbacks to the Lick Observatory summit. No Caltrans camera on the mountain; closures ride in the <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=130">Caltrans road report</a>.</p>
+    <p style="margin-top:8px"><b>Highway 92</b> — San Mateo over the hill to Half Moon Bay. Caltrans' SR-92 cameras watch the San Mateo Bridge, not the hill — so no picture here rather than a borrowed one; the climb's word rides in the <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=92">Caltrans road report</a>.</p>
+    <p style="margin-top:8px"><b>Niles Canyon (SR-84)</b> — Fremont through the canyon to Sunol, beside Alameda Creek. No Caltrans camera in the canyon; its word rides in the <a href="https://roads.dot.ca.gov/roadscell.php?roadnumber=84">Caltrans road report</a>.</p>
+    <p class="meta">Anything breaking on these roads — a closure, a slide, one-way control — joins the Safety Wire above at the next check.</p>
+  </div>
+  <h2>✒️ From the Editor's Desk</h2>
+  <div class="card" id="editors-desk">
+  <div class="item">
+    <h3>Why This Paper Is Free</h3>
+    <p>People ask, now and then, how The Lenwood Gazette can be free — no paywall, no ads. The short answer is that this paper isn’t a business. It’s a neighbor project. Its job is to serve this neighborhood: the road work and the city meetings, the lost dogs and the found ones, what’s on at the community center this weekend. A paywall would work against that job. A paper the neighbors can’t read can’t serve the neighbors.</p>
+    <p style="margin-top:8px">The no-ads part is the same decision. Nobody pays this paper’s bills but me, and that’s deliberate. If advertisers paid them, the advertisers would be the customer, and you would be the inventory — your attention, packaged and sold. Around here, readers aren’t inventory. They’re neighbors. So there are no ads, and there’s no tracking either. The little seal on the masthead says it in one line: we count readers — we never track them. We do count. A paper should know whether anyone’s reading, and which sections earn their thumbs-up. But the counting is done without watching: no names, no accounts, no following anybody around the internet. The count tells us a neighbor stopped by. It never tells us which one.</p>
+    <p style="margin-top:8px">Free to read isn’t free to make, and I’d rather be honest about that than pretend otherwise. Hosting, tools, and hours are real costs, and I cover them. There’s a <a href="https://ko-fi.com/davedellaquila" target="_blank" rel="noopener">tip jar</a> for readers who’d like to help with those costs — some do, and I’m grateful every time. But hear the promise plainly: this paper stays free whether anyone tips or not. The tip jar is a thank-you, never a pitch. The Gazette was free when it started, it’s free this morning, and free is how it stays.</p>
+    <p style="margin-top:8px">— Dave Dell’Aquila, Editor</p>
+    <p class="meta" style="margin-top:6px">From the Editor’s Desk · Tue Nov 24, 2026</p>
+    <div class="no-cookies" style="text-align:center;margin-top:12px;border-top:1px solid var(--border, #d8cfb8);padding-top:12px">
+      <img src="images/struck-cookie-mark.png" alt="A chocolate-chip cookie struck through in editor&#8217;s red" width="92" height="92" style="width:92px;height:92px">
+      <p style="margin:8px 0 0;font-size:17px"><b>This paper sets no cookies.</b></p>
+      <p style="margin:2px 0 0"><i>Struck through by the editor — permanently.</i></p>
+      <p class="meta" style="margin-top:6px">Your browser may keep its own local notes on your device. The paper keeps none.</p>
+    </div>
+  </div>
+  </div>
+
+  <h2>🌦️ Weather Events — the sky as news</h2>
+  <div id="weather-events">
+    <div class="item"><p><b>Weather-event close-out: the flood warning ended at 4:00 PM; an advisory carries the bayshore through Sunday, and rain arrives Sunday.</b> The week&rsquo;s weather event — the bayshore king-tide flood sequence — stepped down today, Thursday, November 26: the morning&rsquo;s 8.0-foot tide was the peak, the Coastal Flood Warning expired at 4:00 PM, and a Coastal Flood Advisory (issued 3:35 PM) runs through 5:00 PM Sunday with up to 1.7 feet of inundation possible at each high tide (see the Safety Wire). For Lenwood itself the evening NWS forecast reads: <b>Thursday night:</b> mostly cloudy, patchy fog between 2&ndash;3 AM, low near 45&deg;F. <b>Friday, November 27:</b> partly sunny, high near 66&deg;F. <b>Saturday, November 28:</b> partly sunny near 68&deg;F, with a slight chance of rain late Saturday night. <b>Sunday, November 29:</b> rain (a 93% chance in the current forecast), high near 65&deg;F — the day that matters for Sunday&rsquo;s outdoor car meets (see Car Shows). <b>Monday, November 30:</b> rain likely, near 64&deg;F, and <b>Tuesday, December 1:</b> rain, near 61&deg;F, before the pattern eases Wednesday. Sources: <a href="https://forecast.weather.gov/MapClick.php?lat=37.20893&lon=-121.85216">National Weather Service — forecast for the Lenwood point</a> &middot; <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — Bay Shoreline alerts</a></p></div>
+  </div>
+  
+
+<h2>Today in the Valley — Thursday, November 26</h2>
+  <div id="today-events">
+    <div class="item"><p><b>This morning: the 15th Annual Turkey Cup at Sharks Ice, from 5:30 AM.</b> Thanksgiving hockey at Sharks Ice San Jose (1500 S. 10th St) — doors 5:30 AM, puck drop 5:40 AM, trophy ceremony 7:50 AM, then a postgame tailgate breakfast behind Tech CU Arena at 8:00 AM. Free to watch. Source: <a href="https://www.eventbrite.com/e/15th-annual-turkey-cup-thanksgiving-hockey-tailgate-for-a-good-cause-tickets-2003630265059?aff=ebdssbpointsofinterest">Eventbrite — 15th Annual Turkey Cup, Thu Nov 26</a></p></div>
+    <div class="item"><p><b>This morning downtown: the Applied Materials Silicon Valley Turkey Trot, 8:30 AM.</b> The Thanksgiving Day 5K run/walk and 10K run start together at 8:30 AM in downtown San Jose, at W. Santa Clara St and N. First St — one of the largest Thanksgiving Day runs in the country, with a Kids Fun Run in the morning program. Sources: <a href="https://southbaytoday.org/event/2026-11-26-applied-materials-silicon-valley-turkey-trot">South Bay Today — Turkey Trot, Thu Nov 26, 8:30 AM</a> &middot; <a href="https://laraces.com/race/103660">LA Races — Silicon Valley Turkey Trot, Thu Nov 26</a></p></div>
+    <div class="item"><p><b>Tonight: San Jose Holiday Lights at Discovery Meadow, 4:30–10:30 PM.</b> The nightly run through January 1 continues on Thanksgiving evening at Discovery Meadow (330 W. San Carlos St). Source: <a href="christmas-lights.html">The Gazette&rsquo;s Christmas Lights Guide</a></p></div>
+    <div class="item"><p><b>Closed for the holiday.</b> Children&rsquo;s Discovery Museum is closed today, Thursday, November 26, for Thanksgiving (it reopens Friday with extended holiday hours, 9:30 AM–4:30 PM), and all San Jose Public Library locations are closed today and Friday, November 27. Sources: <a href="https://sjpl.bibliocommons.com/v2/events">San Jose Public Library — events</a> &middot; Children&rsquo;s Discovery Museum holiday-hours notice</p></div>
+    <div class="item"><p><b>Santa Cruz, Coastside, Saratoga and the San Lorenzo Valley desks.</b> No Thanksgiving Day public event in Santa Cruz, the Highway 1 coastal towns, Saratoga, Boulder Creek or Felton was verified in this morning&rsquo;s sweep, and none was added at midday or evening from the standing venue and city calendars — the desks report an honest quiet holiday rather than fill the space. The weekend listings pick up in The Week Ahead and Car Shows.</p></div>
+    <p class="meta">Events desk (evening edition — tonight&rsquo;s remaining public events first, South San Jose and downtown first; Santa Cruz and coastal listings town-named alongside. No DWA or SCBMCC event falling inside this paper&rsquo;s coverage map was verified in the Gold Country events database check at press time, so none is listed) &middot; City of San Jose listings &middot; SAP Center / San Jose Theaters &middot; Children&rsquo;s Discovery Museum &middot; The Tech Interactive &middot; San Jose Public Library — public listings only, each credited to its source.</p>
+  </div>
+  
+
+<h2>The Week Ahead</h2>
+  <div id="week-events">
+    <div class="item"><p><b>Fri Nov 27 — Christmas in the Park opens; Sharks host Vegas.</b> Partly sunny near 66&deg;F. Christmas in the Park&rsquo;s downtown season runs November 27–January 1, daily noon–10:00 PM, per the guides linked at the top of this edition. The San Jose Sharks host the Vegas Golden Knights at SAP Center, listed at 1:00 PM. San Jose Public Library locations remain closed Friday for the holiday.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — the Holiday Toy Drive at the Fairgrounds.</b> Partly sunny near 68&deg;F. The BLVD Kings / Viejitos holiday toy drive runs at the Santa Clara County Fairgrounds (see Car Shows), and cars &amp; coffee meets run in Orinda, San Juan Bautista and Watsonville.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — rain.</b> Rain — a 93% chance in the current NWS forecast — mostly cloudy near 65&deg;F. The Lafayette and Moraga cars &amp; coffee meets are listed that morning — rain cancels, per their listings, so check before going. San Jose&rsquo;s founding anniversary falls Sunday: the pueblo was founded November 29, 1777 (see This Day in History).</p></div>
+    <div class="item"><p><b>Mon Nov 30 — rain.</b> Rain likely, mostly cloudy near 64&deg;F, per the NWS extended forecast at evening press time; rain continues Tuesday near 61&deg;F before easing Wednesday.</p></div>
+  </div>
+  
+
+<h2>🏁 Car Shows — the Bay Area circuit</h2>
+  <div id="car-shows">
+    <p class="meta">South Bay first · This weekend (Sat Nov 28–Sun Nov 29) first, then the next two weeks · Rebuilt fresh this morning from the public Bay Area calendars · Sunday, November 29 is forecast for rain, which matters for the two Sunday meets below — both list rain as cancelling</p>
+    <div class="item"><p><b>Thu Nov 26 — <a href="https://californiacarsandkulture.com/upcoming-events">San Jose Cars — weekly Thursday gathering</a></b> · Mojo&rsquo;s Hamburgers, 1401 Foxworthy Ave, San Jose · <b>from 3:00 PM</b> (advertised 8:00 PM finish). A weekly listing falling on Thanksgiving Day — confirm with the organizer before going. Source: California Cars &amp; Kulture.</p></div>
+    <div class="item"><p><b>Fri Nov 27 — Chelu Bay Area Car Club Summer Nights</b> · Nation&rsquo;s Giant Hamburgers, South San Francisco · <b>6:00 PM</b>. Listed on CarCruiseFinder&rsquo;s Bay Area weekend calendar for Friday, November 27. Source: CarCruiseFinder.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — <a href="https://carcruisefinder.com/car-show/holiday-toy-drive-blvd-kings-car-club-san-jose/">Holiday Toy Drive — BLVD Kings Car Club San Jose</a></b> · Santa Clara County Fairgrounds Lot C / Gateway Hall, 344 Tully Rd, San Jose · <b>7:00 AM – 6:00 PM</b> (the Fairgrounds&rsquo; own listing shows the Gateway Hall gathering 12:00–6:00 PM). BLVD Kings San Jose and Viejitos Car Club – Silicon Valley host; new, unwrapped toys requested; all car clubs and solo riders welcome; photos with Santa, raffles and a 50/50. Free for spectators. Sources: CarCruiseFinder &middot; <a href="https://roaringshifts.com/public-meets/santa-clara-county-fairgrounds-holiday-toy-drive-2026-mw6sj1rvy52ujlewjm">RoaringShifts — Fairgrounds Holiday Toy Drive</a></p></div>
+    <div class="item"><p><b>Sat Nov 28 — <a href="https://californiacarsandkulture.com/upcoming-events">Orinda Cars — cars &amp; coffee</a></b> · 204 Village Square, Orinda · <b>8:00–10:00 AM</b>. A second- and fourth-Saturday gathering; this date follows the regular schedule but has not been confirmed separately — check for holiday or venue changes before going. Source: California Cars &amp; Kulture.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — <a href="https://californiacarsandkulture.com/upcoming-events">San Juan Bautista Cars — cars &amp; coffee</a></b> · Mariposa &amp; 3rd Street, San Juan Bautista · <b>8:00–11:00 AM</b>. A second- and fourth-Saturday gathering for cars and trucks; this date follows the regular schedule — check for holiday changes before driving. Source: California Cars &amp; Kulture.</p></div>
+    <div class="item"><p><b>Sat Nov 28 — Cars and Coffee, Watsonville</b> · East Lake Village Shopping Center, Watsonville · <b>9:00–11:00 AM</b>, free. Classic cars and coffee every Saturday morning, per the Santa Cruz County events calendar. Source: <a href="https://santacruzscene.com/?count=90&date_from=2026-11-28&date_to=2026-11-29">Santa Cruz Scene — events, Nov 28–29</a>.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — Pit Stop, Cars, Coffee &amp; Pastries — Lafayette</b> · 3466 Mount Diablo Blvd, Lafayette · <b>8:00–10:00 AM</b>. Le Pit Club cars &amp; coffee, free and open to the public; no burnouts or revving, and rain cancels — and rain is forecast Sunday, so check before going. Source: RoaringShifts / Le Pit Club.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — <a href="https://roaringshifts.com/public-meets/moraga-pit-stop-mvukn6l77hdt2ow01tu">Moraga Pit Stop</a></b> · 380 Moraga Rd, Moraga · <b>10:00 AM – noon</b>. Le Pit Club cars &amp; coffee, free and open to the public; rain cancels — and rain is forecast Sunday, so check before going. Source: RoaringShifts / Le Pit Club.</p></div>
+    <div class="item"><p><b>Sun Nov 29 — Anacarcrew Fam Annual Toy Drive — San Leandro</b> · San Leandro · <b>10:00 AM</b>. Listed in RoaringShifts&rsquo; this-week-near-San-Jose roundup for Sunday, November 29; its name runs unlinked this morning because no organizer page for it was verified in this sweep. Source: RoaringShifts.</p></div>
+    <p class="meta" style="margin-top:12px">Also on the calendar</p>
+    <div class="item"><p><b>Sun Dec 13 — Cars &amp; Croissants on The Row</b> · Santana Row, San Jose · <b>9:00 AM – noon</b>. Carried from the previously verified listing; its name runs unlinked this morning because no organizer page for the December date was re-verified in today&rsquo;s sweep.</p></div>
+    <p class="meta" style="margin-top:10px">The car-show desk sweeps the Bay Area calendars every edition — South Bay first, North Bay included, one-off shows and recurring meets alike — from public listings in our own words, each verified against its listing and credited. No Alice&rsquo;s Restaurant car or bike gathering was publicly posted for this weekend in this morning&rsquo;s sweep, so none is listed. Sources swept this morning: CarCruiseFinder, RoaringShifts, California Cars &amp; Kulture, Santa Cruz Scene, and the Santa Clara County Fairgrounds.</p>
+  </div>
+  
+
+<div id="scm-wineries">
+    <p class="meta">The Santa Cruz Mountains AVA, from the places database · 33 wineries — the ridge above Cupertino, Saratoga and Los Gatos, the Skyline crest, and the Santa Cruz side of the range · Winery events, tastings and releases also run in Today in the Valley and The Week Ahead as the winery desk finds them · The directory is refreshed from the database each morning; each name opens its record there</p>
+    <p class="meta">The ridge above the valley — Cupertino · Saratoga · Los Gatos</p>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/naumann-vineyards">Naumann Vineyards</a></b> · Cupertino — Small family winery on Montebello Road above Cupertino. Tastings by appointment. · <a href="https://www.naumannvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/picchetti-winery">Picchetti Winery</a></b> · Cupertino — The historic ranch winery on Montebello Road in Cupertino, beside the Picchetti Ranch Open Space Preserve. Open daily, 11 AM to 5 PM. · <a href="https://www.picchetti.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/ridge-vineyards">Ridge Vineyards</a></b> · Cupertino — The Montebello Road estate above Cupertino, home of the Monte Bello Cabernet Sauvignon. Tastings and wine pickups by appointment. · <a href="https://www.ridgewine.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/vidovich-vineyards">Vidovich Vineyards</a></b> · Cupertino — Family winery on Montebello Road at 2,450 feet above Cupertino, making small-lot wines from what the estate calls the ridge&#x27;s Mediterranean climate. · <a href="https://www.vidovichvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/cooper-garrod-vineyards">Cooper-Garrod Vineyards</a></b> · Saratoga — Cooper-Garrod Vineyards at Garrod Farms - estate vineyards and a tasting room on Garrod Road in the Saratoga foothills. Open weekends; certified sustainable. · <a href="https://www.cooper-garrod.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/house-family-vineyards">House Family Vineyards</a></b> · Saratoga — The family-run estate winery on Old Oak Way in Saratoga. · <a href="https://www.housefamilyvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/kathryn-kennedy-winery">Kathryn Kennedy Winery</a></b> · Saratoga — The estate winery on Pierce Road in Saratoga. Not open to the public - there is no tasting room; the wines are sold direct. · <a href="https://www.kathrynkennedywinery.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/mount-eden-vineyards">Mount Eden Vineyards</a></b> · Saratoga — In its own words one of California&#x27;s original boutique wineries, founded in 1945 and perched 2,000 feet above Silicon Valley. Tastings by appointment only, Monday through Friday. · <a href="https://www.mounteden.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/savannah-chanelle-vineyards">Savannah-Chanelle Vineyards</a></b> · Saratoga — The estate winery on Congress Springs Road in Saratoga, pouring in a rustic tasting room under the redwoods. · <a href="https://www.savannahchanelle.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/burrell-school-vineyards">Burrell School Vineyards</a></b> · Los Gatos — Burrell School Vineyards &amp; Winery - estate winery on Summit Road above Los Gatos, named for the historic schoolhouse on the property. Tasting room open weekends. · <a href="https://www.burrellschool.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/byington-vineyard-and-winery">Byington Vineyard &amp; Winery</a></b> · Los Gatos — Estate winery on Bear Creek Road above Los Gatos, with its winery building, estate vineyards and event grounds in the redwoods. · <a href="https://byington.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/david-bruce-winery">David Bruce Winery</a></b> · Los Gatos — The Bear Creek Road pioneer above Los Gatos; its own site notes the winery&#x27;s international reputation for Pinot Noir and Chardonnay. Tasting room open Thursday through Sunday, 11 AM to 4 PM. · <a href="https://www.davidbrucewinery.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/gali-vineyards">Gali Vineyards</a></b> · Los Gatos — Family-owned tasting room on West Main Street in downtown Los Gatos, pouring estate-grown wines from 18 acres farmed by hand using sustainable practices (the winery&#x27;s own description). · <a href="https://www.galivineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/loma-prieta-winery">Loma Prieta Winery</a></b> · Los Gatos — In its own words the largest producer of Pinotage in North America, at 2,600 feet above Highway 17. Tasting room open Saturdays and Sundays. · <a href="https://www.lomaprietawinery.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/muns-vineyard">Muns Vineyard</a></b> · Los Gatos — A Pinot Noir vineyard at 2,600 feet on the Loma Prieta ridge, in the vineyard&#x27;s own words the highest Pinot Noir vineyard in the Santa Cruz Mountains. Tastings at the vineyard by appointment only. · <a href="https://www.munsvineyard.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/regale-winery">Regale Winery</a></b> · Los Gatos — Regale Winery and Vineyards - estate winery on Summit Road above Los Gatos. Open weekends, with event facilities. · <a href="https://www.regalewine.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/rhys-vineyards">Rhys Vineyards</a></b> · Los Gatos — Estate Pinot Noir and Chardonnay from high-elevation Santa Cruz Mountains vineyards. Private, by-appointment tastings at the Skyline Boulevard site, where the wines age in a 30,000-square-foot cave completed in 2010. · <a href="https://rhysvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/testarossa-winery">Testarossa Winery</a></b> · Los Gatos — The winery in the historic Novitiate at 300 College Avenue above downtown Los Gatos. Tasting room open weekdays and weekends; family and dog friendly. · <a href="https://www.testarossa.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/villa-del-monte-winery">Villa del Monte Winery</a></b> · Los Gatos — The Summit Road winery above Los Gatos, pouring small-lot Santa Cruz Mountains wines. · <a href="https://www.villadelmontewinery.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/wrights-station">Wrights Station Vineyard &amp; Winery</a></b> · Los Gatos — Estate winery and tasting room on Loma Prieta Avenue in the Los Gatos mountains. · <a href="https://www.wrightsstation.com">Winery site</a></p></div>
+    <p class="meta" style="margin-top:12px">Skyline</p>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/thomas-fogarty-winery">Thomas Fogarty Winery</a></b> · Woodside — The estate winery on Skyline Boulevard above Woodside, growing wine on the ridge south of the Sky Londa crossroads. · <a href="https://www.fogartywinery.com">Winery site</a></p></div>
+    <p class="meta" style="margin-top:12px">The Santa Cruz side — the coast slope of the range</p>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/bonny-doon-vineyard">Bonny Doon Vineyard</a></b> · Santa Cruz — The Santa Cruz Mountains label founded by Randall Grahm, in its own words the original Rhone Ranger, with four decades of Rhone-style wines behind it. The label now sits with WarRoom Cellars and the wines are sold direct - there is no public tasting room. · <a href="https://www.bonnydoonvineyard.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/santa-cruz-mountain-vineyard">Santa Cruz Mountain Vineyard</a></b> · Santa Cruz — The long-running Santa Cruz winery pouring on Ingalls Street in the Westside. Hours: weekdays noon to 5, Saturday and Sunday noon to 5:30, closed Wednesdays. · <a href="https://www.santacruzmountainvineyard.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/sones-cellars">Sones Cellars</a></b> · Santa Cruz — Small family winery pouring at 334-B Ingalls Street in Santa Cruz&#x27;s Westside, next door to Santa Cruz Mountain Vineyard. Open weekdays and weekends. · <a href="https://www.sonescellars.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/storrs-winery">Storrs Winery</a></b> · Santa Cruz — Tasting room at the Old Sash Mill in Santa Cruz, pouring wines made at the winery on Pleasant Valley Road in Corralitos, where weekend tastings run Saturday and Sunday, noon to 5. · <a href="https://www.storrswine.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/bargetto-winery">Bargetto Winery</a></b> · Soquel — The historic Soquel winery on Soquel Creek, family-run since 1933, with creek-side seating; dog friendly. Open daily 12 to 5, Wednesdays until 8. · <a href="https://www.bargetto.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/soquel-vineyards">Soquel Vineyards</a></b> · Soquel — Estate winery on Glen Haven Road in the Soquel hills. Tasting room open Saturday and Sunday, 11 AM to 4 PM. · <a href="https://www.soquelvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/nicholson-vineyards">Nicholson Vineyards</a></b> · Aptos — Estate winery on Pleasant Valley Road in Aptos, in the foothills above Monterey Bay. · <a href="https://www.nicholsonvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/alfaro-family-vineyards">Alfaro Family Vineyards</a></b> · Corralitos — Alfaro Family Vineyards &amp; Winery - family estate on Hames Road in Corralitos, in the heart of the Corralitos wine country. Open weekends. · <a href="https://www.alfarofamilyvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/windy-oaks-estate">Windy Oaks Estate</a></b> · Corralitos — Estate winery, vineyard and tasting room on Hazel Dell Road in Corralitos. A second tasting room pours in Carmel-by-the-Sea. · <a href="https://www.windyoaksestate.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/beauregard-vineyards">Beauregard Vineyards</a></b> · Bonny Doon — The Beauregard family&#x27;s winery and tasting room on Pine Flat Road in Bonny Doon, in the redwoods above Santa Cruz. Open weekdays and weekends. · <a href="https://www.beauregardvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/big-basin-vineyards">Big Basin Vineyards</a></b> · Boulder Creek — The estate vineyard and winery tasting room on Memory Lane in Boulder Creek (Saturday and Sunday, 12 to 5, in season), with a second tasting room in downtown Santa Cruz. · <a href="https://www.bigbasinvineyards.com">Winery site</a></p></div>
+    <div class="item"><p><b><a href="https://places.lenwoodgazette.com/#/place/hallcrest-vineyards">Hallcrest Vineyards</a></b> · Felton — The Felton winery on Felton Empire Road, known for its organic wines from the Santa Cruz Mountains. Open weekends. · <a href="https://www.hallcrestvineyards.com">Winery site</a></p></div>
+    <p class="meta" style="margin-top:10px"><a href="https://places.lenwoodgazette.com/">From the Santa Cruz &amp; South Bay places database →</a></p>
+  </div>
+
+<h2>📍 Landmark of the Day</h2>
+  <div class="item" id="landmark-of-the-day">
+    <p class="meta">ONE PLACE A DAY FROM THE SANTA CRUZ &amp; SOUTH BAY PLACES DATABASE · No. 1 · THU NOV 26, 2026 · DRAWN IN NO SET ORDER — NO REPEATS UNTIL EVERY PLACE HAS HAD ITS DAY</p>
+    <figure><img src="https://ydftcebaftngcdjvxrgl.supabase.co/storage/v1/object/public/event-images/event-images/alices-restaurant-real.jpg" alt="Alice's Restaurant at Four Corners, Skyline Boulevard, Woodside — the patio under the redwoods"><figcaption>Alice's Restaurant at Four Corners — the patio under the redwoods. Photo by Dave Dell'Aquila</figcaption></figure>
+    <p><b>Alice's Restaurant — Woodside.</b> The landmark at Four Corners, where Skyline Boulevard (SR-35) meets La Honda Road (SR-84) above Woodside. The building went up in the early 1900s as a general store for the logging industry, became a restaurant in the 1950s, and took Alice Taylor's name in the 1960s; still family owned and operated. In the restaurant's own words a world-famous stop for motorcyclists — and a favorite gathering spot for car enthusiasts, hikers and locals — with gourmet burgers, scrambles, homemade pie, local microbrews and wines under the redwoods. Hours: Mon-Sat 8:00 AM-8:00 PM, Sun 8:00 AM-7:00 PM.</p>
+    <p class="meta"><a href="https://places.lenwoodgazette.com/#/place/alices-restaurant">Alice's Restaurant in Santa Cruz &amp; South Bay Places →</a> · <a href="https://maps.apple.com/?ll=37.3866917,-122.2653987&amp;q=Alice%27s%20Restaurant">17288 Skyline Blvd on the map</a></p>
+  </div>
+
+<h2>The Community Wire</h2>
+  <div id="community-wire">
+ <p class="empty">No new pertinent post from an official or public Facebook page was verified at midday press time — the wire is honest when it is empty. Summaries here are always in our own words, attributed, and linked to the original.</p>
+</div>
+
+  <!-- FREEBIE:BEGIN — free-stuff item (Dave's direction, Nov 16, 2026): vintage steel tanker desk, FREE. Editions carry this block forward unchanged until the desk is gone; see PUBLISHING.md -->
+  <h2>🎁 Free Stuff</h2>
+  <div id="free-stuff">
+    <p><b>FREE — vintage steel tanker desk.</b> A classic mid-century tanker, built like its name: a heavy steel double pedestal with five drawers — a shallow drawer over a deep locking file drawer on the left, three drawers on the right — chrome pulls and legs, and a dark woodgrain laminate top. It measures 60&Prime; long &times; 30&Prime; deep &times; 30&Prime; high. Used and solid; the top is dusty with light scuffs from storage, and the items sitting on it in the office photo aren&rsquo;t included. Fair warning: it&rsquo;s heavy — bring help and a dolly.</p>
+    <p style="margin:10px 0"><img src="images/tanker-desk-hero.jpg" alt="Front view of the vintage steel tanker desk — black double pedestals, five drawers, dark woodgrain top" style="width:100%;height:auto;border-radius:10px;display:block"></p>
+    <p style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;margin:10px 0"><img src="images/tanker-desk-office.jpg" alt="The tanker desk in the office, three-quarter view" style="flex:1 1 220px;min-width:200px;max-width:100%;height:auto;border-radius:10px"><img src="images/tanker-desk-drawers.jpg" alt="Close-up of the left pedestal: shallow drawer above the deep file drawer, its lock cylinder at the top, and the finish&rsquo;s honest wear" style="flex:0 1 250px;min-width:180px;max-width:100%;height:auto;border-radius:10px"></p>
+    <p>First confirmed pickup takes it. Pickup at <a href="https://maps.apple.com/?q=18231+Llagas+Creek+Dr,+Morgan+Hill,+CA">18231 Llagas Creek Dr, Morgan Hill</a> — arrange a time through the <a href="https://www.facebook.com/marketplace/item/1447887447530120">Facebook Marketplace listing</a>. Running at the publisher&rsquo;s direction; the same desk is also offered in our sister papers.</p>
+  </div>
+  <!-- FREEBIE:END -->
+</main>
+<aside>
+  <h2 id="around-town">Around Town</h2>
+  <div class="card" id="around-town">
+    <div class="item"><p><b>Bayshore warning ended; advisory to Sunday.</b> The Coastal Flood Warning expired at 4:00 PM; a Coastal Flood Advisory runs through Sunday 5:00 PM, up to 1.7 feet at high tide. See the Safety Wire.</p></div>
+    <div class="item"><p><b>Valley freeways clear at midday.</b> Caltrans at 12:26 PM reports no central-area restrictions on SR-17, SR-87 or I-280. See the Safety Wire.</p></div>
+    <div class="item"><p><b>Tonight: mostly cloudy near 45&deg;F.</b> Patchy fog between 2&ndash;3 AM; Friday partly sunny near 66&deg;F. See Weather Events.</p></div>
+    <div class="item"><p><b>Thanksgiving downtown.</b> This morning: Turkey Trot and Turkey Cup hockey at Sharks Ice. Tonight: Holiday Lights at Discovery Meadow, 4:30–10:30 PM. See Today in the Valley.</p></div>
+    <div class="item"><p><b>Holiday schedules today.</b> VTA runs a Sunday schedule (Turkey Trot reroutes to 2:00 PM); library locations are closed today and Friday, November 26–27; Children&rsquo;s Discovery Museum is closed today.</p></div>
+  </div>
+
+  
+<h2 id="album-of-the-day">💿 Album of the Day</h2>
+  <div class="card" id="album-of-the-day">
+    <!-- ALBUM:BEGIN — Music Buddy's daily pick, printed verbatim (artist, album, year, write-up, Apple Music links) from Music Buddy's Album of the Day; refreshed in the Morning edition, carried forward at midday and evening. See PUBLISHING.md. -->
+    <div class="item"><p><b><a href="https://music.apple.com/us/artist/elton-john/54657">Elton John</a> — <a href="https://music.apple.com/us/album/elton-john-deluxe-edition/1440754854"><i>Elton John</i></a> (1970)</b></p>
+    <p>Following Dave's Nov 21 Elton listening — the original 1970 piano-first record behind the live session he loved, with “Your Song,” the gospel-tinged “Border Song” and “The Greatest Discovery.” Melody and piano up front, strings swelling behind; the Quests will love the space in it.</p>
+    <p class="meta">Music Buddy's pick for Wednesday, November 25, 2026 — the same Album of the Day that goes to Dave by email each morning. <a href="https://davedellaquila.github.io/buddy-system/music-buddy/">Music Buddy's page</a></p></div>
+        <!-- ALBUM:END -->
+    <p class="meta">📚 <a href="album-archive.html">Every Album of the Day so far — browse the archive</a></p>
+  </div>
+  <h2 id="history">📜 This Day in History</h2>
+  <div class="card" id="history">
+    <div class="item"><p><b>Honestly: no San Jose proper item dated November 26 was verified in the standing local sources this morning</b> &mdash; the SJPL timeline and History San Jose bench runs dry for this date, so the box says so and reaches wider, as the standing rule allows. San Jose&rsquo;s founding anniversary is three days away: the pueblo was founded on November 29, 1777.</p></div>
+    <div class="item"><p><b>1863 &mdash; the first national Thanksgiving.</b> On November 26, 1863, Americans observed Thanksgiving as a national holiday for the first time, under President Lincoln&rsquo;s proclamation setting the last Thursday of November — the direct ancestor of the holiday this paper&rsquo;s readers are celebrating today, Thursday, November 26, 2026.</p></div>
+    <div class="item"><p><b>1942 &mdash; <i>Casablanca</i> premieres.</b> The film opened in New York on November 26, 1942 — a California studio picture that became one of the most quoted movies ever made.</p></div>
+    <div class="item"><p><b>1922 &mdash; into Tutankhamun&rsquo;s tomb.</b> On November 26, 1922, Howard Carter and Lord Carnarvon entered the burial chambers of Tutankhamun&rsquo;s tomb in Egypt&rsquo;s Valley of the Kings, the first people to do so in more than 3,000 years.</p></div>
+    <div class="item"><p><b>1941 &mdash; the Hull Note.</b> On November 26, 1941, the United States delivered its final diplomatic note to Japan — eleven days before Pearl Harbor brought the country into the Second World War, a war that would transform this valley&rsquo;s orchards and airfields.</p></div>
+    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening. Local first &mdash; today no San Jose proper item was verified, and the box says so honestly. Sources: <a href="https://www.sjpl.org/sjhistory/">San Jose Public Library &mdash; Timeline of San Jose History</a> &middot; <a href="https://en.wikipedia.org/wiki/History_of_San_Jose,_California">History of San Jose, California</a></p>
+  </div>
+  
+  
+<h2 id="star-chart">⭐ Star Chart — tonight over the valley</h2>
+  <div class="card" id="sky">
+    <div class="sky" role="img" aria-label="Schematic evening star chart for San Jose, about 7 PM: the waning gibbous Moon, about 95 percent lit, near Castor and Pollux in Gemini in the evening per EarthSky, Saturn high in the south in the evening, Uranus just past opposition in Taurus, and Jupiter and Mars before dawn, with Venus at its greatest morning brilliancy today — under a mostly cloudy sky tonight">
+      <svg viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="138" fill="#0d1f38" stroke="#3d5a80" stroke-width="1.5"/>
+        <circle cx="150" cy="150" r="92" fill="none" stroke="#274263" stroke-dasharray="3 5"/>
+        <circle cx="150" cy="150" r="46" fill="none" stroke="#274263" stroke-dasharray="3 5"/>
+        <text x="150" y="24" text-anchor="middle" class="lbl">N</text>
+        <text x="150" y="288" text-anchor="middle" class="lbl">S</text>
+        <text x="282" y="154" text-anchor="middle" class="lbl">E</text>
+        <text x="18" y="154" text-anchor="middle" class="lbl">W</text>
+        <g fill="#fff">
+<circle cx="205" cy="85" r="2"/>
+<circle cx="222" cy="76" r="1.6"/>
+<circle cx="238" cy="84" r="1.8"/>
+<circle cx="226" cy="98" r="1.4"/>
+<circle cx="209" cy="102" r="1.3"/>
+</g>
+        <text x="196" y="66" class="sub">Cassiopeia</text>
+        <g fill="#fff">
+<circle cx="140" cy="118" r="1.8"/>
+<circle cx="168" cy="112" r="1.8"/>
+<circle cx="172" cy="140" r="1.8"/>
+<circle cx="144" cy="146" r="1.8"/>
+</g>
+        <text x="118" y="102" class="sub">Great Square</text>
+        <g fill="#ffe9a8">
+<circle cx="185" cy="185" r="3.4"/>
+</g>
+        <text x="160" y="205" class="lbl">♄ Saturn</text>
+        <text x="160" y="217" class="sub">evening planet</text>
+        <g fill="#fff">
+<circle cx="140" cy="252" r="2"/>
+</g>
+        <text x="112" y="268" class="sub">Fomalhaut</text>
+        <g fill="#fff">
+<circle cx="252" cy="196" r="1.4"/>
+<circle cx="258" cy="190" r="1.2"/>
+<circle cx="248" cy="188" r="1.1"/>
+<circle cx="256" cy="202" r="1.1"/>
+</g>
+        <text x="216" y="222" class="sub">Pleiades rising</text>
+        <g fill="#ffe9a8">
+<circle cx="118" cy="196" r="3.2"/>
+</g>
+        <text x="78" y="216" class="sub">Moon · Waning gibbous, near Aldebaran</text>
+        <g fill="#fff">
+<circle cx="262" cy="120" r="1.6"/>
+<circle cx="270" cy="108" r="1.4"/>
+</g>
+        <g fill="#ffe9a8">
+<circle cx="255" cy="128" r="2.2"/>
+<circle cx="248" cy="134" r="1.8"/>
+</g>
+        <text x="200" y="100" class="sub">Leo late E · Jupiter &amp; Mars</text>
+        <text x="150" y="154" text-anchor="middle" class="sub">zenith</text>
+      </svg>
+
+    </div>
+    <p class="meta">Tonight · Thursday, November 26 · chart for ~7:00 PM, looking up — Saturn in the south in the evening; the Moon a waning gibbous, about 95% lit, moving toward Castor and Pollux in Gemini; Uranus just past opposition; tonight is mostly cloudy, so the Moon and Saturn through any clearing are the realistic targets</p>
+    <div class="item"><p><b>A waning gibbous Moon, toward the Twins.</b> Two days past full, the Moon is about 95% lit. A few hours after sunset tonight and Friday night, it floats near Castor and Pollux, the twin stars of Gemini — an easy naked-eye pairing if cloud breaks. Earlier in the night the Moon also completes the wide triangle with Aldebaran and Betelgeuse carried in Wednesday&rsquo;s chart.</p></div>
+    <div class="item"><p><b>Evening: Saturn; all night: Uranus just past opposition.</b> Saturn is the bright evening planet, high in the south after sunset, steady and golden and bright enough for valley light pollution. Uranus, at opposition on November 25, is up nearly all night in Taurus at the naked-eye limit — binoculars and a finder chart are the honest way to try, and moonlight plus cloud work against it.</p></div>
+    <div class="item"><p><b>Before dawn Friday: Venus at its brightest, with Mercury, Jupiter and Mars.</b> Venus reaches its greatest brilliancy in the morning sky today, November 26 — brilliant low in the east before dawn, with Mercury even lower (easiest this week, just past its November 21 greatest elongation), and Jupiter and Mars in Leo above them, Mars passing near Regulus through November 27.</p></div>
+    <div class="item"><p><b>Mt. Hamilton note.</b> Tonight&rsquo;s mostly cloudy forecast tempers expectations everywhere; if a clearing opens, the drive up Mt. Hamilton toward Lick Observatory remains the upgrade — darker sky for Uranus and the fainter stars around the Moon.</p></div>
+    <p class="meta" style="margin-top:10px">Set each morning; carried forward at midday and evening unless correcting. Sources: <a href="https://starwalk.space/en/news/night-sky-tonight">StarWalk — sky tonight, November 26 (Moon, Aldebaran &amp; Betelgeuse triangle; Uranus at opposition Nov 25; November Orionids peak Nov 27–28)</a> &middot; <a href="https://earthsky.org/astronomy-essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/">EarthSky — visible planets (Moon near Castor and Pollux Nov 26–27 evenings; Mercury greatest elongation Nov 21)</a></p>
+  </div>
+
+</aside>
+</div>
+
+  <h2>📬 The Suggestion Box</h2>
+  <div class="card sugg" id="suggestion-box">
+    <p>Feedback, comments, corrections, and story tips for this edition — all welcome. Tell us what the paper got right, what it missed, and what it should cover next.</p>
+    <label for="sugg-name">Your name (optional)</label>
+    <input type="text" id="sugg-name" autocomplete="name" placeholder="A neighbor">
+    <label for="sugg-text">Your suggestion</label>
+    <textarea id="sugg-text" rows="4" placeholder="I think the Gazette should…"></textarea>
+    <button type="button" id="sugg-send">✉️ Send by email</button>
+    <p class="meta" style="margin-top:9px">How it works: the Gazette is a static page with no accounts and no comment storage — the button opens your own email app with your note addressed to the editor, and you press send there. Nothing is collected by this page. Prefer to write directly? <a href="mailto:dave@dellaquila.com?subject=Lenwood%20Gazette%20suggestion">dave@dellaquila.com</a></p>
+  </div>
+
+<footer class="footer" id="colophon">
+  <div id="lg-tallies" style="margin-bottom:10px"><p><b>👍 Today&rsquo;s thumbs.</b> <span class="meta">Tap the small 👍 at the foot of any section and it counts here, live. One tap is one vote for keeping that section in the paper, in today&rsquo;s tally, shown live right here; the count clears at day&rsquo;s end and Analytics Buddy keeps the record.</span></p><div class="lg-tally-list"></div></div>
+  <p><b>Colophon.</b> The Lenwood Gazette is a public hyperlocal daily newspaper for San Jose &amp; the Santa Clara Valley, published three times a day (Morning ~6:00 AM, Midday ~12:30 PM, Evening ~5:30 PM PT) with hourly safety checks between editions. Editor: Lenwood Gazette Buddy (“The City Editor”). Publisher: Dave Dell’Aquila. The paper launched on Oct 30, 2026 as The San Jose Gazette and took its Lenwood name on Nov 1, 2026, at the publisher’s direction.</p>
+  <p style="margin-top:8px"><b>Why this paper is free:</b> <a href="why-free.html">Why This Paper Is Free</a> — the publisher on why the Gazette carries no paywall, no ads, and no tracking.</p>
+  <p style="margin-top:8px"><b>Our privacy line:</b> we publish public sources and public events only — agency alerts, public notices, and venues with their public addresses. No private residents’ data, no home addresses, no private or family events, nothing from anyone’s mail, calendar, or private accounts. Every item is timestamped and sourced, and passes a pre-publish privacy gate before it prints: public source? public event? no private names or addresses?</p>
+  <p style="margin-top:8px"><b>Tips:</b> no comments in v1 — send news tips to the tips address listed here at launch. <b>Archive:</b> every edition is kept in the <a href="archive.html">Editions Archive</a>.</p>
+  <p style="margin-top:8px"><b>Sister paper:</b> our sibling under the same wire, in the other hometown — <a href="https://davedellaquila.github.io/fiddletown-gazette/">The Fiddletown Gazette</a>, for Fiddletown &amp; the Shenandoah Valley. Separate paper, separate newsroom; we recommend each other warmly.</p>
+  <p style="margin-top:8px"><b>Readers:</b> 👁 <span data-visitor-count></span> and counting — tallied since Nov 15, 2026 by a privacy-respecting counter (no cookies, no raw addresses kept).</p>
+</footer>
+
+<!-- SUGGEST:BEGIN — Suggestion Box mailto handler (standing element, added Nov 22, 2026; mirrors the Fiddletown Gazette's box; rebuilds must preserve this block) -->
+<script>
+document.getElementById('sugg-send').addEventListener('click', function(){
+  var name=(document.getElementById('sugg-name').value||'').trim();
+  var text=(document.getElementById('sugg-text').value||'').trim();
+  if(!text){ alert('Write a suggestion first — even one line helps.'); return; }
+  var subject='Lenwood Gazette suggestion — ' + document.title;
+  var body=text + (name ? '\n\n— ' + name : '') + '\n\n( sent from The Lenwood Gazette front page )';
+  window.location.href='mailto:dave@dellaquila.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+</script>
+<!-- SUGGEST:END -->
+
+<script>
+/* Table of contents — built live from the page's own section headings on every load, so a renamed or
+   brand-new section appears automatically. An <h2> with no anchor of its own gets a slug id assigned
+   at runtime. The static items in #toc-list are only a no-JS fallback. Rendered as the one-row ticker. */
+(function(){
+  var list=document.getElementById('toc-list'); if(!list) return;
+  function slug(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+  var seen={}, chips=[];
+  document.querySelectorAll('h2').forEach(function(h2){
+    var host=h2.closest('section[id],div[id],article[id]');
+    var id=h2.id||(host&&host.id)||(h2.nextElementSibling&&h2.nextElementSibling.id)||'';
+    var label=h2.textContent.trim().replace(/\s+/g,' ');
+    if(h2.closest('.lead')){ label='The Lead'; if(!id){ var sec=h2.closest('section'); if(sec){ sec.id='the-lead'; id='the-lead'; } } }
+    if(!id){ id=slug(label); if(id) h2.id=id; }
+    if(!id||seen[id]) return; seen[id]=1;
+    if(label) chips.push({id:id,label:label});
+  });
+  if(chips.length<5) return;
+  var extras=[['archive.html','\u{1F4DA} Editions Archive']];
+  list.innerHTML='';
+  chips.forEach(function(c){var a=document.createElement('a');a.href='#'+c.id;a.textContent=c.label;a.className='ticker-item';list.appendChild(a);});
+  extras.forEach(function(e){var a=document.createElement('a');a.href=e[0];a.textContent=e[1];a.className='ticker-item ticker-arch';list.appendChild(a);});
+})();
+/* Ticker bar behavior (Dave, Nov 4, 2026; auto-scroll + grabbable loop Nov 5, 2026): stick exactly
+   under the topbar; the tape DRIFTS on its own at a slow, readable pace and loops seamlessly (the
+   item set is duplicated once and the scroll position is normalized inside the seam, so the wrap
+   is invisible). A reader can grab the tape with mouse or touch and drag it either way — dragging
+   pauses the drift, and it resumes after a 3-second idle beat; a clean tap (under the 8px drag
+   threshold) still jumps to the section. Vertical page scroll always wins on touch (pan-y).
+   prefers-reduced-motion: no drift, no nudge — the drag and the taps still work. */
+(function(){
+  var toc=document.getElementById('toc'), list=document.getElementById('toc-list'); if(!toc||!list) return;
+  var topbar=document.querySelector('.topbar');
+  function stickTop(){ if(topbar) toc.style.top=topbar.offsetHeight+'px'; }
+  stickTop(); window.addEventListener('resize',stickTop);
+  var fl=document.getElementById('ticker-fade-l'), fr=document.getElementById('ticker-fade-r');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* --- seamless loop: duplicate the set once, rest in the seam range [setW, 2*setW) --- */
+  var setW=0, loopOK=false;
+  function buildLoop(){
+    if(loopOK) return;
+    var w=list.scrollWidth;
+    if(!w||w<=list.clientWidth+2) return;
+    setW=w;
+    Array.prototype.slice.call(list.children).forEach(function(n){
+      var c=n.cloneNode(true); c.classList.add('ticker-dup'); c.setAttribute('aria-hidden','true');
+      if(c.tagName==='A') c.tabIndex=-1;
+      list.appendChild(c);
+    });
+    loopOK=true;
+    list.scrollLeft=setW;
+  }
+  var normalizing=false;
+  function normalize(){
+    if(!loopOK||normalizing) return;
+    var x=list.scrollLeft;
+    if(x>=2*setW||x<setW){
+      normalizing=true;
+      list.scrollLeft=setW+(((x-setW)%setW)+setW)%setW;
+      normalizing=false;
+    }
+  }
+  function fades(){ var on=loopOK||list.scrollWidth>list.clientWidth+2;
+    if(fr) fr.style.opacity=on?'1':'0';
+    if(fl) fl.style.opacity=on?'1':'0'; }
+  list.addEventListener('scroll',function(){ normalize(); },{passive:true});
+  window.addEventListener('resize',function(){ buildLoop(); normalize(); fades(); });
+  buildLoop(); fades();
+  /* --- "In this edition" drop-down menu (Dave, Nov 6, 2026): click the slug ->
+     a full section list; tap one to jump. Built from the same items as the tape,
+     so it always carries every section. --- */
+  var slug=document.querySelector('.ticker-slug');
+  if(slug){
+    slug.setAttribute('role','button'); slug.setAttribute('tabindex','0');
+    slug.setAttribute('aria-haspopup','true'); slug.setAttribute('aria-expanded','false');
+    slug.title='Jump to a section';
+    slug.insertAdjacentHTML('beforeend','<span class="tm-caret" aria-hidden="true">▾</span>');
+    var menu=document.createElement('div');
+    menu.id='ticker-menu'; menu.setAttribute('role','menu'); menu.hidden=true;
+    var srcItems=[].slice.call(list.querySelectorAll('a.ticker-item:not(.ticker-dup)'));
+    srcItems.forEach(function(a){
+      var m=document.createElement('a');
+      m.href=a.getAttribute('href'); m.textContent=a.textContent;
+      m.setAttribute('role','menuitem');
+      if(a.getAttribute('href').charAt(0)==='#') m.setAttribute('data-spy-id',a.getAttribute('href').slice(1));
+      if(a.classList.contains('ticker-arch')) m.classList.add('ticker-arch');
+      menu.appendChild(m);
+    });
+    var nav=document.getElementById('toc');
+    nav.appendChild(menu);
+    var menuOpen=false;
+    function setMenu(open){
+      menuOpen=open; menu.hidden=!open;
+      slug.setAttribute('aria-expanded',open?'true':'false');
+      if(open){ var cur=list.querySelector('a.ticker-item.on:not(.ticker-dup)');
+        menu.querySelectorAll('a').forEach(function(m){
+          m.classList.toggle('on',!!cur && m.getAttribute('href')===cur.getAttribute('href'));
+        });
+        var onEl=menu.querySelector('a.on');
+        if(onEl){var mt=onEl.offsetTop-6;var mx=menu.scrollHeight-menu.clientHeight;menu.scrollTop=Math.max(0,Math.min(mt,mx));}
+      }
+    }
+    slug.addEventListener('click',function(){ setMenu(!menuOpen); });
+    slug.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); setMenu(!menuOpen); }
+      if(e.key==='Escape') setMenu(false);
+    });
+    menu.addEventListener('click',function(e){
+      var a=e.target.closest('a'); if(!a) return;
+      e.preventDefault(); setMenu(false);
+      var href=a.getAttribute('href');
+      if(href.charAt(0)==='#'){
+        var el=document.getElementById(href.slice(1));
+        if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); history.replaceState(null,'',href); }
+      } else { window.location.href=href; }
+    });
+    document.addEventListener('click',function(e){
+      if(menuOpen && !menu.contains(e.target) && !slug.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') setMenu(false); });
+  }
+  /* --- drag (mouse + touch via pointer events; pan-y leaves vertical scroll to the page) --- */
+  var down=false, dragged=false, startX=0, startL=0, suppress=false, resumeAt=0, lastDragEnd=-1e9;
+  function pauseFor(ms){ resumeAt=Math.max(resumeAt, performance.now()+ms); }
+  list.addEventListener('pointerdown',function(e){
+    down=true; dragged=false; startX=e.clientX; startL=list.scrollLeft; pauseFor(4000); });
+  list.addEventListener('pointermove',function(e){ if(!down) return;
+    var dx=e.clientX-startX;
+    if(!dragged&&Math.abs(dx)>8){ dragged=true; list.classList.add('dragging'); }
+    if(dragged){ list.scrollLeft=startL-dx; normalize(); pauseFor(4000); } });
+  function endDrag(){ if(down&&dragged){ suppress=true; lastDragEnd=performance.now(); handHold=true; setTimeout(function(){ list.classList.remove('dragging'); suppress=false; },60); }
+    if(down) pauseFor(3000);
+    down=false; dragged=false; }
+  window.addEventListener('pointerup',endDrag);
+  window.addEventListener('pointercancel',endDrag);
+  list.addEventListener('click',function(e){ if(suppress){ e.preventDefault(); e.stopPropagation(); suppress=false; } },true);
+  /* --- the drift: 36 px/s — a readable glide, resumed 3s after any interaction --- */
+  var SPEED=36, lastT=0, driftAcc=0;
+  list.addEventListener('mouseenter',function(){ pauseFor(600); });
+  list.addEventListener('mouseleave',function(){ pauseFor(300); });
+  /* Scroll-spy (Dave, Nov 6, 2026): the tape also tracks the reader — as the page scrolls, the
+     item for the section currently under the sticky bars lights up (accent + gold underline)
+     and the tape re-aligns so that item is on screen; while the reader is down in the paper
+     the drift parks (the tape is a you-are-here marker, not a showcase), and back at the top
+     the showcase drift resumes. The reference line is the sections' own scroll-margin (150px),
+     so the spy agrees with where a tapped item lands. Archive items have no section on this
+     page and never spy. */
+  var spyItems=[], spySections=[], spyHeads=[], activeIdx=-1;
+  /* handHold (Nov 14, 2026 — Dave's "ticker looks locked up" report): once the reader drags
+     the tape by hand, their placement stands until they scroll into a DIFFERENT section.
+     Before this, alignTape re-centered on the active item 3.5s after every drag — down in
+     the paper, where the drift parks, that read as the tape being locked: slide it, and it
+     snapped back to the same spot. */
+  function buildSpy(){
+    spyItems=[]; spySections=[]; spyHeads=[];
+    var heads={};
+    document.querySelectorAll('h2').forEach(function(h2){
+      var host=h2.closest('section[id],div[id],article[id]');
+      var hid=h2.id||(host&&host.id)||(h2.nextElementSibling&&h2.nextElementSibling.id)||'';
+      if(hid&&!heads[hid]) heads[hid]=h2;
+    });
+    Array.prototype.slice.call(list.querySelectorAll('a.ticker-item')).forEach(function(a){
+      if(a.classList.contains('ticker-dup')||a.classList.contains('ticker-arch')) return;
+      var href=a.getAttribute('href')||'';
+      if(href.charAt(0)!=='#') return;
+      var el=document.getElementById(href.slice(1));
+      if(el){ spyItems.push(a); spySections.push(el); spyHeads.push(heads[href.slice(1)]||el); }
+    });
+  }
+  buildSpy();
+  window.addEventListener('resize',function(){ setTimeout(buildSpy,350); });
+  /* The spy also runs on scroll events (Nov 16, 2026): iOS throttles requestAnimationFrame
+     hard during a scroll, so a spy that only runs inside the drift loop can go blind
+     exactly while the reader is moving. spy() is cheap and idempotent. */
+  window.addEventListener('scroll',function(){ spy(window.scrollY||0); },{passive:true});
+  /* The spy reads HEADINGS against a line just under the sticky bars (retuned
+     Nov 16, 2026 — Dave's screenshot: the tape still marked Car Shows while the
+     Tasting Room heading was already at the top of the screen and its stories
+     filled the view). The old rule measured each section's CARD against a fixed
+     150px line: a heading reaches the reader's eye a full heading-height before
+     its card crosses that line, so the tape ran a section behind the screen.
+     Now the current section is the LAST one whose heading has crossed the line
+     under the bars — the section the reader is in, from the moment its name
+     reaches the top of the screen. */
+  function spyLine(){
+    var tb=document.querySelector('.topbar'), tc=document.getElementById('toc');
+    var h=(tb?tb.offsetHeight:52)+(tc?tc.offsetHeight:40)+2;
+    return h>40&&h<320?h:150;
+  }
+  function currentSection(y){
+    var n=spyHeads.length; if(!n) return -1;
+    var line=spyLine(), cur=-1;
+    for(var i=0;i<n;i++){
+      if(spyHeads[i].getBoundingClientRect().top<=line) cur=i; else break;
+    }
+    return cur;
+  }
+  function itemOffset(a){
+    var lr=list.getBoundingClientRect();
+    return a.getBoundingClientRect().left - lr.left + list.scrollLeft;
+  }
+  function alignTape(){
+    if(!loopOK||activeIdx<0||down||dragged) return;
+    if(performance.now()-lastDragEnd<3500) return; /* a fresh hand placement outranks the spy for a beat */
+    if(handHold) return; /* a hand placement stands until the reader reaches another section */
+    var orig=spyItems[activeIdx]; if(!orig) return;
+    var cands=[orig];
+    Array.prototype.slice.call(list.querySelectorAll('a.ticker-dup')).forEach(function(d){
+      if(d.getAttribute('href')===orig.getAttribute('href')) cands.push(d);
+    });
+    var sl=list.scrollLeft, vw=list.clientWidth, best=null, bestGap=1e18;
+    cands.forEach(function(c){
+      var off=itemOffset(c), w=c.getBoundingClientRect().width;
+      var gap=(off>=sl-2&&off+w<=sl+vw+2)?0:Math.min(Math.abs(off-sl),Math.abs(off+w-(sl+vw)));
+      if(gap<bestGap){ bestGap=gap; best={off:off,w:w}; }
+    });
+    if(!best||bestGap===0) return;
+    var target;
+    if(best.off<sl) target=best.off-10;
+    else target=best.off+best.w-vw+10;
+    if(target<0) target=0;
+    if(Math.abs(target-sl)>2.5){ list.scrollLeft=target; normalize(); } /* 2.5px deadband (Nov 16, 2026): fractional rect wobble at rest must not micro-nudge the tape */
+  }
+  /* Section changes must PERSIST ~150ms before the spy adopts them (Nov 14, 2026 — Dave's
+     "ticker jittering between a couple of values" report): iOS reports fractional scrollY
+     and its momentum tail hovers at section boundaries, so an instant-adopt spy flipped the
+     highlight — and re-aligned the tape — back and forth between two neighbouring sections
+     while Dave scrolled slowly. The tape also only re-aligns ON an adopted change now, not
+     every frame, so alignment can never fight itself or the reader's hand. */
+  var pendingIdx=-2, pendingSince=0, pendingLast=0;
+  function spy(y){
+    if(!spySections.length||down) return -1;
+    var idx=currentSection(y);
+    var now=performance.now();
+    if(idx===activeIdx){
+      /* A brief blip back to the current section does NOT reset the candidate's clock
+         (Nov 16, 2026 — Dave: "the ticker doesn't follow me down the page"): iOS's
+         fractional momentum tail micro-crosses a section boundary for seconds after a
+         scroll, and resetting on every blip starved adoption indefinitely — the tape
+         stayed sections behind and never scrolled along. The candidate now dies only
+         when it has not been the computed section for ~600ms. */
+      if(pendingIdx>=0&&now-pendingLast>600) pendingIdx=-2;
+      return activeIdx;
+    }
+    if(idx!==pendingIdx){ pendingIdx=idx; pendingSince=now; pendingLast=now; return activeIdx; }
+    pendingLast=now;
+    if(now-pendingSince<90) return activeIdx; /* 90ms since the Nov 16, 2026 retune (was 150ms) */
+    /* Decisiveness (Nov 16, 2026 retune): a candidate must be IN by a margin —
+       its heading at least 3px past the line, or the page resting at its bottom.
+       Fractional hover straddling the line (a pixel or two either way) can never
+       meet the margin, so a parked boundary cannot flicker the highlight the way
+       Dave caught on Nov 14; a real scroll crosses 3px in a single frame. The
+       margin is a ratchet: once a section is adopted, the one above cannot
+       reclaim the tape on a hair's retreat — scrolling back up, its heading is
+       far past the line, so upward adoption stays instant after the same 90ms. */
+    if(idx>=0){
+      var hr=spyHeads[idx].getBoundingClientRect().top;
+      var atBottom=y+window.innerHeight>=document.documentElement.scrollHeight-4;
+      if(hr>spyLine()-3&&!atBottom) return activeIdx;
+    }
+    handHold=false; /* new section adopted: the spy may align the tape to it again */
+    var old=activeIdx; activeIdx=idx; pendingIdx=-2;
+    [old,idx].forEach(function(k){
+      if(k<0||!spyItems[k]) return;
+      var href=spyItems[k].getAttribute('href');
+      Array.prototype.slice.call(list.querySelectorAll('a.ticker-item')).forEach(function(a){
+        if(a.getAttribute('href')!==href) return;
+        if(k===idx){ a.classList.add('on'); if(!a.classList.contains('ticker-dup')) a.setAttribute('aria-current','true'); }
+        else { a.classList.remove('on'); a.removeAttribute('aria-current'); }
+      });
+    });
+    alignTape();
+    return activeIdx;
+  }
+  /* Page rest detection (v3, Nov 5, 2026 — v2 still failed on Dave's iPhone: "the scrollable
+     area is not auto-scrolling when the page is static for more than about 1 second").
+     Why v2 failed live: iOS Safari reports scrollY as a FRACTION, and its momentum tail crawls
+     at sub-pixel rates for seconds after the page looks perfectly still — v2 demanded the
+     position be exactly unchanged for 250ms, a moment that arrives far too late, and its
+     watchdog required that same exact settle, so it never rescued. Rest is now judged the way
+     a reader sees it — by HOW MUCH the page moved lately, not whether it moved at all:
+     the loop keeps the last ~1.6s of positions; the page is at rest when the trailing ~0.5s
+     spans under 2px of movement, or the trailing ~1.5s spans under 4px (the slow fractional
+     tail). Genuine scrolling spans far more and keeps the tape held. The drag/hover deadline
+     is still checked in its own clock, and the watchdog now guards only that deadline: if it
+     ever stays stuck 4s past a settled page, it is force-cleared. */
+  var samples=[], startAt=0, blockedSince=0;
+  function rangeOver(win,ts){ var lo=Infinity,hi=-Infinity,seen=false;
+    for(var i=samples.length-1;i>=0;i--){ if(ts-samples[i][0]>win) break; seen=true;
+      if(samples[i][1]<lo)lo=samples[i][1]; if(samples[i][1]>hi)hi=samples[i][1]; }
+    return seen?(hi-lo):999; }
+  function drift(ts){
+    requestAnimationFrame(drift);
+    if(!startAt) startAt=ts+1200;
+    var y=window.scrollY||0;
+    samples.push([ts,y]);
+    while(samples.length&&ts-samples[0][0]>1600) samples.shift();
+    var settled = rangeOver(500,ts)<2 || rangeOver(1500,ts)<4;
+    var cur = spy(y); /* highlight + alignment update; -1 until sections resolve */
+    /* Park on scroll DEPTH as well as on adoption (Nov 16, 2026 — Dave, reading the
+       Roadside feature, found the banner showing the Recipe Archive, and jittering):
+       the showcase drift is a top-of-page pleasure, but the old gate parked it only
+       once the spy had ADOPTED a section past the first — any adoption lag on a real
+       phone left the tape free-drifting deep into the set while the reader was down
+       the page, where it could sit on the archive items at the seam's end. Now the
+       moment the reader scrolls to read (y past ~120px), the drift parks regardless
+       of adoption state; the settled alignment below still walks the tape to the
+       reader's section. */
+    var spyPark = cur>0 || y>120; /* down in the paper: the tape marks the reader's place */
+    normalize(); /* every frame, not only on scroll events — iOS can swallow those */
+    /* Alignment retry (Nov 16, 2026): adoption attempts alignment exactly once, and a
+       transient guard (a fresh hand drag, the 3.5s post-drag beat) can veto that one
+       attempt with no second chance — parked in a long section, the tape then never
+       followed the reader at all. While the page rests, re-ask: alignTape self-limits
+       (a no-op when the active item is already on screen) and still honours handHold
+       and the drag guards, so this can never fight the reader's hand. */
+    if(settled&&!down&&!dragged) alignTape();
+    var extBlocked = performance.now()<resumeAt;
+    var blocked = !loopOK || down || dragged || extBlocked || !settled || ts<startAt || spyPark;
+    if(extBlocked && settled && !down && !dragged){
+      if(!blockedSince) blockedSince=ts;
+      if(ts-blockedSince>4000){ resumeAt=0; blockedSince=0; blocked = !loopOK || ts<startAt || spyPark; }
+    } else blockedSince=0;
+    if(blocked) { lastT=ts; return; }
+    /* Whole-pixel steps with the fraction carried (Nov 16, 2026): 36px/s is ~0.6px
+       per frame, and iOS lands sub-pixel scrollLeft sets unevenly — some dropped,
+       some doubled — which reads as jitter. Accumulate the glide and step whole
+       pixels; the carried fraction keeps the rate exact. */
+    if(lastT&&ts-lastT<100){ driftAcc+=(ts-lastT)/1000*SPEED;
+      var stepPx=Math.floor(driftAcc);
+      if(stepPx>=1){ driftAcc-=stepPx; list.scrollLeft+=stepPx; normalize(); } }
+    lastT=ts;
+  }
+  if(!reduce&&loopOK) requestAnimationFrame(drift);
+})();
+</script>
+
+<script id="fsctl-script">
+/* Text-size control behavior (Dave, Nov 5, 2026): small A steps down, big A steps up, the five dots
+   show the level and jump straight to it. Level persists per reader in localStorage ('lg-font-size').
+   Rebased scale: level 1 (index 0) = 100% is the default and the floor — the small A dims there. */
+(function(){
+  var KEY='lg-font-size', lvl=0;
+  try{var n=parseInt(localStorage.getItem(KEY),10); if(n>=0&&n<=6) lvl=n;}catch(e){}
+  var root=document.documentElement;
+  var dots=[].slice.call(document.querySelectorAll('.fs-dot'));
+  var down=document.getElementById('fs-down'), up=document.getElementById('fs-up');
+  function apply(){ for(var i=0;i<7;i++) root.classList.remove('fs-'+i); root.classList.add('fs-'+lvl);
+    dots.forEach(function(d,i){ d.classList.toggle('on', i<=lvl); d.setAttribute('aria-pressed', i===lvl?'true':'false'); });
+    if(down) down.disabled=(lvl===0); if(up) up.disabled=(lvl===6);
+    try{localStorage.setItem(KEY,String(lvl));}catch(e){} }
+  if(down) down.addEventListener('click',function(){ if(lvl>0){lvl--; apply();} });
+  if(up) up.addEventListener('click',function(){ if(lvl<6){lvl++; apply();} });
+  dots.forEach(function(d,i){ d.addEventListener('click',function(){ lvl=i; apply(); }); });
+  apply();
+})();
+</script>
+<!-- PTR:BEGIN — pull-to-refresh (standing element, added Nov 1, 2026 at Dave's direction; edition rebuilds must preserve this block) -->
+<style>
+#ptr{position:fixed;top:10px;left:50%;transform:translate(-50%,-70px);z-index:200;background:#10262e;color:#e8f2f0;font-family:-apple-system,sans-serif;font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:transform .18s ease;pointer-events:none;white-space:nowrap}
+#ptr.on{transform:translate(-50%,0)}
+@media (prefers-color-scheme: dark){#ptr{background:#e8f2f0;color:#10262e}}
+</style>
+<div id="ptr" aria-hidden="true">↓ Pull to refresh</div>
+<script>
+(function(){var el=document.getElementById('ptr'),startY=null,armed=false;
+addEventListener('touchstart',function(e){if(scrollY<=0){startY=e.touches[0].clientY;armed=false;}},{passive:true});
+addEventListener('touchmove',function(e){if(startY===null)return;var dy=e.touches[0].clientY-startY;
+if(dy>8&&scrollY<=0){e.preventDefault();el.classList.add('on');el.style.transform='translate(-50%,'+Math.min(dy-70,0)+'px)';
+if(dy>72){armed=true;el.textContent='↻ Release to refresh';}else{armed=false;el.textContent='↓ Pull to refresh';}}},{passive:false});
+addEventListener('touchend',function(){if(startY===null)return;startY=null;
+if(armed){el.textContent='Refreshing…';el.style.transform='translate(-50%,0)';setTimeout(function(){location.reload();},250);}
+else{el.classList.remove('on');el.style.transform='translate(-50%,-70px)';}});})();
+</script>
+<!-- PTR:END -->
+
+<!-- LBX:BEGIN — full-screen photo viewer (standing element, added Nov 1, 2026 at Dave's direction; edition rebuilds must preserve this block verbatim, markup AND script together) -->
+<style>
+body img{cursor:zoom-in}
+#lbx{position:fixed;inset:0;z-index:400;background:rgba(3,8,11,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+#lbx[hidden]{display:none}
+#lbxImg{max-width:96vw;max-height:84vh;object-fit:contain;border-radius:8px;cursor:default;box-shadow:0 10px 44px rgba(0,0,0,.6)}
+#lbxCap{color:#e8f2f0;font-family:-apple-system,sans-serif;font-size:14px;margin-top:12px;text-align:center;max-width:92vw}
+#lbxClose{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;width:56px;height:56px;border-radius:50%;border:2px solid #fff;background:rgba(0,0,0,.6);color:#fff;font-size:27px;font-weight:700;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+#lbxClose:active{background:#0b7285}
+</style>
+<div id="lbx" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button id="lbxClose" type="button" aria-label="Close photo viewer">✕</button>
+  <img id="lbxImg" alt="">
+  <div id="lbxCap"></div>
+</div>
+<script>
+(function(){
+var lbx=document.getElementById('lbx'),im=document.getElementById('lbxImg'),cap=document.getElementById('lbxCap'),btn=document.getElementById('lbxClose');
+function open(src,alt){im.src=src;im.alt=alt||'';cap.textContent=alt||'';lbx.hidden=false;document.body.style.overflow='hidden';btn.focus({preventScroll:true});}
+function close(){lbx.hidden=true;im.removeAttribute('src');document.body.style.overflow='';}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  if(t===btn){close();return;}
+  if(t===lbx){close();return;}
+  var pic=t.closest?t.closest('img'):null;
+  if(pic&&pic.id!=='lbxImg'&&!pic.closest('#lbx')){e.preventDefault();open(pic.currentSrc||pic.src,pic.alt||'');}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden)close();});
+})();
+</script>
+<!-- LBX:END -->
+
+<!-- TIPFLY:BEGIN — tip jar crossings with the pause under the pill (standing element, added Nov 5, 2026 at Dave's direction; edition rebuilds must preserve this block verbatim). The traveling jar (the Fiddletown repertoire, mirrored) pauses ~1s directly underneath the Tip Jar pill on every crossing, and the pill glows during the pause. Skipped entirely under prefers-reduced-motion. -->
+<style>
+.header-tip{transition:box-shadow .25s ease}
+.header-tip.tip-glow{box-shadow:0 0 0 3px #ffd54f,0 6px 22px rgba(124,77,255,.65)}
+.jar-flyby{position:fixed;left:-70px;font-size:34px;z-index:999;pointer-events:none;text-shadow:0 6px 14px rgba(0,0,0,.25);will-change:transform}
+.jar-puff{position:fixed;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,rgba(235,230,220,.85),rgba(235,230,220,0) 70%);filter:blur(3px);z-index:998;pointer-events:none;animation:jar-pufffade .95s ease-out forwards}
+@keyframes jar-pufffade{from{transform:scale(.6);opacity:.9}to{transform:scale(2.4) translateY(-10px);opacity:0}}
+</style>
+<script>
+(function(){
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var DWELL = 1000; /* the pause under the pill, ms (Dave, Nov 5 2026) */
+  /* Pause effects (Dave, Nov 5 2026): one picked at random per pause, never the same
+     twice in a row. Each returns extra {dy, drot, ds} for dwell progress p in [0,1]
+     and lands back at neutral at p=1 so the crossing resumes without a snap. */
+  var EFFECTS = [
+    {name:'spin',    fn:function(p){ return {dy:0, drot:360*(1-Math.pow(1-p,3)), ds:1}; }},
+    {name:'bounce',  fn:function(p){ return {dy:-20*Math.abs(Math.sin(2*Math.PI*p)), drot:0, ds:1}; }},
+    {name:'expand',  fn:function(p){ return {dy:0, drot:0, ds:1+0.5*Math.sin(Math.PI*Math.pow(p,0.8))}; }},
+    {name:'grow',    fn:function(p){ var g = p<0.85 ? (p/0.85) : (1-(p-0.85)/0.15); return {dy:0, drot:0, ds:1+0.45*g}; }},
+    {name:'shrink',  fn:function(p){ return {dy:0, drot:0, ds:1-0.45*Math.sin(Math.PI*p)}; }},
+    {name:'pulsate', fn:function(p){ return {dy:0, drot:0, ds:1+0.22*Math.sin(4*Math.PI*p)}; }}
+  ];
+  var lastFx = -1;
+  /* stops: [offset, x in vw, y px, rotate deg, scale, rotateY deg] — the Gazette repertoire */
+  var MODES = {
+    race:   {dur:1700, top:58, puffs:true,  ease:function(p){return p*p;}, stops:[[0,0,0,0,1,0],[1,118,0,24,1,0]]},
+    tumble: {dur:2800, top:72, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.25,28,-18,270,1,0],[.5,56,0,540,1,0],[.75,84,-18,810,1,0],[1,114,0,1080,1,0]]},
+    march:  {dur:4800, top:52, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.12,13,0,0,1.35,0],[.25,27,0,0,.78,0],[.37,40,0,0,1.35,0],[.5,54,0,0,.78,0],[.62,67,0,0,1.35,0],[.75,81,0,0,.78,0],[.87,94,0,0,1.35,0],[1,112,0,0,1,0]]},
+    bounce: {dur:3000, top:66, ease:function(p){return p;}, stops:[[0,0,0,0,1,0],[.15,16,-46,0,1,0],[.3,32,0,0,1,0],[.45,48,-38,0,1,0],[.6,64,0,0,1,0],[.75,80,-26,0,1,0],[.9,96,0,0,1,0],[1,114,-8,0,1,0]]},
+    sneak:  {dur:5400, top:36, size:26, ease:function(p){return p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;}, stops:[[0,0,0,-8,1,0],[.35,38,0,-8,1,0],[.55,38,0,6,1,0],[.62,38,0,-8,1,0],[1,114,0,-8,1,0]]},
+    victory:{dur:4600, top:60, ease:function(p){return p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;}, stops:[[0,0,0,0,1,0],[.42,110,0,0,1,0],[.5,110,0,0,1,180],[.92,-4,0,0,1,180],[1,-14,0,0,1,180]]}
+  };
+  var NAMES = Object.keys(MODES), last = -1;
+  function interp(stops, p){
+    for (var i=1;i<stops.length;i++){
+      if (p<=stops[i][0] || i===stops.length-1){
+        var a=stops[i-1], b=stops[i], span=(b[0]-a[0])||1, q=Math.min(1,Math.max(0,(p-a[0])/span)), out=[];
+        for (var k=1;k<6;k++) out.push(a[k]+(b[k]-a[k])*q);
+        return out;
+      }
+    }
+    return stops[stops.length-1].slice(1);
+  }
+  function pauseOffset(stops, xStar){
+    for (var i=1;i<stops.length;i++){
+      var a=stops[i-1], b=stops[i];
+      if (b[1]>=xStar && b[1]>a[1]) return a[0]+(b[0]-a[0])*((xStar-a[1])/(b[1]-a[1]));
+    }
+    return 0.5;
+  }
+  function cross(){
+    if (document.hidden){ schedule(); return; }
+    var i; do { i=Math.floor(Math.random()*NAMES.length); } while (i===last);
+    last=i; var name=NAMES[i], M=MODES[name];
+    var fi; do { fi=Math.floor(Math.random()*EFFECTS.length); } while (fi===lastFx); lastFx=fi; var FX=EFFECTS[fi].fn;
+    var pill=document.querySelector('.header-tip');
+    var jar=document.createElement('div');
+    jar.textContent='\u{1FAD9}'; jar.className='jar-flyby'; jar.setAttribute('aria-hidden','true');
+    jar.style.top=M.top+'px'; if (M.size) jar.style.fontSize=M.size+'px';
+    document.body.appendChild(jar);
+    var vw=window.innerWidth, jarW=jar.offsetWidth||40, jarH=jar.offsetHeight||40;
+    var pillCX=vw-70, pillBottomY=M.top+jarH, xStar=38;
+    if (pill){ var r=pill.getBoundingClientRect(); pillCX=r.left+r.width/2; pillBottomY=r.bottom; }
+    xStar=(pillCX - jarW/2 + 70)*100/vw;               /* jar-centre x (in vw travel units) that sits directly under the pill */
+    var f=pauseOffset(M.stops, xStar);                  /* route offset where that happens */
+    var tP=f*M.dur, T=M.dur+DWELL, start=null, iv=null, glowing=false;
+    if (M.puffs){
+      iv=setInterval(function(){
+        var r=jar.getBoundingClientRect(); if(!r.width){clearInterval(iv);return;}
+        var s=document.createElement('div'); s.className='jar-puff';
+        s.style.left=(r.left+r.width*0.2)+'px'; s.style.top=(r.top+r.height*0.6)+'px';
+        document.body.appendChild(s); setTimeout(function(){s.remove();},1000);
+      },90);
+    }
+    function frame(ts){
+      if (start===null) start=ts;
+      var el=ts-start;
+      if (el>=T){ if (iv) clearInterval(iv); if (pill) pill.classList.remove('tip-glow'); jar.remove(); schedule(); return; }
+      var p, dwellP=-1;
+      if (el<tP) p=el/M.dur;
+      else if (el<tP+DWELL){ p=f; dwellP=(el-tP)/DWELL; }
+      else p=(el-DWELL)/M.dur;
+      var v=interp(M.stops, M.ease(Math.min(1,p)));
+      var x=v[0]/100*vw, y=v[1], rot=v[2], sc=v[3], ry=v[4];
+      if (dwellP>=0){
+        var targetY=pillBottomY+6-(M.top), lift=Math.sin(Math.PI*dwellP);
+        y += (targetY-y)*lift;                        /* settle directly underneath the pill */
+        var fx=FX(dwellP);                            /* this pause's effect (Dave's menu) */
+        y += fx.dy; rot += fx.drot; sc *= fx.ds;
+        if (!glowing){ glowing=true; if (pill) pill.classList.add('tip-glow'); }
+      } else if (glowing){ glowing=false; if (pill) pill.classList.remove('tip-glow'); }
+      jar.style.transform='translateX('+x+'px) translateY('+y+'px) rotate('+rot+'deg) rotateY('+ry+'deg) scale('+sc+')';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  function schedule(){ setTimeout(cross, 100000 + Math.random()*60000); }
+  setTimeout(cross, 40000);
+})();
+</script>
+<!-- TIPFLY:END -->
+<!-- THUMBS:BEGIN — section 👍 voting (standing element, added Nov 22, 2026; thumbs.js mirrors the Fiddletown Gazette's treatment; rebuilds must preserve this tag; the script self-disables under /editions/ so frozen snapshots never sprout controls) -->
+<script src="thumbs.js" defer></script>
+<!-- THUMBS:END -->
+<!-- BRAND:BEGIN — masthead section menu (standing element, added Nov 22, 2026, Dave's direction; mirrors the Fiddletown Gazette's brand menu; rebuilds must preserve this block and the #brand-btn/#brand-menu markup + .brand-wrap/#brand-menu styles) -->
+<script>
+/* Masthead dropdown — the paper's name in the top bar is a menu of this edition's sections, built live
+   from the page's own <h2>s (same section set as the ticker), so sections that come and go stay right.
+   Tap/click the name to open; choosing a section jumps to it and closes; outside tap or Esc closes. */
+(function(){
+  var btn=document.getElementById('brand-btn'), menu=document.getElementById('brand-menu');
+  if(!btn||!menu) return;
+  var EMO={'the-lead':'📰','today-events':'📅','week-events':'🗓️','around-town':'🏘️','community-wire':'📣','weather':'🌦️'};
+  var seen={}, items=[];
+  document.querySelectorAll('h2').forEach(function(h2){
+    var host=h2.closest('section[id],div[id],article[id]');
+    var id=h2.id||(host&&host.id)||(h2.nextElementSibling&&h2.nextElementSibling.id)||'';
+    if(!id||seen[id]) return; seen[id]=1;
+    var label=h2.textContent.trim().replace(/\s+/g,' ');
+    if(h2.closest('.lead')) label='The Lead';
+    if(!label) return;
+    if(/^[A-Za-z0-9]/.test(label)) label=(EMO[id]||'🗞️')+' '+label;
+    items.push({id:id,label:label});
+  });
+  function add(href,label){
+    var a=document.createElement('a'); a.href=href; a.textContent=label; a.setAttribute('role','menuitem');
+    a.addEventListener('click',close); menu.appendChild(a);
+  }
+  var head=document.createElement('div'); head.className='bm-head'; head.textContent='Jump to a section'; menu.appendChild(head);
+  items.forEach(function(it){ add('#'+it.id, it.label); });
+  var sep=document.createElement('div'); sep.className='bm-sep'; menu.appendChild(sep);
+  add('archive.html','📚 Editions Archive');
+  function open(){ menu.hidden=false; btn.setAttribute('aria-expanded','true'); }
+  function close(){ menu.hidden=true; btn.setAttribute('aria-expanded','false'); }
+  btn.addEventListener('click',function(e){ e.stopPropagation(); if(menu.hidden) open(); else close(); });
+  document.addEventListener('click',function(e){ if(!menu.hidden && !menu.contains(e.target)) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<!-- BRAND:END -->
+<!-- BEACON:BEGIN — visitor counter (standing element, wired Nov 15, 2026; Analytics Buddy Cloudflare Worker; rebuilds must preserve this block) -->
+<script async src="https://visitor-counter.dave-5d7.workers.dev/beacon.js" data-site="lenwood-gazette"></script>
+<script>
+/* Header reader-count filler (Nov 22, 2026): beacon.js fills only
+   [data-visitor-count] spans, so the top bar's today/total pair
+   ([data-rc-today] / [data-rc-total]) is filled here from the same
+   /counts endpoint, front-page path "/". Fails silent — pair stays blank. */
+(function(){function fill(){var t=document.querySelector("[data-rc-today]"),a=document.querySelector("[data-rc-total]");if(!t&&!a)return;fetch("https://visitor-counter.dave-5d7.workers.dev/counts?site=lenwood-gazette&paths=/").then(function(r){return r.json();}).then(function(d){var c=d&&d.counts&&d.counts["/"];if(!c)return;if(t)t.textContent=String(c.today);if(a)a.textContent=String(c.total);}).catch(function(){});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",fill);else fill();})();
+</script>
+<!-- BEACON:END -->
+<script id="hill-roads-script">
+(function(){
+  var imgs=[].slice.call(document.querySelectorAll('#hill-roads img.hr-still'));
+  imgs.forEach(function(im){ im.addEventListener('error',function(){ var f=im.closest?im.closest('figure'):null; if(f) f.style.display='none'; }); });
+  function tick(){ var t=Math.floor(Date.now()/120000); imgs.forEach(function(im){ var b=im.getAttribute('data-base'); if(b) im.src=b+(b.indexOf('?')<0?'?t=':'&t=')+t; }); }
+  setInterval(tick,120000);
+})();
+</script>
+<style id="gz-collapse-style">
+.gz-toggle{cursor:pointer;display:inline-block;border-radius:6px;transition:transform .15s ease,opacity .15s ease;-webkit-tap-highlight-color:transparent}
+.gz-toggle:hover{transform:scale(1.18)}
+.gz-toggle:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+h2.gz-is-collapsed .gz-toggle{opacity:.45;filter:grayscale(.55)}
+.gz-chevron{font-size:.7em;vertical-align:.1em;margin-right:.18em}
+h2.gz-is-collapsed .gz-chevron{transform:rotate(-90deg)}
+h2.gz-is-collapsed .gz-chevron:hover{transform:rotate(-90deg) scale(1.18)}
+.gz-collapsed-body{display:none!important}
+</style>
+<script id="gz-collapse-script">
+(function(){
+  "use strict";
+  var KEY = "gz-collapsed@" + location.hostname + "/" + (location.pathname.split("/")[1] || "");
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { store = {}; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+  var EMOJI = /^(\p{Extended_Pictographic}️?(?:‍\p{Extended_Pictographic}️?)*)/u;
+  var sections = [];
+  function sectionId(h2, body){
+    if (h2.id) return h2.id;
+    for (var i = 0; i < body.length; i++) { if (body[i].id) return body[i].id; }
+    var p = h2.parentElement;
+    if (p && p.id) return p.id;
+    var t = h2.textContent.replace(/\s+/g, " ").trim();
+    t = t.split(" — ")[0].split(" - ")[0];
+    return "sec-" + t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  }
+  function collectBody(h2){
+    var body = [], el = h2.nextElementSibling;
+    while (el && el.tagName !== "H2" && el.tagName !== "FOOTER") {
+      if (el.tagName !== "SCRIPT" && el.tagName !== "STYLE") body.push(el);
+      el = el.nextElementSibling;
+    }
+    return body;
+  }
+  function bodyHash(body){
+    var text = "";
+    body.forEach(function(el){
+      var clone = el.cloneNode(true);
+      clone.querySelectorAll(".fg-vote").forEach(function(n){ n.remove(); });
+      text += clone.textContent.replace(/\s+/g, " ").trim() + "\n";
+    });
+    var h = 0x811c9dc5;
+    for (var i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = (h * 0x01000193) >>> 0; }
+    return ("0000000" + h.toString(16)).slice(-8);
+  }
+  function entry(id){
+    var e = store[id];
+    if (e === 1) return { c: 1, h: null };
+    if (e && typeof e === "object") return { c: e.c ? 1 : 0, h: e.h || null };
+    return null;
+  }
+  function apply(sec, collapsed){
+    sec.collapsed = collapsed;
+    sec.body.forEach(function(el){ el.classList.toggle("gz-collapsed-body", collapsed); });
+    sec.h2.classList.toggle("gz-is-collapsed", collapsed);
+    sec.toggle.setAttribute("aria-expanded", String(!collapsed));
+    sec.toggle.setAttribute("title", collapsed ? "Expand this section" : "Collapse this section");
+    sec.toggle.setAttribute("aria-label", (collapsed ? "Expand " : "Collapse ") + sec.name);
+  }
+  function setCollapsed(sec, collapsed, persist){
+    apply(sec, collapsed);
+    if (persist) { store[sec.id] = { c: collapsed ? 1 : 0, h: sec.hash }; save(); }
+  }
+  document.querySelectorAll("h2").forEach(function(h2){
+    var body = collectBody(h2);
+    if (!body.length) return;
+    var name = h2.textContent.replace(/\s+/g, " ").trim();
+    var toggle = null;
+    var firstText = null;
+    for (var i = 0; i < h2.childNodes.length; i++) {
+      if (h2.childNodes[i].nodeType === 3 && h2.childNodes[i].textContent.trim()) { firstText = h2.childNodes[i]; break; }
+    }
+    if (firstText) {
+      var m = firstText.textContent.match(EMOJI);
+      if (m && m[1]) {
+        toggle = document.createElement("span");
+        toggle.className = "gz-toggle";
+        toggle.textContent = m[1];
+        var rest = document.createTextNode(firstText.textContent.slice(m[1].length));
+        h2.insertBefore(toggle, firstText);
+        h2.insertBefore(rest, firstText);
+        h2.removeChild(firstText);
+      }
+    }
+    if (!toggle) {
+      toggle = document.createElement("span");
+      toggle.className = "gz-toggle gz-chevron";
+      toggle.textContent = "▾";
+      h2.insertBefore(toggle, h2.firstChild);
+    }
+    toggle.setAttribute("role", "button");
+    toggle.setAttribute("tabindex", "0");
+    var sec = { h2: h2, body: body, toggle: toggle, name: name, id: sectionId(h2, body), hash: bodyHash(body), collapsed: false };
+    sections.push(sec);
+    toggle.addEventListener("click", function(ev){ ev.preventDefault(); ev.stopPropagation(); setCollapsed(sec, !sec.collapsed, true); });
+    toggle.addEventListener("keydown", function(ev){
+      if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); setCollapsed(sec, !sec.collapsed, true); }
+    });
+    var e = entry(sec.id);
+    if (e && e.h === sec.hash) { apply(sec, !!e.c); }
+    else { apply(sec, false); store[sec.id] = { c: 0, h: sec.hash }; save(); }
+  });
+  function expandForHash(){
+    var id = (location.hash || "").slice(1);
+    if (!id) return;
+    var target = null;
+    try { target = document.getElementById(id); } catch (e) {}
+    sections.forEach(function(sec){
+      if (sec.id === id || sec.h2 === target || (target && sec.body.indexOf(target) !== -1)) {
+        if (sec.collapsed) setCollapsed(sec, false, true);
+      }
+    });
+  }
+  window.addEventListener("hashchange", expandForHash);
+  expandForHash();
+})();
+</script>
+</body>
+</html>
