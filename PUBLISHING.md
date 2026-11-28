@@ -407,6 +407,17 @@ Cloudflare. Until Analytics Buddy sends the all-clear, the desk does NOT quote
 reader counts in editions or reports — the on-page spans fill themselves in and
 are the reader's own business; the desk just doesn't cite the numbers yet.
 
+**Section 👍 voting — REMOVED Nov 28, 2026 (Dave's decision: "nobody's
+voting, so take the thumbs-up out for now — until a better way to make
+voting work is figured out").** The reader-facing controls are OUT of the
+paper: rebuilds must NOT carry the `THUMBS:BEGIN…THUMBS:END` script tag,
+the `#thumbs-notice` explainer card, or the `#lg-tallies` footer block
+(the live page carries an HTML comment at the old tag's spot recording
+the removal). The machinery stays intact and reversible: `thumbs.js`
+remains in the repo, the votes API and all recorded votes are untouched,
+and nothing about the removal deletes data. Restore only on Dave's
+direction. The original spec follows, for that return:
+
 **Standing element — section 👍 voting (added Nov 22, 2026, Dave's
 direction; mirrors the Fiddletown Gazette's treatment, live there since
 Nov 19, 2026):** every content section of the front page carries one small

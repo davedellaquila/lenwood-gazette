@@ -117,8 +117,8 @@ try{var n=parseInt(localStorage.getItem('lg-font-size'),10);if(!(n>=0&&n<=6))n=0
    top bar before the Tip Jar (Dave's design, same as the sister paper). REBASED SCALE (Dave, Nov 5, 2026):
    level 1 = 100% (what used to be the middle "normal"), then 108% / 116% (the old maximum) /
    125% / 135% / 145% / 155% — seven levels, ceiling well past two sizes above the old top (Dave's amendment). The default is level 1, so an untouched paper reads exactly as before;
-   the choice persists in localStorage ('lg-font-size'). WIDENED (Dave, Fri Nov 27, 2026): the old steps felt too subtle tap to tap, so the ladder now compounds at about +15% a level — 100% / 115% / 132% / 152% / 175% / 200% / 230% — the same widened scale on both papers; the control and the persistence are unchanged. WIDENED AGAIN the same evening (Dave, Fri Nov 27, 2026): even the +15% steps felt too subtle to Dave, who asked the desk to think of older readers with really poor eyesight — the steps now compound at about +25% a level and the ladder tops out at 380%: 1 / 1.25 / 1.55 / 1.95 / 2.45 / 3.05 / 3.8. Standing element — preserve in every rebuild. */
-html.fs-0{zoom:1}html.fs-1{zoom:1.25}html.fs-2{zoom:1.55}html.fs-3{zoom:1.95}html.fs-4{zoom:2.45}html.fs-5{zoom:3.05}html.fs-6{zoom:3.8}
+   the choice persists in localStorage ('lg-font-size'). WIDENED (Dave, Fri Nov 27, 2026): the old steps felt too subtle tap to tap, so the ladder now compounds at about +15% a level — 100% / 115% / 132% / 152% / 175% / 200% / 230% — the same widened scale on both papers; the control and the persistence are unchanged. WIDENED AGAIN the same evening (Dave, Fri Nov 27, 2026): even the +15% steps felt too subtle to Dave, who asked the desk to think of older readers with really poor eyesight — the steps now compound at about +25% a level and the ladder tops out at 380%: 1 / 1.25 / 1.55 / 1.95 / 2.45 / 3.05 / 3.8. MECHANISM CHANGED (Dave, Sat Nov 28, 2026): the control now scales BODY COPY ONLY — each level sets the font-size of the content container named in the scale rules; headers, the masthead, the top bar and the tip jar keep their designed size and position at every level, so the sticky furniture and the jar crossings are never disturbed by a size change. (The whole-page CSS-zoom era, Nov 5–28, 2026, ended when the enlarged zooms broke exactly that furniture.) Standing element — preserve in every rebuild. */
+html.fs-0 :is(.grid,.footer){font-size:16px}html.fs-1 :is(.grid,.footer){font-size:20px}html.fs-2 :is(.grid,.footer){font-size:24.8px}html.fs-3 :is(.grid,.footer){font-size:31.2px}html.fs-4 :is(.grid,.footer){font-size:39.2px}html.fs-5 :is(.grid,.footer){font-size:48.8px}html.fs-6 :is(.grid,.footer){font-size:60.8px}
 /* iOS TEXT AUTOSIZER — the real reason the control "didn't feel" like it worked (Dave's screenshot, Fri Nov 27, 2026, 7:51 PM: control at MAX, top bar and forecast panel enormous, the lead PARAGRAPH still at reading size). iOS Safari's automatic text-size adjustment analyzes long text blocks and re-pins them to its own idea of a readable size, quietly overriding the zoom above for exactly the text a reader reads most; short strings (buttons, labels, headlines) scale freely, which is why the chrome grew and the articles didn't. text-size-adjust:none hands sizing back to the page, so the control's zoom scales the article text like everything else. */
 html{-webkit-text-size-adjust:none;text-size-adjust:none}
 .fsctl{display:flex;align-items:center;gap:7px;flex:none}
@@ -337,10 +337,6 @@ html{-webkit-text-size-adjust:none;text-size-adjust:none}
 
 <div class="grid">
 <main>
-  <div class="card" id="thumbs-notice">
-    <h3 style="margin:2px 0 6px">A quick word about the 👍</h3>
-    <p style="margin:0">Every section carries one small thumbs-up at its foot. If a section earns its place in the paper, tap it &mdash; one tap is one vote for keeping that section, counted anonymously, no accounts or names. You&rsquo;ll see &ldquo;Counted &mdash; thanks!&rdquo; beside the button, and the running totals are shown <a href="#lg-tallies">in the footer</a>. One vote per reader per section; the board clears at day&rsquo;s end.</p>
-  </div>
   <h2>🚨 Need to Know — the Safety Wire</h2>
   <div id="safety-wire">
     <div class="item"><p><b>Coast &amp; bayshore: Coastal Flood Advisory — bayshore through Sunday 5:00 PM, Pacific coast through today 4:00 PM.</b> NWS San Francisco re-issued the advisory today at 5:44 AM: up to 1.7 ft of inundation above ground level is possible in low-lying areas near shorelines and tidal waterways at high tide, with isolated road closures possible; the San Francisco tidal gauge is expected to reach 7.5 ft at 1:28 PM today (1.6 ft above normal, including up to 1.3 ft of surge) and 6.8 ft at 2:32 PM Sunday. The Beach Hazards Statement expired at 6:00 AM this morning. These are coastal and bayshore notices, not a valley flood warning. Do not drive around barricades or through water of unknown depth. Source: <a href="https://api.weather.gov/alerts/active?zone=CAZ508">NWS — San Francisco Bay Shoreline (CAZ508)</a></p></div>
@@ -520,7 +516,6 @@ html{-webkit-text-size-adjust:none;text-size-adjust:none}
   </div>
 
 <footer class="footer" id="colophon">
-  <div id="lg-tallies" style="margin-bottom:10px"><p><b>👍 Today&rsquo;s thumbs.</b> <span class="meta">Tap the small 👍 at the foot of any section and it counts here, live. One tap is one vote for keeping that section in the paper, in today&rsquo;s tally, shown live right here; the count clears at day&rsquo;s end and Analytics Buddy keeps the record.</span></p><div class="lg-tally-list"></div></div>
   <p><b>Colophon.</b> The Lenwood Gazette is a public hyperlocal daily newspaper for San Jose &amp; the Santa Clara Valley, published three times a day (Morning ~6:00 AM, Midday ~12:30 PM, Evening ~5:30 PM PT) with hourly safety checks between editions. Editor: Lenwood Gazette Buddy (“The City Editor”). Publisher: Dave Dell’Aquila. The paper launched on Oct 30, 2026 as The San Jose Gazette and took its Lenwood name on Nov 1, 2026, at the publisher’s direction.</p>
   <p style="margin-top:8px"><b>Why this paper is free:</b> <a href="why-free.html">Why This Paper Is Free</a> — the publisher on why the Gazette carries no paywall, no ads, and no tracking.</p>
   <p style="margin-top:8px"><b>Our privacy line:</b> we publish public sources and public events only — agency alerts, public notices, and venues with their public addresses. No private residents’ data, no home addresses, no private or family events, nothing from anyone’s mail, calendar, or private accounts. Every item is timestamped and sourced, and passes a pre-publish privacy gate before it prints: public source? public event? no private names or addresses?</p>
@@ -1058,9 +1053,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lbx.hidden
 })();
 </script>
 <!-- TIPFLY:END -->
-<!-- THUMBS:BEGIN — section 👍 voting (standing element, added Nov 22, 2026; thumbs.js mirrors the Fiddletown Gazette's treatment; rebuilds must preserve this tag; the script self-disables under /editions/ so frozen snapshots never sprout controls) -->
-<script src="thumbs.js" defer></script>
-<!-- THUMBS:END -->
+<!-- THUMBS REMOVED Nov 28, 2026 (Dave's decision: nobody was voting) — reader-facing controls out; thumbs.js and the votes data/machinery stay in the repo intact for a future return. Do NOT re-add the script tag, #thumbs-notice card, or #lg-tallies block in rebuilds until Dave directs it. -->
 <!-- BRAND:BEGIN — masthead section menu (standing element, added Nov 22, 2026, Dave's direction; mirrors the Fiddletown Gazette's brand menu; rebuilds must preserve this block and the #brand-btn/#brand-menu markup + .brand-wrap/#brand-menu styles) -->
 <script>
 /* Masthead dropdown — the paper's name in the top bar is a menu of this edition's sections, built live
