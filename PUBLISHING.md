@@ -362,6 +362,23 @@ bar/ticker and displaced the tip-jar flyby. The `text-size-adjust:none` rule STA
 (it stops iOS Safari's autosizer from re-pinning the enlarged body text), and the
 enlarged levels carry an `overflow-wrap:break-word` rule for unbreakable strings.
 Storage key, boot, dots and buttons unchanged.
+**Scope REFINED (Dave, Sat Nov 28, 2026): the control scales ONLY the running
+text within a section. Fixed at every setting: headlines and section headlines;
+the masthead and tip jar; and special-feature blocks — Dave's named examples are
+the weather block near the top (the weatherbug) and the summary paragraph at the
+top of the page (the Lead's body paragraph) — scaling those makes them wrap
+weird. The model: prose inside a section scales; everything structural or
+feature-boxed doesn't.** On this paper the fixed pieces hold by construction —
+headlines are px-sized, and the weatherbug, the Lead, the safety banner and the
+guide-pointer banners all sit outside the scaled containers — and the desk
+VERIFIED it by measurement on Nov 28, 2026 (headless Chromium, min vs max level,
+1280px and 390px): masthead, tip jar, weatherbug (13.5px), Lead headline and
+summary paragraph (16px), section h2s (22px), safety banner, ticker and the
+Suggestion Box controls identical at both levels; only section prose moved
+(16 → 60.8px at max); zero horizontal overflow at either width. The guide pages
+and archive were spot-checked the same day — same behavior. Rebuilds must keep
+this scope: never move the Lead, the weatherbug or a feature banner inside a
+scaled container, and never size a headline in em.
 
 **Standing layout — top bar distribution (Dave's direction, Nov 22, 2026):**
 the top bar's items (paper name · nav · text-size control · reader count ·
