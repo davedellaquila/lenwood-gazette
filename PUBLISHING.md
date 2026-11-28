@@ -392,6 +392,17 @@ says he's done marking, then implement the whole set at once):**
   containers at an inherited 16px — to scale it, give the Lead body
   paragraph an fs-level font-size rule of its own (16px at level 1,
   climbing the same ladder); the Lead's headline and meta stay fixed.
+- **MARK #3 (provisional) — event cards: the event TITLE, the 📍 location
+  line, and the DESCRIPTION paragraph SCALE. The TIME label at the card's
+  top and the small-caps SOURCE/metadata line at the bottom stay FIXED**
+  (not circled — fixed by default). Provisional like MARK #2; any
+  correction will be relayed and recorded. Lenwood application: our event
+  items (Today in the Valley, The Week Ahead, Car Shows) currently scale
+  as whole paragraphs — title, location and description already move with
+  the control; at finalization the builder must give the time lead-in and
+  the source line the fixed treatment (their own spans/classes pinned at
+  the designed size — the `.meta` small-caps style is already px-fixed at
+  12px) so only the title/location/description scale.
 - Defaults until marked otherwise: headlines/section headlines FIXED,
   masthead FIXED, tip jar FIXED, section prose SCALES, the Lead's summary
   paragraph SCALES (provisional, per MARK #2). On this paper the fixed pieces hold by construction —
