@@ -350,6 +350,19 @@ room to spare, and the steps stay ~8–10 points apart (extended, not stretched)
 reader in localStorage under 'lg-font-size'. (Same control and same rebase on the
 sister paper; her storage key is 'fg-font-size'.)
 
+**Text-size MECHANISM (Dave, Sat Nov 28, 2026 — supersedes the zoom mechanism in the
+passage above):** the control scales BODY COPY ONLY. The fs levels set `font-size` on
+the page's content container (`:is(.grid,.footer)` on the front page, `main` on the
+standing pages, the entries `ul` on the archive) at 16/20/24.8/31.2/39.2/48.8/60.8px;
+headers, the masthead, the top bar and the tip jar keep their designed size and
+position at every level, so the sticky furniture and the jar crossings are never
+disturbed by a size change. The whole-page CSS-zoom mechanism (including the Nov 27,
+2026 widenings to 3.8×) is RETIRED — at enlarged zooms it broke the sticky top
+bar/ticker and displaced the tip-jar flyby. The `text-size-adjust:none` rule STAYS
+(it stops iOS Safari's autosizer from re-pinning the enlarged body text), and the
+enlarged levels carry an `overflow-wrap:break-word` rule for unbreakable strings.
+Storage key, boot, dots and buttons unchanged.
+
 **Standing layout — top bar distribution (Dave's direction, Nov 22, 2026):**
 the top bar's items (paper name · nav · text-size control · reader count ·
 Tip Jar) spread EVENLY across the row's full width — `.topbar` carries
