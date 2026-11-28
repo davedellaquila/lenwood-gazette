@@ -350,7 +350,7 @@ room to spare, and the steps stay ~8–10 points apart (extended, not stretched)
 reader in localStorage under 'lg-font-size'. (Same control and same rebase on the
 sister paper; her storage key is 'fg-font-size'.)
 
-**Text-size MECHANISM (Dave, Sat Nov 28, 2026 — supersedes the zoom mechanism in the
+**Text-size MECHANISM (Dave, Sat Nov 28, 2026 — supersedes the zoom mechanism in the **FEATURE-BLOCK PINS (Dave's refinement, Sat Nov 28, 2026): the control scales only flowing prose — composed panels, data tables, directory listings and boxed feature cards keep their designed size. The Lead (with its forecast panel and top summary) sits outside the scaling container and never scales. Lenwood pins in the fsctl block: `#hill-roads`, `#scm-wineries`, `#landmark-of-the-day` at 16px (Fiddletown pins its passes table + pass-cams panel the same way). Article/story/wire prose and rail prose scale; headlines never do.**
 passage above):** the control scales BODY COPY ONLY. The fs levels set `font-size` on
 the page's content container (`:is(.grid,.footer)` on the front page, `main` on the
 standing pages, the entries `ul` on the archive) at 16/20/24.8/31.2/39.2/48.8/60.8px;
@@ -372,7 +372,12 @@ as a fixed example in the first version of this refinement; Dave WITHDREW that
 example the same morning — see MARK #1 below.)
 **TYPE-SCOPE MARKS (Dave, Sat Nov 28, 2026 — he is marking elements one by
 one and his marks are the spec; HOLD finalizing the implementation until he
-says he's done marking, then implement the whole set at once):**
+says he's done marking, then implement the whole set at once). BUILD HOLD
+(update, Sat Nov 28, 08:01 PT): Dave said "let's see how that looks" — the
+Fiddletown desk is building the scope from Marks #1–#3 and republishing so
+he can review the look on that paper FIRST. Lenwood's type-scope build
+stays held until Dave has seen Fiddletown's and gives the word; the marks
+below stand as the spec meanwhile:**
 - **MARK #1 — the weather/conditions summary block directly under the
   masthead (Lenwood's `.weatherbug`): SCALES.** (Marked first on the
   Fiddletown paper's dark conditions/road-status card; same mark applied to
