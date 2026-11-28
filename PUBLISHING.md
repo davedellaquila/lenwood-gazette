@@ -381,9 +381,20 @@ says he's done marking, then implement the whole set at once):**
   weatherbug currently sits outside the scaled containers at a fixed
   13.5px — to scale it, bring it under the fs scale (e.g. an fs-level
   font-size rule of its own, 13.5px at level 1 climbing the same ladder).
+- **MARK #2 (provisional) — the top summary paragraph (Lenwood's Lead body
+  paragraph, the long prose paragraph near the top summarizing the day's
+  events and weather): SCALES.** Circled by Dave with no caption on the
+  Fiddletown paper; recorded as SCALES per Mark #1's convention, and
+  PROVISIONAL — Dave was told to correct it if he meant stays, and any flip
+  will be relayed and recorded immediately. Supersedes (provisionally) the
+  refinement's "summary paragraph fixed" example and the default below.
+  Implementation note for finalization: the Lead sits outside the scaled
+  containers at an inherited 16px — to scale it, give the Lead body
+  paragraph an fs-level font-size rule of its own (16px at level 1,
+  climbing the same ladder); the Lead's headline and meta stay fixed.
 - Defaults until marked otherwise: headlines/section headlines FIXED,
   masthead FIXED, tip jar FIXED, section prose SCALES, the Lead's summary
-  paragraph FIXED. On this paper the fixed pieces hold by construction —
+  paragraph SCALES (provisional, per MARK #2). On this paper the fixed pieces hold by construction —
 headlines are px-sized, and the weatherbug, the Lead, the safety banner and the
 guide-pointer banners all sit outside the scaled containers — and the desk
 VERIFIED it by measurement on Nov 28, 2026 (headless Chromium, min vs max level,
