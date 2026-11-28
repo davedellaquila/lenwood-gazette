@@ -143,6 +143,17 @@
    continuous stream in the date order above — do not regroup them under
    day headings. (A grouping shipped briefly on Nov 27 was reverted the
    same day at Dave's direction.)**
+   **THE WEEK AHEAD STARTS TOMORROW (Dave's content rule, Sat Nov 28,
+   2026): The Week Ahead must NOT repeat today's events — they are already
+   covered in Today in the Valley above it. The Week Ahead covers tomorrow
+   through the days after only; when building it from the events database
+   or any listing source, EXCLUDE the edition's own date. An event dated
+   today belongs in the today sections only, never in The Week Ahead. (A
+   continuing multi-day run may appear in The Week Ahead dated from
+   tomorrow, as Christmas in the Park does.) First check, Nov 28, 2026:
+   the live Week Ahead already ran Sun Nov 29 → Sat Dec 5 with zero items
+   dated the edition's own day — the rule is recorded so rebuilds keep it
+   that way.**
 3. Around Town: city public notices, road-work/permit postings, public meeting agendas.
 4. Community Wire: official/public Facebook pages only — summarize in our own words,
    attribute to the posting page, link the original. Never copy wholesale. No private
