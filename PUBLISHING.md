@@ -428,6 +428,12 @@ the exact ceiling matched to Fiddletown's approved build.**
   finalization, confirm no intro paragraph is px-pinned (the Hill &
   Mountain Roads panel's small print measured px-fixed on Nov 28 — its
   intro, if px-sized, joins the ladder; its data readouts are not prose).
+- **MARK #5 (provisional) — NOT APPLICABLE to Lenwood: this paper carries
+  no Zen for Today card** (checked Nov 28, 2026: no Zen content in the
+  paper). The mark, for the record and for any future quote card here: the
+  featured quoted line itself SCALES; the reflection prose scales under
+  the general prose rule; the attribution line at the card's bottom is
+  metadata — FIXED, like event-card SOURCE lines.
 - Defaults until marked otherwise: headlines/section headlines FIXED,
   masthead FIXED, tip jar FIXED, section prose SCALES, the Lead's summary
   paragraph SCALES (provisional, per MARK #2). On this paper the fixed pieces hold by construction —
