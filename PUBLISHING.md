@@ -378,6 +378,17 @@ Fiddletown desk is building the scope from Marks #1–#3 and republishing so
 he can review the look on that paper FIRST. Lenwood's type-scope build
 stays held until Dave has seen Fiddletown's and gives the word; the marks
 below stand as the spec meanwhile:**
+**RANGE SPEC for the held build (Dave, Sat Nov 28, 08:03 PT): the control's
+range SHRINKS — the current maximum is too big. The new maximum body-copy
+size is about what is currently halfway (or just above) on the control:
+current step 4–5 of 7 becomes the max (on the current ladder — container
+16 / 20 / 24.8 / 31.2 / 39.2 / 48.8 / 60.8px — that is a new ceiling in the
+31.2–39.2px range). The current minimum stays the minimum, and the steps
+redistribute evenly across the reduced range. This SUPERSEDES the Nov 27,
+2026 widen-the-steps asks (the +15% ladder, then the +25% ladder topping
+out at 380%). Fiddletown is building to this now; when Dave gives Lenwood
+the word, this range ships as part of the same package as the marks, with
+the exact ceiling matched to Fiddletown's approved build.**
 - **MARK #1 — the weather/conditions summary block directly under the
   masthead (Lenwood's `.weatherbug`): SCALES.** (Marked first on the
   Fiddletown paper's dark conditions/road-status card; same mark applied to
