@@ -99,8 +99,8 @@ try{var n=parseInt(localStorage.getItem('lg-font-size'),10);if(!(n>=0&&n<=6))n=0
    top bar before the Tip Jar (Dave's design, same as the sister paper). REBASED SCALE (Dave, Nov 5, 2026):
    level 1 = 100% (what used to be the middle "normal"), then 108% / 116% (the old maximum) /
    125% / 135% / 145% / 155% — seven levels, ceiling well past two sizes above the old top (Dave's amendment). The default is level 1, so an untouched paper reads exactly as before;
-   the choice persists in localStorage ('lg-font-size'). Standing element — preserve in every rebuild. */
-html.fs-0{zoom:1}html.fs-1{zoom:1.08}html.fs-2{zoom:1.16}html.fs-3{zoom:1.25}html.fs-4{zoom:1.35}html.fs-5{zoom:1.45}html.fs-6{zoom:1.55}
+   the choice persists in localStorage ('lg-font-size'). WIDENED (Dave, Fri Nov 27, 2026): the old steps felt too subtle tap to tap, so the ladder now compounds at about +15% a level — 100% / 115% / 132% / 152% / 175% / 200% / 230% — the same widened scale on both papers; the control and the persistence are unchanged. Standing element — preserve in every rebuild. */
+html.fs-0{zoom:1}html.fs-1{zoom:1.15}html.fs-2{zoom:1.32}html.fs-3{zoom:1.52}html.fs-4{zoom:1.75}html.fs-5{zoom:2}html.fs-6{zoom:2.3}
 .fsctl{display:flex;align-items:center;gap:7px;flex:none}
 .fs-btn{background:none;border:none;color:var(--text);cursor:pointer;font-family:Georgia,serif;font-weight:700;line-height:1;padding:4px 2px;-webkit-tap-highlight-color:transparent}
 .fs-btn.fs-down{font-size:11px}
