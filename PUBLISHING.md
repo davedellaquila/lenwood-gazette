@@ -364,11 +364,26 @@ enlarged levels carry an `overflow-wrap:break-word` rule for unbreakable strings
 Storage key, boot, dots and buttons unchanged.
 **Scope REFINED (Dave, Sat Nov 28, 2026): the control scales ONLY the running
 text within a section. Fixed at every setting: headlines and section headlines;
-the masthead and tip jar; and special-feature blocks — Dave's named examples are
-the weather block near the top (the weatherbug) and the summary paragraph at the
-top of the page (the Lead's body paragraph) — scaling those makes them wrap
-weird. The model: prose inside a section scales; everything structural or
-feature-boxed doesn't.** On this paper the fixed pieces hold by construction —
+the masthead and tip jar; and special-feature blocks — Dave's named example is
+the summary paragraph at the top of the page (the Lead's body paragraph) —
+scaling those makes them wrap weird. The model: prose inside a section scales;
+everything structural or feature-boxed doesn't.** (The weather block was named
+as a fixed example in the first version of this refinement; Dave WITHDREW that
+example the same morning — see MARK #1 below.)
+**TYPE-SCOPE MARKS (Dave, Sat Nov 28, 2026 — he is marking elements one by
+one and his marks are the spec; HOLD finalizing the implementation until he
+says he's done marking, then implement the whole set at once):**
+- **MARK #1 — the weather/conditions summary block directly under the
+  masthead (Lenwood's `.weatherbug`): SCALES.** (Marked first on the
+  Fiddletown paper's dark conditions/road-status card; same mark applied to
+  Lenwood's equivalent block.) Supersedes the withdrawn "weather block
+  fixed" example above. Implementation note for finalization: the
+  weatherbug currently sits outside the scaled containers at a fixed
+  13.5px — to scale it, bring it under the fs scale (e.g. an fs-level
+  font-size rule of its own, 13.5px at level 1 climbing the same ladder).
+- Defaults until marked otherwise: headlines/section headlines FIXED,
+  masthead FIXED, tip jar FIXED, section prose SCALES, the Lead's summary
+  paragraph FIXED. On this paper the fixed pieces hold by construction —
 headlines are px-sized, and the weatherbug, the Lead, the safety banner and the
 guide-pointer banners all sit outside the scaled containers — and the desk
 VERIFIED it by measurement on Nov 28, 2026 (headless Chromium, min vs max level,
