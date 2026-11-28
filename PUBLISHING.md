@@ -350,7 +350,7 @@ room to spare, and the steps stay ~8–10 points apart (extended, not stretched)
 reader in localStorage under 'lg-font-size'. (Same control and same rebase on the
 sister paper; her storage key is 'fg-font-size'.)
 
-**Text-size MECHANISM (Dave, Sat Nov 28, 2026 — supersedes the zoom mechanism in the **FEATURE-BLOCK PINS (Dave's refinement, Sat Nov 28, 2026): the control scales only flowing prose — composed panels, data tables, directory listings and boxed feature cards keep their designed size. The Lead (with its forecast panel and top summary) sits outside the scaling container and never scales. Lenwood pins in the fsctl block: `#hill-roads`, `#scm-wineries`, `#landmark-of-the-day` at 16px (Fiddletown pins its passes table + pass-cams panel the same way). Article/story/wire prose and rail prose scale; headlines never do.**
+**Text-size MECHANISM (Dave, Sat Nov 28, 2026 — supersedes the zoom mechanism in the **FEATURE-BLOCK PINS (Dave's refinement, Sat Nov 28, 2026): the control scales only flowing prose — composed panels, data tables, directory listings and boxed feature cards keep their designed size. The Lead (with its forecast panel and top summary) sits outside the scaling container and never scales. Lenwood pins in the fsctl block: `#hill-roads`, `#scm-wineries`, `#landmark-of-the-day` at 16px (Fiddletown pins its passes table + pass-cams panel the same way). Article/story/wire prose and rail prose scale; headlines never do.** **RANGE REDUCED (Dave, Sat Nov 28, 2026, 08:03 PT): now that only body text scales, the old range was too wide — the ladder is redistributed evenly across 16 → 44px (16 / 20.7 / 25.3 / 30 / 34.7 / 39.3 / 44); the new maximum (44px) is about the old step 4–5 (39.2–48.8px), the minimum is unchanged. This supersedes the Nov 27 widen-the-steps direction. The marked elements' ladders scale by the same ratios (weatherbug tops at 37.1px, card titles at 46.8px, card venue/descriptions at 41.2px). Applied to both papers' fsctl blocks (all Lenwood standing pages included).**
 passage above):** the control scales BODY COPY ONLY. The fs levels set `font-size` on
 the page's content container (`:is(.grid,.footer)` on the front page, `main` on the
 standing pages, the entries `ul` on the archive) at 16/20/24.8/31.2/39.2/48.8/60.8px;
@@ -419,6 +419,15 @@ the exact ceiling matched to Fiddletown's approved build.**
   the source line the fixed treatment (their own spans/classes pinned at
   the designed size — the `.meta` small-caps style is already px-fixed at
   12px) so only the title/location/description scale.
+- **MARK #4 — a section's INTRO/DECK paragraph (the prose paragraph under
+  a section headline) SCALES — intro paragraphs count as prose.** Section
+  headlines and small-caps kickers stay FIXED. Photo captions are
+  UNMARKED so far (no ruling; leave them as they are until marked).
+  Lenwood application: our section intros are ordinary prose paragraphs
+  inside the scaled containers and already move with the control; at
+  finalization, confirm no intro paragraph is px-pinned (the Hill &
+  Mountain Roads panel's small print measured px-fixed on Nov 28 — its
+  intro, if px-sized, joins the ladder; its data readouts are not prose).
 - Defaults until marked otherwise: headlines/section headlines FIXED,
   masthead FIXED, tip jar FIXED, section prose SCALES, the Lead's summary
   paragraph SCALES (provisional, per MARK #2). On this paper the fixed pieces hold by construction —
